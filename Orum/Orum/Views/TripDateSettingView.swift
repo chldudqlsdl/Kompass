@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct TripDateSettingView: View {
+    @State var today = Date()
+    @AppStorage("dDay") var dDay: Date = Date()
+    
+    let dateFormatter = DateFormatter()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                DatePicker(
+                    "D - Day",
+                    selection: $dDay,
+                    displayedComponents: [.date]
+                )
+                .padding()
+                
+                let remainingDay = Calendar.current.compareDays(today, and: dDay)
+                
+                if remainingDay != 0 {
+                    NavigationLink(destination: TripRemainingDayView()) {
+                        Text("Next")
+                    }
+                }
+                else {
+                    NavigationLink(destination: FlightInfoSubmitView()) {
+                        Text("Next")
+                    }
+                }
+            }
+        }
+
     }
 }
 

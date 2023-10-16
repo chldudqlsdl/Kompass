@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct TripRemainingDayView: View {
+    @AppStorage("dDay") var dDay: Date!
+    var today = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        let remainingDay = Calendar.current.compareDays(today, and: dDay)
+        
+        Text("D - \(remainingDay) until Trip")
+            .onAppear() {
+                print(remainingDay)
+            }
     }
 }
 
