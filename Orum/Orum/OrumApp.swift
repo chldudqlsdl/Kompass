@@ -11,7 +11,8 @@ import SwiftUI
 struct OrumApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // ContentView()
+            TripDateSettingView()
         }
     }
 }

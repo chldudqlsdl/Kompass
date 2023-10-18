@@ -14,6 +14,11 @@
 		930F26DC2ADD0F3D00896A32 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F26DB2ADD0F3D00896A32 /* Model.swift */; };
 		930F26DE2ADD0F4C00896A32 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F26DD2ADD0F4C00896A32 /* Extension.swift */; };
 		930F26E02ADD0F6A00896A32 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F26DF2ADD0F6A00896A32 /* ViewModel.swift */; };
+		933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E492ADD1A53002AE727 /* Date+RawValue.swift */; };
+		933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */; };
+		933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */; };
+		933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */; };
+		933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		930F26DB2ADD0F3D00896A32 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		930F26DD2ADD0F4C00896A32 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		930F26DF2ADD0F6A00896A32 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		933A8E492ADD1A53002AE727 /* Date+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+RawValue.swift"; sourceTree = "<group>"; };
+		933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+CompareDays.swift"; sourceTree = "<group>"; };
+		933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateSettingView.swift; sourceTree = "<group>"; };
+		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
+		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				930F26CA2ADD0D8B00896A32 /* ContentView.swift */,
+				933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */,
+				933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */,
+				933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -98,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				930F26DD2ADD0F4C00896A32 /* Extension.swift */,
+				933A8E492ADD1A53002AE727 /* Date+RawValue.swift */,
+				933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,9 +196,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				930F26E02ADD0F6A00896A32 /* ViewModel.swift in Sources */,
+				933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */,
 				930F26DC2ADD0F3D00896A32 /* Model.swift in Sources */,
+				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
+				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				930F26CB2ADD0D8B00896A32 /* ContentView.swift in Sources */,
+				933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
+				933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */,
 				930F26DE2ADD0F4C00896A32 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
