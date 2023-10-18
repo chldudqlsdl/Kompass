@@ -19,6 +19,8 @@
 		933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */; };
 		933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */; };
 		933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */; };
+		93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C792AE0492E00B96F5C /* NavigationManager.swift */; };
+		93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateSettingView.swift; sourceTree = "<group>"; };
 		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
 		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
+		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 				933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */,
 				933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */,
 				933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */,
+				93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				930F26DB2ADD0F3D00896A32 /* Model.swift */,
+				93F68C792AE0492E00B96F5C /* NavigationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,9 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */,
 				930F26E02ADD0F6A00896A32 /* ViewModel.swift in Sources */,
 				933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */,
 				930F26DC2ADD0F3D00896A32 /* Model.swift in Sources */,
+				93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */,
 				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
 				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				930F26CB2ADD0D8B00896A32 /* ContentView.swift in Sources */,
