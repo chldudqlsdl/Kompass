@@ -15,9 +15,6 @@ struct TripRemainingDayView: View {
         let remainingDay = Calendar.current.compareDays(today, and: dDay)
         
         Text("D - \(remainingDay) until Trip")
-            .onAppear() {
-                print(remainingDay)
-            }
     }
 }
 

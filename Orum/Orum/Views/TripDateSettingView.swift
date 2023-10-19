@@ -10,7 +10,7 @@ import SwiftUI
 struct TripDateSettingView: View {
     @State var today = Date()
     @AppStorage("dDay") var dDay: Date = Date()
-    
+    @EnvironmentObject var navigationManager: NavigationManager
     let dateFormatter = DateFormatter()
     
     var body: some View {
@@ -27,12 +27,20 @@ struct TripDateSettingView: View {
                 
                 if remainingDay != 0 {
                     NavigationLink(destination: TripRemainingDayView()) {
-                        Text("Next")
+                        Button (action: {
+                            navigationManager.viewCycle = .second
+                        }){
+                            Text("Next")
+                        }
                     }
                 }
                 else {
                     NavigationLink(destination: FlightInfoSubmitView()) {
-                        Text("Next")
+                        Button (action: {
+                            navigationManager.viewCycle = .third
+                        }){
+                            Text("Next")
+                        }
                     }
                 }
             }
