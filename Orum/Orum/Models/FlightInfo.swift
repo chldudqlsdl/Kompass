@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct FlightInfo {
+    let dep_city : String
+    let arr_city : String
+    let dep_time : String
+    let arr_time : String
+}
