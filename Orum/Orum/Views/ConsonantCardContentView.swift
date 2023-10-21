@@ -13,14 +13,15 @@ struct ConsonantCardContentView: View {
     @Binding var flipCheck : Bool
     @Binding var example1Check : Bool
     @Binding var example2Check : Bool
-    @State private var flipped: Bool = false
+    @Binding var checkCount : Int
+    @Binding var flipped: Bool 
     
     var body: some View {
         VStack(alignment: .center, spacing: 40 ){
             ZStack{
                 VStack{
                     Image(hangulUnit.hangulCards[hangulUnit.unitIndex].name)
-                        .padding(.top, 50)
+                        .padding(.top, 50)                        
                     ZStack{
                         Text(hangulUnit.hangulCards[hangulUnit.unitIndex].sound)
                             .fontWeight(.bold)
@@ -32,12 +33,23 @@ struct ConsonantCardContentView: View {
                     }
                     .padding(15)
                     Divider()
-                    
                     Image(systemName: "lightbulb.circle.fill")
                         .font(.system(size: 32.0))
                         .foregroundStyle(.blue)
                         .padding(10)
-                        .onTapGesture { flipped.toggle() }
+                        .onTapGesture { 
+                            if !flipCheck {
+                                checkCount += 1
+                            }
+                            flipped.toggle()
+                            flipCheck = true
+                        }
+                        .overlay {
+                            Circle()
+                                .frame(width: 4)
+                                .offset(y: 20)
+                                .foregroundStyle( flipCheck ? .blue : .clear )
+                        }
                 }
             }
             .background(Color.white)
@@ -77,9 +89,18 @@ struct ConsonantCardContentView: View {
                             Image(systemName: "speaker.wave.2.circle.fill")
                                 .font(.system(size: 32.0))
                                 .foregroundStyle(.blue)
-//                                .onTapGesture {
-//                                    TTSManager.shared.play(hangulUnit.hangulCards[hangulUnit.unitIndex].example1)
-//                                }
+                                .onTapGesture {
+                                    if !example1Check {
+                                        checkCount += 1
+                                    }
+                                    example1Check = true
+                                }
+                                .overlay {
+                                    Circle()
+                                        .frame(width: 4)
+                                        .offset(y: 20)
+                                        .foregroundStyle( example1Check ? .blue : .clear )
+                                }
                         }
                         .padding(10)
                     }
@@ -109,9 +130,19 @@ struct ConsonantCardContentView: View {
                             Image(systemName: "speaker.wave.2.circle.fill")
                                 .font(.system(size: 32.0))
                                 .foregroundStyle(.blue)
-//                                .onTapGesture {
-//                                    TTSManager.shared.play(hangulUnit.hangulCards[hangulUnit.unitIndex].example2)
-//                                }
+                                .onTapGesture {
+                                    if !example2Check {
+                                        checkCount += 1
+                                    }
+                                    example2Check = true
+                                }
+                                .overlay {
+                                    Circle()
+                                        .frame(width: 4)
+                                        .offset(y: 20)
+                                        .foregroundStyle( example2Check ? .blue : .clear )
+                                }
+
                         }
                         .padding(10)
                     }
@@ -129,5 +160,5 @@ struct ConsonantCardContentView: View {
         HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu"),
         HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du"),
         HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru")
-    ])), flipCheck: .constant(false), example1Check: .constant(false), example2Check: .constant(false))
+    ])), flipCheck: .constant(false), example1Check: .constant(false), example2Check: .constant(false), checkCount: .constant(0), flipped: .constant(false))
 }

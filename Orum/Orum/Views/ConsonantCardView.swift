@@ -13,6 +13,10 @@ struct ConsonantCardView: View {
     @State var flipCheck : Bool = false
     @State var example1Check : Bool = false
     @State var example2Check : Bool = false
+    @State var checkCount : Int = 0
+    @State var nextWordActive: Bool = false
+    @State var flipped: Bool = false
+    @State var transitionView: Bool = true
 
     
     
@@ -21,11 +25,11 @@ struct ConsonantCardView: View {
             ZStack{
                 Color(uiColor: UIColor(hex: "F2F2F7")).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 VStack{
-                    ConsonantCardContentView(hangulUnit: $hangulUnit, flipCheck: $flipCheck, example1Check: $example1Check, example2Check: $example2Check)
+                        ConsonantCardContentView(hangulUnit: $hangulUnit, flipCheck: $flipCheck, example1Check: $example1Check, example2Check: $example2Check, checkCount: $checkCount, flipped: $flipped)
                     Spacer()
                     Divider()
                         .padding(.vertical, 10)
-                    HStack(spacing: 80){
+                    HStack{
                         ZStack{
                             Image(systemName: "arrow.uturn.backward")
                                 .foregroundStyle(.blue)
@@ -35,40 +39,85 @@ struct ConsonantCardView: View {
                         .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 20.0))
                         .shadow(radius: 3)
-                        ZStack{
-                            HStack{
-                                Text("0/3")
-                                    .font(.title2)
-                                    .fontWeight(.bold)
-                                    .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
-                                Spacer()
-                                Image(systemName: "speaker.wave.2.circle.fill")
-                                    .font(.system(size: 32.0))
-                                    .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
-                                Image(systemName: "speaker.wave.2.circle.fill")
-                                    .font(.system(size: 32.0))
-                                    .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
-                                Image(systemName: "speaker.wave.2.circle.fill")
-                                    .font(.system(size: 32.0))
-                                    .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
-                                
-                            }
-                            .padding(10)
+                        .onTapGesture {
+                            previousWord()
                         }
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                        .shadow(radius: 3)
+                        Spacer()
+                        if checkCount < 3 {
+                            ZStack{
+                                HStack{
+                                    Text("\(checkCount)/3")
+                                        .font(.title2)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                                    Image(systemName: "speaker.wave.2.circle.fill")
+                                        .font(.system(size: 32.0))
+                                        .foregroundStyle(example1Check ? .blue : Color(UIColor(hex: "D1D1D6")))
+                                    Image(systemName: "speaker.wave.2.circle.fill")
+                                        .font(.system(size: 32.0))
+                                        .foregroundStyle(example2Check ? .blue : Color(UIColor(hex: "D1D1D6")))
+                                    Image(systemName: "lightbulb.circle.fill")
+                                        .font(.system(size: 32.0))
+                                        .foregroundStyle(flipCheck ? .blue : Color(UIColor(hex: "D1D1D6")))
+                                    
+                                }
+                                .padding(10)
+                            }
+                            .background(Color.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            .shadow(radius: 3)
+                        } else {
+                            ZStack{
+                                HStack{
+                                    Image(systemName: "arrow.right.circle.fill")
+                                        .font(.system(size: 32.0))
+                                        .foregroundStyle(.white)
+                                    Text("Next")
+                                        .fontWeight(.bold)
+                                        .font(.system(size: 17))
+                                        .foregroundStyle(.white)
+                                }
+                                .padding(10)
+                            }
+                            .background(.blue)
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            .shadow(radius: 3)
+                            .onTapGesture {
+//                                nextWordActive = true
+                                nextWord()
+                            }
+                        }
                     }
                     .padding(.bottom, 20)
-                   
                 }
                 .frame(width: UIScreen.main.bounds.size.width - 40)
             }
             .navigationTitle(hangulUnit.unitName.capitalized)
-            
+            .transition(.slide)
         }
     }
-    
+    func nextWord() {
+        withAnimation(.easeInOut(duration: 1)){
+            hangulUnit = HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex + 1, hangulCards: hangulUnit.hangulCards)
+            flipCheck = false
+            example1Check = false
+            checkCount = 0
+            example2Check = false
+            flipped = false
+            transitionView = true
+        }
+    }
+    func previousWord() {
+        withAnimation(.easeInOut(duration: 1)){
+            hangulUnit = HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex - 1, hangulCards: hangulUnit.hangulCards)
+            flipCheck = false
+            example1Check = false
+            checkCount = 0
+            example2Check = false
+            flipped = false
+            transitionView.toggle()
+        }
+    }
 }
 
 #Preview {
