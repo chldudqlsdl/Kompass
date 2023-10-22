@@ -16,8 +16,7 @@ struct ConsonantCardView: View {
     @State var checkCount : Int = 0
     @State var nextWordActive: Bool = false
     @State var flipped: Bool = false
-    @State var transitionView: Bool = true
-
+    @State var chapterViewActive: Bool = false
     
     
     var body: some View {
@@ -38,7 +37,7 @@ struct ConsonantCardView: View {
                         }
                         .background(Color.white)
                         .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                        .shadow(radius: 3)
+//                        .shadow(radius: 3)
                         .onTapGesture {
                             previousWord()
                         }
@@ -61,11 +60,11 @@ struct ConsonantCardView: View {
                                         .foregroundStyle(flipCheck ? .blue : Color(UIColor(hex: "D1D1D6")))
                                     
                                 }
-                                .padding(10)
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                             }
                             .background(Color.white)
                             .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                            .shadow(radius: 3)
+//                            .shadow(radius: 3)
                         } else {
                             ZStack{
                                 HStack{
@@ -77,22 +76,31 @@ struct ConsonantCardView: View {
                                         .font(.system(size: 17))
                                         .foregroundStyle(.white)
                                 }
-                                .padding(10)
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                             }
                             .background(.blue)
                             .clipShape(RoundedRectangle(cornerRadius: 20.0))
-                            .shadow(radius: 3)
+//                            .shadow(radius: 3)
                             .onTapGesture {
 //                                nextWordActive = true
-                                nextWord()
+                                if hangulUnit.unitIndex + 1 == hangulUnit.hangulCards.count {
+                                    chapterViewActive = true
+                                } else {
+                                    nextWord()
+                                }
                             }
                         }
                     }
                     .padding(.bottom, 20)
                 }
-                .frame(width: UIScreen.main.bounds.size.width - 40)
+                .frame(width: UIScreen.main.bounds.size.width - 30)
             }
             .navigationTitle(hangulUnit.unitName.capitalized)
+            .navigationDestination(isPresented: $chapterViewActive, destination: {
+                ConsonantChapterView(hangulUnit:  HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex + 1, hangulCards: hangulUnit.hangulCards)
+)
+            })
+            .navigationBarBackButtonHidden()
             .transition(.slide)
         }
     }
@@ -104,7 +112,6 @@ struct ConsonantCardView: View {
             checkCount = 0
             example2Check = false
             flipped = false
-            transitionView = true
         }
     }
     func previousWord() {
@@ -115,7 +122,6 @@ struct ConsonantCardView: View {
             checkCount = 0
             example2Check = false
             flipped = false
-            transitionView.toggle()
         }
     }
 }

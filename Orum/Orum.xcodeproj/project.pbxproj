@@ -25,6 +25,8 @@
 		D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */; };
 		D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */; };
 		D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF662AE1283B00BD9EB3 /* FlightInfo.swift */; };
+		D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */; };
+		D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C32AE2BD83008B3379 /* ConsonantCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */; };
@@ -54,6 +56,8 @@
 		D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIManager.swift; sourceTree = "<group>"; };
 		D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIData.swift; sourceTree = "<group>"; };
 		D950CF662AE1283B00BD9EB3 /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
+		D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantChapterView.swift; sourceTree = "<group>"; };
+		D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantChapterContentView.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantCardView.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */,
 				D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */,
 				D967D1C42AE2BE81008B3379 /* ConsonantCardContentView.swift */,
+				D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */,
+				D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
 				93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */,
@@ -242,6 +249,7 @@
 				D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */,
 				D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */,
 				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
+				D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */,
 				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				930F26CB2ADD0D8B00896A32 /* ContentView.swift in Sources */,
 				D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */,
