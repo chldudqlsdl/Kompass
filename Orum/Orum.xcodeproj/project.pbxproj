@@ -42,6 +42,7 @@
 		933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateSettingView.swift; sourceTree = "<group>"; };
 		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
 		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
+		93D0BDA52AE2B54E00455447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
 		D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoEditView.swift; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		930F26C72ADD0D8B00896A32 /* Orum */ = {
 			isa = PBXGroup;
 			children = (
+				93D0BDA52AE2B54E00455447 /* Info.plist */,
 				930F26DA2ADD0E2600896A32 /* ViewModels */,
 				930F26D92ADD0DD900896A32 /* Extensions */,
 				930F26D82ADD0DCC00896A32 /* Models */,
@@ -362,6 +364,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Orum/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -371,7 +374,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -400,6 +402,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Orum/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -409,7 +412,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
