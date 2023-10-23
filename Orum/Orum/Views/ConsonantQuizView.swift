@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ConsonantQuizView: View {
-    
+    @EnvironmentObject var educationManager: EducationManager
+
     @State var hangulUnit : HangulUnit
     @State var isOptionClicked : Bool = false
     @State var clickedOptionIndex : Int = 5
     @State var answerIndex : Int = 5
     @State var isSubmitAnswer : Bool = false
+    @State var isFinishButtonPressed: Bool = false
     @State var optionAlphabet : [Character] = []
     
     
@@ -98,7 +100,6 @@ struct ConsonantQuizView: View {
                             if String(optionAlphabet[index]) == hangulUnit.hangulCards[hangulUnit.unitIndex].sound {
                                 answerIndex = index
                             }
-                            print("###Hi")
                         }
                         .onChange(of: isSubmitAnswer) { _ in
                             if String(optionAlphabet[index]) == hangulUnit.hangulCards[hangulUnit.unitIndex].sound {
@@ -151,10 +152,13 @@ struct ConsonantQuizView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
 //                        .shadow(radius: 3)
                         .onTapGesture {
-//                            if hangulUnit.unitIndex == hangulUnit.hangulCards.count{
-//                                
-//                            }
+                            if hangulUnit.unitIndex == hangulUnit.hangulCards.count - 1{
+                                isFinishButtonPressed.toggle()
+                                educationManager.unit = .Consonants2
+                                isSubmitAnswer = false
+                            }
                             if isSubmitAnswer {
+                                print("if 문 진입")
                                 nextQuiz()
                                 optionAlphabet = quizAlgorithm()
                             } else{
@@ -168,9 +172,17 @@ struct ConsonantQuizView: View {
             }
             .navigationTitle(String(localized: "Quiz"))
             .navigationBarBackButtonHidden()
+            .navigationDestination(isPresented: $isFinishButtonPressed, destination: {
+                HangulEducationTableView()
+                    .navigationBarBackButtonHidden()
+                    .environmentObject(educationManager)
+            })
             .onAppear {
-                optionAlphabet = quizAlgorithm()
-                print("Hi")
+                if hangulUnit.unitIndex != hangulUnit.hangulCards.count {
+                    print("###179")
+                    optionAlphabet = quizAlgorithm()
+                }
+                print("###181")
             }
         }
     }
