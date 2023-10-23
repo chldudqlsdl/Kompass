@@ -18,6 +18,7 @@ struct FlightInfoSubmitView: View {
     @AppStorage("arr_city") var arr_city : String = ""
     @AppStorage("dep_time") var dep_time : Date = Date()
     @AppStorage("arr_time") var arr_time : Date = Date()
+    @AppStorage("duration") var duration : Int = 0
     
     var body: some View {
         NavigationStack {
@@ -28,21 +29,21 @@ struct FlightInfoSubmitView: View {
                     .font(.system(size: 150))
                     .padding(.top, 60)
                 
-                Text("We've been waiting\n for you!")
+                Text(String(localized: "We've been waiting for you!"))
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 10)
                 
                 
-                Text("더 나은 앱의 경험을 위해 비행기의 출발 시간, 도착 시간 등의 정보를 가져올게요.")
+                Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 60)
                 
                 Spacer()
                 
                 HStack {
-                    Text("계속하려면 항공편 코드를 입력하십시오.")
+                    Text(String(localized: "Please enter the flight code to continue."))
                         .font(.footnote)
                         .bold()
                         .padding(.horizontal, 16)
@@ -53,9 +54,9 @@ struct FlightInfoSubmitView: View {
                 Divider()
                 
                 HStack {
-                    Text("Flight Code")
+                Text(String(localized: "Flight Code"))
                     
-                    TextField("Enter your flight code", text: $flightCode)
+                    TextField(String(localized: "Enter your flight code"), text: $flightCode)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                     
@@ -90,7 +91,7 @@ struct FlightInfoSubmitView: View {
                                     Spacer()
                                     
                                     if !isLoading {
-                                        Text("Next")
+                                        Text(String(localized: "Next"))
                                     }
                                     else {
                                         ProgressView()
@@ -105,10 +106,10 @@ struct FlightInfoSubmitView: View {
                             .padding(.vertical, 14)
                             .background(Color.accentColor)
                             .cornerRadius(12)
-                            .alert("Alert",isPresented: $alertShowing) {
-                                  Button("닫기", role: .cancel) {}
+                            .alert(String(localized: "Alert"),isPresented: $alertShowing) {
+                                  Button(String(localized: "Close"), role: .cancel) {}
                                 } message: {
-                                    Text("항공편 코드를 다시 한번 확인해주십시오")
+                                    Text(String(localized: "Please check the flight code again."))
                                 }
                                 .onChange(of: alertShowing) {
                                     if alertShowing {
@@ -140,7 +141,7 @@ extension String {
     func toDate() -> Date? { //"yyyy-MM-dd HH:mm"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
         if let date = dateFormatter.date(from: self) {
             return date
         } else {

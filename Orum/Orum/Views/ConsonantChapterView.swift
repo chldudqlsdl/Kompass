@@ -46,7 +46,7 @@ struct ConsonantChapterView: View {
                                 Image(systemName: "q.circle.fill")
                                     .font(.system(size: 32.0))
                                     .foregroundStyle(.white)
-                                Text("Quiz")
+                                Text(String(localized: "Quiz"))
                                     .fontWeight(.bold)
                                     .font(.system(size: 17))
                                     .foregroundStyle(.white)

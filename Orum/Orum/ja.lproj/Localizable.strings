@@ -1,0 +1,55 @@
+//TripDateSettingView.swift
+"Hello!" = "안녕하세요!";
+"Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience." = "Orumは、韓国へ向かう飛行機で韓国語を読む方法を学ぶアプリケーションです。最高の体験を提供するために、Orumはユーザーの韓国旅行情報を取得します。";
+"Enter your departure date" = "続行するには出発日を入力してください。";
+"Departure" = "出発";
+"Next" = "次へ";
+// TripRemainingDayView.swift
+"See you soon!" = "もうすぐお会いしましょう";
+"We'll let you know when that day comes." = "その日が来たら、私たちがお知らせします。";
+"Until Departure Date" = "出発まで";
+// FlightInfoSubmitView.swift
+"We've been waiting for you!" = "お待ちしていました!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "より良いアプリ体験のために、飛行機の出発時刻、到着時刻などの情報を取得します。";
+"Please enter the flight code to continue." = "続行するには、フライトコードを入力してください.";
+"Flight Code" = "フライトコード";
+"Enter your flight code" = "フライトコードを入力してください";
+"Alert" = "警告";
+"Please check the flight code again." = "フライトコードをもう一度確認してください.";
+"Close" = "閉じる";
+// FlightInfoEditView.swift
+"We've been waiting for you!" = "お待ちしていました!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "より良いアプリ体験のために、飛行機の出発時刻、到着時刻などの情報を取得します.";
+"Please make sure the information on your ticket is correct." = "チケットの情報が正確であることを確認してください.";
+"Departure" = "出発";
+"City" = "都市";
+"Arrival" = "到着";
+"City" = "都市";
+"From" = "出発地";
+"To" = "到着地";
+"Next" = "次へ";
+// DepartRemainingTimeView.swift
+"Let's see on plane!" = "それでは、飛行機でお会いしましょう!";
+"We'll let you know when the plane takes off." = "飛行機が離陸するとお知らせします.";
+"Until Departure Time" = "出発まで";
+"Pronunciation Example" = "発音の例";
+// HangulEducationMainView.swift
+"Hangul" = "ハングル";
+"Consonants" = "子音";
+"Collect Card!" = "カードを集めてください!";
+"Vowels" = "母音";
+"Let's continue learning and gather some pronunciation!" = "学習を続けて、発音を集めましょう!";
+"Current Progress" = "現在の進捗";
+"Next" = "次へ";
+// ConsonantChapterView.swift
+"Quiz" = "クイズ";
+// ConsonantQuizView.swift
+"Continue" = "続く";
+"Next" = "次へ";
+"Quiz" = "クイズ";
+"What is the correct pronunciation of the underlined part?" = "下線の親の正しい発音は？";
+"Congradtulation!" = "おめでとう!!";
+"Oops" = "惜しい";
+// HangulEducationTableView.swift
+"Consonants" = "子音";
+"Vowels" = "母音";
