@@ -28,7 +28,7 @@ struct FlightInfoEditView: View {
                 Text("더 나은 앱의 경험을 위해 비행기의 출발 시간,\n 도착 시간 등의 정보를 가져올께요.")
                     .font(.body)
                     .multilineTextAlignment(.center)
-
+                
                 
                 Spacer()
                 
@@ -37,30 +37,29 @@ struct FlightInfoEditView: View {
                         .font(.footnote)
                         .bold()
                         .padding(.horizontal, 16)
-
+                    
                     Spacer()
                 }
                 
                 Divider()
-                    
-                    DatePicker(
-                        "Departure",
-                        selection: $dep_time,
-                        displayedComponents: [.date,.hourAndMinute]
-                    )
+                
+                DatePicker(
+                    "Departure",
+                    selection: $dep_time,
+                    displayedComponents: [.date,.hourAndMinute]
+                )
                 .padding(.horizontal, 32)
                 .padding(.vertical, 5)
-
                 
                 Divider()
-    
-                    DatePicker(
-                        "Arrival",
-                        selection: $arr_time,
-                        displayedComponents: [.date, .hourAndMinute]
-                    )
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 5)
+                
+                DatePicker(
+                    "Arrival",
+                    selection: $arr_time,
+                    displayedComponents: [.date, .hourAndMinute]
+                )
+                .padding(.horizontal, 32)
+                .padding(.vertical, 5)
                 
                 Divider()
                 
@@ -82,11 +81,11 @@ struct FlightInfoEditView: View {
                     TextField("Arrival City", text: $arr_city)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
-
+                    
                 }
                 .padding(.horizontal, 32)
                 .padding(.vertical, 11)
-
+                
                 VStack(spacing: 17) {
                     Divider()
                     
@@ -103,12 +102,15 @@ struct FlightInfoEditView: View {
                     .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                 }
                 .background(
-                  Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 393, height: 129)
-                    .background(Color(red: 0.96, green: 0.96, blue: 0.96)),alignment: .top
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 393, height: 129)
+                        .background(Color(red: 0.96, green: 0.96, blue: 0.96)),alignment: .top
                 )
-
+                
+            }
+            .onAppear {
+                print("FlightInfoEditView dep_time OnAppear", dep_time)
             }
         }
     }

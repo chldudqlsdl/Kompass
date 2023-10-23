@@ -16,6 +16,7 @@ struct HangulEducationTableView: View {
     
     @AppStorage("arr_time") var arr_time : Date = Date()
     @AppStorage("dep_time") var dep_time : Date?
+    @AppStorage("duration") var duration: Int = 0
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -25,13 +26,9 @@ struct HangulEducationTableView: View {
     }
     
     var flightPercent: CGFloat {
-        return CGFloat(100 - Int(Float(remainingSeconds) / Float(flightTime)  * 100)) / 100
+        return CGFloat(100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100)) / 100
     }
     
-    var flightTime:Int {
-        return Int(arr_time.timeIntervalSince(dep_time ?? Date()))
-    }
-        
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -43,17 +40,25 @@ struct HangulEducationTableView: View {
                     ZStack {
                         HStack {
                             Spacer()
-                            Text(timeString(remainingSeconds))
-                                .font(.caption2)
-                                .bold()
-                                .onReceive(timer) { _ in
-                                    if remainingSeconds > 0 {
-                                        remainingSeconds -= 1
+                            
+                            if remainingSeconds > 0 {
+                                Text(timeString(remainingSeconds))
+                                    .font(.caption2)
+                                    .bold()
+                                    .onReceive(timer) { _ in
+                                        if remainingSeconds > 0 {
+                                            remainingSeconds -= 1
+                                        }
+                                        else {
+                                            isCountdownOver.toggle()
+                                        }
                                     }
-                                    else {
-                                        isCountdownOver.toggle()
-                                    }
-                                }
+                            }
+                            else {
+                                Text("00:00:00")
+                                    .font(.caption2)
+                                    .bold()
+                            }
                         }
                         .padding(.horizontal, 10)
                         .padding(.vertical, 7)
@@ -63,11 +68,19 @@ struct HangulEducationTableView: View {
                         
                         HStack {
                             HStack {
-                                Text("\(100 - Int(Float(remainingSeconds) / Float(flightTime)  * 100))%")
-                                    .font(.caption2)
-                                    .bold()
-                                    .padding(.trailing, 230 * CGFloat( flightPercent) )
                                 
+                                if 100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100) <= 100 {
+                                    Text("\(100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100))%")
+                                        .font(.caption2)
+                                        .bold()
+                                        .padding(.trailing, 220 * CGFloat(flightPercent) )
+                                }
+                                else {
+                                    Text("100%")
+                                        .font(.caption2)
+                                        .bold()
+                                        .padding(.trailing, 220)
+                                }
                                 Image(systemName: "airplane")
                                     .font(.caption2)
                                     .bold()
@@ -169,13 +182,13 @@ struct HangulEducationTableView: View {
             }
             .navigationDestination(isPresented: $isNextButtonPressed, destination: {
                 ConsonantCardView(hangulUnit: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
-                    HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu"),
-                    HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu"),
-                    HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du"),
-                    HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru")
+                    HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든"),
+                    HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노"),
+                    HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트"),
+                    HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오")
                 ]))
-                    .environmentObject(educationManager)
-                    .navigationBarBackButtonHidden()
+                .environmentObject(educationManager)
+                .navigationBarBackButtonHidden()
             })
             .navigationDestination(isPresented: $isBackButtonPressed, destination: {
                 HangulEducationMainView()
@@ -192,12 +205,12 @@ struct HangulEducationTableView: View {
     }
     
     func timeString(_ seconds: Int) -> String {
-            var minutes = seconds / 60
-            let hours = minutes / 60
-            minutes = minutes % 60
-            let seconds = seconds % 60
-            return String(format: "%02d:%02d:%02d",hours, minutes, seconds)
-        }
+        var minutes = seconds / 60
+        let hours = minutes / 60
+        minutes = minutes % 60
+        let seconds = seconds % 60
+        return String(format: "%02d:%02d:%02d",hours, minutes, seconds)
+    }
 }
 
 #Preview {
