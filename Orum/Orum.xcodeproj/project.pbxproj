@@ -27,6 +27,8 @@
 		D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */; };
 		D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */; };
 		D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF662AE1283B00BD9EB3 /* FlightInfo.swift */; };
+		D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */; };
+		D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C32AE2BD83008B3379 /* ConsonantCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */; };
@@ -50,6 +52,7 @@
 		933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateSettingView.swift; sourceTree = "<group>"; };
 		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
 		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
+		93D0BDA52AE2B54E00455447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
 		93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationMainView.swift; sourceTree = "<group>"; };
@@ -58,6 +61,8 @@
 		D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIManager.swift; sourceTree = "<group>"; };
 		D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIData.swift; sourceTree = "<group>"; };
 		D950CF662AE1283B00BD9EB3 /* FlightInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfo.swift; sourceTree = "<group>"; };
+		D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantChapterView.swift; sourceTree = "<group>"; };
+		D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantChapterContentView.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantCardView.swift; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 		930F26C72ADD0D8B00896A32 /* Orum */ = {
 			isa = PBXGroup;
 			children = (
+				93D0BDA52AE2B54E00455447 /* Info.plist */,
 				930F26DA2ADD0E2600896A32 /* ViewModels */,
 				930F26D92ADD0DD900896A32 /* Extensions */,
 				930F26D82ADD0DCC00896A32 /* Models */,
@@ -128,6 +134,8 @@
 				D967D1C22AE2BD83008B3379 /* ConsonantCardView.swift */,
 				D967D1C42AE2BE81008B3379 /* ConsonantCardContentView.swift */,
 				93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */,
+				D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */,
+				D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
 				93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */,
@@ -249,6 +258,7 @@
 				D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */,
 				D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */,
 				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
+				D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */,
 				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				93FED94C2AE505820004A0F5 /* EducationManager.swift in Sources */,
 				930F26CB2ADD0D8B00896A32 /* ContentView.swift in Sources */,
@@ -394,6 +404,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Orum/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -403,7 +414,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -432,6 +442,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Orum/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -441,7 +452,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
