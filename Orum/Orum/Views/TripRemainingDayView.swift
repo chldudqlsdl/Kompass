@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct TripRemainingDayView: View {
-    @AppStorage("dDay") var dDay: Date!
+//    @AppStorage("dDay") var dDay: Date!
+    @AppStorage("dDay") var dDay: Date = Date()
+
     var today = Date()
     
     var body: some View {
         let remainingDay = Calendar.current.compareDays(today, and: dDay)
-
+        
         Image(systemName: "airplane.departure")
             .foregroundColor(.blue)
             .font(.system(size: 150))
-            .padding(.top, 200)
+            .padding(.top, 60)
             .padding(.bottom, 30)
         
         Text("See you soon !")
@@ -34,10 +36,7 @@ struct TripRemainingDayView: View {
             .foregroundColor(Color(red: 0.49, green: 0.49, blue: 0.49))
         
         VStack(spacing: 17) {
-            Rectangle()
-                .foregroundColor(.clear)
-                .frame(height: 1)
-                .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+            Divider()
             
             NavigationLink(destination: FlightInfoSubmitView().navigationBarBackButtonHidden(true)) {
                 Text("D - \(remainingDay)")

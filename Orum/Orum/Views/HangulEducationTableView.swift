@@ -1,15 +1,16 @@
 //
-//  HangulEducationMainView.swift
+//  HangulEducationTableView.swift
 //  Orum
 //
-//  Created by 차차 on 10/22/23.
+//  Created by 차차 on 10/23/23.
 //
 
 import SwiftUI
 
-struct HangulEducationMainView: View {
+struct HangulEducationTableView: View {
     @EnvironmentObject var educationManager: EducationManager
-    @State var isPresented = false
+    @State var isNextButtonPressed = false
+    @State var isBackButtonPressed = false
     @State var remainingSeconds: Int = 3600
     @State var isCountdownOver: Bool = false
     
@@ -87,7 +88,7 @@ struct HangulEducationMainView: View {
                     .padding(.horizontal, 15)
                     
                     List {
-                        Section(header: Text("hangul")
+                        Section(header: Text("\(educationManager.unit.rawValue)")
                             .font(.title)
                             .bold()
                             .foregroundColor(.primary)
@@ -102,11 +103,14 @@ struct HangulEducationMainView: View {
                                 .padding(.top, 15)
                                 .padding(.horizontal, 15)
                                 
-                                Text("Collect Card!")
-                                    .font(.caption2)
-                                    .foregroundColor(.gray)
-                                    .padding(.horizontal, 15)
-                                
+                                HStack {
+                                    ForEach (0 ..< 4) { _ in
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .foregroundColor(.accentColor)
+                                            .frame(width: 50 ,height: 70)
+                                    }
+                                }
+                                .padding(.horizontal, 20)
                                 
                                 Divider()
                                 
@@ -118,14 +122,7 @@ struct HangulEducationMainView: View {
                                         .bold()
                                 }
                                 .padding(.horizontal, 15)
-                                
-                                
-                                
-                                Text("Collect Card!")
-                                    .font(.caption2)
-                                    .foregroundColor(.gray)
-                                    .padding(.horizontal, 15)
-                                    .padding(.bottom, 15)
+                                .padding(.bottom, 15)
                             }
                             
                         }
@@ -133,60 +130,55 @@ struct HangulEducationMainView: View {
                     }
                     .padding(.top)
                     
-                    HStack {
-                        Spacer()
-                        
-                        Text("학습을 진행해서 발음을 모아봐요!")
-                            .bold()
-                            .font(.footnote)
-                            .foregroundColor(.accentColor)
-                        
-                        Spacer()
-                    }
-                    
                     Divider()
                     
                     HStack {
-                        Text("Current Progress")
-                            .bold()
-                            .padding(.vertical, 15)
-                            .padding(.leading, 15)
+                        Button(action: {
+                            isBackButtonPressed.toggle()
+                        }) {
+                            Image(systemName: "arrow.uturn.left")
+                                .bold()
+                                .padding(.all, 15)
+                        }
+                        .background(RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.white))
                         
                         Spacer()
                         
-                        Text("\(educationManager.educationProgress)%")
-                            .foregroundColor(.accentColor)
-                            .bold()
-                            .padding(.trailing, 15)
-                        
-                    }
-                    .background(
-                        RoundedRectangle(cornerRadius: 15)
+                        Button(action: {
+                            isNextButtonPressed.toggle()
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.right.circle.fill")
+                                    .bold()
+                                
+                                Text("Next")
+                                    .bold()
+                            }
                             .foregroundColor(.white)
-                    )
-                    .padding(.horizontal, 15)
-                    
-                    Button(action: {
-                        isPresented.toggle()
-                    }){
-                        HStack {
-                            Spacer()
-                            
-                            Text("Next - \(educationManager.unit.rawValue)")
-                                .bold()
-                                .foregroundColor(.white)
-                                .padding(.vertical, 14)
-                            Spacer()
+                            .padding(.all, 15)
                         }
-                        .background(RoundedRectangle(cornerRadius: 15))
-                        .padding(.horizontal,15)
+                        .cornerRadius(15)
+                        .background(RoundedRectangle(cornerRadius: 15)
+                            .foregroundColor(.accentColor))
                     }
+                    .padding(.horizontal, 15)
                 }
                 .padding(.top, 15)
                 .padding(.bottom, 40)
             }
-            .navigationDestination(isPresented: $isPresented, destination: {
-                HangulEducationTableView()
+            .navigationDestination(isPresented: $isNextButtonPressed, destination: {
+                ConsonantCardView(hangulUnit: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
+                    HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu"),
+                    HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu"),
+                    HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du"),
+                    HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru")
+                ]))
+                    .environmentObject(educationManager)
+                    .navigationBarBackButtonHidden()
+            })
+            .navigationDestination(isPresented: $isBackButtonPressed, destination: {
+                HangulEducationMainView()
                     .environmentObject(educationManager)
                     .navigationBarBackButtonHidden()
             })
@@ -209,6 +201,6 @@ struct HangulEducationMainView: View {
 }
 
 #Preview {
-    HangulEducationMainView()
+    HangulEducationTableView()
         .environmentObject(EducationManager())
 }

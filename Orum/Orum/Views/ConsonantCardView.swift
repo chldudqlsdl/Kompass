@@ -96,6 +96,7 @@ struct ConsonantCardView: View {
                 .frame(width: UIScreen.main.bounds.size.width - 30)
             }
             .navigationTitle(hangulUnit.unitName.capitalized)
+            .navigationBarTitleDisplayMode(.large)
             .navigationDestination(isPresented: $chapterViewActive, destination: {
                 ConsonantChapterView(hangulUnit:  HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex + 1, hangulCards: hangulUnit.hangulCards)
 )
