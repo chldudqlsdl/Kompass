@@ -42,6 +42,7 @@
 		D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */ = {isa = PBXBuildFile; fileRef = D96BAC6C2AE6C46600613540 /* ㄱ.json */; };
 		D98B83FC2AE6EC9C00B47C56 /* ㄴ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */; };
 		D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* ㄹ.json */; };
+		D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* ㄷ.json */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		D96BAC6C2AE6C46600613540 /* ㄱ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄱ.json"; sourceTree = "<group>"; };
 		D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄴ.json"; sourceTree = "<group>"; };
 		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
+		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F12AE6BC5000915A64 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				D96BAC6C2AE6C46600613540 /* ㄱ.json */,
 				D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */,
+				D98B83FF2AE6F56000B47C56 /* ㄷ.json */,
 				D98B83FD2AE6ECA100B47C56 /* ㄹ.json */,
 			);
 			path = Lottie;
@@ -280,6 +283,7 @@
 				DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
 				D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */,
+				D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

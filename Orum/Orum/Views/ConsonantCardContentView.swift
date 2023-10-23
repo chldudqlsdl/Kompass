@@ -35,7 +35,7 @@ struct ConsonantCardContentView: View {
                                 .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
                         }
                     } else {
-                        LottieView(fileName: "ㄱ")
+                        LottieView(fileName: hangulUnit.hangulCards[hangulUnit.unitIndex].name)
                             .frame(width: 250, height: 250)
                             .scaleEffect(x: -1, y: 1)
                             .padding(.top, 10)
