@@ -67,7 +67,7 @@ struct Response: Codable {
 //    let cs_flight_iata: String?
 //    let reg_number: String?
 //    let status: String
-//    let duration: Int
+    let duration: Int
 //    let delayed: Int
 //    let dep_delayed: Int
 //    let arr_delayed: Int

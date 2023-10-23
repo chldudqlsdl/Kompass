@@ -15,6 +15,7 @@ struct HangulEducationMainView: View {
     
     @AppStorage("arr_time") var arr_time : Date = Date()
     @AppStorage("dep_time") var dep_time : Date?
+    @AppStorage("duration") var duration: Int = 0
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -24,11 +25,7 @@ struct HangulEducationMainView: View {
     }
     
     var flightPercent: CGFloat {
-        return CGFloat(100 - Int(Float(remainingSeconds) / Float(flightTime)  * 100)) / 100
-    }
-    
-    var flightTime:Int {
-        return Int(arr_time.timeIntervalSince(dep_time ?? Date()))
+        return CGFloat(100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100)) / 100
     }
         
     var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -42,17 +39,25 @@ struct HangulEducationMainView: View {
                     ZStack {
                         HStack {
                             Spacer()
-                            Text(timeString(remainingSeconds))
+                            
+                            if remainingSeconds >= 0 {
+                                Text(timeString(remainingSeconds))
                                 .font(.caption2)
                                 .bold()
                                 .onReceive(timer) { _ in
-                                    if remainingSeconds > 0 {
-                                        remainingSeconds -= 1
-                                    }
-                                    else {
-                                        isCountdownOver.toggle()
-                                    }
+                                if remainingSeconds > 0 {
+                                    remainingSeconds -= 1
                                 }
+                                else {
+                                    isCountdownOver.toggle()
+                                }
+                            }
+                        }
+                            else {
+                                Text("00:00:00")
+                                    .font(.caption2)
+                                    .bold()
+                            }
                         }
                         .padding(.horizontal, 10)
                         .padding(.vertical, 7)
@@ -62,10 +67,18 @@ struct HangulEducationMainView: View {
                         
                         HStack {
                             HStack {
-                                Text("\(100 - Int(Float(remainingSeconds) / Float(flightTime)  * 100))%")
-                                    .font(.caption2)
-                                    .bold()
-                                    .padding(.trailing, 230 * CGFloat( flightPercent) )
+                                if 100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100) <= 100 {
+                                    Text("\(100 - Int(Float(remainingSeconds) / Float(duration * 60)  * 100))%")
+                                        .font(.caption2)
+                                        .bold()
+                                        .padding(.trailing, 220 * CGFloat(flightPercent) )
+                                }
+                                else {
+                                    Text("100 %")
+                                        .font(.caption2)
+                                        .bold()
+                                        .padding(.trailing, 220)
+                                }
                                 
                                 Image(systemName: "airplane")
                                     .font(.caption2)

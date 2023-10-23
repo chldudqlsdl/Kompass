@@ -40,8 +40,10 @@ struct FlightCodeAPIManager {
             let arr_city = decodedData.response.arr_city
             let dep_time = decodedData.response.dep_time
             let arr_time = decodedData.response.arr_time
+            let duration = decodedData.response.duration
+
             
-            let flightInfo = FlightInfo(dep_city: dep_city, arr_city: arr_city, dep_time: dep_time, arr_time: arr_time)
+            let flightInfo = FlightInfo(dep_city: dep_city, arr_city: arr_city, dep_time: dep_time, arr_time: arr_time,duration: duration)
             return flightInfo
             
         } catch {

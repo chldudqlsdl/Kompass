@@ -12,4 +12,5 @@ struct FlightInfo {
     let arr_city : String
     let dep_time : String
     let arr_time : String
+    let duration : Int
 }

@@ -17,6 +17,7 @@ struct FlightInfoSubmitView: View {
     @AppStorage("arr_city") var arr_city : String = ""
     @AppStorage("dep_time") var dep_time : Date = Date()
     @AppStorage("arr_time") var arr_time : Date = Date()
+    @AppStorage("duration") var duration : Int = 0
     
     var body: some View {
         NavigationStack {
@@ -88,6 +89,7 @@ struct FlightInfoSubmitView: View {
                                     arr_city = response.arr_city
                                     dep_time = response.dep_time.toDate() ?? Date()
                                     arr_time = response.arr_time.toDate() ?? Date()
+                                    duration = response.duration
                                     isFlightInfoEditViewActive = true
                                     print(isFlightInfoEditViewActive)
                                 } else {
@@ -127,7 +129,7 @@ extension String {
     func toDate() -> Date? { //"yyyy-MM-dd HH:mm"
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone(identifier: "KST")
         if let date = dateFormatter.date(from: self) {
             return date
         } else {
