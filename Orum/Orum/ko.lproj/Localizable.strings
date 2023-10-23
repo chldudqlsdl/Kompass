@@ -1,0 +1,55 @@
+// TripDateSettingView.swift
+"Hello!" = "안녕하세요!";
+"Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience." = "Orum은 한국으로 향하는 비행기에서 한글을 읽는 방법을 학습하는 어플리케이션입니다. 최상의 경험을 제공하기 위해 Orum은 사용자의 한국 여행 정보를 가져옵니다.";
+"Enter your departure date" = "계속하려면 출발 날짜를 입력하십시오.";
+"Departure" = "출발";
+"Next" = "다음";
+// TripRemainingDayView.swift
+"See you soon!" = "곧 만나요!";
+"We'll let you know when that day comes." = "그 날이 오면 저희가 알려드릴게요.";
+"Until Departure Date" = "출발일까지";
+// FlightInfoSubmitView.swift
+"We've been waiting for you!" = "기다리고 있었어요!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "더 나은 앱의 경험을 위해 비행기의 출발 시간, 도착 시간 등의 정보를 가져올께요.";
+"Please enter the flight code to continue." = "계속하려면 항공편 코드를 입력하십시오.";
+"Flight Code" = "항공편 코드";
+"Enter your flight code" = "항공편 코드를 입력해주세요";
+"Alert" = "알림";
+"Please check the flight code again." = "항공편 코드를 다시 한 번 확인해주십시오.";
+"Close" = "닫기";
+// FlightInfoEditView.swift
+"We've been waiting for you!" = "기다리고 있었어요!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "더 나은 앱의 경험을 위해 비행기의 출발 시간, 도착 시간 등의 정보를 가져올께요.";
+"Please make sure the information on your ticket is correct." = "입력한 티켓의 정보가 정확한지 확인해주세요.";
+"Departure" = "출발";
+"Arrival" = "도착";
+"From" = "출발지";
+"Departure City" = "도시";
+"To" = "도착지";
+"Arrival City" = "도시";
+"Next" = "다음";
+// DepartRemainingTimeView.swift
+"Let's see on plane!" = "그럼 비행기에서 만나요!";
+"We'll let you know when the plane takes off." = "비행기가 이륙하면 알려드릴께요.";
+"Until Departure Time" = "출발 시간까지";
+"Pronunciation Example" = "발음 예시";
+// HangulEducationMainView.swift
+"Hangul" = "한글";
+"Consonants" = "자음";
+"Collect Card!" = "카드를 모아주세요!";
+"Vowels" = "모음";
+"Let's continue learning and gather some pronunciation!" = "학습을 진행해서 발음을 모아봐요!";
+"Current Progress" = "현재 진도";
+"Next" = "다음";
+// ConsonantChapterView.swift
+"Quiz" = "퀴즈";
+// ConsonantQuizView.swift
+"Continue" = "계속";
+"Next" = "다음";
+"Quiz" = "퀴즈";
+"What is the correct pronunciation of the underlined part?" = "밑줄친 부분의 올바른 발음은?";
+"Congradtulation!" = "축하해!";
+"Oops" = "아쉬워요...";
+// HangulEducationTableView.swift
+"Consonants" = "자음";
+"Vowels" = "모음";

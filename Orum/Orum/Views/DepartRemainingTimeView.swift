@@ -32,18 +32,18 @@ struct DepartRemainingTimeView: View {
                     .padding(.top, 60)
                     .padding(.bottom, 30)
                 
-                Text("Let's see on plane!")
+                Text(String(localized: "Let's see on plane!"))
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 20)
                 
-                Text("대충 기대된다는 텍스트")
+                Text(String(localized: "We'll let you know when the plane takes off."))
                     .multilineTextAlignment(.center)
             }
             
             Spacer()
             
-            Text("Until Departure Time \(dateFormatter.string(from:dep_time))")
+            Text("\(String(localized: "Until Departure Time")) \(dateFormatter.string(from:dep_time))")
                 .font(.footnote)
                 .foregroundColor(Color(red: 0.49, green: 0.49, blue: 0.49))
             
