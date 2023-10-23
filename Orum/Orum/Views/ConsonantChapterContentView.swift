@@ -61,5 +61,5 @@ struct ConsonantChapterContentView: View {
 }
 
 #Preview {
-    ConsonantChapterContentView(hangulCard: HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든"))
+    ConsonantChapterContentView(hangulCard: HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"))
 }

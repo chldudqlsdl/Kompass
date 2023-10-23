@@ -20,18 +20,40 @@ struct ConsonantCardContentView: View {
         VStack(alignment: .center, spacing: 40 ){
             ZStack{
                 VStack{
-                    Image(hangulUnit.hangulCards[hangulUnit.unitIndex].name)
-                        .padding(.top, 50)                        
-                    ZStack{
-                        Text(hangulUnit.hangulCards[hangulUnit.unitIndex].sound)
-                            .fontWeight(.bold)
-                            .font(.largeTitle)
-                        Text("[   ]")
-                            .fontWeight(.bold)
-                            .font(.largeTitle)
-                            .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                    if !flipped {
+                        Image(hangulUnit.hangulCards[hangulUnit.unitIndex].name)
+                            .padding(.top, 50)
+                        ZStack{
+                            Text(hangulUnit.hangulCards[hangulUnit.unitIndex].sound)
+                                .fontWeight(.bold)
+                                .font(.largeTitle)
+                            Text("[   ]")
+                                .fontWeight(.bold)
+                                .font(.largeTitle)
+                                .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                        }
+                        .padding(15)
+                    } else {
+                        LottieView(fileName: "ㄱ")
+                            .scaleEffect(x: -1, y: 1)
+                        ZStack{
+                            Text("[")
+                                .fontWeight(.bold)
+                                .font(.largeTitle)
+                                .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                            +
+                            Text(hangulUnit.hangulCards[hangulUnit.unitIndex].lottieName)
+                                .fontWeight(.bold)
+                                .font(.largeTitle)
+                            +
+                            Text("]")
+                                .fontWeight(.bold)
+                                .font(.largeTitle)
+                                .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                        }
+                        .scaleEffect(x: -1, y: 1)
+                        .padding(15)
                     }
-                    .padding(15)
                     Divider()
                     Image(systemName: "lightbulb.circle.fill")
                         .font(.system(size: 32.0))
@@ -156,9 +178,9 @@ struct ConsonantCardContentView: View {
 }
 #Preview {
     ConsonantCardContentView(hangulUnit: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
-        HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든"),
-        HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노"),
-        HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트"),
-        HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오")
+        HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
+        HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
+        HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),
+        HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")
     ])), flipCheck: .constant(false), example1Check: .constant(false), example2Check: .constant(false), checkCount: .constant(0), flipped: .constant(false))
 }

@@ -22,9 +22,9 @@
 		93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F58B622AE623570022B59B /* HangulEducationTableView.swift */; };
 		93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C792AE0492E00B96F5C /* NavigationManager.swift */; };
 		93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */; };
-		D927C6C32AE5A10C000CB0C4 /* ConsonantQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */; };
 		93FED9482AE4F64F0004A0F5 /* HangulEducationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */; };
 		93FED94C2AE505820004A0F5 /* EducationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED94B2AE505820004A0F5 /* EducationManager.swift */; };
+		D927C6C32AE5A10C000CB0C4 /* ConsonantQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */; };
 		D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */; };
 		D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */; };
 		D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */; };
@@ -37,6 +37,9 @@
 		D967D1C52AE2BE81008B3379 /* ConsonantCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C42AE2BE81008B3379 /* ConsonantCardContentView.swift */; };
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
 		D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C82AE40F4E008B3379 /* TTSManager.swift */; };
+		D96BAC682AE6C35600613540 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D96BAC672AE6C35600613540 /* Lottie */; };
+		D96BAC6A2AE6C37800613540 /* LottieVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BAC692AE6C37800613540 /* LottieVIew.swift */; };
+		D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */ = {isa = PBXBuildFile; fileRef = D96BAC6C2AE6C46600613540 /* ㄱ.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,9 +61,9 @@
 		93F58B622AE623570022B59B /* HangulEducationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationTableView.swift; sourceTree = "<group>"; };
 		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
-		D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantQuizView.swift; sourceTree = "<group>"; };
 		93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationMainView.swift; sourceTree = "<group>"; };
 		93FED94B2AE505820004A0F5 /* EducationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationManager.swift; sourceTree = "<group>"; };
+		D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantQuizView.swift; sourceTree = "<group>"; };
 		D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoEditView.swift; sourceTree = "<group>"; };
 		D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIManager.swift; sourceTree = "<group>"; };
 		D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIData.swift; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		D967D1C42AE2BE81008B3379 /* ConsonantCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantCardContentView.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D967D1C82AE40F4E008B3379 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
+		D96BAC692AE6C37800613540 /* LottieVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieVIew.swift; sourceTree = "<group>"; };
+		D96BAC6C2AE6C46600613540 /* ㄱ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄱ.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96BAC682AE6C35600613540 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +111,7 @@
 		930F26C72ADD0D8B00896A32 /* Orum */ = {
 			isa = PBXGroup;
 			children = (
+				D96BAC6B2AE6C42600613540 /* Lottie */,
 				93D0BDA52AE2B54E00455447 /* Info.plist */,
 				930F26DA2ADD0E2600896A32 /* ViewModels */,
 				930F26D92ADD0DD900896A32 /* Extensions */,
@@ -142,6 +149,7 @@
 				D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */,
 				D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */,
 				93F58B622AE623570022B59B /* HangulEducationTableView.swift */,
+				D96BAC692AE6C37800613540 /* LottieVIew.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +189,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		D96BAC6B2AE6C42600613540 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				D96BAC6C2AE6C46600613540 /* ㄱ.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -197,6 +213,9 @@
 			dependencies = (
 			);
 			name = Orum;
+			packageProductDependencies = (
+				D96BAC672AE6C35600613540 /* Lottie */,
+			);
 			productName = Orum;
 			productReference = 930F26C52ADD0D8B00896A32 /* Orum.app */;
 			productType = "com.apple.product-type.application";
@@ -225,6 +244,9 @@
 				Base,
 			);
 			mainGroup = 930F26BC2ADD0D8A00896A32;
+			packageReferences = (
+				D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = 930F26C62ADD0D8B00896A32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -239,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */,
 				930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
 			);
@@ -267,6 +290,7 @@
 				D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */,
 				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
 				D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */,
+				D96BAC6A2AE6C37800613540 /* LottieVIew.swift in Sources */,
 				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				93FED94C2AE505820004A0F5 /* EducationManager.swift in Sources */,
 				930F26CB2ADD0D8B00896A32 /* ContentView.swift in Sources */,
@@ -497,6 +521,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D96BAC672AE6C35600613540 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 930F26BD2ADD0D8A00896A32 /* Project object */;
 }
