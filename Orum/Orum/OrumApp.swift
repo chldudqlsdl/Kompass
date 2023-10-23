@@ -25,6 +25,9 @@ struct OrumApp: App {
             case .fourth:
                 DepartRemainingTimeView()
                     .environmentObject(navigationManager)
+            case .fifth:
+                HangulEducationMainView()
+                    .environmentObject(navigationManager)
             }
 //            ConsonantCardView(hangulUnit: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
 //                HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu"),

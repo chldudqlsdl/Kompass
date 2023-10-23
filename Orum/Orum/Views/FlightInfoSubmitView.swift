@@ -15,8 +15,8 @@ struct FlightInfoSubmitView: View {
     @State var alertShowing = false
     @AppStorage("dep_city") var dep_city : String = ""
     @AppStorage("arr_city") var arr_city : String = ""
-    @AppStorage("dep_time") var dep_time : String = ""
-    @AppStorage("arr_time") var arr_time : String = ""
+    @AppStorage("dep_time") var dep_time : Date = Date()
+    @AppStorage("arr_time") var arr_time : Date = Date()
     
     var body: some View {
         NavigationStack {
@@ -48,10 +48,7 @@ struct FlightInfoSubmitView: View {
                     Spacer()
                 }
                 
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                Divider()
                 
                 HStack {
                 Text("Flight Code")
@@ -65,10 +62,7 @@ struct FlightInfoSubmitView: View {
                 .padding(.horizontal, 32)
                 
                 VStack(spacing: 17) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(height: 1)
-                        .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                    Divider()
                         
                     
                     HStack(spacing: 15) {
@@ -92,8 +86,8 @@ struct FlightInfoSubmitView: View {
                                 if let response = response {
                                     dep_city = response.dep_city
                                     arr_city = response.arr_city
-                                    dep_time = response.dep_time
-                                    arr_time = response.arr_time
+                                    dep_time = response.dep_time.toDate() ?? Date()
+                                    arr_time = response.arr_time.toDate() ?? Date()
                                     isFlightInfoEditViewActive = true
                                     print(isFlightInfoEditViewActive)
                                 } else {
@@ -126,6 +120,19 @@ struct FlightInfoSubmitView: View {
             }
         }
         
+    }
+}
+
+extension String {
+    func toDate() -> Date? { //"yyyy-MM-dd HH:mm"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        if let date = dateFormatter.date(from: self) {
+            return date
+        } else {
+            return nil
+        }
     }
 }
 
