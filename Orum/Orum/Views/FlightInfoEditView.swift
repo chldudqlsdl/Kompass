@@ -11,8 +11,8 @@ struct FlightInfoEditView: View {
     
     @AppStorage("dep_city") var dep_city : String = ""
     @AppStorage("arr_city") var arr_city : String = ""
-    @AppStorage("dep_time") var dep_time : String = ""
-    @AppStorage("arr_time") var arr_time : String = ""
+    @AppStorage("dep_time") var dep_time : Date = Date()
+    @AppStorage("arr_time") var arr_time : Date = Date()
     
     var body: some View {
         NavigationStack{
@@ -41,41 +41,28 @@ struct FlightInfoEditView: View {
                     Spacer()
                 }
                 
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
-                
-                HStack {
-                    Text("Departure")
+                Divider()
                     
-                    TextField("Departure Time", text: $dep_time)
-                        .textFieldStyle(.plain)
-                        .multilineTextAlignment(.trailing)
-                }
+                    DatePicker(
+                        "Departure",
+                        selection: $dep_time,
+                        displayedComponents: [.date,.hourAndMinute]
+                    )
                 .padding(.horizontal, 32)
-                .padding(.vertical, 11)
+                .padding(.vertical, 5)
 
                 
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                Divider()
+    
+                    DatePicker(
+                        "Arrival",
+                        selection: $arr_time,
+                        displayedComponents: [.date, .hourAndMinute]
+                    )
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 5)
                 
-                HStack {
-                    Text("Arrival")
-                    
-                    TextField("Arrival Time", text: $arr_time)
-                        .textFieldStyle(.plain)
-                        .multilineTextAlignment(.trailing)
-                }
-                .padding(.horizontal, 32)
-                .padding(.vertical, 11)
-                
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                Divider()
                 
                 HStack {
                     Text("From")
@@ -87,10 +74,7 @@ struct FlightInfoEditView: View {
                 .padding(.horizontal, 32)
                 .padding(.vertical, 11)
                 
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                Divider()
                 
                 HStack {
                     Text("to")
@@ -104,10 +88,7 @@ struct FlightInfoEditView: View {
                 .padding(.vertical, 11)
 
                 VStack(spacing: 17) {
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(height: 1)
-                        .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                    Divider()
                     
                     NavigationLink(destination: DepartRemainingTimeView().navigationBarBackButtonHidden(true)) {
                         Text("Next")

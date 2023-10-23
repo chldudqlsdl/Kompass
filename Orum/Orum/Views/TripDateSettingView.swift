@@ -17,14 +17,13 @@ struct TripDateSettingView: View {
         NavigationView {
             VStack {
                 
-//                Image(systemName: "list.bullet.rectangle")
-                Image(systemName: "calendar")
+                Image(systemName: "info.bubble")
                     .foregroundColor(.blue)
                     .font(.system(size: 150))
-                    .padding(.top, 130)
+                    .padding(.top, 60)
                     .padding(.bottom)
                 
-                Text("오름 앱 설정")
+                Text("안녕하세요 !")
                     .bold()
                     .font(.largeTitle)
                     .padding(.bottom, 50)
@@ -46,10 +45,7 @@ struct TripDateSettingView: View {
                 .padding(.horizontal, 15)
                 
                 
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(height: 1)
-                    .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                Divider()
                 
                 DatePicker(
                     "Departure",
@@ -61,10 +57,7 @@ struct TripDateSettingView: View {
                 let remainingDay = Calendar.current.compareDays(today, and: dDay)
 
                 VStack(spacing: 17) {
-                          Rectangle()
-                              .foregroundColor(.clear)
-                              .frame(height: 1)
-                              .background(Color(red: 0.91, green: 0.91, blue: 0.91))
+                    Divider()
 
                           if remainingDay != 0 {
                               NavigationLink(destination: TripRemainingDayView().navigationBarBackButtonHidden(true)) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HangulCard {
+struct HangulCard: Hashable {
     let name : String
     let sound : String
     let example1 : String

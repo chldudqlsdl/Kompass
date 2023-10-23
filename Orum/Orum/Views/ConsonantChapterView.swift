@@ -64,8 +64,10 @@ struct ConsonantChapterView: View {
                     
                 }
                 .frame(width: UIScreen.main.bounds.size.width - 30)
+//                .padding(.horizontal, 15)
             }
             .navigationTitle(hangulUnit.unitName.capitalized)
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $quizViewActive, destination: {
                 ConsonantQuizView(hangulUnit:  HangulUnit(unitName: hangulUnit.unitName, unitIndex: 0, hangulCards: hangulUnit.hangulCards)
