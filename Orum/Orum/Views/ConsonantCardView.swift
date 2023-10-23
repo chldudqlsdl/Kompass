@@ -71,7 +71,7 @@ struct ConsonantCardView: View {
                                     Image(systemName: "arrow.right.circle.fill")
                                         .font(.system(size: 32.0))
                                         .foregroundStyle(.white)
-                                    Text("Next")
+                                    Text(String(localized: "Next"))
                                         .fontWeight(.bold)
                                         .font(.system(size: 17))
                                         .foregroundStyle(.white)

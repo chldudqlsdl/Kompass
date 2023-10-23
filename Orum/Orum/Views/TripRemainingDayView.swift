@@ -22,17 +22,17 @@ struct TripRemainingDayView: View {
             .padding(.top, 60)
             .padding(.bottom, 30)
         
-        Text("See you soon !")
+        Text(String(localized: "See you soon!"))
             .font(.largeTitle)
             .bold()
             .padding(.bottom, 30)
         
-        Text("We'll let you know when that day comes")
+        Text(String(localized: "We'll let you know when that day comes."))
             .font(.body)
         
         Spacer()
         
-        Text("Until Departure Date \(dDay.formatted(date: .numeric, time: .omitted))")
+        Text("\(String(localized: "Until Departure Date")) \(dDay.formatted(date: .numeric, time: .omitted))")
             .foregroundColor(Color(red: 0.49, green: 0.49, blue: 0.49))
         
         VStack(spacing: 17) {

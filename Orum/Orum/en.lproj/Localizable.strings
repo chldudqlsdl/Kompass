@@ -1,0 +1,55 @@
+//TripDateSettingView.swift
+"Hello!" = "안녕하세요!";
+"Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience." = "Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience.";
+"Departure" = "Departure";
+"Next" = "Next";
+// TripRemainingDayView.swift
+"See you soon!" = "See you soon!";
+"We'll let you know when that day comes." = "We'll let you know when that day comes.";
+"Until Departure Date" = "Until Departure Date";
+// FlightInfoSubmitView.swift
+"We've been waiting for you!" = "We've been waiting for you!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight.";
+"Please enter the flight code to continue." = "Please enter the flight code to continue.";
+"Flight Code" = "Flight Code";
+"Enter your flight code" = "Enter your flight code";
+"Alert" = "Alert";
+"Please check the flight code again." = "Please check the flight code again.";
+"Close" = "Close";
+// FlightInfoEditView.swift
+"We've been waiting for you!" = "We've been waiting for you!";
+"For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight.";
+"Please make sure the information on your ticket is correct." = "Please make sure the information on your ticket is correct.";
+"Departure" = "Departure";
+"City" = "City";
+"Arrival" = "Arrival";
+"City" = "City";
+"From" = "From";
+"To" = "To";
+"Next" = "Next";
+// DepartRemainingTimeView.swift
+"Let's see on plane!" = "Let's see on plane!";
+"We'll let you know when the plane takes off." = "We'll let you know when the plane takes off.";
+"Until Departure Time" = "Until Departure Time";
+//ConsonantsCardContentView
+"Pronunciation Example" = "Pronunciation Example";
+// HangulEducationMainView.swift
+"Hangul" = "Hangul";
+"Consonants" = "Consonants";
+"Collect Card!" = "Collect Card!";
+"Vowels" = "Vowels";
+"Let's continue learning and gather some pronunciation!" = "Let's continue learning and gather some pronunciation!";
+"Current Progress" = "Current Progress";
+"Next" = "Next";
+// ConsonantChapterView.swift
+"Quiz" = "Quiz";
+// ConsonantQuizView.swift
+"Continue" = "Continue";
+"Next" = "Next";
+"Quiz" = "Quiz";
+"What is the correct pronunciation of the underlined part?" = "What is the correct pronunciation of the underlined part?";
+"Congradtulation!" = "Congradtulation!";
+"Oops" = "Oops";
+// HangulEducationTableView.swift
+"Consonants" = "Consonants";
+"Vowels" = "Vowels";

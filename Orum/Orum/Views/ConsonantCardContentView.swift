@@ -83,7 +83,7 @@ struct ConsonantCardContentView: View {
             
             
             VStack(alignment: .leading, spacing: 10){
-                Text("Pronunciation Example")
+                Text(String(localized: "Pronunciation Example"))
                     .fontWeight(.bold)
                     .font(.footnote)
                     .offset(x: 10)
