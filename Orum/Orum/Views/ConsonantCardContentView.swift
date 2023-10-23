@@ -22,7 +22,9 @@ struct ConsonantCardContentView: View {
                 VStack{
                     if !flipped {
                         Image(hangulUnit.hangulCards[hangulUnit.unitIndex].name)
-                            .padding(.top, 50)
+                            .resizable()
+                            .frame(width: 250, height: 250)
+                            .padding(.top, 10)
                         ZStack{
                             Text(hangulUnit.hangulCards[hangulUnit.unitIndex].sound)
                                 .fontWeight(.bold)
@@ -32,10 +34,11 @@ struct ConsonantCardContentView: View {
                                 .font(.largeTitle)
                                 .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
                         }
-                        .padding(15)
                     } else {
                         LottieView(fileName: "ㄱ")
+                            .frame(width: 250, height: 250)
                             .scaleEffect(x: -1, y: 1)
+                            .padding(.top, 10)
                         ZStack{
                             Text("[")
                                 .fontWeight(.bold)
@@ -52,7 +55,6 @@ struct ConsonantCardContentView: View {
                                 .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
                         }
                         .scaleEffect(x: -1, y: 1)
-                        .padding(15)
                     }
                     Divider()
                     Image(systemName: "lightbulb.circle.fill")
