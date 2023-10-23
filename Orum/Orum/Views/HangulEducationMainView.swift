@@ -87,7 +87,7 @@ struct HangulEducationMainView: View {
                     .padding(.horizontal, 15)
                     
                     List {
-                        Section(header: Text("hangul")
+                        Section(header: Text(String(localized: "Hangul"))
                             .font(.title)
                             .bold()
                             .foregroundColor(.primary)
@@ -102,7 +102,7 @@ struct HangulEducationMainView: View {
                                 .padding(.top, 15)
                                 .padding(.horizontal, 15)
                                 
-                                Text("Collect Card!")
+                                Text(String(localized: "Collect Card!"))
                                     .font(.caption2)
                                     .foregroundColor(.gray)
                                     .padding(.horizontal, 15)
@@ -114,14 +114,14 @@ struct HangulEducationMainView: View {
                                     Image(systemName: "chevron.up")
                                         .bold()
                                     
-                                    Text("Vowels")
+                                    Text(String(localized: "Vowels"))
                                         .bold()
                                 }
                                 .padding(.horizontal, 15)
                                 
                                 
                                 
-                                Text("Collect Card!")
+                                Text(String(localized: "Collect Card!"))
                                     .font(.caption2)
                                     .foregroundColor(.gray)
                                     .padding(.horizontal, 15)
@@ -136,7 +136,7 @@ struct HangulEducationMainView: View {
                     HStack {
                         Spacer()
                         
-                        Text("학습을 진행해서 발음을 모아봐요!")
+                        Text(String(localized: "Let's continue learning and gather some pronunciation!"))
                             .bold()
                             .font(.footnote)
                             .foregroundColor(.accentColor)
@@ -147,7 +147,7 @@ struct HangulEducationMainView: View {
                     Divider()
                     
                     HStack {
-                        Text("Current Progress")
+                        Text(String(localized: "Current Progress"))
                             .bold()
                             .padding(.vertical, 15)
                             .padding(.leading, 15)
@@ -172,7 +172,7 @@ struct HangulEducationMainView: View {
                         HStack {
                             Spacer()
                             
-                            Text("Next - \(educationManager.unit.rawValue)")
+                            Text("\(String(localized: "Next")) - \(educationManager.unit.rawValue)")
                                 .bold()
                                 .foregroundColor(.white)
                                 .padding(.vertical, 14)

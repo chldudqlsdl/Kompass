@@ -131,7 +131,7 @@ struct ConsonantQuizView: View {
                                 .padding(10)
                             HStack{
                                 if !isSubmitAnswer {
-                                    Text("Continue")
+                                    Text(String(localized: "Continue"))
                                         .fontWeight(.bold)
                                         .font(.system(size: 20))
                                         .foregroundStyle(.white)
@@ -139,7 +139,7 @@ struct ConsonantQuizView: View {
                                     Image(systemName: "arrow.right.circle.fill")
                                         .font(.system(size: 32.0))
                                         .foregroundStyle(.white)
-                                    Text("Next")
+                                    Text(String(localized: "Next"))
                                         .fontWeight(.bold)
                                         .font(.system(size: 17))
                                         .foregroundStyle(.white)
@@ -163,7 +163,7 @@ struct ConsonantQuizView: View {
                 }
                 .frame(width: UIScreen.main.bounds.size.width - 30)
             }
-            .navigationTitle("Quiz")
+            .navigationTitle(String(localized: "Quiz"))
             .navigationBarBackButtonHidden()
             .onAppear {
                 optionAlphabet = quizAlgorithm()
@@ -210,13 +210,13 @@ struct ConsonantQuizView: View {
     
     func fetchQandaStatus() -> QandA {
         if !isSubmitAnswer {
-            return QandA(text: "Q . 밑줄친부분의 올바른 발음은?", color: .blue)
+            return QandA(text: "Q . \(String(localized: "What is the correct pronunciation of the underlined part?"))", color: .blue)
         } else if isSubmitAnswer && clickedOptionIndex == answerIndex {
-            return QandA(text: "축하!", color: .blue)
+            return QandA(text: String(localized: "Congradulation!"), color: .blue)
         } else if isSubmitAnswer && clickedOptionIndex != answerIndex {
-            return QandA(text: "땡!", color: .red)
+            return QandA(text: String(localized: "Oops"), color: .red)
         }
-        return QandA(text: "Q . 밑줄친부분의 올바른 발음은?", color: .blue)
+        return QandA(text: "Q . \(String(localized: "What is the correct pronunciation of the underlined part?"))", color: .blue)
     }
     
     func nextQuiz() {
