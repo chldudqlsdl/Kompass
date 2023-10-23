@@ -19,6 +19,7 @@
 		933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */; };
 		933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */; };
 		933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */; };
+		93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F58B622AE623570022B59B /* HangulEducationTableView.swift */; };
 		93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C792AE0492E00B96F5C /* NavigationManager.swift */; };
 		93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */; };
 		93FED9482AE4F64F0004A0F5 /* HangulEducationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */; };
@@ -53,6 +54,7 @@
 		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
 		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
 		93D0BDA52AE2B54E00455447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93F58B622AE623570022B59B /* HangulEducationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationTableView.swift; sourceTree = "<group>"; };
 		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
 		93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationMainView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */,
 				D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */,
 				D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */,
+				93F58B622AE623570022B59B /* HangulEducationTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
+				93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */,
 				93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */,
 				930F26E02ADD0F6A00896A32 /* ViewModel.swift in Sources */,
 				933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */,
