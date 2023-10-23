@@ -22,6 +22,7 @@
 		93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F58B622AE623570022B59B /* HangulEducationTableView.swift */; };
 		93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C792AE0492E00B96F5C /* NavigationManager.swift */; };
 		93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */; };
+		D927C6C32AE5A10C000CB0C4 /* ConsonantQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */; };
 		93FED9482AE4F64F0004A0F5 /* HangulEducationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */; };
 		93FED94C2AE505820004A0F5 /* EducationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED94B2AE505820004A0F5 /* EducationManager.swift */; };
 		D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */; };
@@ -57,6 +58,7 @@
 		93F58B622AE623570022B59B /* HangulEducationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationTableView.swift; sourceTree = "<group>"; };
 		93F68C792AE0492E00B96F5C /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
+		D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantQuizView.swift; sourceTree = "<group>"; };
 		93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationMainView.swift; sourceTree = "<group>"; };
 		93FED94B2AE505820004A0F5 /* EducationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationManager.swift; sourceTree = "<group>"; };
 		D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoEditView.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */,
 				D95E20992AE52FC50062F3EB /* ConsonantChapterView.swift */,
 				D95E209B2AE54D1F0062F3EB /* ConsonantChapterContentView.swift */,
+				D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */,
 				93F58B622AE623570022B59B /* HangulEducationTableView.swift */,
 			);
 			path = Views;
@@ -251,6 +254,7 @@
 				D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
+				D927C6C32AE5A10C000CB0C4 /* ConsonantQuizView.swift in Sources */,
 				93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */,
 				93F68C7A2AE0492E00B96F5C /* NavigationManager.swift in Sources */,
 				930F26E02ADD0F6A00896A32 /* ViewModel.swift in Sources */,

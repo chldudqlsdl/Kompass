@@ -14,6 +14,7 @@ struct HangulCard: Hashable {
     let example2 : String
     let soundExample1 : String
     let soundExample2 : String
+    let quiz : String
 }
 
 
