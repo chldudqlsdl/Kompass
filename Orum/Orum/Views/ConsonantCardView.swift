@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ConsonantCardView: View {
+    @AppStorage("arr_time") var arr_time: Date = Date()
     
+    @EnvironmentObject var educationManager: EducationManager
+
     @State var hangulUnit : HangulUnit
     @State var flipCheck : Bool = false
     @State var example1Check : Bool = false
@@ -17,9 +20,13 @@ struct ConsonantCardView: View {
     @State var nextWordActive: Bool = false
     @State var flipped: Bool = false
     @State var chapterViewActive: Bool = false
+    @State var remainingSeconds: Int = 3600
+    @State var isCountdownOver: Bool = false
     
+    var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
+        
         NavigationStack{
             ZStack{
                 Color(uiColor: UIColor(hex: "F2F2F7")).edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -95,11 +102,18 @@ struct ConsonantCardView: View {
                 }
                 .frame(width: UIScreen.main.bounds.size.width - 30)
             }
+            .onAppear {
+                remainingSeconds = Int(arr_time.timeIntervalSince(Date()))
+            }
+            .onDisappear {
+                timer.upstream.connect().cancel()
+            }
             .navigationTitle(hangulUnit.unitName.capitalized)
             .navigationBarTitleDisplayMode(.large)
             .navigationDestination(isPresented: $chapterViewActive, destination: {
                 ConsonantChapterView(hangulUnit:  HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex + 1, hangulCards: hangulUnit.hangulCards)
 )
+                .environmentObject(educationManager)
             })
             .navigationBarBackButtonHidden()
             .transition(.slide)
@@ -113,8 +127,10 @@ struct ConsonantCardView: View {
             checkCount = 0
             example2Check = false
             flipped = false
+            print("###", educationManager)
         }
     }
+    
     func previousWord() {
         withAnimation(.easeInOut(duration: 1)){
             hangulUnit = HangulUnit(unitName: hangulUnit.unitName, unitIndex: hangulUnit.unitIndex - 1, hangulCards: hangulUnit.hangulCards)
@@ -124,6 +140,14 @@ struct ConsonantCardView: View {
             example2Check = false
             flipped = false
         }
+    }
+    
+    func timeString(_ seconds: Int) -> String {
+        var minutes = seconds / 60
+        let hours = minutes / 60
+        minutes = minutes % 60
+        let seconds = seconds % 60
+        return String(format: "%02d:%02d:%02d",hours, minutes, seconds)
     }
 }
 

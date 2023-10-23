@@ -117,13 +117,89 @@ struct HangulEducationTableView: View {
                                 .padding(.horizontal, 15)
                                 
                                 HStack {
+                                    if educationManager.unit.rawValue == "Consonants 1" {
                                     ForEach (0 ..< 4) { _ in
+                                            RoundedRectangle(cornerRadius: 4)
+                                                .foregroundColor(.accentColor)
+                                                .frame(width: 50 ,height: 70)
+                                        }
+                                    }
+                                    else {
                                         RoundedRectangle(cornerRadius: 4)
-                                            .foregroundColor(.accentColor)
-                                            .frame(width: 50 ,height: 70)
+                                            .stroke(.black, lineWidth: 1)
+                                            .frame(width: 50, height: 70)
+                                            .foregroundColor(Color.clear)
+                                            .overlay(
+                                                VStack{
+                                                    Text("ㄱ")
+                                                        .font(.largeTitle)
+                                                        .bold()
+                                                    
+                                                    Text("[g]")
+                                                    
+                                                    Spacer()
+                                                })
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(.black, lineWidth: 1)
+                                            .frame(width: 50, height: 70)
+                                            .foregroundColor(Color.clear)
+                                            .overlay(
+                                                VStack{
+                                                    Text("ㄴ")
+                                                        .font(.largeTitle)
+                                                        .bold()
+                                                    
+                                                    Text("[n]")
+                                                    
+                                                    Spacer()
+                                                })
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(.black, lineWidth: 1)
+                                            .frame(width: 50, height: 70)
+                                            .foregroundColor(Color.clear)
+                                            .overlay(
+                                                VStack{
+                                                    Text("ㄷ")
+                                                        .font(.largeTitle)
+                                                        .bold()
+                                                    
+                                                    Text("[d]")
+                                                    
+                                                    Spacer()
+                                                })
+                                        
+                                        RoundedRectangle(cornerRadius: 4)
+                                            .stroke(.black, lineWidth: 1)
+                                            .frame(width: 50, height: 70)
+                                            .foregroundColor(Color.clear)
+                                            .overlay(
+                                                VStack{
+                                                    Text("ㄹ")
+                                                        .font(.largeTitle)
+                                                        .bold()
+                                                    
+                                                    Text("[r]")
+                                                    
+                                                    Spacer()
+                                                })
+                            
                                     }
                                 }
                                 .padding(.horizontal, 20)
+                                
+                                HStack {
+                                    ForEach (0 ..< 5) { _ in
+                                        if educationManager.unit.rawValue == "Consonants 2" {
+                                            RoundedRectangle(cornerRadius: 4)
+                                                .foregroundColor(.accentColor)
+                                                .frame(width: 50 ,height: 70)
+                                        }
+                                    }
+                                }
+                                .padding(.horizontal, 20)
+
                                 
                                 Divider()
                                 

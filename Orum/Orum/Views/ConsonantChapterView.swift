@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConsonantChapterView: View {
-    
+    @EnvironmentObject var educationManager: EducationManager
     @State var hangulUnit : HangulUnit
     @State var quizViewActive: Bool = false
 
@@ -72,6 +72,7 @@ struct ConsonantChapterView: View {
             .navigationDestination(isPresented: $quizViewActive, destination: {
                 ConsonantQuizView(hangulUnit:  HangulUnit(unitName: hangulUnit.unitName, unitIndex: 0, hangulCards: hangulUnit.hangulCards)
 )
+                .environmentObject(educationManager)
             })
         }
     }
