@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TripRemainingDayView: View {
-    @AppStorage("dDay") var dDay: Date!
+//    @AppStorage("dDay") var dDay: Date!
+    @AppStorage("dDay") var dDay = Date()
     var today = Date()
     
     var body: some View {
