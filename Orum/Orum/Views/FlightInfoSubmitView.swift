@@ -27,21 +27,21 @@ struct FlightInfoSubmitView: View {
                     .font(.system(size: 150))
                     .padding(.top, 60)
                 
-                Text("We've been waiting\n for you!")
+                Text(String(localized: "We've been waiting for you!"))
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()
                     .padding(.bottom, 10)
 
                 
-                Text("더 나은 앱의 경험을 위해 비행기의 출발 시간, 도착 시간 등의 정보를 가져올게요.")
+                Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 60)
                 
                 Spacer()
                 
                 HStack {
-                    Text("계속하려면 항공편 코드를 입력하십시오.")
+                    Text(String(localized: "Please enter the flight code to continue."))
                         .font(.footnote)
                         .bold()
                         .padding(.horizontal, 16)
@@ -52,9 +52,9 @@ struct FlightInfoSubmitView: View {
                 Divider()
                 
                 HStack {
-                Text("Flight Code")
+                Text(String(localized: "Flight Code"))
                     
-                    TextField("Enter your flight code", text: $flightCode)
+                    TextField(String(localized: "Enter your flight code"), text: $flightCode)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                     
@@ -81,7 +81,7 @@ struct FlightInfoSubmitView: View {
                         .cornerRadius(12)
                         .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                         
-                        Button("Next") {
+                        Button(String(localized: "Next")) {
                             print(flightCode)
                             flightCodeAPIManager.performRequest(flightCode) { response in
                                 if let response = response {
@@ -104,7 +104,7 @@ struct FlightInfoSubmitView: View {
                         .background(Color.accentColor)
                         .cornerRadius(12)
                         .alert(isPresented: $alertShowing) {
-                            Alert(title: Text("Alert"), message: Text("항공편 코드를 다시 한번 확인해주십시오"), dismissButton: .default(Text("닫기")))
+                            Alert(title: Text(String(localized: "Alert")), message: Text(String(localized: "Please check the flight code again.")), dismissButton: .default(Text(String(localized: "Close"))))
                         }
                         .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
                     }

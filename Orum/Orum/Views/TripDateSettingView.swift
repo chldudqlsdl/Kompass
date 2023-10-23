@@ -23,12 +23,12 @@ struct TripDateSettingView: View {
                     .padding(.top, 60)
                     .padding(.bottom)
                 
-                Text("안녕하세요 !")
+                Text(String(localized: "Hello!"))
                     .bold()
                     .font(.largeTitle)
                     .padding(.bottom, 50)
                 
-                Text("오름은 한국으로 향하는 비행기에서 한글을 읽는 방법을 학습하는 어플리케이션입니다. 최상의 경험을 제공하기 위해 오름은 사용자의 한국 여행 정보를 가져옵니다. ")
+                Text(String(localized: "Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience."))
                     .font(.body)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 40)
@@ -36,7 +36,7 @@ struct TripDateSettingView: View {
                 Spacer()
                 
                 HStack {
-                    Text("Enter your departure date")
+                    Text(String(localized: "Enter your departure date"))
                         .font(.footnote)
                         .bold()
                     
@@ -48,7 +48,7 @@ struct TripDateSettingView: View {
                 Divider()
                 
                 DatePicker(
-                    "Departure",
+                    String(localized: "Departure"),
                     selection: $dDay,
                     displayedComponents: [.date]
                 )
@@ -61,7 +61,7 @@ struct TripDateSettingView: View {
 
                           if remainingDay != 0 {
                               NavigationLink(destination: TripRemainingDayView().navigationBarBackButtonHidden(true)) {
-                                  Text("Next")
+                                  Text(String(localized: "Next"))
                                       .foregroundColor(.white)
                                       .padding(.horizontal, 161)
                                       .padding(.vertical, 14)
@@ -73,7 +73,7 @@ struct TripDateSettingView: View {
                           }
                           else {
                               NavigationLink(destination: FlightInfoSubmitView().navigationBarBackButtonHidden(true)) {
-                                  Text("Next")
+                                  Text(String(localized: "Next"))
                                       .bold()
                                       .foregroundColor(.white)
                                       .padding(.horizontal, 161)

@@ -110,7 +110,7 @@ struct HangulEducationTableView: View {
                                 HStack {
                                     Image(systemName: "chevron.up")
                                         .bold()
-                                    Text("Consononats")
+                                    Text(String(localized: "Consonants"))
                                         .bold()
                                 }
                                 .padding(.top, 15)
@@ -131,7 +131,7 @@ struct HangulEducationTableView: View {
                                     Image(systemName: "chevron.up")
                                         .bold()
                                     
-                                    Text("Vowels")
+                                    Text(String(localized: "Vowels"))
                                         .bold()
                                 }
                                 .padding(.horizontal, 15)
@@ -165,7 +165,7 @@ struct HangulEducationTableView: View {
                                 Image(systemName: "arrow.right.circle.fill")
                                     .bold()
                                 
-                                Text("Next")
+                                Text(String(localized: "Next"))
                                     .bold()
                             }
                             .foregroundColor(.white)

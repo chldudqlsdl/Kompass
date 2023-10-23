@@ -18,14 +18,14 @@ struct FlightInfoEditView: View {
         NavigationStack{
             VStack {
                 
-                Text("We've been waiting for you!")
+                Text(String(localized: "We've been waiting for you!"))
                     .padding(.top, 140)
                     .padding(.bottom, 10)
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()
                 
-                Text("더 나은 앱의 경험을 위해 비행기의 출발 시간,\n 도착 시간 등의 정보를 가져올께요.")
+                Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
                     .font(.body)
                     .multilineTextAlignment(.center)
                 
@@ -33,7 +33,7 @@ struct FlightInfoEditView: View {
                 Spacer()
                 
                 HStack {
-                    Text("입력한 티켓의 정보가 정확한지 확인해주세요.")
+                    Text(String(localized: "Please make sure the information on your ticket is correct."))
                         .font(.footnote)
                         .bold()
                         .padding(.horizontal, 16)
@@ -42,31 +42,31 @@ struct FlightInfoEditView: View {
                 }
                 
                 Divider()
-                
-                DatePicker(
-                    "Departure",
-                    selection: $dep_time,
-                    displayedComponents: [.date,.hourAndMinute]
-                )
+                   
+                    DatePicker(
+                        String(localized: "Departure"),
+                        selection: $dep_time,
+                        displayedComponents: [.date,.hourAndMinute]
+                    )
                 .padding(.horizontal, 32)
                 .padding(.vertical, 5)
                 
                 Divider()
-                
-                DatePicker(
-                    "Arrival",
-                    selection: $arr_time,
-                    displayedComponents: [.date, .hourAndMinute]
-                )
-                .padding(.horizontal, 32)
-                .padding(.vertical, 5)
+    
+                    DatePicker(
+                        String(localized: "Arrival"),
+                        selection: $arr_time,
+                        displayedComponents: [.date, .hourAndMinute]
+                    )
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 5)
                 
                 Divider()
                 
                 HStack {
-                    Text("From")
+                    Text(String(localized: "From"))
                     
-                    TextField("Departure City", text: $dep_city)
+                    TextField(String(localized: "City"), text: $dep_city)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                 }
@@ -76,9 +76,9 @@ struct FlightInfoEditView: View {
                 Divider()
                 
                 HStack {
-                    Text("to")
+                    Text(String(localized: "To"))
                     
-                    TextField("Arrival City", text: $arr_city)
+                    TextField(String(localized: "City"), text: $arr_city)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                     
@@ -90,7 +90,7 @@ struct FlightInfoEditView: View {
                     Divider()
                     
                     NavigationLink(destination: DepartRemainingTimeView().navigationBarBackButtonHidden(true)) {
-                        Text("Next")
+                        Text(String(localized: "Next"))
                             .bold()
                             .foregroundColor(.white)
                             .padding(.horizontal, 161)
