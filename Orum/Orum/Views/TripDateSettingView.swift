@@ -26,7 +26,7 @@ struct TripDateSettingView: View {
                 Text(String(localized: "Hello!"))
                     .bold()
                     .font(.largeTitle)
-                    .padding(.bottom, 50)
+                    .padding(.bottom, 16)
                 
                 Text(String(localized: "Orum is an application that teaches how to read Korean while on a flight to Korea. To provide the best experience, Orum retrieves user's travel information to tailor the experience."))
                     .font(.body)
@@ -42,7 +42,7 @@ struct TripDateSettingView: View {
                     
                     Spacer()
                 }
-                .padding(.horizontal, 15)
+                .padding(.horizontal, 8)
                 
                 
                 Divider()

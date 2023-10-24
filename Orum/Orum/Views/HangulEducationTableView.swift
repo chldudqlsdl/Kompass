@@ -102,7 +102,7 @@ struct HangulEducationTableView: View {
                     
                     List {
                         Section(header: Text("\(educationManager.unit.rawValue)")
-                            .font(.title)
+                            .font(.largeTitle)
                             .bold()
                             .foregroundColor(.primary)
                         ) {
@@ -115,6 +115,7 @@ struct HangulEducationTableView: View {
                                 }
                                 .padding(.top, 15)
                                 .padding(.horizontal, 15)
+                                .padding(.bottom, 16)
                                 
                                 HStack {
                                     if educationManager.unit.rawValue == "Consonants 1" {
@@ -257,7 +258,7 @@ struct HangulEducationTableView: View {
                 .padding(.bottom, 40)
             }
             .navigationDestination(isPresented: $isNextButtonPressed, destination: {
-                ConsonantCardView(hangulUnit: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
+                ConsonantCardView(hangulUnit: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: [
                     HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
                     HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
                     HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),

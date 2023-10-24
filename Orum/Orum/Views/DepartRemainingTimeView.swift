@@ -30,22 +30,23 @@ struct DepartRemainingTimeView: View {
                     .foregroundColor(.blue)
                     .font(.system(size: 150))
                     .padding(.top, 60)
-                    .padding(.bottom, 30)
+                    .padding(.bottom)
                 
                 Text(String(localized: "Let's see on plane!"))
                     .font(.largeTitle)
                     .bold()
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 16)
                 
                 Text(String(localized: "We'll let you know when the plane takes off."))
                     .multilineTextAlignment(.center)
+                
             }
             
             Spacer()
             
-            Text("\(String(localized: "Until Departure Time")) \(dateFormatter.string(from:dep_time))")
-                .font(.footnote)
-                .foregroundColor(Color(red: 0.49, green: 0.49, blue: 0.49))
+//            Text("\(String(localized: "Until Departure Time")) \(dateFormatter.string(from:dep_time))")
+//                .font(.footnote)
+//                .foregroundColor(Color(red: 0.49, green: 0.49, blue: 0.49))
             
             VStack(spacing: 17) {
                 Divider()
@@ -55,7 +56,8 @@ struct DepartRemainingTimeView: View {
                         .navigationBarBackButtonHidden(true)
                         .environmentObject(educationManager)
                     ) {
-                        Text(timeString(remainingSeconds))
+//                        Text(timeString(remainingSeconds))
+                        Text(String(localized: "Next"))
                             .foregroundColor(Color(red: 0.24, green: 0.24, blue: 0.26).opacity(0.3))
                             .padding(.horizontal, 150)
                             .padding(.vertical, 14)

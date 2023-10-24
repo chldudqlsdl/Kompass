@@ -13,7 +13,7 @@
 "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight." = "より良いアプリ体験のために、飛行機の出発時刻、到着時刻などの情報を取得します。";
 "Please enter the flight code to continue." = "続行するには、フライトコードを入力してください.";
 "Flight Code" = "フライトコード";
-"Enter your flight code" = "フライトコードを入力してください";
+"Enter your flight code" = "入力";
 "Alert" = "警告";
 "Please check the flight code again." = "フライトコードをもう一度確認してください.";
 "Close" = "閉じる";
@@ -48,8 +48,9 @@
 "Next" = "次へ";
 "Quiz" = "クイズ";
 "What is the correct pronunciation of the underlined part?" = "下線の親の正しい発音は？";
-"Congradtulation!" = "おめでとう!!";
+"Congratulation!" = "おめでとう!!";
 "Oops" = "惜しい";
 // HangulEducationTableView.swift
 "Consonants" = "子音";
 "Vowels" = "母音";
+"Consonants1" = "子音1";

@@ -33,12 +33,12 @@ struct FlightInfoSubmitView: View {
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 16)
                 
                 
                 Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
                     .multilineTextAlignment(.center)
-                    .padding(.horizontal, 60)
+                    .padding(.horizontal, 40)
                 
                 Spacer()
                 
@@ -57,11 +57,12 @@ struct FlightInfoSubmitView: View {
                 Text(String(localized: "Flight Code"))
                     
                     TextField(String(localized: "Enter your flight code"), text: $flightCode)
+                        .textCase(.uppercase)
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                     
                 }
-                .padding(.vertical, 15)
+                .padding(.vertical, 8)
                 .padding(.horizontal, 32)
                 
                 VStack(spacing: 17) {

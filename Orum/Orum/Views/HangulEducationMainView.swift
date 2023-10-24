@@ -101,15 +101,16 @@ struct HangulEducationMainView: View {
                     
                     List {
                         Section(header: Text(String(localized: "Hangul"))
-                            .font(.title)
+                            .font(.largeTitle)
                             .bold()
                             .foregroundColor(.primary)
+                            .padding(.bottom, 16)
                         ) {
                             VStack(alignment: .leading,spacing: 15) {
                                 HStack {
                                     Image(systemName: "chevron.up")
                                         .bold()
-                                    Text("Consononats")
+                                    Text(String(localized: "Consonants"))
                                         .bold()
                                 }
                                 .padding(.top, 15)
