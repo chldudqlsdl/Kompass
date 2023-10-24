@@ -15,6 +15,7 @@ struct ConsonantCardContentView: View {
     @Binding var example2Check : Bool
     @Binding var checkCount : Int
     @Binding var flipped: Bool 
+    private let soundManager = SoundManager.instance
     
     var body: some View {
         VStack(alignment: .center, spacing: 40 ){
@@ -114,6 +115,7 @@ struct ConsonantCardContentView: View {
                                 .font(.system(size: 32.0))
                                 .foregroundStyle(.blue)
                                 .onTapGesture {
+                                    soundManager.playSound(sound: hangulUnit.hangulCards[hangulUnit.unitIndex].example1)
                                     if !example1Check {
                                         checkCount += 1
                                     }
@@ -155,6 +157,7 @@ struct ConsonantCardContentView: View {
                                 .font(.system(size: 32.0))
                                 .foregroundStyle(.blue)
                                 .onTapGesture {
+                                    soundManager.playSound(sound: hangulUnit.hangulCards[hangulUnit.unitIndex].example2)
                                     if !example2Check {
                                         checkCount += 1
                                     }
