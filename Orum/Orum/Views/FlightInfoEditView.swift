@@ -20,7 +20,7 @@ struct FlightInfoEditView: View {
                 
                 Text(String(localized: "We've been waiting for you!"))
                     .padding(.top, 140)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 16)
                     .multilineTextAlignment(.center)
                     .font(.largeTitle)
                     .bold()

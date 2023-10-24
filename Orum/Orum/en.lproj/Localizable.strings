@@ -48,8 +48,9 @@
 "Next" = "Next";
 "Quiz" = "Quiz";
 "What is the correct pronunciation of the underlined part?" = "What is the correct pronunciation of the underlined part?";
-"Congradtulation!" = "Congradtulation!";
+"Congratulation!" = "Congratulation!";
 "Oops" = "Oops";
 // HangulEducationTableView.swift
 "Consonants" = "Consonants";
 "Vowels" = "Vowels";
+"Consonants1" = "Consonants1";

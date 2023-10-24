@@ -48,8 +48,9 @@
 "Next" = "다음";
 "Quiz" = "퀴즈";
 "What is the correct pronunciation of the underlined part?" = "밑줄친 부분의 올바른 발음은?";
-"Congradtulation!" = "축하해!";
+"Congratulation!" = "축하해!";
 "Oops" = "아쉬워요...";
 // HangulEducationTableView.swift
 "Consonants" = "자음";
 "Vowels" = "모음";
+"Consonants1" = "자음1";

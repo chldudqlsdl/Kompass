@@ -23,6 +23,7 @@ struct ConsonantChapterView: View {
                             ConsonantChapterContentView(hangulCard: hangulCard)
                         }
                     }
+                    .padding(.top, 16)
                     Spacer()
                     Divider()
                         .padding(.vertical, 10)

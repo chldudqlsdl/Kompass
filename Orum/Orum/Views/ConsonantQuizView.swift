@@ -171,6 +171,7 @@ struct ConsonantQuizView: View {
                 .frame(width: UIScreen.main.bounds.size.width - 30)
             }
             .navigationTitle(String(localized: "Quiz"))
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $isFinishButtonPressed, destination: {
                 HangulEducationTableView()
@@ -227,7 +228,7 @@ struct ConsonantQuizView: View {
         if !isSubmitAnswer {
             return QandA(text: "Q . \(String(localized: "What is the correct pronunciation of the underlined part?"))", color: .blue)
         } else if isSubmitAnswer && clickedOptionIndex == answerIndex {
-            return QandA(text: String(localized: "Congradulation!"), color: .blue)
+            return QandA(text: String(localized: "Congratulation!"), color: .blue)
         } else if isSubmitAnswer && clickedOptionIndex != answerIndex {
             return QandA(text: String(localized: "Oops"), color: .red)
         }

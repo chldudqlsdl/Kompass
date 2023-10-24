@@ -36,18 +36,18 @@ struct ConsonantCardView: View {
                     Divider()
                         .padding(.vertical, 10)
                     HStack{
-                        ZStack{
-                            Image(systemName: "arrow.uturn.backward")
-                                .foregroundStyle(.blue)
-                                .font(.system(size: 32.0))
-                                .padding(10)
-                        }
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
-//                        .shadow(radius: 3)
-                        .onTapGesture {
-                            previousWord()
-                        }
+//                        ZStack{
+//                            Image(systemName: "arrow.uturn.backward")
+//                                .foregroundStyle(.blue)
+//                                .font(.system(size: 32.0))
+//                                .padding(10)
+//                        }
+//                        .background(Color.white)
+//                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
+////                        .shadow(radius: 3)
+//                        .onTapGesture {
+//                            previousWord()
+//                        }
                         Spacer()
                         if checkCount < 3 {
                             ZStack{
