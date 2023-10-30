@@ -66,7 +66,9 @@ struct FlightInfoEditView: View {
                 HStack {
                     Text(String(localized: "From"))
                     
-                    TextField(String(localized: "City"), text: $dep_city)
+                    Spacer()
+                    
+                    Text("\(dep_city)")
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
                 }
@@ -78,10 +80,11 @@ struct FlightInfoEditView: View {
                 HStack {
                     Text(String(localized: "To"))
                     
-                    TextField(String(localized: "City"), text: $arr_city)
+                    Spacer()
+                    
+                    Text("\(arr_city)")
                         .textFieldStyle(.plain)
                         .multilineTextAlignment(.trailing)
-                    
                 }
                 .padding(.horizontal, 32)
                 .padding(.vertical, 11)
@@ -105,7 +108,7 @@ struct FlightInfoEditView: View {
                     Rectangle()
                         .foregroundColor(.clear)
                         .frame(width: 393, height: 129)
-                        .background(Color(red: 0.96, green: 0.96, blue: 0.96)),alignment: .top
+                        .background(Color(uiColor: .secondarySystemBackground)),alignment: .top
                 )
                 
             }

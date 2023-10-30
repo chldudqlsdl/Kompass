@@ -80,7 +80,7 @@ struct DepartRemainingTimeView: View {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 393, height: 129)
-                    .background(Color(red: 0.96, green: 0.96, blue: 0.96)),alignment: .top
+                    .background(Color(uiColor: .secondarySystemBackground)),alignment: .top
             )
         }
         .onAppear {          

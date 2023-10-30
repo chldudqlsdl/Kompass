@@ -16,18 +16,27 @@ struct OrumApp: App {
             case .first:
                 TripDateSettingView()
                     .environmentObject(navigationManager)
+
             case .second:
                 TripRemainingDayView()
                     .environmentObject(navigationManager)
+                    .transition(.slide)
+
             case .third:
                 FlightInfoSubmitView()
                     .environmentObject(navigationManager)
+                    .transition(.slide)
+
             case .fourth:
                 DepartRemainingTimeView()
                     .environmentObject(navigationManager)
+                    .transition(.slide)
+
+
             case .fifth:
                 HangulEducationMainView()
                     .environmentObject(navigationManager)
+                    .transition(.slide)
             }
             
 //            ConsonantCardView(hangulUnit: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [

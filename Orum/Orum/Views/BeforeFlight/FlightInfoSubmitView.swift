@@ -23,56 +23,56 @@ struct FlightInfoSubmitView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-            VStack {
-                Image(systemName: "wallet.pass")
-                    .foregroundColor(.blue)
-                    .font(.system(size: 150))
-                    .padding(.top, 60)
-                
-                Text(String(localized: "We've been waiting for you!"))
-                    .multilineTextAlignment(.center)
-                    .font(.largeTitle)
-                    .bold()
-                    .padding(.bottom, 16)
-                
-                
-                Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 40)
-                
-                Spacer()
-                
-                HStack {
-                    Text(String(localized: "Please enter the flight code to continue."))
-                        .font(.footnote)
+                VStack {
+                    Image(systemName: "wallet.pass")
+                        .foregroundColor(.blue)
+                        .font(.system(size: 150))
+                        .padding(.top, 60)
+                    
+                    Text(String(localized: "We've been waiting for you!"))
+                        .multilineTextAlignment(.center)
+                        .font(.largeTitle)
                         .bold()
-                        .padding(.horizontal, 16)
+                        .padding(.bottom, 16)
+                    
+                    
+                    Text(String(localized: "For a better app experience, we will retrieve information such as the departure time and arrival time of the flight."))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 40)
                     
                     Spacer()
-                }
-                
-                Divider()
-                
-                HStack {
-                Text(String(localized: "Flight Code"))
                     
-                    TextField(String(localized: "Enter your flight code"), text: $flightCode)
-                        .textCase(.uppercase)
-                        .textFieldStyle(.plain)
-                        .multilineTextAlignment(.trailing)
+                    HStack {
+                        Text(String(localized: "Please enter the flight code to continue."))
+                            .font(.footnote)
+                            .bold()
+                            .padding(.horizontal, 16)
+                        
+                        Spacer()
+                    }
                     
-                }
-                .padding(.vertical, 8)
-                .padding(.horizontal, 32)
-                
-                VStack(spacing: 17) {
                     Divider()
                     
+                    HStack {
+                        Text(String(localized: "Flight Code"))
+                        
+                        TextField(String(localized: "Enter your flight code"), text: $flightCode)
+                            .textCase(.uppercase)
+                            .textFieldStyle(.plain)
+                            .multilineTextAlignment(.trailing)
+                        
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 32)
                     
-                    HStack(spacing: 15) {
-                        Button(action: {
+                    VStack(spacing: 17) {
+                        Divider()
+                        
+                        
+                        HStack(spacing: 15) {
+                            Button(action: {
                                 print(flightCode)
-                            isLoading.toggle()
+                                isLoading.toggle()
                                 flightCodeAPIManager.performRequest(flightCode) { response in
                                     if let response = response {
                                         dep_city = response.dep_city
@@ -109,46 +109,33 @@ struct FlightInfoSubmitView: View {
                             .background(Color.accentColor)
                             .cornerRadius(12)
                             .alert(String(localized: "Alert"),isPresented: $alertShowing) {
-                                  Button(String(localized: "Close"), role: .cancel) {}
-                                } message: {
-                                    Text(String(localized: "Please check the flight code again."))
+                                Button(String(localized: "Close"), role: .cancel) {}
+                            } message: {
+                                Text(String(localized: "Please check the flight code again."))
+                            }
+                            .onChange(of: alertShowing) {
+                                if alertShowing {
+                                    isLoading.toggle()
                                 }
-                                .onChange(of: alertShowing) {
-                                    if alertShowing {
-                                        isLoading.toggle()
-                                    }
-                                }
+                            }
                             .shadow(color: .black.opacity(0.15), radius: 8, x: 0, y: 4)
+                        }
+                        .padding(.horizontal, 15)
+                        .padding(.bottom, 24)
                     }
-                    .padding(.horizontal, 15)
-                    .padding(.bottom, 24)
+                    .background(
+                        Rectangle()
+                            .foregroundColor(.clear)
+                            .frame(width: 393, height: 129)
+                            .background(Color(uiColor: .secondarySystemBackground)),alignment: .top
+                    )
                 }
-                .background(
-                    Rectangle()
-                        .foregroundColor(.clear)
-                        .frame(width: 393, height: 129)
-                        .background(Color(red: 0.96, green: 0.96, blue: 0.96)),alignment: .top
-                )
+                .navigationDestination(isPresented: $isFlightInfoEditViewActive) {
+                    FlightInfoEditView().navigationBarBackButtonHidden(true)
+                }
             }
-            .navigationDestination(isPresented: $isFlightInfoEditViewActive) {
-                FlightInfoEditView().navigationBarBackButtonHidden(true)
-            }
-        }
         }
         
-    }
-}
-
-extension String {
-    func toDate() -> Date? { //"yyyy-MM-dd HH:mm"
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.timeZone = TimeZone(identifier: "KST")
-        if let date = dateFormatter.date(from: self) {
-            return date
-        } else {
-            return nil
-        }
     }
 }
 
