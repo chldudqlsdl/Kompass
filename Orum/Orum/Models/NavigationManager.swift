@@ -17,4 +17,5 @@ final class NavigationManager: ObservableObject {
     }
     
     @AppStorage("viewCycle") var viewCycle: ViewCycle = .first
+//    @Published var viewCycle: ViewCycle = .first
 }
