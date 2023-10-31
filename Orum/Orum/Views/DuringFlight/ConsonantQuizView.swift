@@ -22,7 +22,7 @@ struct ConsonantQuizView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                Color(uiColor: UIColor(hex: "F2F2F7")).edgesIgnoringSafeArea(.all)
+                Color(uiColor: .secondarySystemBackground).edgesIgnoringSafeArea(.all)
                 VStack{
                     ZStack{
                         VStack{
@@ -31,7 +31,8 @@ struct ConsonantQuizView: View {
                                 Text("\(hangulUnit.unitIndex + 1)/\(hangulUnit.hangulCards.count)")
                                     .fontWeight(.bold)
                                     .font(.body)
-                                    .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                                    .foregroundColor(Color(uiColor: .systemGray4))
+                                    
                             }
                             ZStack(alignment: .leading){
                                 Text(hangulUnit.hangulCards[hangulUnit.unitIndex].quiz.prefix(1))
@@ -39,26 +40,26 @@ struct ConsonantQuizView: View {
                                     .font(.system(size: 105))
                                     .padding(.bottom, 10)
                                     .foregroundColor(.clear)
-                                    .underline(true, color: .black)
+                                    .underline(true, color: Color(uiColor: .label))
                                     .offset(y: 10)
                                 Text(hangulUnit.hangulCards[hangulUnit.unitIndex].quiz)
                                     .fontWeight(.bold)
                                     .font(.system(size: 105))
+                                    .foregroundColor(Color(uiColor: .label))
                                     .padding(.bottom, 10)
                             }
                             let qandaStatus = fetchQandaStatus()
                             Text(qandaStatus.text)
                                 .fontWeight(.bold)
                                 .font(.body)
-                                .foregroundStyle(qandaStatus.color)
+                                .foregroundColor(qandaStatus.color)
                         }
                         .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10))
                     }
-                    .background(Color.white)
+                    .background(Color(uiColor: .systemBackground))
                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                     ForEach(0..<optionAlphabet.count, id: \.self) { index in
-                        let status = optionStatus(index: index)
-                        let optionColor = fetchOptionColor(status: status)
+                        let optionColor = fetchOptionColor(index: index)
                         ZStack{
                             HStack(spacing: 20){
                                 Circle()
@@ -67,22 +68,22 @@ struct ConsonantQuizView: View {
                                     .overlay {
                                         Circle()
                                             .frame(width: 20, height: 20)
-                                            .foregroundStyle(optionColor.circle)
+                                            .foregroundColor(optionColor.circle)
                                     }
                                 ZStack{
                                     Text("\(String(optionAlphabet[index]))")
                                         .fontWeight(.bold)
                                         .font(.title2)
-                                        .foregroundStyle(optionColor.text)
+                                        .foregroundColor(optionColor.text)
                                     +
                                     Text("a")
                                         .fontWeight(.bold)
                                         .font(.title2)
-                                        .foregroundStyle(optionColor.text)
+                                        .foregroundColor(optionColor.text)
                                 Text("[      ]")
                                     .fontWeight(.bold)
                                     .font(.title2)
-                                    .foregroundStyle(optionColor.bracket)
+                                    .foregroundColor(optionColor.bracket)
                                 }
                                 Spacer()
                             }
@@ -94,7 +95,9 @@ struct ConsonantQuizView: View {
                             .stroke(optionColor.border, lineWidth: 3))
                         .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
                         .onTapGesture {
-                            clickedOptionIndex = index
+                            if !isSubmitAnswer {
+                                clickedOptionIndex = index
+                            }
                         }
                         .onAppear {
                             if String(optionAlphabet[index]) == hangulUnit.hangulCards[hangulUnit.unitIndex].sound {
@@ -113,21 +116,21 @@ struct ConsonantQuizView: View {
                     HStack{
                         ZStack{
                             Image(systemName: "arrow.uturn.backward")
-                                .foregroundStyle(.blue)
+                                .foregroundColor(.blue)
                                 .font(.system(size: 32.0))
                                 .padding(10)
                         }
-                        .background(Color.white)
+                        .background(Color(uiColor: .systemBackground))
                         .clipShape(RoundedRectangle(cornerRadius: 15.0))
-//                        .shadow(radius: 3)
                         .onTapGesture {
                             print()
                         }
                         Spacer()
                         
                         ZStack{
+                            // 버튼 크기 맞추기 위한 코드
                             Image(systemName: "arrow.uturn.backward")
-                                .foregroundStyle(.clear)
+                                .foregroundColor(.clear)
                                 .font(.system(size: 32.0))
                                 .padding(10)
                             HStack{
@@ -135,22 +138,21 @@ struct ConsonantQuizView: View {
                                     Text(String(localized: "Continue"))
                                         .fontWeight(.bold)
                                         .font(.system(size: 20))
-                                        .foregroundStyle(.white)
+                                        .foregroundColor(.white)
                                 } else {
                                     Image(systemName: "arrow.right.circle.fill")
                                         .font(.system(size: 32.0))
-                                        .foregroundStyle(.white)
+                                        .foregroundColor(.white)
                                     Text(String(localized: "Next"))
                                         .fontWeight(.bold)
                                         .font(.system(size: 17))
-                                        .foregroundStyle(.white)
+                                        .foregroundColor(.white)
                                 }
                             }
                             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                         }
                         .background(.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 12.0))
-//                        .shadow(radius: 3)
                         .onTapGesture {
                             if hangulUnit.unitIndex == hangulUnit.hangulCards.count - 1{
                                 isFinishButtonPressed.toggle()
@@ -158,7 +160,6 @@ struct ConsonantQuizView: View {
                                 isSubmitAnswer = false
                             }
                             if isSubmitAnswer {
-                                print("if 문 진입")
                                 nextQuiz()
                                 optionAlphabet = quizAlgorithm()
                             } else{
@@ -180,10 +181,8 @@ struct ConsonantQuizView: View {
             })
             .onAppear {
                 if hangulUnit.unitIndex != hangulUnit.hangulCards.count {
-                    print("###179")
                     optionAlphabet = quizAlgorithm()
                 }
-                print("###181")
             }
         }
     }
@@ -195,33 +194,17 @@ struct ConsonantQuizView: View {
         return optionAlphabet.shuffled()
     }
     
-    func optionStatus(index: Int) -> Int {
+    func fetchOptionColor(index: Int) -> OptionColor {
         if index != clickedOptionIndex && !isSubmitAnswer {
-            return 1
+            return OptionColor(circle: .clear, text: Color(uiColor: .label), bracket: Color(uiColor: .label).opacity(0.4), background: Color(uiColor: .systemBackground), border: .clear)
         } else if index == clickedOptionIndex && !isSubmitAnswer {
-            return 2
+            return OptionColor(circle: .blue, text: .blue, bracket: .blue.opacity(0.4), background: Color(uiColor: .systemBackground), border: .blue)
         } else if index != answerIndex && isSubmitAnswer && index == clickedOptionIndex {
-            return 3
+            return OptionColor(circle: .red, text: .red, bracket: .red.opacity(0.4), background: Color(uiColor: .systemBackground), border: .red)
         } else if index == answerIndex && isSubmitAnswer {
-            return 4
+            return OptionColor(circle: .white, text: .white, bracket: .white.opacity(0.4), background: .blue, border: .clear)
         }
-        return 1
-    }
-    
-    func fetchOptionColor(status: Int) -> OptionColor {
-        switch status {
-        case 1 :
-            return OptionColor(circle: .clear, text: .black, bracket: .gray, background: .white, border: .clear)
-        case 2 :
-            return OptionColor(circle: .blue, text: .blue, bracket: .blue, background: .white, border: .blue)
-        case 3 :
-            return OptionColor(circle: .red, text: .red, bracket: .red, background: .white, border: .red)
-        case 4 :
-            return OptionColor(circle: .white, text: .white, bracket: .white, background: .blue, border: .clear)
-        default:
-            return OptionColor(circle: .clear, text: .black, bracket: .gray, background: .white, border: .clear)
-        }
-        
+        return OptionColor(circle: .clear, text: Color(uiColor: .label), bracket: Color(uiColor: .label).opacity(0.4), background: Color(uiColor: .systemBackground), border: .clear)
     }
     
     func fetchQandaStatus() -> QandA {
