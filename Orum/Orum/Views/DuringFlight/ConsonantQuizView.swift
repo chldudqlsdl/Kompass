@@ -156,7 +156,7 @@ struct ConsonantQuizView: View {
                         .onTapGesture {
                             if hangulUnit.unitIndex == hangulUnit.hangulCards.count - 1{
                                 isFinishButtonPressed.toggle()
-                                educationManager.unit = .Consonants2
+//                                educationManager.unit = .Consonants2
                                 isSubmitAnswer = false
                             }
                             if isSubmitAnswer {
@@ -175,7 +175,7 @@ struct ConsonantQuizView: View {
             .navigationBarTitleDisplayMode(.large)
             .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $isFinishButtonPressed, destination: {
-                HangulEducationTableView()
+                FlightMainView()
                     .navigationBarBackButtonHidden()
                     .environmentObject(educationManager)
             })

@@ -13,7 +13,7 @@ final class NavigationManager: ObservableObject {
         case second // 여행 일자 입력 후 && 여행 일자 이전
         case third // 여행 일자 당일 이후 && 운항 정보 입력 이전
         case fourth // 운항 정보 입력 이후
-        case fifth // 한글 교육 메인 화면
+//        case fifth // 한글 교육 메인 화면
     }
     
     @AppStorage("viewCycle") var viewCycle: ViewCycle = .first

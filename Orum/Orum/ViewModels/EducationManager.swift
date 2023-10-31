@@ -1,8 +1,8 @@
 //
-//  FlightManager.swift
+//  EducationManager.swift
 //  Orum
 //
-//  Created by 차차 on 10/31/23.
+//  Created by 차차 on 10/22/23.
 //
 
 import Foundation
@@ -11,10 +11,13 @@ enum Chapters {
     case consonant1, consonant2, consonant3
 }
 
-class FlightManager: ObservableObject {
+class EducationManager: ObservableObject {
+    @Published var educationProgress: Int
     @Published var chapter: Chapters
     @Published var content: HangulUnit
+    
     init() {
+        educationProgress = 0
         chapter = .consonant1
         content = HangulUnit(unitName: "", unitIndex: 1, hangulCards: [])
     }

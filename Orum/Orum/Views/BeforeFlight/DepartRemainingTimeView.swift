@@ -52,7 +52,7 @@ struct DepartRemainingTimeView: View {
                 Divider()
 
                 HStack {
-                    NavigationLink(destination: HangulEducationMainView()
+                    NavigationLink(destination: FlightMainView()
                         .navigationBarBackButtonHidden(true)
                         .environmentObject(educationManager)
                     ) {

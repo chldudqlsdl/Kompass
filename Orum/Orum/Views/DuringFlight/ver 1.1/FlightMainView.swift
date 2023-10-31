@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct FlightMainView: View {
-    @StateObject var flightManager: FlightManager = FlightManager()
+    @StateObject var educationManager: EducationManager = EducationManager()
     
     var body: some View {
         TabView {
             LearnView()
-                .environmentObject(flightManager)
+                .environmentObject(educationManager)
                 .tabItem {
                     Image(systemName: "book.fill")
                     Text("Learn")
                 }
             
             GameView()
-                .environmentObject(flightManager)
+                .environmentObject(educationManager)
                 .tabItem {
                     Image(systemName: "gamecontroller")
                     Text("Game")
                 }
             
             SearchView()
-                .environmentObject(flightManager)
+                .environmentObject(educationManager)
                 .tabItem {
                     Image(systemName: "list.bullet.rectangle.portrait")
                     Text("Search")
