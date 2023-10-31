@@ -16,6 +16,7 @@ struct OrumApp: App {
             case .first:
                 TripDateSettingView()
                     .environmentObject(navigationManager)
+                    .transition(.slide)
 
             case .second:
                 TripRemainingDayView()

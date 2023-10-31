@@ -11,9 +11,8 @@ struct HangulEducationView: View {
     
     @Binding var isPresented: Bool
     @State var content: HangulUnit
-    @State var nextpage: Bool = false
-    @State var flipCheck : Bool = false
-    @State var flipped: Bool = false
+    @State var isOnceFlipped : Bool = false
+    @State var isFlipped: Bool = false
     
     var body: some View {
         NavigationView {
@@ -27,15 +26,15 @@ struct HangulEducationView: View {
                     
                     Divider()
                     
-                    HangulEducationLearningView(content: $content, flipCheck: $flipCheck, flipped: $flipped)
+                    HangulEducationLearningView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped)
                         .padding(16)
                     
                     Spacer()
                     VStack{
                         Button(action: {
                             content.unitIndex += 1
-                            flipCheck = false
-                            flipped = false
+                            isOnceFlipped = false
+                            isFlipped = false
                         }){
                             HStack{
                                 Spacer()
@@ -45,7 +44,7 @@ struct HangulEducationView: View {
                             .padding(.vertical, 5)
                         }
                         .buttonStyle(.borderedProminent)
-                        .disabled(!flipCheck ? true : false)
+                        .disabled(!isOnceFlipped ? true : false)
                         
                     }
                     .padding(16)
