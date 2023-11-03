@@ -54,7 +54,7 @@ struct LearnView: View {
             Spacer()
         }
         .fullScreenCover(isPresented: $isPresented, content: {
-            HangulEducationView(isPresented: $isPresented, content: educationManager.content)
+            HangulEducationView(isPresented: $isPresented, content: educationManager.content, quizContent: educationManager.content)
         })
         
     }

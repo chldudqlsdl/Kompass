@@ -228,13 +228,13 @@ struct ConsonantQuizView: View {
     }
 }
 
-struct OptionColor {
-    let circle : Color
-    let text : Color
-    let bracket : Color
-    let background : Color
-    let border : Color
-}
+//struct OptionColor {
+//    let circle : Color
+//    let text : Color
+//    let bracket : Color
+//    let background : Color
+//    let border : Color
+//}
 
 struct QandA {
     let text : String

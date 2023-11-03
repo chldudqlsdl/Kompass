@@ -10,5 +10,5 @@ import Foundation
 struct HangulUnit {
     let unitName : String
     var unitIndex : Int
-    let hangulCards : [HangulCard]
+    var hangulCards : [HangulCard]
 }
