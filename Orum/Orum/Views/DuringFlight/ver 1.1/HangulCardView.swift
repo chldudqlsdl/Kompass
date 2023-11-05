@@ -12,6 +12,7 @@ struct HangulCardView: View {
     @Binding var content : HangulUnit
     @Binding var isOnceFlipped : Bool
     @Binding var isFlipped: Bool
+    @State var lottieView : LottieView
     
     var body: some View {
         ZStack{
@@ -27,7 +28,7 @@ struct HangulCardView: View {
                         Text("[   ]")
                             .fontWeight(.bold)
                             .font(.largeTitle)
-                            .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                            .foregroundColor(Color(uiColor: .systemGray4))
                     }
                 } else {
                     LottieView(fileName: content.hangulCards[content.unitIndex].name)
@@ -37,7 +38,7 @@ struct HangulCardView: View {
                         Text("[")
                             .fontWeight(.bold)
                             .font(.largeTitle)
-                            .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                            .foregroundColor(Color(uiColor: .systemGray4))
                         +
                         Text(content.hangulCards[content.unitIndex].lottieName)
                             .fontWeight(.bold)
@@ -46,42 +47,19 @@ struct HangulCardView: View {
                         Text("]")
                             .fontWeight(.bold)
                             .font(.largeTitle)
-                            .foregroundStyle(Color(UIColor(hex: "D1D1D6")))
+                            .foregroundColor(Color(uiColor: .systemGray4))
                     }
                     .scaleEffect(x: -1, y: 1)
                 }
-//                Divider()
-//                Image(systemName: "lightbulb.circle.fill")
-//                    .font(.system(size: 32.0))
-//                    .foregroundStyle(.blue)
-//                    .padding(10)
-//                    .onTapGesture {
-//                        if !flipCheck {
-//                            checkCount += 1
-//                        }
-//                        flipped.toggle()
-//                        flipCheck = true
-//                    }
-//                    .overlay {
-//                        Circle()
-//                            .frame(width: 4)
-//                            .offset(y: 20)
-//                            .foregroundStyle( flipCheck ? .blue : .clear )
-//                    }
             }
             .padding(EdgeInsets(top: 50, leading: 30, bottom: 40, trailing: 30))
         }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 10.0))
-        .overlay(RoundedRectangle(cornerRadius: 10)
+        .overlay(RoundedRectangle(cornerRadius: 24)
             .stroke(isOnceFlipped ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
         .rotation3DEffect(isFlipped ? Angle(degrees: 180) : .zero,
                           axis: (x: 0.0, y: 1.0, z: 0.0))
-        .animation(.default, value: isFlipped)
+        .animation(.easeInOut(duration: 0.5), value: isFlipped)
         .onTapGesture {
-//            if !flipCheck {
-//                checkCount += 1
-//            }
             isFlipped.toggle()
             isOnceFlipped = true
         }
@@ -89,10 +67,5 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
-        HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
-        HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
-        HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),
-        HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")
-    ])), isOnceFlipped: .constant(false), isFlipped: .constant(false))
+    HangulCardView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"))
 }

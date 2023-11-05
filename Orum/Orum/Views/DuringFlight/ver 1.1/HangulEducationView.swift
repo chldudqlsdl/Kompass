@@ -10,42 +10,111 @@ import SwiftUI
 struct HangulEducationView: View {
     
     @Binding var isPresented: Bool
+    @State var currentEducation: CurrentEducation = .learning
     @State var content: HangulUnit
+    @State var quizContent: HangulUnit
+    @State var progressValue : Int = 0
     @State var isOnceFlipped : Bool = false
     @State var isFlipped: Bool = false
+    
+    @State var isOptionSelected : Bool = false
+    @State var isOptionSubmitted : Bool = false
+    @State var isOptionWrong : Bool =  false
+    @State var quizButtonText : String = "Check"
     
     var body: some View {
         NavigationView {
             ZStack {
                 VStack(spacing: 0){
                     VStack{
-                        ProgressView(value: 0.2)
+                        ProgressView(value: Double(progressValue) / Double(content.hangulCards.count * 3 - 1))
                             
                     }
                     .padding(16)
                     
                     Divider()
                     
-                    HangulEducationLearningView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped)
-                        .padding(16)
+                    switch currentEducation {
+                    case .learning:
+                        HangulEducationLearningView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped)
+                            .padding(16)
+                            .transition(.opacity)
+                    case .quiz:
+                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong)
+                            .padding(16)
+                    case .recap:
+                        HangulEducationRecapView()
+                            .padding(16)
+                    }
                     
                     Spacer()
                     VStack{
-                        Button(action: {
-                            content.unitIndex += 1
-                            isOnceFlipped = false
-                            isFlipped = false
-                        }){
-                            HStack{
-                                Spacer()
-                                Text("Got it!")
-                                Spacer()
+                        switch currentEducation {
+                        case .learning:
+                            Button(action: {
+                                if  content.unitIndex < content.hangulCards.count - 1 {
+                                        content.unitIndex += 1
+                                    progressValue += 1
+                                } else {
+                                    withAnimation(.easeIn(duration: 1)) {
+                                        content.unitIndex = 0
+                                        progressValue += 1
+                                        currentEducation = .quiz
+                                    }
+                                }
+                                isOnceFlipped = false
+                                isFlipped = false
+                            }){
+                                HStack{
+                                    Spacer()
+                                    Text("Got it!")
+                                    Spacer()
+                                }
+                                .padding(.vertical, 5)
                             }
-                            .padding(.vertical, 5)
+                            .buttonStyle(.borderedProminent)
+                            .disabled(!isOnceFlipped)
+                        case .quiz:
+                            Button(action: {
+                                if quizButtonText == "Check" {
+                                    isOptionSubmitted = true
+                                    quizButtonText = "Got it"
+                                    return
+                                }
+                                if  quizContent.unitIndex < quizContent.hangulCards.count - 1 {
+                                    if isOptionWrong {
+                                        quizContent.hangulCards.append(quizContent.hangulCards[quizContent.unitIndex])
+                                    } else {
+                                        progressValue += 1
+                                    }
+                                    quizContent.unitIndex += 1
+                                    quizButtonText = "Check"
+                                    isOptionSelected = false
+                                    isOptionSubmitted = false
+                                    isOptionWrong = false
+                                }
+                                else {
+                                    withAnimation(.easeIn(duration: 1)) {
+                                        currentEducation = .recap
+                                        progressValue += 1
+                                    }
+                                }
+                            }){
+                                HStack{
+                                    Spacer()
+                                    Text(quizButtonText)
+                                    Spacer()
+                                }
+                                .padding(.vertical, 5)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(!isOptionWrong ? .blue : .red)
+                            .disabled(!isOptionSelected)
+                        case .recap:
+                            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                                /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                            })
                         }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(!isOnceFlipped ? true : false)
-                        
                     }
                     .padding(16)
                     
@@ -63,11 +132,12 @@ struct HangulEducationView: View {
     }
 }
 
+enum CurrentEducation {
+    case learning
+    case quiz
+    case recap
+}
+
 #Preview {
-    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: [
-        HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
-        HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
-        HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),
-        HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")
-    ]))
+    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview))
 }
