@@ -9,6 +9,6 @@ import Foundation
 
 struct HangulUnit {
     let unitName : String
-    let unitIndex : Int
-    let hangulCards : [HangulCard]
+    var unitIndex : Int
+    var hangulCards : [HangulCard]
 }
