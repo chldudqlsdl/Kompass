@@ -15,22 +15,20 @@ struct FlightMainView: View {
             LearnView()
                 .environmentObject(educationManager)
                 .tabItem {
-                    Image(systemName: "book.fill")
-                    Text("Learn")
+                        Label("Learn", systemImage: "book.fill")
                 }
             
             GameView()
                 .environmentObject(educationManager)
                 .tabItem {
-                    Image(systemName: "gamecontroller")
-                    Text("Game")
+                        Label("Game", systemImage: "gamecontroller")
                 }
+
             
             SearchView()
                 .environmentObject(educationManager)
                 .tabItem {
-                    Image(systemName: "list.bullet.rectangle.portrait")
-                    Text("Search")
+                        Label("Search", systemImage: "list.bullet.rectangle.portrait")
                 }
         }
     }
