@@ -34,9 +34,6 @@ struct LearnView: View {
                     .environmentObject(educationManager)
             })
         }
-        .onAppear {
-            print("appear")
-        }
     }
 }
 

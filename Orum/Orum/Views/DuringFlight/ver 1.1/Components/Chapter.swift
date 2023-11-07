@@ -153,9 +153,6 @@ struct Chapter: View {
             }
         }
         .disabled(isButtonLocked)
-        .onAppear{
-            print("chapter appear")
-        }
     }
 }
 

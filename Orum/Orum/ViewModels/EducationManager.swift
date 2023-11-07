@@ -19,8 +19,8 @@ class EducationManager: ObservableObject {
     ]
     @AppStorage("chapterState") var chapterState: [String:String] = [
         Constants.Chapter.system : "complete",
-        Constants.Chapter.consonant1 : "currentSession",
-        Constants.Chapter.consonant2 : "locked", // 현재 가장 최신의 진도
+        Constants.Chapter.consonant1 : "currentSession", // 현재 가장 최신의 진도
+        Constants.Chapter.consonant2 : "locked",
         Constants.Chapter.consonant3 : "locked",
         Constants.Chapter.consonant4 : "locked",
         Constants.Chapter.consonant5 : "locked",
@@ -70,7 +70,6 @@ class EducationManager: ObservableObject {
     }
     
     func endChapter() {
-        print(completedDates[nowStudying])
         if completedDates[nowStudying] == nil { // 처음으로 공부를 완료한 단원이라면
             let completedDate = Date()
             let dateFormatter = DateFormatter()

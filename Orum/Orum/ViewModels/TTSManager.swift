@@ -17,7 +17,8 @@ class TTSManager {
     internal func play(_ string: String) {
         let utterance = AVSpeechUtterance(string: string)
         utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
-        utterance.rate = 0.4
+        utterance.rate = 0.1
+        utterance.pitchMultiplier = 0.5
         synthesizer.stopSpeaking(at: .immediate)
         synthesizer.speak(utterance)
     }
