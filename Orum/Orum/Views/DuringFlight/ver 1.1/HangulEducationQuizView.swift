@@ -18,105 +18,121 @@ struct HangulEducationQuizView: View {
     @State var answerIndex : Int = 5
     @State var isFinishButtonPressed: Bool = false
     @State var optionAlphabet : [Character] = []
+    @Namespace var bottomID
     
     var body: some View {
-        VStack(spacing: 74){
-            HStack{
-                Text("Select appropriate pronunciation of underlined letter")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                Spacer()
-            }
-            VStack(spacing: 16) {
-                HStack{
-                    Spacer()
-                    ZStack(alignment: .leading){
-                        Text(content.hangulCards[content.unitIndex].quiz.prefix(1))
+        ScrollViewReader{ proxy in
+            ScrollView{
+                VStack(spacing: 74){
+                    HStack {
+                        Text("Select appropriate pronunciation of underlined letter")
+                            .font(.title2)
                             .fontWeight(.bold)
-                            .font(.largeTitle)
-                            .padding(.bottom, 10)
-                            .foregroundColor(.clear)
-                            .underline(true, color: Color(uiColor: .label))
-                            .offset(y: 8)
-                        Text(content.hangulCards[content.unitIndex].quiz)
-                            .fontWeight(.bold)
-                            .font(.largeTitle)
-                            .foregroundColor(Color(uiColor: .label))
                     }
-                    Spacer()
-                }
-                .padding(.vertical, 20)
-                .overlay(RoundedRectangle(cornerRadius: 24)
-                    .stroke(Color(uiColor: .systemGray4) , lineWidth: 8))
-                VStack{
-                    ForEach(0..<optionAlphabet.count, id: \.self) { index in
-                        
-                        let optionColor = fetchOptionColor(index: index)
-                        ZStack{
-                            HStack(spacing: 20){
-                                Circle()
-                                    .strokeBorder(.blue, lineWidth: 3)
-                                    .frame(width: 20, height: 20)
-                                    .overlay {
-                                        Circle()
-                                            .frame(width: 20, height: 20)
-                                            .foregroundColor(optionColor.circle)
-                                    }
-                                ZStack{
-                                    Text("\(String(optionAlphabet[index]))")
-                                        .fontWeight(.bold)
-                                        .font(.title2)
-                                        .foregroundColor(optionColor.text)
-                                    +
-                                    Text("a")
-                                        .fontWeight(.bold)
-                                        .font(.title2)
-                                        .foregroundColor(optionColor.bracket)
-                                Text("[      ]")
+                    VStack(spacing: 16) {
+                        HStack{
+                            Spacer()
+                            ZStack(alignment: .leading){
+                                Text(content.hangulCards[content.unitIndex].quiz.prefix(1))
                                     .fontWeight(.bold)
-                                    .font(.title2)
-                                    .foregroundColor(optionColor.bracket)
+                                    .font(.largeTitle)
+                                    .padding(.bottom, 10)
+                                    .foregroundColor(.clear)
+                                    .underline(true, color: Color(uiColor: .label))
+                                    .offset(y: 8)
+                                Text(content.hangulCards[content.unitIndex].quiz)
+                                    .fontWeight(.bold)
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color(uiColor: .label))
+                            }
+                            Spacer()
+                        }
+                        .padding(.vertical, 20)
+                        .overlay(RoundedRectangle(cornerRadius: 24)
+                            .stroke(Color(uiColor: .systemGray4) , lineWidth: 8))
+                        VStack{
+                            ForEach(0..<optionAlphabet.count, id: \.self) { index in
+                                
+                                let optionColor = fetchOptionColor(index: index)
+                                ZStack{
+                                    HStack(spacing: 20){
+                                        Circle()
+                                            .strokeBorder(.blue, lineWidth: 3)
+                                            .frame(width: 20, height: 20)
+                                            .overlay {
+                                                Circle()
+                                                    .frame(width: 20, height: 20)
+                                                    .foregroundColor(optionColor.circle)
+                                            }
+                                        ZStack{
+                                            Text("\(String(optionAlphabet[index]))")
+                                                .fontWeight(.bold)
+                                                .font(.title2)
+                                                .foregroundColor(optionColor.text)
+                                            +
+                                            Text("a")
+                                                .fontWeight(.bold)
+                                                .font(.title2)
+                                                .foregroundColor(optionColor.bracket)
+                                            Text("[      ]")
+                                                .fontWeight(.bold)
+                                                .font(.title2)
+                                                .foregroundColor(optionColor.bracket)
+                                        }
+                                        Spacer()
+                                    }
+                                    .padding()
                                 }
-                                Spacer()
+                                .overlay(RoundedRectangle(cornerRadius: 15.0)
+                                    .stroke(optionColor.border, lineWidth: 4))
+                                .onTapGesture {
+                                    if !isOptionSubmitted {
+                                        selectedOptionIndex = index
+                                        isOptionSelected = true
+                                    }
+                                    if String(optionAlphabet[index]) == content.hangulCards[content.unitIndex].sound {
+                                        answerIndex = index
+                                    }
+                                    
+                                }
+                                .onAppear {
+                                    if String(optionAlphabet[index]) == content.hangulCards[content.unitIndex].sound {
+                                        answerIndex = index
+                                    }
+                                }
+                                .onChange(of: isOptionSubmitted) { _ in
+                                    if answerIndex != selectedOptionIndex && isOptionSubmitted {
+                                        isOptionWrong = true
+                                    }
+                                    
+                                }
                             }
-                            .padding()
                         }
-                        .overlay(RoundedRectangle(cornerRadius: 15.0)
-                            .stroke(optionColor.border, lineWidth: 4))
-                        .onTapGesture {
-                            if !isOptionSubmitted {
-                                selectedOptionIndex = index
-                                isOptionSelected = true
-                            }
-                           
-                        }
-                        .onAppear {
-                            if String(optionAlphabet[index]) == content.hangulCards[content.unitIndex].sound {
-                                answerIndex = index
-                            }
-                        }
-                        .onChange(of: isOptionSubmitted) { _ in
-                            if answerIndex != selectedOptionIndex && isOptionSubmitted {
-                                isOptionWrong = true
-                            }
-                            if String(optionAlphabet[index]) == content.hangulCards[content.unitIndex].sound {
-                                answerIndex = index
-                            }
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.clear)
+                            .id(bottomID)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                }
+                .onAppear{
+                    optionAlphabet = makeQuizs()
+                }
+                .onChange(of: content.unitIndex) {
+                    selectedOptionIndex = 5
+                    answerIndex = 5
+                    isFinishButtonPressed = false
+                    optionAlphabet = makeQuizs()
+                }
+                .onChange(of: isOptionSubmitted) { _ in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        withAnimation(.easeOut(duration: 0.3)) {
+                            proxy.scrollTo(bottomID)
                         }
                     }
                 }
             }
-            .padding(.horizontal, 20)
-            
-        }
-        .onAppear{
-            optionAlphabet = makeQuizs()
-        }
-        .onChange(of: content.unitIndex) {
-            selectedOptionIndex = 5
-            answerIndex = 5
-            isFinishButtonPressed = false
-            optionAlphabet = makeQuizs()
         }
     }
     
