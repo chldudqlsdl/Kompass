@@ -36,6 +36,7 @@
 		D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
 		D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */; };
+		D90B0DFC2AF8697000401C87 /* HangulEducationOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B0DFB2AF8697000401C87 /* HangulEducationOnboardingView.swift */; };
 		D927C6C32AE5A10C000CB0C4 /* ConsonantQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */; };
 		D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */; };
 		D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */; };
@@ -100,6 +101,7 @@
 		D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
 		D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationRecapView.swift; sourceTree = "<group>"; };
+		D90B0DFB2AF8697000401C87 /* HangulEducationOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationOnboardingView.swift; sourceTree = "<group>"; };
 		D927C6C22AE5A10C000CB0C4 /* ConsonantQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantQuizView.swift; sourceTree = "<group>"; };
 		D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoEditView.swift; sourceTree = "<group>"; };
 		D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIManager.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				937620382AF0808700DE2C50 /* GameView.swift */,
 				9376203A2AF0808F00DE2C50 /* SearchView.swift */,
 				9376203C2AF080B500DE2C50 /* HangulEducationView.swift */,
+				D90B0DFB2AF8697000401C87 /* HangulEducationOnboardingView.swift */,
 				D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */,
 				D9037D082AF0D2B70098DB57 /* HangulCardView.swift */,
 				D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */,
@@ -435,6 +438,7 @@
 				93419DD62AF0AD8800DCB322 /* SearchResult.swift in Sources */,
 				93576C302AEF5E9100CCB3B3 /* Extension+ToDate.swift in Sources */,
 				D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */,
+				D90B0DFC2AF8697000401C87 /* HangulEducationOnboardingView.swift in Sources */,
 				933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */,
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
 				D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */,
@@ -591,7 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -632,7 +636,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
