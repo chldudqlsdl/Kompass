@@ -13,7 +13,7 @@ struct HangulEducationView: View {
     
     @EnvironmentObject var educationManager: EducationManager
 
-    @State var currentEducation: CurrentEducation = .learning
+    @State var currentEducation: CurrentEducation = .onboarding
     @State var content: HangulUnit
     @State var quizContent: HangulUnit
     @State var progressValue : Int = 0
@@ -35,7 +35,7 @@ struct HangulEducationView: View {
             ZStack {
                 VStack(spacing: 0){
                     VStack{
-                        ProgressView(value: Double(progressValue) / Double(content.hangulCards.count * 3))
+                        ProgressView(value: Double(progressValue) / Double(content.hangulCards.count * 2 + 2))
                     }
                     .padding(16)
                     
@@ -136,6 +136,7 @@ struct HangulEducationView: View {
                                             index += 1
                                             progressValue += 1
                                         } else {
+                                            isOnceFlipped = false
                                             index = 0
                                             
                                             withAnimation(.easeIn(duration: 1)) {
@@ -190,7 +191,7 @@ struct HangulEducationView: View {
                                                     .fontWeight(.bold)
                                                     .foregroundColor(isOptionWrong ? .red : .blue)
                                             }
-                                            Text( isOptionWrong ? "ㄱ has a similar shape and [g] sound of gun." : "감사합니다[gamsahabnida] means “Thank you” in Korean.")
+                                            Text( isOptionWrong ? "\(content.hangulCards[index].name ) has a similar shape and [\(content.hangulCards[index].sound)] sound of \(content.hangulCards[index].lottieName)." : "감사합니다[gamsahabnida] means “Thank you” in Korean.")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(isOptionWrong ? .red : .blue)
                                         }
