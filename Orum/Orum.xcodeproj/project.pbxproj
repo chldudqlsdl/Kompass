@@ -10,17 +10,25 @@
 		930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F26C82ADD0D8B00896A32 /* OrumApp.swift */; };
 		930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26CC2ADD0D8C00896A32 /* Assets.xcassets */; };
 		930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */; };
+		93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
+		93194FD52AF8B8D8002C1BE4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD42AF8B8D8002C1BE4 /* Chapter.swift */; };
+		93194FD82AF8B910002C1BE4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD72AF8B910002C1BE4 /* Category.swift */; };
+		93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */; };
+		9336E1FD2AF78B4A000B9E76 /* FlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E1FB2AF78B4A000B9E76 /* FlightManager.swift */; };
+		9336E1FE2AF78B4A000B9E76 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E1FC2AF78B4A000B9E76 /* NavigationManager.swift */; };
+		9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */; };
+		9336E2082AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2072AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift */; };
+		9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2092AF7B505000B9E76 /* Constants.swift */; };
+		9336E20E2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E20D2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift */; };
 		933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E492ADD1A53002AE727 /* Date+RawValue.swift */; };
 		933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */; };
 		933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */; };
 		933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */; };
 		933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */; };
 		93419DCE2AF0AA7100DCB322 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93419DCD2AF0AA7100DCB322 /* SearchResultView.swift */; };
-		93419DD02AF0AB0900DCB322 /* FlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93419DCF2AF0AB0900DCB322 /* FlightManager.swift */; };
 		93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93419DD12AF0AB1600DCB322 /* EducationManager.swift */; };
-		93419DD42AF0AB1600DCB322 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93419DD22AF0AB1600DCB322 /* NavigationManager.swift */; };
 		93419DD62AF0AD8800DCB322 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93419DD52AF0AD8800DCB322 /* SearchResult.swift */; };
-		93576C302AEF5E9100CCB3B3 /* Extension+ToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93576C2F2AEF5E9100CCB3B3 /* Extension+ToDate.swift */; };
+		93576C302AEF5E9100CCB3B3 /* String+TransformStringToDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93576C2F2AEF5E9100CCB3B3 /* String+TransformStringToDate.swift */; };
 		937620342AF0805A00DE2C50 /* FlightMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937620332AF0805A00DE2C50 /* FlightMainView.swift */; };
 		937620372AF0807F00DE2C50 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937620362AF0807F00DE2C50 /* LearnView.swift */; };
 		937620392AF0808700DE2C50 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937620382AF0808700DE2C50 /* GameView.swift */; };
@@ -29,9 +37,6 @@
 		93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F58B622AE623570022B59B /* HangulEducationTableView.swift */; };
 		93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */; };
 		93FED9482AE4F64F0004A0F5 /* HangulEducationMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */; };
-		D9037CDF2AF093360098DB57 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CDE2AF093360098DB57 /* NavigationManager.swift */; };
-		D9037CE12AF093540098DB57 /* FlightManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE02AF093540098DB57 /* FlightManager.swift */; };
-		D9037CE52AF093780098DB57 /* EducationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE42AF093780098DB57 /* EducationManager.swift */; };
 		D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */; };
 		D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
@@ -51,7 +56,7 @@
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
 		D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C82AE40F4E008B3379 /* TTSManager.swift */; };
 		D96BAC682AE6C35600613540 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D96BAC672AE6C35600613540 /* Lottie */; };
-		D96BAC6A2AE6C37800613540 /* LottieVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BAC692AE6C37800613540 /* LottieVIew.swift */; };
+		D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BAC692AE6C37800613540 /* LottieView.swift */; };
 		D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */ = {isa = PBXBuildFile; fileRef = D96BAC6C2AE6C46600613540 /* ㄱ.json */; };
 		D96D943F2AE777E50077F2C1 /* 나.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D94372AE777E50077F2C1 /* 나.mp3 */; };
 		D96D94402AE777E50077F2C1 /* 구.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D94382AE777E50077F2C1 /* 구.mp3 */; };
@@ -74,17 +79,25 @@
 		930F26CC2ADD0D8C00896A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		930F26CE2ADD0D8C00896A32 /* Orum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orum.entitlements; sourceTree = "<group>"; };
 		930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
+		93194FD42AF8B8D8002C1BE4 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
+		93194FD72AF8B910002C1BE4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+RawValue.swift"; sourceTree = "<group>"; };
+		9336E1FB2AF78B4A000B9E76 /* FlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightManager.swift; sourceTree = "<group>"; };
+		9336E1FC2AF78B4A000B9E76 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitEnum.swift; sourceTree = "<group>"; };
+		9336E2072AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TranslateHangulToEnglish.swift"; sourceTree = "<group>"; };
+		9336E2092AF7B505000B9E76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9336E20D2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array<String>+ConcatArray.swift"; sourceTree = "<group>"; };
 		933A8E492ADD1A53002AE727 /* Date+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+RawValue.swift"; sourceTree = "<group>"; };
 		933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+CompareDays.swift"; sourceTree = "<group>"; };
 		933A8E4D2ADD1AB2002AE727 /* TripDateSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDateSettingView.swift; sourceTree = "<group>"; };
 		933A8E4F2ADD1AF6002AE727 /* TripRemainingDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripRemainingDayView.swift; sourceTree = "<group>"; };
 		933A8E512ADD1B2E002AE727 /* FlightInfoSubmitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoSubmitView.swift; sourceTree = "<group>"; };
 		93419DCD2AF0AA7100DCB322 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
-		93419DCF2AF0AB0900DCB322 /* FlightManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightManager.swift; sourceTree = "<group>"; };
 		93419DD12AF0AB1600DCB322 /* EducationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationManager.swift; sourceTree = "<group>"; };
-		93419DD22AF0AB1600DCB322 /* NavigationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		93419DD52AF0AD8800DCB322 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		93576C2F2AEF5E9100CCB3B3 /* Extension+ToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ToDate.swift"; sourceTree = "<group>"; };
+		93576C2F2AEF5E9100CCB3B3 /* String+TransformStringToDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TransformStringToDate.swift"; sourceTree = "<group>"; };
 		937620332AF0805A00DE2C50 /* FlightMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightMainView.swift; sourceTree = "<group>"; };
 		937620362AF0807F00DE2C50 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		937620382AF0808700DE2C50 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -94,9 +107,6 @@
 		93F58B622AE623570022B59B /* HangulEducationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationTableView.swift; sourceTree = "<group>"; };
 		93F68C7B2AE04B6600B96F5C /* DepartRemainingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartRemainingTimeView.swift; sourceTree = "<group>"; };
 		93FED9472AE4F64F0004A0F5 /* HangulEducationMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationMainView.swift; sourceTree = "<group>"; };
-		D9037CDE2AF093360098DB57 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
-		D9037CE02AF093540098DB57 /* FlightManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightManager.swift; sourceTree = "<group>"; };
-		D9037CE42AF093780098DB57 /* EducationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationManager.swift; sourceTree = "<group>"; };
 		D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationLearningView.swift; sourceTree = "<group>"; };
 		D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
@@ -115,7 +125,7 @@
 		D967D1C42AE2BE81008B3379 /* ConsonantCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantCardContentView.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D967D1C82AE40F4E008B3379 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
-		D96BAC692AE6C37800613540 /* LottieVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieVIew.swift; sourceTree = "<group>"; };
+		D96BAC692AE6C37800613540 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D96BAC6C2AE6C46600613540 /* ㄱ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄱ.json"; sourceTree = "<group>"; };
 		D96D94372AE777E50077F2C1 /* 나.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "나.mp3"; sourceTree = "<group>"; };
 		D96D94382AE777E50077F2C1 /* 구.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "구.mp3"; sourceTree = "<group>"; };
@@ -130,7 +140,6 @@
 		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
 		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DE18C4F12AE6BC5000915A64 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +174,7 @@
 		930F26C72ADD0D8B00896A32 /* Orum */ = {
 			isa = PBXGroup;
 			children = (
+				9336E2092AF7B505000B9E76 /* Constants.swift */,
 				D96D94362AE777C30077F2C1 /* Sound */,
 				D96BAC6B2AE6C42600613540 /* Lottie */,
 				93D0BDA52AE2B54E00455447 /* Info.plist */,
@@ -206,6 +216,7 @@
 				D967D1BC2AE2932C008B3379 /* HangulCard.swift */,
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
 				93419DD52AF0AD8800DCB322 /* SearchResult.swift */,
+				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,7 +227,11 @@
 				933A8E492ADD1A53002AE727 /* Date+RawValue.swift */,
 				933A8E4B2ADD1A84002AE727 /* Calendar+CompareDays.swift */,
 				D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */,
-				93576C2F2AEF5E9100CCB3B3 /* Extension+ToDate.swift */,
+				93576C2F2AEF5E9100CCB3B3 /* String+TransformStringToDate.swift */,
+				9336E2072AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift */,
+				9336E20D2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift */,
+				93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */,
+				93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,14 +242,20 @@
 				D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */,
 				D967D1C82AE40F4E008B3379 /* TTSManager.swift */,
 				93419DD12AF0AB1600DCB322 /* EducationManager.swift */,
-				93419DD22AF0AB1600DCB322 /* NavigationManager.swift */,
-				93419DCF2AF0AB0900DCB322 /* FlightManager.swift */,
+				9336E1FB2AF78B4A000B9E76 /* FlightManager.swift */,
+				9336E1FC2AF78B4A000B9E76 /* NavigationManager.swift */,
 				D96D94472AE778680077F2C1 /* SoundManager.swift */,
-				D9037CDE2AF093360098DB57 /* NavigationManager.swift */,
-				D9037CE02AF093540098DB57 /* FlightManager.swift */,
-				D9037CE42AF093780098DB57 /* EducationManager.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		93194FD62AF8B8DC002C1BE4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				93194FD42AF8B8D8002C1BE4 /* Chapter.swift */,
+				93194FD72AF8B910002C1BE4 /* Category.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		936D20912AF081A9007446A8 /* ver 1.0 */ = {
@@ -254,6 +275,7 @@
 		937620352AF0806000DE2C50 /* ver 1.1 */ = {
 			isa = PBXGroup;
 			children = (
+				93194FD62AF8B8DC002C1BE4 /* Components */,
 				937620332AF0805A00DE2C50 /* FlightMainView.swift */,
 				937620362AF0807F00DE2C50 /* LearnView.swift */,
 				937620382AF0808700DE2C50 /* GameView.swift */,
@@ -286,7 +308,7 @@
 			children = (
 				936D20912AF081A9007446A8 /* ver 1.0 */,
 				937620352AF0806000DE2C50 /* ver 1.1 */,
-				D96BAC692AE6C37800613540 /* LottieVIew.swift */,
+				D96BAC692AE6C37800613540 /* LottieView.swift */,
 			);
 			path = DuringFlight;
 			sourceTree = "<group>";
@@ -362,8 +384,8 @@
 			knownRegions = (
 				en,
 				Base,
-				ko,
 				ja,
+				ko,
 			);
 			mainGroup = 930F26BC2ADD0D8A00896A32;
 			packageReferences = (
@@ -408,7 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93419DD42AF0AB1600DCB322 /* NavigationManager.swift in Sources */,
+				9336E1FD2AF78B4A000B9E76 /* FlightManager.swift in Sources */,
 				D95E209A2AE52FC50062F3EB /* ConsonantChapterView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
@@ -416,31 +438,34 @@
 				937620392AF0808700DE2C50 /* GameView.swift in Sources */,
 				93F58B632AE623570022B59B /* HangulEducationTableView.swift in Sources */,
 				933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */,
-				93419DD02AF0AB0900DCB322 /* FlightManager.swift in Sources */,
 				D967D1C32AE2BD83008B3379 /* ConsonantCardView.swift in Sources */,
 				D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */,
 				93FED9482AE4F64F0004A0F5 /* HangulEducationMainView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				937620342AF0805A00DE2C50 /* FlightMainView.swift in Sources */,
-				D9037CE52AF093780098DB57 /* EducationManager.swift in Sources */,
-				D9037CDF2AF093360098DB57 /* NavigationManager.swift in Sources */,
 				93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */,
 				D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */,
+				93194FD82AF8B910002C1BE4 /* Category.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
 				D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */,
 				933A8E4E2ADD1AB2002AE727 /* TripDateSettingView.swift in Sources */,
 				9376203B2AF0808F00DE2C50 /* SearchView.swift in Sources */,
 				D95E209C2AE54D1F0062F3EB /* ConsonantChapterContentView.swift in Sources */,
-				D96BAC6A2AE6C37800613540 /* LottieVIew.swift in Sources */,
+				9336E1FE2AF78B4A000B9E76 /* NavigationManager.swift in Sources */,
+				93194FD52AF8B8D8002C1BE4 /* Chapter.swift in Sources */,
+				D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */,
+				9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */,
 				933A8E4A2ADD1A53002AE727 /* Date+RawValue.swift in Sources */,
 				D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */,
+				93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */,
 				D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */,
 				93419DD62AF0AD8800DCB322 /* SearchResult.swift in Sources */,
-				93576C302AEF5E9100CCB3B3 /* Extension+ToDate.swift in Sources */,
+				93576C302AEF5E9100CCB3B3 /* String+TransformStringToDate.swift in Sources */,
 				D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */,
 				D90B0DFC2AF8697000401C87 /* HangulEducationOnboardingView.swift in Sources */,
 				933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */,
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
+				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
 				D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */,
 				D967D1C52AE2BE81008B3379 /* ConsonantCardContentView.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearnView.swift in Sources */,
@@ -448,9 +473,11 @@
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
 				93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */,
 				933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */,
+				9336E20E2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift in Sources */,
+				9336E2082AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift in Sources */,
+				93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */,
 				D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */,
 				D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */,
-				D9037CE12AF093540098DB57 /* FlightManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +488,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				DE18C4EF2AE6BC2E00915A64 /* en */,
-				DE18C4F12AE6BC5000915A64 /* ko */,
 				DE18C4F22AE6BC7200915A64 /* ja */,
 			);
 			name = Localizable.strings;
@@ -610,7 +636,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -651,7 +678,8 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

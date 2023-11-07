@@ -13,17 +13,14 @@ struct SearchResultView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 16) {
+            VStack(alignment: .leading,spacing: 16) {
                 Divider()
                 
-                VStack {
-                    HStack {
-                        Text("Touch card for more information")
-                            .bold()
-                            .font(.title2)
-                        Spacer()
-                    }
-                    
+                Text("Touch card for more information")
+                    .bold()
+                    .font(.title2)
+                
+                ScrollView {
                     HStack {
                         
                     }
@@ -32,18 +29,16 @@ struct SearchResultView: View {
                         
                     }
                 }
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }){
-                    Image(systemName: "x.circle.fill")
-                        .foregroundStyle(.blue, Color(uiColor: .systemGray4))
-                        .symbolRenderingMode(.palette)
-                })
-                .navigationTitle("\(searchResult.level.rawValue)")
-                .padding(.horizontal, 15)
-                
-                Spacer()
             }
+            .navigationBarItems(leading: Button(action: {
+                isPresented.toggle()
+            }){
+                Image(systemName: "x.circle.fill")
+                    .foregroundStyle(.blue, Color(uiColor: .systemGray4))
+                    .symbolRenderingMode(.palette)
+            })
+            .navigationTitle("\(searchResult.level.rawValue)")
+            .padding(.horizontal, 15)
         }
     }
 }

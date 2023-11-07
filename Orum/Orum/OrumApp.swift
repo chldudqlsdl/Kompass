@@ -34,10 +34,10 @@ struct OrumApp: App {
 //                    .transition(.slide)
 //
 //
-////            case .fifth:
-////                HangulEducationMainView()
-////                    .environmentObject(navigationManager)
-////                    .transition(.slide)
+//            case .fifth:
+//                HangulEducationMainView()
+//                    .environmentObject(navigationManager)
+//                    .transition(.slide)
 //            }
             FlightMainView()
         }

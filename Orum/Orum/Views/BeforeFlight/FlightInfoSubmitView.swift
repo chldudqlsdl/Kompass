@@ -77,8 +77,8 @@ struct FlightInfoSubmitView: View {
                                     if let response = response {
                                         dep_city = response.dep_city
                                         arr_city = response.arr_city
-                                        dep_time = response.dep_time.toDate() ?? Date()
-                                        arr_time = response.arr_time.toDate() ?? Date()
+                                        dep_time = response.dep_time.transformStringToDate() ?? Date()
+                                        arr_time = response.arr_time.transformStringToDate() ?? Date()
                                         duration = response.duration
                                         isFlightInfoEditViewActive = true
                                         print(isFlightInfoEditViewActive)

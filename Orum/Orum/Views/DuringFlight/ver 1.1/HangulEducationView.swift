@@ -10,7 +10,10 @@ import SwiftUI
 struct HangulEducationView: View {
     
     @Binding var isPresented: Bool
-    @State var currentEducation: CurrentEducation = .onboarding
+    
+    @EnvironmentObject var educationManager: EducationManager
+
+    @State var currentEducation: CurrentEducation = .learning
     @State var content: HangulUnit
     @State var quizContent: HangulUnit
     @State var progressValue : Int = 0
@@ -25,6 +28,8 @@ struct HangulEducationView: View {
     @State var isOptionWrong : Bool =  false
     @State var quizButtonText : String = "Check"
     
+    @State var index: Int = 0
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -33,24 +38,29 @@ struct HangulEducationView: View {
                         ProgressView(value: Double(progressValue) / Double(content.hangulCards.count * 3))
                     }
                     .padding(16)
+                    
                     Divider()
+                    
                     switch currentEducation {
                     case .onboarding:
                         HangulEducationOnboardingView()
                             .padding(16)
+                        
                     case .learning:
-                        HangulEducationLearningView(content: $content, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, isExample1Listened: $isExample1Listened, isExample2Listened: $isExample2Listened)
+                        HangulEducationLearningView(content: $content, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, isExample1Listened: $isExample1Listened, isExample2Listened: $isExample2Listened, index: $index)
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                             .transition(.opacity)
+                        
                     case .recap:
                         ZStack{
-                            HangulEducationRecapView(content: $content)
+                            HangulEducationRecapView(content: $content, ind: $index)
                                 .padding(.horizontal, 16)
                                 
                             VStack{
                                 Spacer()
                                 Button {
                                     progressValue += 1
+                                    index = 0
                                     currentEducation = .quiz
                                 } label: {
                                     HStack{
@@ -68,7 +78,7 @@ struct HangulEducationView: View {
                             }
                         }
                     case .quiz:
-                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong)
+                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong, ind: $index)
                             .padding(16)
                             .transition(.opacity)
                         
@@ -76,7 +86,9 @@ struct HangulEducationView: View {
                     
                     switch currentEducation {
                     case .onboarding:
+                        
                         Spacer()
+                        
                         VStack{
                             Button(action: {
                                 currentEducation = .learning
@@ -92,11 +104,12 @@ struct HangulEducationView: View {
                             .buttonStyle(.borderedProminent)
                         }
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
+                    
                     case .learning:
                         Spacer()
                         ZStack{
                             VStack(spacing: 0){
-                                if (content.unitIndex == 0 && isOnceFlipped && isExample1Listened && isExample2Listened){
+                                if (index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened){
                                     VStack{
                                         Rectangle()
                                             .frame(height: 5)
@@ -111,7 +124,7 @@ struct HangulEducationView: View {
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.blue)
                                             }
-                                            Text("\(content.hangulCards[content.unitIndex].name ) has a similar shape and [\(content.hangulCards[content.unitIndex].sound)] sound of \(content.hangulCards[content.unitIndex].lottieName).")
+                                            Text("\(content.hangulCards[index].name ) has a similar shape and [\(content.hangulCards[index].sound)] sound of \(content.hangulCards[index].lottieName).")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.blue)
                                         }
@@ -119,16 +132,18 @@ struct HangulEducationView: View {
                                 }
                                 VStack{
                                     Button(action: {
-                                        if  content.unitIndex < content.hangulCards.count - 1 {
-                                            content.unitIndex += 1
+                                        if  index < content.hangulCards.count - 1 {
+                                            index += 1
                                             progressValue += 1
                                         } else {
+                                            index = 0
+                                            
                                             withAnimation(.easeIn(duration: 1)) {
-                                                content.unitIndex = 0
                                                 progressValue += 1
                                                 currentEducation = .recap
                                             }
                                         }
+                                        
                                         withAnimation (.easeIn(duration: 1)){
                                             isOnceFlipped = false
                                             isFlipped = false
@@ -150,15 +165,17 @@ struct HangulEducationView: View {
                                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
                             }
                         }
-                        .background((content.unitIndex == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                        .background((index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                    
                     case .recap:
                         EmptyView()
                             .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
+                    
                     case .quiz:
                         Spacer()
                         ZStack{
                             VStack(spacing: 0){
-                                if (isOptionSubmitted ){
+                                if (isOptionSubmitted){
                                     VStack{
                                         Rectangle()
                                             .frame(height: 5)
@@ -186,23 +203,27 @@ struct HangulEducationView: View {
                                             quizButtonText = "Got it"
                                             return
                                         }
-                                        if  quizContent.unitIndex < quizContent.hangulCards.count - 1 {
+                                        if  index < quizContent.hangulCards.count - 1 {
                                             if isOptionWrong {
-                                                quizContent.hangulCards.append(quizContent.hangulCards[quizContent.unitIndex])
+                                                quizContent.hangulCards.append(quizContent.hangulCards[index])
                                             } else {
                                                 progressValue += 1
                                             }
-                                            quizContent.unitIndex += 1
+                                            index += 1
                                             quizButtonText = "Check"
                                             isOptionSelected = false
                                             isOptionSubmitted = false
                                             isOptionWrong = false
                                         }
                                         else {
+                                            educationManager.endChapter()
+
                                             withAnimation(.easeIn(duration: 1)) {
-                                                currentEducation = .recap
+//                                                currentEducation = .recap
                                                 progressValue += 1
                                             }
+                                            
+                                            isPresented.toggle()
                                         }
                                     }){
                                         HStack{
@@ -259,5 +280,5 @@ enum CurrentEducation {
 }
 
 #Preview {
-    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview))
+    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview))
 }

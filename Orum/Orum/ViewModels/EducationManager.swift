@@ -5,29 +5,88 @@
 //  Created by 차차 on 10/22/23.
 //
 
-import Foundation
+import SwiftUI
 
-enum Chapters {
-    case consonant1, consonant2, consonant3
+enum ChapterState: String{
+    case locked = "locked"
+    case currentSession = "currentSession"
+    case complete = "complete"
 }
 
 class EducationManager: ObservableObject {
-    @Published var educationProgress: Int
-    @Published var chapter: Chapters
-    @Published var content: HangulUnit
-    
+    @AppStorage("completedDate") var completedDates: [String:String] = [
+        Constants.Chapter.system: "2023.11.04 16:23",
+    ]
+    @AppStorage("chapterState") var chapterState: [String:String] = [
+        Constants.Chapter.system : "complete",
+        Constants.Chapter.consonant1 : "currentSession", // 현재 가장 최신의 진도
+        Constants.Chapter.consonant2 : "locked",
+        Constants.Chapter.consonant3 : "locked",
+        Constants.Chapter.consonant4 : "locked",
+        Constants.Chapter.consonant5 : "locked",
+        Constants.Chapter.vowel1 : "locked",
+        Constants.Chapter.vowel2 : "locked",
+        Constants.Chapter.vowel3 : "locked",
+    ]
+
+    @Published var content: HangulUnit = HangulUnitEnum.consonant1
+    @Published var nowStudying: String = "" // 현재 공부하고 있는 단원 (진도와는 무관)
+
     init() {
-        educationProgress = 0
-        chapter = .consonant1
-        content = HangulUnit(unitName: "", unitIndex: 0, hangulCards: [HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")])
     }
     
-    func createContent() {
-        content = HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: [
-            HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
-            HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
-            HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),
-            HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")
-        ])
+    func createContent(chapterName: String) {
+        switch chapterName {
+        case Constants.Chapter.system:
+            content = HangulUnitEnum.system
+        
+        case Constants.Chapter.consonant1:
+            content = HangulUnitEnum.consonant1
+            
+        case Constants.Chapter.consonant2:
+            content = HangulUnitEnum.consonant2
+            
+        case Constants.Chapter.consonant3:
+            content = HangulUnitEnum.consonant3
+            
+        case Constants.Chapter.consonant4:
+            content = HangulUnitEnum.consonant4
+            
+        case Constants.Chapter.consonant5:
+            content = HangulUnitEnum.consonant5
+            
+        case Constants.Chapter.vowel1:
+            content = HangulUnitEnum.vowel1
+
+        case Constants.Chapter.vowel2:
+            content = HangulUnitEnum.vowel2
+
+        case Constants.Chapter.vowel3:
+            content = HangulUnitEnum.vowel3
+            
+        default:
+            return
+        }
+    }
+    
+    func endChapter() {
+        if completedDates[nowStudying] == nil { // 처음으로 공부를 완료한 단원이라면
+            let completedDate = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy.MM.dd HH:mm"
+            
+            completedDates.updateValue(dateFormatter.string(from: completedDate), forKey: nowStudying)
+            chapterState[nowStudying] = "complete"
+            
+            for i in 0 ..< Constants.Chapter.chapters.count {
+                if nowStudying == Constants.Chapter.chapters[i] {
+                    if nowStudying != Constants.Chapter.vowel3 {
+                        chapterState[Constants.Chapter.chapters[i + 1]] = "currentSession"
+                    }
+                }
+            }
+        }
+        
+        nowStudying = ""
     }
 }

@@ -15,6 +15,7 @@ struct HangulEducationRecapView: View {
     @State var isOnceFlipped : Bool = false
     @State var isFlipped : Bool = false
     
+    @Binding var ind: Int
     
     var body: some View {
         ScrollView{
@@ -28,9 +29,8 @@ struct HangulEducationRecapView: View {
                 .padding(.top, 16)
                 VStack{
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 25), GridItem(.flexible())], spacing: 25) {
-                        ForEach(0..<content.hangulCards.count, id: \.self) { index in
-                            let hangulCard = content.hangulCards[index]
-                            HangulCardView(content: $content, isLearningView: $islearningView, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[content.unitIndex].name))
+                        ForEach(0 ..< content.hangulCards.count, id: \.self) { index in
+                            HangulCardView(hangulCard: $content.hangulCards[index], isLearningView: $islearningView, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[index].name))
                         }
                     }
                 }
@@ -42,5 +42,5 @@ struct HangulEducationRecapView: View {
 }
 
 #Preview {
-    HangulEducationRecapView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)))
+    HangulEducationRecapView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), ind: .constant(0))
 }

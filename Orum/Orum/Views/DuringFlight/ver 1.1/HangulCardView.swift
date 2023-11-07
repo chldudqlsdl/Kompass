@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HangulCardView: View {
-    
-    
-    @Binding var content : HangulUnit
+    @Binding var hangulCard: HangulCard
     @Binding var isLearningView : Bool
     @Binding var touchCardsCount : Int
     @Binding var isOnceFlipped : Bool
@@ -23,11 +21,11 @@ struct HangulCardView: View {
                 Spacer()
                 VStack(spacing: 16){
                     if !isFlipped {
-                        Image(content.hangulCards[content.unitIndex].name)
+                        Image(hangulCard.name)
                             .resizable()
                             .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
                         ZStack{
-                            Text(content.hangulCards[content.unitIndex].sound)
+                            Text(hangulCard.sound)
                                 .fontWeight(.bold)
                                 .font( isLearningView ? .largeTitle : .title2)
                             Text("[   ]")
@@ -36,7 +34,7 @@ struct HangulCardView: View {
                                 .foregroundColor(Color(uiColor: .systemGray4))
                         }
                     } else {
-                        LottieView(fileName: content.hangulCards[content.unitIndex].name)
+                        LottieView(fileName: hangulCard.name)
                             .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
                             .scaleEffect(x: -1, y: 1)
                         HStack{
@@ -47,7 +45,7 @@ struct HangulCardView: View {
                                 .font( isLearningView ? .largeTitle : .title2)
                                 .foregroundColor(Color(uiColor: .systemGray4))
                             +
-                            Text(content.hangulCards[content.unitIndex].lottieName)
+                            Text(hangulCard.lottieName)
                                 .fontWeight(.bold)
                                 .font( isLearningView ? .largeTitle : .title2)
                             +
@@ -81,5 +79,5 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)), isLearningView: .constant(true), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"))
+    HangulCardView(hangulCard: .constant(HangulUnitEnum.consonant1.hangulCards[1]), isLearningView: .constant(true), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"))
 }

@@ -18,6 +18,8 @@ struct HangulEducationLearningView: View {
     @Namespace var bottomID
     let ttsManager = TTSManager()
     
+    @Binding var index: Int
+    
     var body: some View {
         ScrollViewReader{ proxy in
             ScrollView{
@@ -38,11 +40,11 @@ struct HangulEducationLearningView: View {
                     }
                     .padding(.top, 16)
                     VStack(spacing: 25){
-                        HangulCardView(content: $content, isLearningView: $islearningView, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[content.unitIndex].name))
+                        HangulCardView(hangulCard: $content.hangulCards[index], isLearningView: $islearningView, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[index].name))
                         HStack(spacing: 25){
                             HStack{
                                 Spacer()
-                                Text(content.hangulCards[content.unitIndex].example1)
+                                Text(content.hangulCards[index].example1)
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .padding(15)
@@ -58,11 +60,11 @@ struct HangulEducationLearningView: View {
                                 withAnimation(.easeIn(duration: 0.5)){
                                     isExample1Listened = true
                                 }
-                                ttsManager.play(content.hangulCards[content.unitIndex].example1)
+                                ttsManager.play(content.hangulCards[index].example1)
                             }
                             HStack{
                                 Spacer()
-                                Text(content.hangulCards[content.unitIndex].example2)
+                                Text(content.hangulCards[index].example2)
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .padding(15)
@@ -78,7 +80,7 @@ struct HangulEducationLearningView: View {
                                 withAnimation(.easeIn(duration: 0.5)){
                                     isExample2Listened = true
                                 }
-                                ttsManager.play(content.hangulCards[content.unitIndex].example2)
+                                ttsManager.play(content.hangulCards[index].example2)
                             }
                         }
                         Rectangle()
@@ -87,7 +89,7 @@ struct HangulEducationLearningView: View {
                             .id(bottomID)
                     }
                     .padding(.horizontal, 61)
-                    .onChange(of: (!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
+                    .onChange(of: (!(index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             withAnimation(.easeOut(duration: 0.3)) {
                                 proxy.scrollTo(bottomID)
@@ -103,7 +105,7 @@ struct HangulEducationLearningView: View {
 
 
 #Preview {
-    HangulEducationLearningView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), isExample1Listened: .constant(false), isExample2Listened: .constant(false))
+    HangulEducationLearningView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), isExample1Listened: .constant(false), isExample2Listened: .constant(false), index: .constant(1))
 }
 
 

@@ -9,13 +9,26 @@ import SwiftUI
 
 struct GameView: View {
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
-                
-                Divider()
+        ZStack {
+            NavigationView {
+                    VStack {
+                        Spacer()
+                        
+                        Divider()
+                    }
+//                    .navigationTitle("Game")
             }
-            .navigationTitle("Game")
+            .blur(radius: 8)
+            
+            ScrollView {
+                Text("Coming Soon ...")
+                    .bold()
+                    .font(.largeTitle)
+                    .padding(.vertical, 350)
+                
+                Spacer()
+            }
+            .scrollIndicators(.hidden)
         }
     }
 }

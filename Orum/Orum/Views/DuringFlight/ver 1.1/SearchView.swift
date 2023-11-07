@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-let chapters: [String] = [
-    "ㄱㄴㄷㄹ",
-    "ㅁㅂㅅㅇㅈ",
-    "ㅊㅋㅌㅍㅎ",
-    "ㅡㅗㅜㅛㅠ",
-    "ㅣㅏㅓㅑㅕ",
-    "ㅐㅔㅒㅖ",
-]
-
 struct SearchView: View {
     @State private var searchText = ""
     @State var isPresented = false
@@ -108,16 +99,16 @@ struct SearchView: View {
                                             .frame(minHeight: 90)
                                         
                                         VStack {
-                                            HStack {
-                                                Text("\(chapters[2 * number])")
-                                                    .bold()
-                                                    .font(.title2)
-                                                    .foregroundColor(.white)
-                                                    .padding(.leading, 10)
-                                                    .padding(.top, 8)
-                                                
-                                                Spacer()
-                                            }
+//                                            HStack {
+//                                                Text("\(Constants.Chapter.chapterComponent[[2 * number].concatArray())")
+//                                                    .bold()
+//                                                    .font(.title2)
+//                                                    .foregroundColor(.white)
+//                                                    .padding(.leading, 10)
+//                                                    .padding(.top, 8)
+//                                                
+//                                                Spacer()
+//                                            }
                                             
                                             Spacer()
                                         }
@@ -134,16 +125,16 @@ struct SearchView: View {
                                             .frame(minHeight: 90)
                                         
                                         VStack {
-                                            HStack {
-                                                Text("\(chapters[2 * number +  1])")
-                                                    .bold()
-                                                    .font(.title2)
-                                                    .foregroundColor(.white)
-                                                    .padding(.leading, 10)
-                                                    .padding(.top, 8)
-                                                
-                                                Spacer()
-                                            }
+//                                            HStack {
+//                                                Text("\(Constants.Chapter.chapterComponent[2 * number + 1].concatArray())")
+//                                                    .bold()
+//                                                    .font(.title2)
+//                                                    .foregroundColor(.white)
+//                                                    .padding(.leading, 10)
+//                                                    .padding(.top, 8)
+//                                                
+//                                                Spacer()
+//                                            }
                                             
                                             Spacer()
                                         }
