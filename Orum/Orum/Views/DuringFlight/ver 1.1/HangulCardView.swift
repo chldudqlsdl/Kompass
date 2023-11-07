@@ -14,15 +14,17 @@ struct HangulCardView: View {
     @Binding var isFlipped: Bool
     @State var lottieView : LottieView
     
+    @Binding var index: Int
+    
     var body: some View {
         ZStack{
             VStack(spacing: 16){
                 if !isFlipped {
-                    Image(content.hangulCards[content.unitIndex].name)
+                    Image(content.hangulCards[index].name)
                         .resizable()
                         .frame(width: 180, height: 180)
                     ZStack{
-                        Text(content.hangulCards[content.unitIndex].sound)
+                        Text(content.hangulCards[index].sound)
                             .fontWeight(.bold)
                             .font(.largeTitle)
                         Text("[   ]")
@@ -31,7 +33,7 @@ struct HangulCardView: View {
                             .foregroundColor(Color(uiColor: .systemGray4))
                     }
                 } else {
-                    LottieView(fileName: content.hangulCards[content.unitIndex].name)
+                    LottieView(fileName: content.hangulCards[index].name)
                         .frame(width: 180, height: 180)
                         .scaleEffect(x: -1, y: 1)
                     ZStack{
@@ -40,7 +42,7 @@ struct HangulCardView: View {
                             .font(.largeTitle)
                             .foregroundColor(Color(uiColor: .systemGray4))
                         +
-                        Text(content.hangulCards[content.unitIndex].lottieName)
+                        Text(content.hangulCards[index].lottieName)
                             .fontWeight(.bold)
                             .font(.largeTitle)
                         +
@@ -67,5 +69,5 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"))
+    HangulCardView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"), index: .constant(1))
 }

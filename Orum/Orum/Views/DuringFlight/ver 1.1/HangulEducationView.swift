@@ -10,6 +10,9 @@ import SwiftUI
 struct HangulEducationView: View {
     
     @Binding var isPresented: Bool
+    
+    @EnvironmentObject var educationManager: EducationManager
+    
     @State var currentEducation: CurrentEducation = .learning
     @State var content: HangulUnit
     @State var quizContent: HangulUnit
@@ -21,6 +24,8 @@ struct HangulEducationView: View {
     @State var isOptionSubmitted : Bool = false
     @State var isOptionWrong : Bool =  false
     @State var quizButtonText : String = "Check"
+    
+    @State var index: Int = 0
     
     var body: some View {
         NavigationView {
@@ -36,11 +41,11 @@ struct HangulEducationView: View {
                     
                     switch currentEducation {
                     case .learning:
-                        HangulEducationLearningView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped)
+                        HangulEducationLearningView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, index: $index)
                             .padding(16)
                             .transition(.opacity)
                     case .quiz:
-                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong)
+                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong, ind: $index)
                             .padding(16)
                     case .recap:
                         HangulEducationRecapView()
@@ -52,12 +57,12 @@ struct HangulEducationView: View {
                         switch currentEducation {
                         case .learning:
                             Button(action: {
-                                if  content.unitIndex < content.hangulCards.count - 1 {
-                                        content.unitIndex += 1
+                                if  index < content.hangulCards.count - 1 {
+                                        index += 1
                                     progressValue += 1
                                 } else {
                                     withAnimation(.easeIn(duration: 1)) {
-                                        content.unitIndex = 0
+                                        index = 0
                                         progressValue += 1
                                         currentEducation = .quiz
                                     }
@@ -74,6 +79,7 @@ struct HangulEducationView: View {
                             }
                             .buttonStyle(.borderedProminent)
                             .disabled(!isOnceFlipped)
+                        
                         case .quiz:
                             Button(action: {
                                 if quizButtonText == "Check" {
@@ -81,19 +87,23 @@ struct HangulEducationView: View {
                                     quizButtonText = "Got it"
                                     return
                                 }
-                                if  quizContent.unitIndex < quizContent.hangulCards.count - 1 {
+                                if  index < quizContent.hangulCards.count - 1 {
                                     if isOptionWrong {
-                                        quizContent.hangulCards.append(quizContent.hangulCards[quizContent.unitIndex])
+                                        quizContent.hangulCards.append(quizContent.hangulCards[index])
                                     } else {
                                         progressValue += 1
                                     }
-                                    quizContent.unitIndex += 1
+                                    index += 1
                                     quizButtonText = "Check"
                                     isOptionSelected = false
                                     isOptionSubmitted = false
                                     isOptionWrong = false
                                 }
                                 else {
+                                    print("endChapter start")
+                                    educationManager.endChapter()
+                                    print("endChapter end")
+
                                     withAnimation(.easeIn(duration: 1)) {
                                         currentEducation = .recap
                                         progressValue += 1
@@ -110,6 +120,7 @@ struct HangulEducationView: View {
                             .buttonStyle(.borderedProminent)
                             .tint(!isOptionWrong ? .blue : .red)
                             .disabled(!isOptionSelected)
+                        
                         case .recap:
                             Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                                 /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
@@ -139,5 +150,5 @@ enum CurrentEducation {
 }
 
 #Preview {
-    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", unitIndex: 0, hangulCards: HangulCard.preview))
+    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview))
 }

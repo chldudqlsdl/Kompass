@@ -12,20 +12,23 @@ struct HangulEducationLearningView: View {
     @Binding var isOnceFlipped : Bool
     @Binding var isFlipped: Bool
     
+    @Binding var index: Int
+    
     var body: some View {
         VStack(spacing: 98){
             HStack{
                 Text("Focus on form and pronunciation")
                     .font(.title2)
-                    .fontWeight(.bold)
+                    .bold()
+                
                 Spacer()
             }
             
-            HangulCardView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[content.unitIndex].name))
+            HangulCardView(content: $content, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[index].name),index: $index)
         }
     }
 }
 
 #Preview {
-    HangulEducationLearningView(content: .constant(HangulUnit(unitName: "consonants1", unitIndex: 0, hangulCards: HangulCard.preview)), isOnceFlipped: .constant(false), isFlipped: .constant(false))
+    HangulEducationLearningView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), isOnceFlipped: .constant(false), isFlipped: .constant(false), index: .constant(1))
 }
