@@ -1,9 +1,9 @@
-////
-////  HangulEducationTableView.swift
-////  Orum
-////
-////  Created by 차차 on 10/23/23.
-////
+//
+//  HangulEducationTableView.swift
+//  Orum
+//
+//  Created by 차차 on 10/23/23.
+//
 //
 //import SwiftUI
 //
