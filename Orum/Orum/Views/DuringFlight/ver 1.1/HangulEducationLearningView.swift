@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct HangulEducationLearningView: View {
-    @State var islearningView = true
-    @Binding var content : HangulUnit
+//    @Binding var content : HangulUnit
     @Binding var touchCardsCount : Int
     @Binding var isOnceFlipped : Bool
     @Binding var isFlipped: Bool
     @Binding var isExample1Listened : Bool
     @Binding var isExample2Listened : Bool
+    
+    @EnvironmentObject var educationManager: EducationManager
+
     @Namespace var bottomID
+    
     let ttsManager = TTSManager()
     
     @Binding var index: Int
@@ -40,11 +43,12 @@ struct HangulEducationLearningView: View {
                     }
                     .padding(.top, 16)
                     VStack(spacing: 25){
-                        HangulCardView(hangulCard: $content.hangulCards[index], isLearningView: $islearningView, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: content.hangulCards[index].name))
+                        HangulCardView(hangulCard: educationManager.content[index], touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: educationManager.content[index].name),  isLearningView: true)
+                            .environmentObject(educationManager)
                         HStack(spacing: 25){
                             HStack{
                                 Spacer()
-                                Text(content.hangulCards[index].example1)
+                                Text(educationManager.content[index].example1)
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .padding(15)
@@ -60,11 +64,11 @@ struct HangulEducationLearningView: View {
                                 withAnimation(.easeIn(duration: 0.5)){
                                     isExample1Listened = true
                                 }
-                                ttsManager.play(content.hangulCards[index].example1)
+                                ttsManager.play(educationManager.content[index].example1)
                             }
                             HStack{
                                 Spacer()
-                                Text(content.hangulCards[index].example2)
+                                Text(educationManager.content[index].example2)
                                     .font(.largeTitle)
                                     .fontWeight(.bold)
                                     .padding(15)
@@ -80,7 +84,7 @@ struct HangulEducationLearningView: View {
                                 withAnimation(.easeIn(duration: 0.5)){
                                     isExample2Listened = true
                                 }
-                                ttsManager.play(content.hangulCards[index].example2)
+                                ttsManager.play(educationManager.content[index].example2)
                             }
                         }
                         Rectangle()
@@ -105,7 +109,8 @@ struct HangulEducationLearningView: View {
 
 
 #Preview {
-    HangulEducationLearningView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), isExample1Listened: .constant(false), isExample2Listened: .constant(false), index: .constant(1))
+    HangulEducationLearningView(touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), isExample1Listened: .constant(false), isExample2Listened: .constant(false), index: .constant(1))
+        .environmentObject(EducationManager())
 }
 
 

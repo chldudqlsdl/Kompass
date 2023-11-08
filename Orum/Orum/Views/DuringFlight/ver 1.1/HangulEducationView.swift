@@ -14,8 +14,6 @@ struct HangulEducationView: View {
     @EnvironmentObject var educationManager: EducationManager
 
     @State var currentEducation: CurrentEducation = .learning
-    @State var content: HangulUnit
-    @State var quizContent: HangulUnit
     @State var progressValue : Int = 0
     @State var touchCardsCount : Int = 0
     @State var isOnceFlipped : Bool = false
@@ -35,7 +33,7 @@ struct HangulEducationView: View {
             ZStack {
                 VStack(spacing: 0){
                     VStack{
-                        ProgressView(value: Double(progressValue) / Double(content.hangulCards.count * 3))
+                        ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 1))
                     }
                     .padding(16)
                     
@@ -47,13 +45,15 @@ struct HangulEducationView: View {
                             .padding(16)
                         
                     case .learning:
-                        HangulEducationLearningView(content: $content, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, isExample1Listened: $isExample1Listened, isExample2Listened: $isExample2Listened, index: $index)
+                        HangulEducationLearningView(touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, isExample1Listened: $isExample1Listened, isExample2Listened: $isExample2Listened, index: $index)
+                            .environmentObject(educationManager)
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                             .transition(.opacity)
                         
                     case .recap:
                         ZStack{
-                            HangulEducationRecapView(content: $content, ind: $index)
+                            HangulEducationRecapView()
+                                .environmentObject(educationManager)
                                 .padding(.horizontal, 16)
                                 
                             VStack{
@@ -78,7 +78,8 @@ struct HangulEducationView: View {
                             }
                         }
                     case .quiz:
-                        HangulEducationQuizView(content: $quizContent, isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong, ind: $index)
+                        HangulEducationQuizView(isOptionSelected: $isOptionSelected, isOptionSubmitted: $isOptionSubmitted, isOptionWrong: $isOptionWrong, ind: $index)
+                            .environmentObject(educationManager)
                             .padding(16)
                             .transition(.opacity)
                         
@@ -124,7 +125,7 @@ struct HangulEducationView: View {
                                                     .fontWeight(.bold)
                                                     .foregroundColor(.blue)
                                             }
-                                            Text("\(content.hangulCards[index].name ) has a similar shape and [\(content.hangulCards[index].sound)] sound of \(content.hangulCards[index].lottieName).")
+                                            Text("\(educationManager.content[index].name) has a similar shape and [\(educationManager.content[index].sound)] sound of \(educationManager.content[index].lottieName).")
                                                 .fontWeight(.bold)
                                                 .foregroundColor(.blue)
                                         }
@@ -132,7 +133,7 @@ struct HangulEducationView: View {
                                 }
                                 VStack{
                                     Button(action: {
-                                        if  index < content.hangulCards.count - 1 {
+                                        if  index < educationManager.content.count - 1 {
                                             index += 1
                                             progressValue += 1
                                         } else {
@@ -203,9 +204,9 @@ struct HangulEducationView: View {
                                             quizButtonText = "Got it"
                                             return
                                         }
-                                        if  index < quizContent.hangulCards.count - 1 {
+                                        if  index < educationManager.content.count - 1 {
                                             if isOptionWrong {
-                                                quizContent.hangulCards.append(quizContent.hangulCards[index])
+                                                educationManager.wrongQuestion.append(educationManager.content[index]) //MARK: 틀린 문제 로직 구현
                                             } else {
                                                 progressValue += 1
                                             }
@@ -246,7 +247,7 @@ struct HangulEducationView: View {
 
                     }
                 }
-                .navigationTitle(content.unitName)
+                .navigationTitle(educationManager.nowStudying)
                 .navigationBarTitleDisplayMode(.automatic)
                 .navigationBarItems(leading: Button(action: {
                     isPresented.toggle()
@@ -280,5 +281,6 @@ enum CurrentEducation {
 }
 
 #Preview {
-    HangulEducationView(isPresented: .constant(true), content: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview), quizContent: HangulUnit(unitName: "Consonants1", hangulCards: HangulCard.preview))
+    HangulEducationView(isPresented: .constant(true))
+        .environmentObject(EducationManager())
 }

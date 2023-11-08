@@ -29,8 +29,9 @@ class EducationManager: ObservableObject {
         Constants.Chapter.vowel3 : "locked",
     ]
 
-    @Published var content: HangulUnit = HangulUnitEnum.consonant1
+    @Published var content: [HangulCard] = HangulUnitEnum.consonant1
     @Published var nowStudying: String = "" // 현재 공부하고 있는 단원 (진도와는 무관)
+    @Published var wrongQuestion: [HangulCard] = []
 
     init() {
     }

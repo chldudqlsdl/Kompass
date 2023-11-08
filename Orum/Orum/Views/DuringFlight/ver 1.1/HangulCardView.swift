@@ -7,13 +7,21 @@
 
 import SwiftUI
 
+enum ViewType {
+    case learningView, recapView
+}
+
 struct HangulCardView: View {
-    @Binding var hangulCard: HangulCard
-    @Binding var isLearningView : Bool
+    var hangulCard: HangulCard
     @Binding var touchCardsCount : Int
     @Binding var isOnceFlipped : Bool
     @Binding var isFlipped: Bool
+    
+//    @Environment var educationManager: EducationManager
+    
     @State var lottieView : LottieView
+    
+    var isLearningView: Bool
     
     var body: some View {
         ZStack{
@@ -79,5 +87,5 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(hangulCard: .constant(HangulUnitEnum.consonant1.hangulCards[1]), isLearningView: .constant(true), touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"))
+    HangulCardView(hangulCard: HangulUnitEnum.consonant1[1], touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), lottieView: LottieView(fileName: "ㄱ"), isLearningView: false)
 }
