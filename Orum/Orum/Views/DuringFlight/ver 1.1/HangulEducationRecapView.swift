@@ -14,8 +14,9 @@ struct HangulEducationRecapView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     @State var touchCardsCount : Int = 0
-    @State var isOnceFlipped : Bool = false
-    @State var isFlipped : Bool = false
+
+    @State var isOnceFlipped : [Bool] = [false,false,false,false,false,false,false,false,false,false] // TODO: HangulCardView
+    @State var isFlipped : [Bool] = [false,false,false,false,false,false,false,false,false,false]
     
     var body: some View {
         ScrollView{
