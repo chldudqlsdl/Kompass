@@ -9,10 +9,11 @@ import SwiftUI
 
 struct HangulEducationQuizView: View {
     
-    @Binding var content : HangulUnit
     @Binding var isOptionSelected : Bool
     @Binding var isOptionSubmitted : Bool
     @Binding var isOptionWrong : Bool
+    
+    @EnvironmentObject var educationManager: EducationManager
     
     @State var selectedOptionIndex : Int = 5
     @State var answerIndex : Int = 5
@@ -35,15 +36,15 @@ struct HangulEducationQuizView: View {
                     VStack(spacing: 16) {
                         HStack{
                             Spacer()
-                            ZStack(alignment: .leading){
-                                Text(content.hangulCards[ind].quiz.prefix(1))
+                            ZStack(alignment: .leading) {
+                                Text(educationManager.content[ind].quiz.prefix(1))
                                     .fontWeight(.bold)
                                     .font(.largeTitle)
                                     .padding(.bottom, 10)
                                     .foregroundColor(.clear)
                                     .underline(true, color: Color(uiColor: .label))
                                     .offset(y: 8)
-                                Text(content.hangulCards[ind].quiz)
+                                Text(educationManager.content[ind].quiz)
                                     .fontWeight(.bold)
                                     .font(.largeTitle)
                                     .foregroundColor(Color(uiColor: .label))
@@ -93,13 +94,13 @@ struct HangulEducationQuizView: View {
                                         selectedOptionIndex = index
                                         isOptionSelected = true
                                     }
-                                    if String(optionAlphabet[index]) == content.hangulCards[ind].sound {
+                                    if String(optionAlphabet[index]) == educationManager.content[ind].sound {
                                         answerIndex = index
                                     }
                                     
                                 }
                                 .onAppear {
-                                    if String(optionAlphabet[index]) == content.hangulCards[ind].sound {
+                                    if String(optionAlphabet[index]) == educationManager.content[ind].sound {
                                         answerIndex = index
                                     }
                                 }
@@ -141,9 +142,9 @@ struct HangulEducationQuizView: View {
     
     func makeQuizs() -> [Character] { // TODO: 알파벳이 두 개인 경우 (ㅊ, 쌍자음, 모음)
         let alphabet: String = "abcdefghijklmnopqrstuvwxyz"
-        let answerFilter: Character = Character(String(content.hangulCards[ind].sound))
+        let answerFilter: Character = Character(String(educationManager.content[ind].sound))
         let tempOptionAlphabet: String = String(alphabet.filter { $0 != answerFilter })
-        let optionAlphabet = String(tempOptionAlphabet.shuffled().prefix(3)) + content.hangulCards[ind].sound
+        let optionAlphabet = String(tempOptionAlphabet.shuffled().prefix(3)) + educationManager.content[ind].sound
         
         return optionAlphabet.shuffled()
     }
@@ -175,5 +176,6 @@ struct OptionColor {
 }
 
 #Preview {
-    HangulEducationQuizView(content: .constant(HangulUnit(unitName: "consonants1", hangulCards: HangulCard.preview)), isOptionSelected: .constant(false), isOptionSubmitted: .constant(false), isOptionWrong: .constant(false),ind: .constant(1))
+    HangulEducationQuizView(isOptionSelected: .constant(false), isOptionSubmitted: .constant(false), isOptionWrong: .constant(false),ind: .constant(1))
+        .environmentObject(EducationManager())
 }

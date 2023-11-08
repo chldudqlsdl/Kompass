@@ -30,7 +30,7 @@ struct LearnView: View {
             }
             .navigationTitle("Learn")
             .fullScreenCover(isPresented: $isPresented, content: {
-                HangulEducationView(isPresented: $isPresented, content: educationManager.content,quizContent: educationManager.content)
+                HangulEducationView(isPresented: $isPresented)
                     .environmentObject(educationManager)
             })
         }
