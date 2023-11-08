@@ -8,221 +8,78 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
+    @EnvironmentObject var educationManager: EducationManager
+    
     @State var isPresented = false
-    @State var searchResult = SearchResult()
+    @State var chapterName: String = ""
     
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(spacing: 34) {
-                    VStack {
-                        HStack {
-                            Text("System")
-                                .bold()
-                                .font(.title2)
-                            Spacer()
-                        }
-                        
-                        HStack(spacing: 16) {
-                            Button(action: {
-                                searchResult.level = .system
-                                isPresented.toggle()
-                            })
-                            {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .frame(height: 90)
-                                    
-                                    VStack {
-                                        HStack {
-                                            Text("Tutorial")
-                                                .bold()
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                                .padding(.leading, 10)
-                                                .padding(.top, 8)
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                }
-                            }
-                            
-                            Button(action: {
-                                searchResult.level = .system
-                                isPresented.toggle()
-                            })
-                            {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .frame(minHeight: 90)
-                                    
-                                    VStack {
-                                        HStack {
-                                            Text("Combine")
-                                                .bold()
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                                .padding(.leading, 10)
-                                                .padding(.top, 8)
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    
-                    VStack(spacing: 16) {
-                        HStack {
-                            Text("Basic")
-                                .bold()
-                                .font(.title2)
-                            
-                            Spacer()
-                        }
-                        ForEach(0 ..< 3) { number in
-                            HStack(spacing: 16) {
+                VStack(spacing: 16) {
+                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible())],spacing: 16) {
+                        ForEach(0 ..< 3) { index in
+                            VStack(alignment: .leading) {
                                 Button(action: {
-                                    searchResult.level = .basic
+                                    chapterName = Constants.Chapter.chapters[index + 1]
                                     isPresented.toggle()
+                                }, label: {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .frame(height: 87)
                                 })
-                                {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .frame(minHeight: 90)
-                                        
-                                        VStack {
-//                                            HStack {
-//                                                Text("\(Constants.Chapter.chapterComponent[[2 * number].concatArray())")
-//                                                    .bold()
-//                                                    .font(.title2)
-//                                                    .foregroundColor(.white)
-//                                                    .padding(.leading, 10)
-//                                                    .padding(.top, 8)
-//                                                
-//                                                Spacer()
-//                                            }
-                                            
-                                            Spacer()
-                                        }
-                                    }
-                                }
                                 
-                                Button(action: {
-                                    searchResult.level = .basic
-                                    isPresented.toggle()
-                                })
-                                {
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .frame(minHeight: 90)
-                                        
-                                        VStack {
-//                                            HStack {
-//                                                Text("\(Constants.Chapter.chapterComponent[2 * number + 1].concatArray())")
-//                                                    .bold()
-//                                                    .font(.title2)
-//                                                    .foregroundColor(.white)
-//                                                    .padding(.leading, 10)
-//                                                    .padding(.top, 8)
-//                                                
-//                                                Spacer()
-//                                            }
-                                            
-                                            Spacer()
-                                        }
-                                    }
-                                }
+                                Text("\(Constants.Chapter.chapters[index + 1])")
+                                    .bold()
+                                
+                                Text("\(Constants.Chapter.chapterComponent[1][index].concatArray())")
+                                    .foregroundStyle(.secondary)
                             }
                         }
                     }
+                    .padding(.horizontal, 16)
                     
-                    VStack(spacing: 16) {
-                        HStack {
-                            Text("Advance")
-                                .bold()
-                                .font(.title2)
-                            
-                            Spacer()
-                        }
-                        
-                        HStack(spacing: 16) {
-                            Button(action: {
-                                searchResult.level = .advance
-                                isPresented.toggle()
-                            })
-                            {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .frame(minHeight: 90)
+                    Divider()
+                        .padding(.leading, 16)
+                    
+                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 8), GridItem(.flexible())],spacing: 16) {
+                        ForEach(0 ..< 3) { index in
+                                VStack(alignment: .leading) {
+                                    Button(action: {
+                                        chapterName = Constants.Chapter.chapters[index + 6]
+                                        isPresented.toggle()
+                                    }, label: {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .frame(height: 87)
+                                    })
 
                                     
-                                    VStack {
-                                        HStack {
-                                            Text("ㄲㄸㅃㅆㅉ")
-                                                .bold()
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                                .padding(.leading, 10)
-                                                .padding(.top, 8)
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
-                                }
-                            }
-                            
-                            Button(action: {
-                                searchResult.level = .advance
-                                isPresented.toggle()
-                            })
-                            {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .frame(minHeight: 90)
-
+                                    Text("\(Constants.Chapter.chapters[index + 6])")
+                                        .bold()
                                     
-                                    VStack {
-                                        HStack {
-                                            Text("ㅢㅚㅟㅘㅝㅙㅞ")
-                                                .bold()
-                                                .font(.title2)
-                                                .foregroundColor(.white)
-                                                .padding(.leading, 10)
-                                                .padding(.top, 8)
-                                            
-                                            Spacer()
-                                        }
-                                        
-                                        Spacer()
-                                    }
+                                    Text("\(Constants.Chapter.chapterComponent[2][index].concatArray())")
+                                        .foregroundStyle(.secondary)
+                                    
                                 }
-                            }
                         }
-                        
                     }
+                    .padding(.horizontal, 16)
+                    
                 }
+                
             }
-            .padding(.horizontal, 15)
-            .navigationTitle("Search")
+            .navigationTitle("Recap")
             .scrollIndicators(.hidden)
         }
-        .searchable(text: $searchText)
-        .fullScreenCover(isPresented: $isPresented, content: {
-            SearchResultView(isPresented: $isPresented, searchResult: $searchResult)
+        .sheet(isPresented: $isPresented, content: {
+            SearchResultView(isPresented: $isPresented, chapterName: $chapterName)
+                .environmentObject(educationManager)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
         })
     }
 }
 
 #Preview {
     SearchView()
+        .environmentObject(EducationManager())
 }

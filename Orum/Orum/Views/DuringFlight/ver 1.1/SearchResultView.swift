@@ -9,40 +9,32 @@ import SwiftUI
 
 struct SearchResultView: View {
     @Binding var isPresented: Bool
-    @Binding var searchResult: SearchResult
+    @Binding var chapterName: String
+    
+    @EnvironmentObject var educationManager: EducationManager
+    
+    @State var content: [HangulCard] = HangulUnitEnum.consonant1
+    
     
     var body: some View {
         NavigationView {
-            VStack(alignment: .leading,spacing: 16) {
-                Divider()
-                
-                Text("Touch card for more information")
-                    .bold()
-                    .font(.title2)
-                
-                ScrollView {
-                    HStack {
-                        
-                    }
-                    
-                    HStack {
-                        
-                    }
-                }
-            }
-            .navigationBarItems(leading: Button(action: {
-                isPresented.toggle()
-            }){
-                Image(systemName: "x.circle.fill")
-                    .foregroundStyle(.blue, Color(uiColor: .systemGray4))
-                    .symbolRenderingMode(.palette)
-            })
-            .navigationTitle("\(searchResult.level.rawValue)")
-            .padding(.horizontal, 15)
+            HangulEducationRecapView()
+                .environmentObject(educationManager)
+                .navigationBarItems(leading: Button(action: {
+                    isPresented.toggle()
+                }){
+                    Image(systemName: "x.circle.fill")
+                        .foregroundStyle(.blue, Color(uiColor: .systemGray4))
+                        .symbolRenderingMode(.palette)
+                })
+                .navigationTitle("\(chapterName)")
+                .navigationBarTitleDisplayMode(.inline)
+                .padding(.horizontal, 15)
         }
     }
 }
 
 #Preview {
-    SearchResultView(isPresented: .constant(true), searchResult: .constant(SearchResult()))
+    SearchResultView(isPresented: .constant(true), chapterName: .constant(Constants.Chapter.consonant1))
+        .environmentObject(EducationManager())
 }
