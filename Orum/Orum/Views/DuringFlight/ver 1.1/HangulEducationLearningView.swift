@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct HangulEducationLearningView: View {
-//    @Binding var content : HangulUnit
-    @Binding var touchCardsCount : Int
-    @Binding var isOnceFlipped : Bool
-    @Binding var isFlipped: Bool
-    @Binding var isExample1Listened : Bool
-    @Binding var isExample2Listened : Bool
+    @State var touchCardsCount : Int = 0
+    @State var isOnceFlipped = false
+    @State var isFlipped = false
+    @State var isExample1Listened = false
+    @State var isExample2Listened = false
+    @State var isDrawingViewShowing = true
     
     @EnvironmentObject var educationManager: EducationManager
 
@@ -21,95 +21,128 @@ struct HangulEducationLearningView: View {
     
     let ttsManager = TTSManager()
     
-    @Binding var index: Int
+    @State var index: Int = 0
+    @Binding var progressValue: Int
+    @Binding var currentEducation: CurrentEducation
     
     var body: some View {
-        ScrollViewReader{ proxy in
-            ScrollView{
-                VStack(spacing: 50){
-                    HStack{
-                        Text("Touch the Cards")
-                            .font(.title2)
-                            .fontWeight(.bold)
-                        ZStack{
-                            Text("\(touchCardsCount)/3")
-                                .font(.body)
+
+            ScrollViewReader { proxy in
+                ScrollView {
+                    VStack(spacing: 50){
+                        HStack{
+                            Text("Touch the Cards")
+                                .font(.title2)
                                 .fontWeight(.bold)
-                        }
-                        .padding(EdgeInsets(top: 3, leading: 5, bottom: 3, trailing: 5))
-                        .overlay(RoundedRectangle(cornerRadius: 8)
-                            .stroke(.blue , lineWidth: 3))
-                        Spacer()
-                    }
-                    .padding(.top, 16)
-                    VStack(spacing: 25){
-                        HangulCardView(hangulCard: educationManager.content[index], touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: educationManager.content[index].name),  isLearningView: true)
-                            .environmentObject(educationManager)
-                        HStack(spacing: 25){
-                            HStack{
-                                Spacer()
-                                Text(educationManager.content[index].example1)
-                                    .font(.largeTitle)
+                            ZStack{
+                                Text("\(touchCardsCount)/3")
+                                    .font(.body)
                                     .fontWeight(.bold)
+                            }
+                            .padding(EdgeInsets(top: 3, leading: 5, bottom: 3, trailing: 5))
+                            .overlay(RoundedRectangle(cornerRadius: 8)
+                                .stroke(.blue , lineWidth: 3))
+                            Spacer()
+                        }
+                        .padding(.top, 16)
+                        
+                        VStack(spacing: 25){
+                            HangulCardView(hangulCard: educationManager.content[index], chapterType: educationManager.chapterType, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: educationManager.content[index].name),  isLearningView: true)
+                                .environmentObject(educationManager)
+                            
+                            if educationManager.chapterType == .consonant {
+                                HStack(spacing: 25) {
+                                Text(educationManager.content[index].example1) //TODO: ForEach로 구현하기
+                                    .bold()
+                                    .frame(maxWidth: .infinity)
+                                    .font(.largeTitle)
                                     .padding(15)
+                                    .overlay(RoundedRectangle(cornerRadius: 24)
+                                        .stroke(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                    .onTapGesture {
+                                        if !isExample1Listened {
+                                            touchCardsCount += 1
+                                        }
+                                        withAnimation(.easeIn(duration: 0.5)){
+                                            isExample1Listened = true
+                                        }
+                                        ttsManager.play(educationManager.content[index].example1)
+                                    }
                                 
-                                Spacer()
-                            }
-                            .overlay(RoundedRectangle(cornerRadius: 24)
-                                .stroke(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                            .onTapGesture {
-                                if !isExample1Listened {
-                                    touchCardsCount += 1
-                                }
-                                withAnimation(.easeIn(duration: 0.5)){
-                                    isExample1Listened = true
-                                }
-                                ttsManager.play(educationManager.content[index].example1)
-                            }
-                            HStack{
-                                Spacer()
                                 Text(educationManager.content[index].example2)
+                                    .bold()
+                                    .frame(maxWidth: .infinity)
                                     .font(.largeTitle)
-                                    .fontWeight(.bold)
                                     .padding(15)
+                                    .overlay(RoundedRectangle(cornerRadius: 24)
+                                        .stroke(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                    .onTapGesture {
+                                        if !isExample2Listened {
+                                            touchCardsCount += 1
+                                        }
+                                        withAnimation(.easeIn(duration: 0.5)){
+                                            isExample2Listened = true
+                                        }
+                                        ttsManager.play(educationManager.content[index].example2)
+                                    }
+                            }
+                        }
+                            
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(.clear)
+                                .id(bottomID)
+                        }
+                        .padding(.horizontal, 61)
+                        .onChange(of: (!(index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                withAnimation(.easeOut(duration: 0.3)) {
+                                    proxy.scrollTo(bottomID)
+                                }
+                            }
+                        }
+                        
+                        Button(action: {
+                            if index < educationManager.content.count - 1 {
+                                index += 1
+                                progressValue += 1
+                            }
+                            else {
+                                isOnceFlipped = false
+                                index = 0
                                 
-                                Spacer()
-                            }
-                            .overlay(RoundedRectangle(cornerRadius: 24)
-                                .stroke(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                            .onTapGesture {
-                                if !isExample2Listened {
-                                    touchCardsCount += 1
+                                withAnimation(.easeIn(duration: 1)) {
+                                    progressValue += 1
+                                    currentEducation = .recap
                                 }
-                                withAnimation(.easeIn(duration: 0.5)){
-                                    isExample2Listened = true
-                                }
-                                ttsManager.play(educationManager.content[index].example2)
                             }
-                        }
-                        Rectangle()
-                            .frame(height: 1)
-                            .foregroundColor(.clear)
-                            .id(bottomID)
-                    }
-                    .padding(.horizontal, 61)
-                    .onChange(of: (!(index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                            withAnimation(.easeOut(duration: 0.3)) {
-                                proxy.scrollTo(bottomID)
+                            
+                            withAnimation (.easeIn(duration: 1)){
+                                isOnceFlipped = false
+                                isFlipped = false
+                                isExample1Listened = false
+                                isExample2Listened = false
+                                touchCardsCount = 0
                             }
-                        }
+                        },label: {
+                            Text("Continue")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                        })
+                        .background((index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                        .buttonStyle(.borderedProminent)
+                        .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
+                        //                    .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
                     }
                 }
+                //            .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
             }
-//            .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
-        }
     }
 }
 
 
 #Preview {
-    HangulEducationLearningView(touchCardsCount: .constant(0), isOnceFlipped: .constant(false), isFlipped: .constant(false), isExample1Listened: .constant(false), isExample2Listened: .constant(false), index: .constant(1))
+    HangulEducationLearningView(progressValue: .constant(0), currentEducation: .constant(.learning))
         .environmentObject(EducationManager())
 }
 

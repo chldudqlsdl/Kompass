@@ -74,7 +74,12 @@ struct HangulUnitEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g
     
     static let consonant5: [HangulCard] = []
     
-    static let vowel1: [HangulCard] = []
+    static let vowel1: [HangulCard] = [
+        HangulCard(name: "ㅏ", sound: "a", soundExample1: "a", soundExample2: "a", quiz: "", lottieName: "gun"),
+        HangulCard(name: "ㅓ", sound: "e", soundExample1: "e", soundExample2: "e", quiz: "", lottieName: "nose"),
+        HangulCard(name: "ㅗ", sound: "o", soundExample1: "o", soundExample2: "o", quiz: "", lottieName: "drink"),
+        HangulCard(name: "ㅜ", sound: "u", soundExample1: "u", soundExample2: "u", quiz: "", lottieName: "road"),
+    ]
     
     static let vowel2: [HangulCard] = []
     
