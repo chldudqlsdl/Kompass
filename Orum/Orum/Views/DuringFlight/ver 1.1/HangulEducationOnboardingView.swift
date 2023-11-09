@@ -15,76 +15,80 @@ struct HangulEducationOnboardingView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     var body: some View {
-        VStack {
-            switch educationManager.chapterType {
-            case .system:
-                SystemOnboarding()
-                
-            case .consonant:
-                /*
-                HStack{
-                    Text("Before Learning Consonant")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    Spacer()
-                }
-                VStack(spacing: 32 ){
-                    VStack{
-                        Image(systemName: "rectangle.fill.on.rectangle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                            .padding(.bottom, 8)
-                        Text("For the accurate pronunciation, Listen to the sound through a small card with Hangul written on it.")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
-                        Text("Pronunciation through the alphabet is not completely accurate.")
-                            .font(.body)
-                            .foregroundColor(Color(uiColor: .secondaryLabel))
-                            .multilineTextAlignment(.center)
-                    }
-                    VStack{
-                        Image(systemName: "speaker.wave.2.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                            .padding(.bottom, 8)
-                        Text("The basic vowels ㅏ[a] and ㅜ[u] will be used to make sound of consonant.")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
-                        Text("Hangul does not make sounds with consonants alone.")
-                            .font(.body)
-                            .foregroundColor(Color(uiColor: .secondaryLabel))
-                            .multilineTextAlignment(.center)
+        ZStack {
+            ScrollView {
+                VStack {
+                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                        .padding(.vertical, 16)
+                    
+        //            Divider()
+                    switch educationManager.chapterType {
+                    case .system:
+                        SystemOnboarding()
+                        
+                    case .consonant:
+                        ConsonantOnboarding()
+                        
+                    case .vowel:
+                        VowelOnboarding()
+                        
+                        
                     }
                 }
-                .padding(.horizontal, 31)
-                 */
-                ConsonantOnboarding()
-                
-            case .vowel:
-                VowelOnboarding()
+                .padding(.horizontal, 16)
+                .navigationTitle(educationManager.nowStudying)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading: Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title3)
+                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
+                        .symbolRenderingMode(.palette)
+            }))
             }
             
-            Spacer()
-            
-            Button(action: {
-                switch educationManager.chapterType {
-                case .system:
-                    isPresented.toggle()
-                case .consonant:
-                    currentEducation = .learning
-                    progressValue += 1
-                case .vowel:
-                    currentEducation = .vowelDrawing
-                    progressValue += 1
+            // 버튼 뒷 배경
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Button(action: {}, label: {
+                        Text("Continue")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                    })
+                    .buttonStyle(.borderedProminent)
+                    .hidden()
                 }
-            }, label: {
+                .padding(24)
+                .background(.ultraThinMaterial)
+            }
+            
+            VStack {
+                Spacer()
+                
+                Button(action: {
+                    switch educationManager.chapterType {
+                    case .system:
+                        isPresented.toggle()
+                    case .consonant:
+                        currentEducation = .learning
+                        progressValue += 1
+                    case .vowel:
+                        currentEducation = .vowelDrawing
+                        progressValue += 1
+                    }
+                }, label: {
                     Text("Continue")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
-            })
-            .buttonStyle(.borderedProminent)
+                        .bold()
+                })
+                .buttonStyle(.borderedProminent)
+                .padding(.horizontal, 24)
+                .padding(.bottom, 24)
+            }
         }
     }
 }
