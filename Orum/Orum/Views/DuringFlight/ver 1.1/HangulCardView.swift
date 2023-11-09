@@ -13,12 +13,11 @@ enum ViewType {
 
 struct HangulCardView: View {
     var hangulCard: HangulCard
+    var chapterType: ChapterType = .vowel
     @Binding var touchCardsCount : Int
     @Binding var isOnceFlipped : Bool
     @Binding var isFlipped: Bool
-    
-//    @Environment var educationManager: EducationManager
-    
+        
     @State var lottieView : LottieView
     
     var isLearningView: Bool
@@ -42,29 +41,45 @@ struct HangulCardView: View {
                                 .foregroundColor(Color(uiColor: .systemGray4))
                         }
                     } else {
-                        LottieView(fileName: hangulCard.name)
-                            .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                        if chapterType == .consonant {
+                            LottieView(fileName: hangulCard.name)
+                                .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                                .scaleEffect(x: -1, y: 1)
+                            HStack {
+                                Spacer()
+                                
+                                Text("[")
+                                    .fontWeight(.bold)
+                                    .font( isLearningView ? .largeTitle : .title2)
+                                    .foregroundColor(Color(uiColor: .systemGray4))
+                                +
+                                Text(hangulCard.lottieName)
+                                    .fontWeight(.bold)
+                                    .font( isLearningView ? .largeTitle : .title2)
+                                +
+                                Text("]")
+                                    .fontWeight(.bold)
+                                    .font( isLearningView ? .largeTitle : .title2)
+                                    .foregroundColor(Color(uiColor: .systemGray4))
+                                
+                                Spacer()
+                            }
                             .scaleEffect(x: -1, y: 1)
-                        HStack{
-                            Spacer()
-                            
-                            Text("[")
-                                .fontWeight(.bold)
-                                .font( isLearningView ? .largeTitle : .title2)
-                                .foregroundColor(Color(uiColor: .systemGray4))
-                            +
-                            Text(hangulCard.lottieName)
-                                .fontWeight(.bold)
-                                .font( isLearningView ? .largeTitle : .title2)
-                            +
-                            Text("]")
-                                .fontWeight(.bold)
-                                .font( isLearningView ? .largeTitle : .title2)
-                                .foregroundColor(Color(uiColor: .systemGray4))
-                            
-                            Spacer()
                         }
-                        .scaleEffect(x: -1, y: 1)
+                        
+                        else {
+                            Rectangle()
+                                .foregroundStyle(.clear)
+                                .border(.black)
+                                .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                                .scaleEffect(x: -1, y: 1)
+                            
+                            Text("[]")
+                                .bold()
+                                .font( isLearningView ? .largeTitle : .title2)
+                                .scaleEffect(x: -1, y: 1)
+                        }
+                        
                     }
                 }
                 .padding(EdgeInsets(top: isLearningView ? 50 : 20 , leading: 0, bottom: isLearningView ? 40 : 20, trailing: 0))

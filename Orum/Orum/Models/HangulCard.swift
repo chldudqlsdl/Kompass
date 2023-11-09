@@ -10,12 +10,12 @@ import Foundation
 struct HangulCard: Hashable {
     let name : String
     let sound : String
-    let example1 : String
-    let example2 : String
+    var example1 : String = ""
+    var example2 : String = ""
     let soundExample1 : String
     let soundExample2 : String
     let quiz : String
-    let lottieName : String
+    var lottieName : String
 }
 
 

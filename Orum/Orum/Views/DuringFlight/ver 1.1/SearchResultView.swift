@@ -18,18 +18,19 @@ struct SearchResultView: View {
     
     var body: some View {
         NavigationView {
-            HangulEducationRecapView()
-                .environmentObject(educationManager)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }){
-                    Image(systemName: "x.circle.fill")
-                        .foregroundStyle(.blue, Color(uiColor: .systemGray4))
-                        .symbolRenderingMode(.palette)
-                })
-                .navigationTitle("\(chapterName)")
-                .navigationBarTitleDisplayMode(.inline)
-                .padding(.horizontal, 15)
+//            HangulEducationRecapView(progressValue: $1, currentEducation: $CurrentEducation.recap)
+//                .environmentObject(educationManager)
+//                .navigationBarItems(leading: Button(action: {
+//                    isPresented.toggle()
+//                }){
+//                    Image(systemName: "x.circle.fill")
+//                        .foregroundStyle(.blue, Color(uiColor: .systemGray4))
+//                        .symbolRenderingMode(.palette)
+//                })
+//                .navigationTitle("\(chapterName)")
+//                .navigationBarTitleDisplayMode(.inline)
+//                .padding(.horizontal, 15)
+            Text("A")
         }
     }
 }

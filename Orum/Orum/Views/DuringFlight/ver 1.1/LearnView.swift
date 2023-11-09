@@ -40,5 +40,5 @@ struct LearnView: View {
 
 #Preview {
         LearnView()
-            .environmentObject(EducationManager())
+        .environmentObject(EducationManager())
 }
