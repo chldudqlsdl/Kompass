@@ -11,6 +11,7 @@ struct HangulEducationRecapView: View {
     
     @Binding var progressValue: Int
     @Binding var currentEducation: CurrentEducation
+    @Binding var isPresented: Bool
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -19,57 +20,94 @@ struct HangulEducationRecapView: View {
     @State var isFlipped : [Bool] = [false,false,false,false,false,false,false,false,false,false]
     
     var body: some View {
-        ScrollView{
-            VStack(spacing: 32){
-                HStack{
-                    Text("Recap what you learned to prepare Quiz session")
-                        .font(.title2)
-                        .bold()
-                    Spacer()
-                }
-                .padding(.top, 16)
-                
-                
+        ZStack {
+            ScrollView{
                 VStack {
-                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 25), GridItem(.flexible())], spacing: 25) {
-                        ForEach(0 ..< educationManager.content.count, id: \.self) { index in
-                            HangulCardView(hangulCard: educationManager.content[index], touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped[index], isFlipped: $isFlipped[index], lottieView: LottieView(fileName: educationManager.content[index].name), isLearningView: false)
-                        }
-                    }
+                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                        .padding(.vertical, 16)
                     
-                    Button {
-                        switch educationManager.chapterType {
-                        case .system: 
-                            break
-                        case .consonant:
-                            progressValue += 1
-                            currentEducation = .quiz
-                        case .vowel:
-                            progressValue += 1
-                            currentEducation = .vowelQuiz
-                        }
-                    } label: {
-                        HStack{
-                            Spacer()
-                            Text("Ready to Quiz")
-                            Spacer()
-                        }
-                        .padding(.vertical, 5)
+                    HStack{
+                        Text("Recap what you learned to prepare Quiz session")
+                            .font(.largeTitle)
+                            .bold()
+                        
+                        Spacer()
                     }
-                    .buttonStyle(.borderedProminent)
-                    .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemBackground).opacity(0.0), Color(uiColor: .systemBackground).opacity(1.0)]), startPoint: .top, endPoint: .bottom)
-                    )
+                    .padding(.bottom, 24)
+                    
+                    
+                    VStack {
+                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 25), GridItem(.flexible())], spacing: 25) {
+                            ForEach(0 ..< educationManager.content.count, id: \.self) { index in
+                                HangulCardView(hangulCard: educationManager.content[index], touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped[index], isFlipped: $isFlipped[index], lottieView: LottieView(fileName: educationManager.content[index].name), isLearningView: false)
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 7)
+                    .padding(.bottom, 130)
                 }
-                .padding(.horizontal, 7)
-                .padding(.bottom, 85)
+                .padding(.horizontal, 16)
+                .navigationTitle(educationManager.nowStudying)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarItems(leading: Button(action: {
+                    isPresented.toggle()
+                }, label: {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
+                        .symbolRenderingMode(.palette)
+                }))
             }
+            
+            //버튼 뒷배경
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Button(action: {}, label: {
+                        Text("background")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                            .bold()
+                    })
+                    .buttonStyle(.borderedProminent)
+                    .hidden()
+                }
+                .padding(24)
+                .background(.ultraThinMaterial)
+            }
+            
+            VStack {
+                Spacer()
+                
+                Button {
+                    switch educationManager.chapterType {
+                    case .system:
+                        break
+                    case .consonant:
+                        progressValue += 1
+                        currentEducation = .quiz
+                    case .vowel:
+                        progressValue += 1
+                        currentEducation = .vowelQuiz
+                    }
+                } label: {
+                    Text("Ready to Quiz")
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .bold()
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(24)
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemBackground).opacity(0.0), Color(uiColor: .systemBackground).opacity(1.0)]), startPoint: .top, endPoint: .bottom)
+                )}
         }
+        
+        
     }
 }
 
 #Preview {
-    HangulEducationRecapView(progressValue: .constant(0), currentEducation: .constant(.recap))
+    HangulEducationRecapView(progressValue: .constant(0), currentEducation: .constant(.recap), isPresented: .constant(true))
         .environmentObject(EducationManager())
 }
