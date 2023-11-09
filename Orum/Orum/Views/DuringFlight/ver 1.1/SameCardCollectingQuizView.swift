@@ -33,7 +33,6 @@ struct SameCardCollectingQuizView: View {
                         VStack(spacing: 16){
                             ForEach(0 ..< leftOptionVowels.count, id: \.self ) { index in
                                 Button(action: {
-                                    print("Hi")
                                     if isLeftOptionCorrect[index] {
                                         return
                                     }
@@ -53,11 +52,11 @@ struct SameCardCollectingQuizView: View {
                                         if leftOptionVowels[index] == rightOptionVowels[firstTappedIndex] {
                                             isLeftOptionCorrect[index] = true
                                             isRightOptionCorrect[firstTappedIndex] = true
-                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0 , execute: {
+                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5 , execute: {
                                                 leftOptionReset(index)
                                             })
                                         } else {
-                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0 , execute: {
+                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5 , execute: {
                                                 leftOptionReset(index)
                                             })
                                         }
@@ -96,11 +95,11 @@ struct SameCardCollectingQuizView: View {
                                         if rightOptionVowels[index] == leftOptionVowels[firstTappedIndex] {
                                             isRightOptionCorrect[index] = true
                                             isLeftOptionCorrect[firstTappedIndex] = true
-                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0 , execute: {
+                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5 , execute: {
                                                 rightOptionReset(index)
                                             })
                                         } else {
-                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0 , execute: {
+                                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5 , execute: {
                                                 rightOptionReset(index)
                                             })
                                         }
@@ -153,7 +152,7 @@ struct SameCardCollectingQuizView: View {
     
     func makeLeftColor( _ index : Int) -> [Color] {
         if isLeftOptionCorrect[index] {
-            return [Color(uiColor: .systemBlue) , Color(uiColor: .systemBlue)]
+            return [Color(uiColor: .quaternarySystemFill) , Color(uiColor: .quaternarySystemFill)]
         } else if isLeftOptionTapped[index] && bothSideTapped {
             return [Color(uiColor: .systemRed) , Color(uiColor: .systemRed)]
         }
@@ -166,7 +165,7 @@ struct SameCardCollectingQuizView: View {
     
     func makeRightColor( _ index : Int) -> [Color] {
         if isRightOptionCorrect[index] {
-            return [Color(uiColor: .systemBlue) , Color(uiColor: .systemBlue)]
+            return [Color(uiColor: .quaternarySystemFill) , Color(uiColor: .quaternarySystemFill)]
         } else if isRightOptionTapped[index] && bothSideTapped {
             return [Color(uiColor: .systemRed) , Color(uiColor: .systemRed)]
         }
