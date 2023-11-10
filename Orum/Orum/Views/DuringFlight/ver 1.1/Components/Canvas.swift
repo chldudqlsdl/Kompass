@@ -28,8 +28,7 @@ struct Canvas: UIViewControllerRepresentable {
 class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasViewDelegate, UICollisionBehaviorDelegate {
     
     @Binding var writingCount: Int
-    
-    let ttsManager = TTSManager()
+
     var gravity : UIGravityBehavior!
     var collision: UICollisionBehavior!
     var animator: UIDynamicAnimator!
@@ -93,7 +92,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         
         if stroke == 2 {
             writingCount += 1
-            ttsManager.play("아")
+            TTSManager.shared.play("아")
             
             let writedImage = canvasView.drawing.image(from: canvasView.drawing.bounds, scale: 1.0)
             
@@ -153,7 +152,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
     }
     
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
-        HapticManager().hapticImpact(style: .soft)
+        HapticManager.shared.hapticImpact(style: .soft)
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -163,25 +162,9 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         canvasItems.removeAll()
         animator.removeBehavior(gravity)
         animator.removeBehavior(collision)
-        HapticManager().hapticNotification(type: .warning)
+        HapticManager.shared.hapticNotification(type: .warning)
     }
 
-}
-
-class HapticManager {
-    static let shared = HapticManager()
-    
-    // warning, error, success
-    func hapticNotification(type: UINotificationFeedbackGenerator.FeedbackType) {
-        let generator = UINotificationFeedbackGenerator()
-        generator.notificationOccurred(type)
-    }
-    
-    // heavy, light, meduium, rigid, soft
-    func hapticImpact(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generator = UIImpactFeedbackGenerator(style: style)
-        generator.impactOccurred()
-    }
 }
 
 #Preview(body: {

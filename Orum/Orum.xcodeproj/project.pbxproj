@@ -70,6 +70,7 @@
 		D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* ㄹ.json */; };
 		D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* ㄷ.json */; };
 		D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A9CE092AFDF02300F821D6 /* Canvas.swift */; };
+		D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -139,6 +140,7 @@
 		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
 		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
 		D9A9CE092AFDF02300F821D6 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -244,6 +246,7 @@
 				9336E1FB2AF78B4A000B9E76 /* FlightManager.swift */,
 				9336E1FC2AF78B4A000B9E76 /* NavigationManager.swift */,
 				D96D94472AE778680077F2C1 /* SoundManager.swift */,
+				D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				937620342AF0805A00DE2C50 /* FlightMainView.swift in Sources */,
 				93F68C7C2AE04B6600B96F5C /* DepartRemainingTimeView.swift in Sources */,
+				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
 				D950CF672AE1283B00BD9EB3 /* FlightInfo.swift in Sources */,
 				93194FD82AF8B910002C1BE4 /* Category.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
