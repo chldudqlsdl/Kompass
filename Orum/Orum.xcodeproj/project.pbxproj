@@ -69,6 +69,7 @@
 		D98B83FC2AE6EC9C00B47C56 /* ㄴ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */; };
 		D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* ㄹ.json */; };
 		D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* ㄷ.json */; };
+		D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A9CE092AFDF02300F821D6 /* Canvas.swift */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,7 @@
 		D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄴ.json"; sourceTree = "<group>"; };
 		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
 		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
+		D9A9CE092AFDF02300F821D6 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,6 +253,7 @@
 			children = (
 				93194FD42AF8B8D8002C1BE4 /* Chapter.swift */,
 				93194FD72AF8B910002C1BE4 /* Category.swift */,
+				D9A9CE092AFDF02300F821D6 /* Canvas.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearnView.swift in Sources */,
 				93419DCE2AF0AA7100DCB322 /* SearchResultView.swift in Sources */,
+				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
 				93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */,
 				933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */,
