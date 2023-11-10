@@ -12,18 +12,45 @@ struct HangulCard: Hashable {
     let sound : String
     var example1 : String = ""
     var example2 : String = ""
-    let soundExample1 : String
-    let soundExample2 : String
+    var soundExample1 : String = ""
+    var soundExample2 : String = ""
     let quiz : String
-    var lottieName : String
+    var lottieName : String = ""
+    
+    init(name: String) {
+        self.name = name
+        
+        if Constants.Hangul.consonants.contains(name) {
+            self.sound = Constants.Hangul.consonantSound[name] ?? ""
+            self.example1 = Constants.Hangul.consonantExamples[name]?[0] ?? ""
+            self.example2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
+            self.soundExample1 = Constants.Hangul.consonantExamples[name]?[0] ?? ""
+            self.soundExample2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
+            self.quiz = Constants.Hangul.consonantQuiz[name] ?? ""
+            self.lottieName = Constants.Hangul.lottieName[name] ?? ""
+        }
+        
+        else if Constants.Hangul.vowels.contains(name) {
+            self.sound = Constants.Hangul.vowelSound[name] ?? ""
+            self.quiz = Constants.Hangul.vowelQuiz[name] ?? ""
+            self.lottieName = ""
+        }
+        
+        else { // 받침
+            self.sound = Constants.Hangul.consonantSound[name] ?? ""
+            self.quiz = Constants.Hangul.consonantQuiz[name] ?? ""
+        }
+    }
 }
+
+
 
 
 extension HangulCard {
     static let preview = [
-        HangulCard(name: "ㄱ", sound: "g", example1: "가", example2: "구", soundExample1: "ga", soundExample2: "gu", quiz: "가든", lottieName: "gun"),
-        HangulCard(name: "ㄴ", sound: "n", example1: "나", example2: "누", soundExample1: "na", soundExample2: "nu", quiz: "나노", lottieName: "nose"),
-        HangulCard(name: "ㄷ", sound: "d", example1: "다", example2: "두", soundExample1: "da", soundExample2: "du", quiz: "다트", lottieName: "drink"),
-        HangulCard(name: "ㄹ", sound: "r", example1: "라", example2: "루", soundExample1: "ra", soundExample2: "ru", quiz: "라디오", lottieName: "road")
+        HangulCard(name: "ㄱ"),
+        HangulCard(name: "ㄴ"),
+        HangulCard(name: "ㄷ"),
+        HangulCard(name: "ㄹ")
     ]
 }

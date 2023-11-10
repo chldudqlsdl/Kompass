@@ -25,7 +25,7 @@ struct FlightMainView: View {
                 }
 
             
-            SearchView()
+            StorageView()
                 .environmentObject(educationManager)
                 .tabItem {
                         Label("Search", systemImage: "list.bullet.rectangle.portrait")

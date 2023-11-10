@@ -13,19 +13,18 @@ struct VowelDrawingView: View {
     @EnvironmentObject var educationManager: EducationManager
 
     var body: some View {
-        VStack {
-            
-            Button(action: {
-                currentEducation = .learning
-            }, label: {
-                Text("Continue")
-            })
-            .buttonStyle(.borderedProminent)
-        }
+        Text("그려야 할 것: \(educationManager.content[educationManager.index].name)")
         
+        Button(action: {
+            currentEducation = .learning
+        }, label: {
+            Text("Continue")
+        })
+        .buttonStyle(.borderedProminent)
     }
 }
 
 #Preview {
     VowelDrawingView(currentEducation: .constant(.vowelDrawing))
+        .environmentObject(EducationManager())
 }

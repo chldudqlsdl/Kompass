@@ -23,6 +23,9 @@ struct SameCardCollectingQuizView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     var body: some View {
+        ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+            .padding(.vertical, 16)
+
         ZStack{
             ScrollView{
                 VStack(alignment: .leading ,  spacing: 32){
