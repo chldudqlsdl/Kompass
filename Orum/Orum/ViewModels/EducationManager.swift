@@ -32,12 +32,20 @@ class EducationManager: ObservableObject {
         Constants.Chapter.vowel2 : "locked",
         Constants.Chapter.vowel3 : "locked",
     ]
+    @AppStorage("wrongCount") var wrongCount: [String:String] = [
+       "ㄱ" : "1",
+       "ㄴ" : "2",
+       "ㄷ" : "1",
+       "ㄹ" : "3",
+    ]
 
-    @Published var content: [HangulCard] = HangulUnitEnum.vowel1
-    @Published var nowStudying: String = Constants.Chapter.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
-    @Published var wrongQuestion: [HangulCard] = []
-    @Published var chapterType: ChapterType = .vowel
+    @Published var content: [HangulCard] = HangulUnitEnum.consonant1
+    @Published var quiz: [HangulCard] = HangulUnitEnum.consonant1
+    @Published var storage: [HangulCard] = []
+    @Published var nowStudying: String = Constants.Chapter.consonant1 // 현재 공부하고 있는 단원 (진도와는 무관)
+    @Published var chapterType: ChapterType = .consonant
     @Published var index: Int = 0
+//    @Published var wrongCount: [String : Int] = [:]
     
     init() {
     }
@@ -46,38 +54,49 @@ class EducationManager: ObservableObject {
         switch chapterName {
         case Constants.Chapter.system:
             content = HangulUnitEnum.system
+            quiz = HangulUnitEnum.system
             chapterType = .system
         
         case Constants.Chapter.consonant1:
             content = HangulUnitEnum.consonant1
+            quiz = HangulUnitEnum.consonant1
             chapterType = .consonant
             
         case Constants.Chapter.consonant2:
             content = HangulUnitEnum.consonant2
+            quiz = HangulUnitEnum.consonant2
             chapterType = .consonant
             
         case Constants.Chapter.consonant3:
             content = HangulUnitEnum.consonant3
+            quiz = HangulUnitEnum.consonant3
+
             chapterType = .consonant
 
         case Constants.Chapter.consonant4:
             content = HangulUnitEnum.consonant4
+            quiz = HangulUnitEnum.consonant4
+
             chapterType = .consonant
             
         case Constants.Chapter.consonant5:
             content = HangulUnitEnum.consonant5
+            quiz = HangulUnitEnum.consonant5
             chapterType = .consonant
             
         case Constants.Chapter.vowel1:
             content = HangulUnitEnum.vowel1
+            quiz = HangulUnitEnum.vowel1
             chapterType = .vowel
 
         case Constants.Chapter.vowel2:
             content = HangulUnitEnum.vowel2
+            quiz = HangulUnitEnum.vowel2
             chapterType = .vowel
 
         case Constants.Chapter.vowel3:
             content = HangulUnitEnum.vowel3
+            quiz = HangulUnitEnum.vowel3
             chapterType = .vowel
             
         default:

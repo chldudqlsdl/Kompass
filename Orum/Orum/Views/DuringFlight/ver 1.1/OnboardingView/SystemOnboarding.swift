@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct SystemOnboarding: View {
+    
     var body: some View {
-        Text("System Onboarding Page")
-            .font(.largeTitle)
+            Text("ABC")
     }
 }
 

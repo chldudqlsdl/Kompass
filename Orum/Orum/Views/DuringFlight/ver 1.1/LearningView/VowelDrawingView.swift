@@ -13,6 +13,8 @@ struct VowelDrawingView: View {
     @EnvironmentObject var educationManager: EducationManager
 
     var body: some View {
+        Text("그려야 할 것: \(educationManager.content[educationManager.index].name)")
+        
         Button(action: {
             currentEducation = .learning
         }, label: {
@@ -24,4 +26,5 @@ struct VowelDrawingView: View {
 
 #Preview {
     VowelDrawingView(currentEducation: .constant(.vowelDrawing))
+        .environmentObject(EducationManager())
 }

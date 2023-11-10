@@ -21,7 +21,6 @@ struct HangulEducationLearningView: View {
     
     let ttsManager = TTSManager()
     
-    @State var index: Int = 0
     @Binding var progressValue: Int
     @Binding var currentEducation: CurrentEducation
     
@@ -47,12 +46,18 @@ struct HangulEducationLearningView: View {
                         .padding(.top, 16)
                         
                         VStack(spacing: 25){
-                            HangulCardView(hangulCard: educationManager.content[index], chapterType: educationManager.chapterType, touchCardsCount: $touchCardsCount, isOnceFlipped: $isOnceFlipped, isFlipped: $isFlipped, lottieView: LottieView(fileName: educationManager.content[index].name),  isLearningView: true)
-                                .environmentObject(educationManager)
+                            HangulCardView(onTapGesture: {
+                                if !isOnceFlipped {
+                                    touchCardsCount += 1
+                                }
+                                
+                                isOnceFlipped = true
+                            }, hangulCard: educationManager.content[educationManager.index],  isLearningView: true)
+                                    .environmentObject(educationManager)
                             
                             if educationManager.chapterType == .consonant {
                                 HStack(spacing: 25) {
-                                Text(educationManager.content[index].example1) //TODO: ForEach로 구현하기
+                                    Text(educationManager.content[educationManager.index].example1) //TODO: ForEach로 구현하기
                                     .bold()
                                     .frame(maxWidth: .infinity)
                                     .font(.largeTitle)
@@ -66,10 +71,10 @@ struct HangulEducationLearningView: View {
                                         withAnimation(.easeIn(duration: 0.5)){
                                             isExample1Listened = true
                                         }
-                                        ttsManager.play(educationManager.content[index].example1)
+                                        ttsManager.play(educationManager.content[educationManager.index].example1)
                                     }
                                 
-                                Text(educationManager.content[index].example2)
+                                    Text(educationManager.content[educationManager.index].example2)
                                     .bold()
                                     .frame(maxWidth: .infinity)
                                     .font(.largeTitle)
@@ -77,13 +82,14 @@ struct HangulEducationLearningView: View {
                                     .overlay(RoundedRectangle(cornerRadius: 24)
                                         .stroke(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
                                     .onTapGesture {
+                                        print(isOnceFlipped)
                                         if !isExample2Listened {
                                             touchCardsCount += 1
                                         }
                                         withAnimation(.easeIn(duration: 0.5)){
                                             isExample2Listened = true
                                         }
-                                        ttsManager.play(educationManager.content[index].example2)
+                                        ttsManager.play(educationManager.content[educationManager.index].example2)
                                     }
                             }
                         }
@@ -94,7 +100,7 @@ struct HangulEducationLearningView: View {
                                 .id(bottomID)
                         }
                         .padding(.horizontal, 61)
-                        .onChange(of: (!(index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
+                        .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                 withAnimation(.easeOut(duration: 0.3)) {
                                     proxy.scrollTo(bottomID)
@@ -103,14 +109,17 @@ struct HangulEducationLearningView: View {
                         }
                         
                         Button(action: {
-                            if index < educationManager.content.count - 1 {
-                                index += 1
+                            if educationManager.index < educationManager.content.count - 1 {
+                                educationManager.index += 1
                                 progressValue += 1
+                                
+                                if educationManager.chapterType == .vowel {
+                                    currentEducation = .vowelDrawing
+                                }
                             }
                             else {
                                 isOnceFlipped = false
-                                index = 0
-                                
+                                educationManager.index = 0
                                 withAnimation(.easeIn(duration: 1)) {
                                     progressValue += 1
                                     currentEducation = .recap
@@ -119,7 +128,6 @@ struct HangulEducationLearningView: View {
                             
                             withAnimation (.easeIn(duration: 1)){
                                 isOnceFlipped = false
-                                isFlipped = false
                                 isExample1Listened = false
                                 isExample2Listened = false
                                 touchCardsCount = 0
@@ -129,7 +137,7 @@ struct HangulEducationLearningView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 8)
                         })
-                        .background((index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                        .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
                         .buttonStyle(.borderedProminent)
                         .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
                         //                    .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))

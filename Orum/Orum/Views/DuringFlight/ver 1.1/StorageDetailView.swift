@@ -18,14 +18,14 @@ struct StorageDetailView: View {
                     if chapterName == "Consonant" {
                         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())],spacing: 16) {
                             ForEach(0 ..< 14) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulUnitEnum.consonant1[0], isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), isLearningView: false)
                             }
                         }
                     }
                     else {
                         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())],spacing: 16) {
                             ForEach(0 ..< 21) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulUnitEnum.vowel1[0], isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), isLearningView: false)
                             }
                         }
                     }

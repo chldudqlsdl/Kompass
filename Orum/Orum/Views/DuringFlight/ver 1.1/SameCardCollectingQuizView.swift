@@ -14,15 +14,8 @@ struct SameCardCollectingQuizView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     var body: some View {
-        Text("Same Card Collecting Quiz")
-        
-        Button(action: {
-            currentEducation = .quiz
-            progressValue += 1
-        }, label: {
-            Text("Continue")
-        })
-        .buttonStyle(.borderedProminent)
+        ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+            .padding(.vertical, 16)
     }
 }
 
