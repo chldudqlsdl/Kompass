@@ -32,12 +32,7 @@ class EducationManager: ObservableObject {
         Constants.Chapter.vowel2 : "locked",
         Constants.Chapter.vowel3 : "locked",
     ]
-    @AppStorage("wrongCount") var wrongCount: [String:String] = [
-       "ㄱ" : "1",
-       "ㄴ" : "2",
-       "ㄷ" : "1",
-       "ㄹ" : "3",
-    ]
+    @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
 
     @Published var content: [HangulCard] = HangulUnitEnum.consonant1
     @Published var quiz: [HangulCard] = HangulUnitEnum.consonant1

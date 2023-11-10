@@ -51,7 +51,7 @@ struct ConsonantLearningView: View {
             .padding(EdgeInsets(top: 16, leading: 16, bottom: 50, trailing: 16))
             
         case .learning:
-            HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation)
+            HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
                 .environmentObject(educationManager)
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                 .transition(.opacity)
@@ -125,7 +125,7 @@ struct ConsonantLearningView: View {
             
         case .recap:
             ZStack{
-                HangulEducationRecapView(progressValue: $progressValue, currentEducation: $currentEducation)
+                HangulEducationRecapView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
                     .environmentObject(educationManager)
                     .padding(.horizontal, 16)
                     
