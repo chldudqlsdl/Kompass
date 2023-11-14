@@ -24,7 +24,7 @@ struct HangulEducationQuizView: View {
     @State var selectedOptionIndex : Int = 5
     @State var answerIndex : Int = 5
     @State var isFinishButtonPressed: Bool = false
-    @State var optionAlphabet : [Character] = []
+    @State var optionAlphabet : [String] = []
     @Namespace var bottomID
     
     @State var ind: Int = 0
@@ -88,6 +88,11 @@ struct HangulEducationQuizView: View {
                                                         .foregroundColor(optionColor.circle)
                                                 }
                                             ZStack{
+                                                Text("[")
+                                                    .fontWeight(.bold)
+                                                    .font(.title2)
+                                                    .foregroundColor(optionColor.bracket)
+                                                +
                                                 Text("\(String(optionAlphabet[index]))")
                                                     .fontWeight(.bold)
                                                     .font(.title2)
@@ -97,7 +102,8 @@ struct HangulEducationQuizView: View {
                                                     .fontWeight(.bold)
                                                     .font(.title2)
                                                     .foregroundColor(optionColor.bracket)
-                                                Text("[      ]")
+                                                +
+                                                Text("]")
                                                     .fontWeight(.bold)
                                                     .font(.title2)
                                                     .foregroundColor(optionColor.bracket)
@@ -268,17 +274,41 @@ struct HangulEducationQuizView: View {
         }
     }
     
-    func makeQuizs() -> [Character] { // TODO: 알파벳이 두 개인 경우 (ㅊ, 쌍자음, 모음)
-        let alphabet: String = "abcdefghijklmnopqrstuvwxyz"
-        let answerFilter: Character = Character(String(educationManager.quiz.isEmpty ? " " : educationManager.quiz[ind].sound))
-        let tempOptionAlphabet: String = String(alphabet.filter { $0 != answerFilter })
-        if !educationManager.quiz.isEmpty {
-            return (String(tempOptionAlphabet.shuffled().prefix(3)) +  educationManager.quiz[ind].sound).shuffled()
+    func makeQuizs() -> [String] { // TODO: 알파벳이 두 개인 경우 (ㅊ, 쌍자음, 모음)
+        if educationManager.chapterType == .consonant{
+            let answerConsonant = educationManager.quiz[ind].sound
+            var consonantsSoundList : [String] = []
+            for i in  0 ..< Constants.Hangul.consonants.count {
+                consonantsSoundList.append(Constants.Hangul.consonantSound[Constants.Hangul.consonants[i]]!)
+            }
+            let answerIndex = consonantsSoundList.firstIndex(of: answerConsonant)!
+            consonantsSoundList.remove(at: answerIndex)
+            var shuffledConsonantsSoundList = consonantsSoundList.shuffled().prefix(3)
+            shuffledConsonantsSoundList.append(answerConsonant)
+            
+            return Array(shuffledConsonantsSoundList)
+        } else if educationManager.chapterType == .vowel{
+            let answerVowel = educationManager.quiz[ind].sound
+            var vowelsSoundList : [String] = []
+            for i in  0 ..< Constants.Hangul.vowels.count {
+                vowelsSoundList.append(Constants.Hangul.vowelSound[Constants.Hangul.vowels[i]]!)
+            }
+            let answerIndex = vowelsSoundList.firstIndex(of: answerVowel)!
+            vowelsSoundList.remove(at: answerIndex)
+            var shuffledVowelsSoundList = vowelsSoundList.shuffled().prefix(3)
+            shuffledVowelsSoundList.append(answerVowel)
+            return Array(shuffledVowelsSoundList)
         }
-        else {
-            return [Character("")]
-        }
-        
+//        let alphabet: String = "abcdefghijklmnopqrstuvwxyz"
+//        let answerFilter: Character = Character(String(educationManager.quiz.isEmpty ? " " : educationManager.quiz[ind].sound))
+//        let tempOptionAlphabet: String = String(alphabet.filter { $0 != answerFilter })
+//        if !educationManager.quiz.isEmpty {
+//            return (String(tempOptionAlphabet.shuffled().prefix(3)) +  educationManager.quiz[ind].sound).shuffled()
+//        }
+//        else {
+//            return [Character("")]
+//        }
+        return []
     }
     
     func fetchOptionColor(index: Int) -> OptionColor {
