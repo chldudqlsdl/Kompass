@@ -194,7 +194,6 @@ struct ConsonantLearningView: View {
                             }
                             if  index < educationManager.content.count - 1 {
                                 if isOptionWrong {
-                                    educationManager.wrongQuestion.append(educationManager.content[index]) //MARK: 틀린 문제 로직 구현
                                 } else {
                                     progressValue += 1
                                 }
