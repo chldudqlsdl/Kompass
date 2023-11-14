@@ -83,7 +83,6 @@ struct HangulEducationLearningView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 24)
                                     .stroke(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
                                 .onTapGesture {
-                                    print(isOnceFlipped)
                                     if !isExample2Listened {
                                         touchCardsCount += 1
                                     }
@@ -135,14 +134,29 @@ struct HangulEducationLearningView: View {
             
             Button(action: {
                 if educationManager.index < educationManager.content.count - 1 {
-                    educationManager.index += 1
                     progressValue += 1
                     
                     if educationManager.chapterType == .vowel {
-                        currentEducation = .vowelDrawing
+                        if educationManager.nowStudying == Constants.Chapter.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
+                            print(educationManager.index)
+                            currentEducation = .basicVowelCheck
+                            return
+                        }
+                        else {
+                            currentEducation = .vowelDrawing
+                        }
                     }
+                    
+                    educationManager.index += 1
                 }
                 else {
+                    if educationManager.chapterType == .vowel {
+                        if educationManager.nowStudying == Constants.Chapter.vowel1 && educationManager.index == 7 {
+                            currentEducation = .basicVowelCheck
+                            return
+                        }
+                    }
+                    
                     isOnceFlipped = false
                     educationManager.index = 0
                     withAnimation(.easeIn(duration: 1)) {
@@ -165,7 +179,7 @@ struct HangulEducationLearningView: View {
             })
             .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
             .buttonStyle(.borderedProminent)
-            .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
+//            .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
         }
         .padding(24)
     }

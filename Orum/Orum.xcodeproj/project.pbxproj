@@ -33,6 +33,10 @@
 		937620392AF0808700DE2C50 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937620382AF0808700DE2C50 /* GameView.swift */; };
 		9376203B2AF0808F00DE2C50 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376203A2AF0808F00DE2C50 /* StorageView.swift */; };
 		9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376203C2AF080B500DE2C50 /* HangulEducationView.swift */; };
+		93D529752B0301A500DA743E /* BatchimOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D529742B0301A500DA743E /* BatchimOnboarding.swift */; };
+		93D529772B0311EF00DA743E /* BasicVowelCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */; };
+		93D529792B031BFB00DA743E /* QuizLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D529782B031BFB00DA743E /* QuizLessonView.swift */; };
+		93D5297B2B031C0500DA743E /* PrologueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5297A2B031C0500DA743E /* PrologueView.swift */; };
 		93DA78E72AFB2047004BB43F /* ConsonantLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78E62AFB2047004BB43F /* ConsonantLearningView.swift */; };
 		93DA78E92AFB2052004BB43F /* VowelLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78E82AFB2052004BB43F /* VowelLearningView.swift */; };
 		93DA78EF2AFB6233004BB43F /* VowelDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */; };
@@ -104,6 +108,10 @@
 		9376203A2AF0808F00DE2C50 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
 		9376203C2AF080B500DE2C50 /* HangulEducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationView.swift; sourceTree = "<group>"; };
 		93D0BDA52AE2B54E00455447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93D529742B0301A500DA743E /* BatchimOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchimOnboarding.swift; sourceTree = "<group>"; };
+		93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVowelCheckView.swift; sourceTree = "<group>"; };
+		93D529782B031BFB00DA743E /* QuizLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLessonView.swift; sourceTree = "<group>"; };
+		93D5297A2B031C0500DA743E /* PrologueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueView.swift; sourceTree = "<group>"; };
 		93DA78E62AFB2047004BB43F /* ConsonantLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantLearningView.swift; sourceTree = "<group>"; };
 		93DA78E82AFB2052004BB43F /* VowelLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VowelLearningView.swift; sourceTree = "<group>"; };
 		93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VowelDrawingView.swift; sourceTree = "<group>"; };
@@ -279,6 +287,8 @@
 				93419DCD2AF0AA7100DCB322 /* StorageDetailView.swift */,
 				D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */,
 				93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */,
+				93D529782B031BFB00DA743E /* QuizLessonView.swift */,
+				93D5297A2B031C0500DA743E /* PrologueView.swift */,
 			);
 			path = "ver 1.1";
 			sourceTree = "<group>";
@@ -310,6 +320,7 @@
 				93DA78E62AFB2047004BB43F /* ConsonantLearningView.swift */,
 				93DA78E82AFB2052004BB43F /* VowelLearningView.swift */,
 				93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */,
+				93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */,
 			);
 			path = LearningView;
 			sourceTree = "<group>";
@@ -320,6 +331,7 @@
 				93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */,
 				93DA78F52AFB6B4A004BB43F /* VowelOnboarding.swift */,
 				93DA78F72AFB6B5A004BB43F /* SystemOnboarding.swift */,
+				93D529742B0301A500DA743E /* BatchimOnboarding.swift */,
 			);
 			path = OnboardingView;
 			sourceTree = "<group>";
@@ -442,7 +454,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9336E1FD2AF78B4A000B9E76 /* FlightManager.swift in Sources */,
+				93D5297B2B031C0500DA743E /* PrologueView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
+				93D529792B031BFB00DA743E /* QuizLessonView.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
 				937620392AF0808700DE2C50 /* GameView.swift in Sources */,
 				933A8E522ADD1B2E002AE727 /* FlightInfoSubmitView.swift in Sources */,
@@ -468,6 +482,7 @@
 				D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */,
 				93576C302AEF5E9100CCB3B3 /* String+TransformStringToDate.swift in Sources */,
 				D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */,
+				93D529752B0301A500DA743E /* BatchimOnboarding.swift in Sources */,
 				D90B0DFC2AF8697000401C87 /* HangulEducationOnboardingView.swift in Sources */,
 				93DA78F62AFB6B4A004BB43F /* VowelOnboarding.swift in Sources */,
 				933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */,
@@ -476,10 +491,11 @@
 				93DA78E92AFB2052004BB43F /* VowelLearningView.swift in Sources */,
 				D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearnView.swift in Sources */,
-				93419DCE2AF0AA7100DCB322 /* SearchResultView.swift in Sources */,
+				93419DCE2AF0AA7100DCB322 /* StorageDetailView.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				93419DCE2AF0AA7100DCB322 /* StorageDetailView.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
+				93D529772B0311EF00DA743E /* BasicVowelCheckView.swift in Sources */,
 				93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */,
 				933A8E4C2ADD1A84002AE727 /* Calendar+CompareDays.swift in Sources */,
 				93DA78F12AFB6912004BB43F /* SameCardCollectingQuizView.swift in Sources */,

@@ -23,12 +23,12 @@ struct SameCardCollectingQuizView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     var body: some View {
-        ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-            .padding(.vertical, 16)
-
         ZStack{
             ScrollView{
                 VStack(alignment: .leading ,  spacing: 32){
+                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                        .padding(.vertical, 16)
+                    
                     Text("Select appropriate vowel of the sound")
                         .font(.title2)
                         .fontWeight(.bold)

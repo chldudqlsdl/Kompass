@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Category: View {
     let action: () -> ()
-    let chaptersNum: [Int] = [1, 5, 3]
+    let chaptersNum: [Int] = [1, 6, 5, 4]
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -20,9 +20,11 @@ struct Category: View {
         case 0:
             "System"
         case 1:
-            "Consonant"
+            "Consonant (Jaeum)"
         case 2:
-            "Vowel"
+            "Vowel (Moeum)"
+        case 3:
+            "Last Consonant (Batchim)"
         default:
             ""
         }

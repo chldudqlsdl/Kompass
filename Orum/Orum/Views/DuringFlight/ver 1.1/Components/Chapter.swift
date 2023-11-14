@@ -39,11 +39,13 @@ struct Chapter: View {
         
         switch categoryInd {
         case 0:
-            ind = 0
+            ind = 0 // 0
         case 1:
-            ind = 1 + chapterInd
+            ind = 1 + chapterInd // 1,2,3,4,5,6
         case 2:
-            ind = 2 * 3 + chapterInd
+            ind = 7 + chapterInd // 7,8,9,10,11
+        case 3:
+            ind = 12 + chapterInd // 12,13,14,15
         default:
             ind = 0
         }
@@ -52,7 +54,7 @@ struct Chapter: View {
     }
     
     var isButtonLocked: Bool {
-        switch educationManager.chapterState[chapterName]!.toEnum() {
+        switch educationManager.chapterState[chapterName]?.toEnum() ?? .locked {
             case .locked:
             true
         case .complete,.currentSession:
@@ -67,7 +69,7 @@ struct Chapter: View {
             action()
         })
         {
-            switch educationManager.chapterState[chapterName]!.toEnum(){
+            switch educationManager.chapterState[chapterName]?.toEnum() ?? .locked {
             case .locked:
                 VStack {
                     HStack {

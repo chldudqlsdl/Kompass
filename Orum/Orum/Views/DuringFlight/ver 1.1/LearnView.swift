@@ -19,7 +19,7 @@ struct LearnView: View {
                 Divider()
                 
                 VStack(alignment: .leading,spacing: 16) {
-                    ForEach (0 ..< 3) { ind in
+                    ForEach (0 ..< 4) { ind in
                         Category(action: {
                             isPresented.toggle()
                         }, categoryInd: ind)

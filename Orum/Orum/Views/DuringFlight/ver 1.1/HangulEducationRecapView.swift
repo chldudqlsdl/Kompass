@@ -86,6 +86,9 @@ struct HangulEducationRecapView: View {
                     case .vowel:
                         progressValue += 1
                         currentEducation = .vowelQuiz
+                    case .batchim:
+                        progressValue += 1
+                        currentEducation = .quiz
                     }
                 } label: {
                     Text("Ready to Quiz")
