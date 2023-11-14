@@ -65,7 +65,7 @@ struct VowelDrawingView: View {
                     .buttonStyle(.borderedProminent)
                     .padding(.horizontal, 24)
 //                    .padding(.bottom, 24)
-                    .disabled(writingCount < 3)
+//                    .disabled(writingCount < 3)
                 }
             }
         }

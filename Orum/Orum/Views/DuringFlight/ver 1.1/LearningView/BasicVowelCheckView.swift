@@ -1,42 +1,47 @@
 //
-//  HangulEducationOnboardingView.swift
+//  BasicVowelCheckView.swift
 //  Orum
 //
-//  Created by Youngbin Choi on 11/6/23.
+//  Created by 차차 on 11/14/23.
 //
 
 import SwiftUI
 
-struct HangulEducationOnboardingView: View {
-    @Binding var currentEducation: CurrentEducation
+struct BasicVowelCheckView: View {
     @Binding var progressValue: Int
     @Binding var isPresented: Bool
+    @Binding var currentEducation: CurrentEducation
     
     @EnvironmentObject var educationManager: EducationManager
     
+    private var str: String {
+        if educationManager.index == 1 {
+            return " ㅡ,ㅣ "
+        }
+        else if educationManager.index == 5 {
+            return "ㅏ,ㅓ,ㅗ,ㅜ"
+        }
+        else {
+            return "ㅐ,ㅔ"
+        }
+    }
+    
     var body: some View {
         ZStack {
-            ScrollView {
+            ScrollView{
                 VStack {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                         .padding(.vertical, 16)
                     
-        //            Divider()
-                    switch educationManager.chapterType {
-                    case .system:
-                        SystemOnboarding()
+                    HStack{
+                        Text("\(str)")
+                            .font(.largeTitle)
+                            .bold()
                         
-                    case .consonant:
-                        ConsonantOnboarding()
-                        
-                    case .vowel:
-                        VowelOnboarding()
-                        
-                    case .batchim:
-                        BatchimOnboarding()
-                        
-                        
+                        Spacer()
                     }
+                    .padding(.bottom, 24)
+
                 }
                 .padding(.horizontal, 16)
                 .navigationTitle(educationManager.nowStudying)
@@ -45,21 +50,21 @@ struct HangulEducationOnboardingView: View {
                     isPresented.toggle()
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
-                        .font(.title3)
                         .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
                         .symbolRenderingMode(.palette)
-            }))
+                }))
             }
             
-            // 버튼 뒷 배경
+            //버튼 뒷배경
             VStack {
                 Spacer()
                 
                 HStack {
                     Button(action: {}, label: {
-                        Text("Continue")
+                        Text("background")
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 8)
+                            .bold()
                     })
                     .buttonStyle(.borderedProminent)
                     .hidden()
@@ -71,35 +76,32 @@ struct HangulEducationOnboardingView: View {
             VStack {
                 Spacer()
                 
-                Button(action: {
-                    switch educationManager.chapterType {
-                    case .system:
-                        isPresented.toggle()
-                    case .consonant:
-                        currentEducation = .learning
+                Button {
+                    if educationManager.index < 7 {
                         progressValue += 1
-                    case .vowel:
+                        educationManager.index += 1
                         currentEducation = .vowelDrawing
-                        progressValue += 1
-                    case .batchim:
-                        currentEducation = .learning
-                        progressValue += 1
                     }
-                }, label: {
-                    Text("Continue")
+                    else {
+                        progressValue += 1
+                        currentEducation = .recap
+                    }
+                } label: {
+                    Text("Next")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                         .bold()
-                })
+                }
                 .buttonStyle(.borderedProminent)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 24)
-            }
+                .padding(24)
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemBackground).opacity(0.0), Color(uiColor: .systemBackground).opacity(1.0)]), startPoint: .top, endPoint: .bottom)
+                )}
         }
     }
 }
 
 #Preview {
-    HangulEducationOnboardingView(currentEducation: .constant(.onboarding), progressValue: .constant(0),isPresented: .constant(false))
+    BasicVowelCheckView(progressValue: .constant(0), isPresented: .constant(true), currentEducation: .constant(.recap))
         .environmentObject(EducationManager())
 }

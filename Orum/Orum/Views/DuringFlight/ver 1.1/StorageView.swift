@@ -22,7 +22,7 @@ struct StorageView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    
+                    /*
                     ZStack {
                         if isCanvasOpened {
                             VStack {
@@ -102,6 +102,7 @@ struct StorageView: View {
                             }
                         }
                     }
+                    */
                     
                     Button(action: {
                         chapterName = "Consonant"

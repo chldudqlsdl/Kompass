@@ -231,6 +231,8 @@ struct ConsonantLearningView: View {
             .background(
                 correctionBackground()
             )
+        case .basicVowelCheck:
+            Spacer()
         }
     }
     

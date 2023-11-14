@@ -32,16 +32,19 @@ struct HangulCardView: View {
                             .resizable()
                             .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
                         
-                        ZStack{
+                            Text("[ ")
+                                .bold()
+                                .font( isLearningView ? .largeTitle : .title2)
+                                .foregroundColor(Color(uiColor: .systemGray4))
+                            +
                             Text(hangulCard.sound)
                                 .fontWeight(.bold)
                                 .font( isLearningView ? .largeTitle : .title2)
-                            
-                            Text("[   ]")
+                            +
+                            Text(" ]")
                                 .fontWeight(.bold)
                                 .font( isLearningView ? .largeTitle : .title2)
                                 .foregroundColor(Color(uiColor: .systemGray4))
-                        }
                     } else {
                         if educationManager.chapterType == .consonant {
                             LottieView(fileName: hangulCard.name)

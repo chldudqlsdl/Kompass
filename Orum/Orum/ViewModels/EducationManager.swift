@@ -14,33 +14,45 @@ enum ChapterState: String{
 }
 
 enum ChapterType {
-    case system, consonant, vowel
+    case system, consonant, vowel, batchim
+}
+
+enum lessonType {
+    case prologue, lesson, quiz
 }
 
 class EducationManager: ObservableObject {
     @AppStorage("completedDate") var completedDates: [String:String] = [
         Constants.Chapter.system: "2023.11.04 16:23",
+        Constants.Chapter.vowel1: ""
     ]
     @AppStorage("chapterState") var chapterState: [String:String] = [
         Constants.Chapter.system : "complete",
-        Constants.Chapter.consonant1 : "currentSession", // 현재 가장 최신의 진도
-        Constants.Chapter.consonant2 : "locked",
-        Constants.Chapter.consonant3 : "locked",
-        Constants.Chapter.consonant4 : "locked",
-        Constants.Chapter.consonant5 : "locked",
+        Constants.Chapter.consonant0 : "complete",
+        Constants.Chapter.consonant1 : "complete", // 현재 가장 최신의 진도
+        Constants.Chapter.consonant2 : "complete",
+        Constants.Chapter.consonant3 : "complete",
+        Constants.Chapter.consonant4 : "complete",
+        Constants.Chapter.consonant5 : "complete",
+        Constants.Chapter.vowel0 : "complete",
         Constants.Chapter.vowel1 : "complete",
-        Constants.Chapter.vowel2 : "locked",
-        Constants.Chapter.vowel3 : "locked",
+        Constants.Chapter.vowel2 : "complete",
+        Constants.Chapter.vowel3 : "complete",
+        Constants.Chapter.vowel4 : "complete",
+        Constants.Chapter.batchim0: "complete",
+        Constants.Chapter.batchim1 : "complete",
+        Constants.Chapter.batchim2 : "complete",
+        Constants.Chapter.batchim3 : "currentSession",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
 
-    @Published var content: [HangulCard] = HangulUnitEnum.consonant1
-    @Published var quiz: [HangulCard] = HangulUnitEnum.consonant1
+    @Published var content: [HangulCard] = HangulUnitEnum.vowel1
+    @Published var quiz: [HangulCard] = HangulUnitEnum.vowel1
     @Published var storage: [HangulCard] = []
-    @Published var nowStudying: String = Constants.Chapter.consonant1 // 현재 공부하고 있는 단원 (진도와는 무관)
-    @Published var chapterType: ChapterType = .consonant
+    @Published var nowStudying: String = Constants.Chapter.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
+    @Published var chapterType: ChapterType = .vowel
+    @Published var lessonType: lessonType = .prologue
     @Published var index: Int = 0
-//    @Published var wrongCount: [String : Int] = [:]
     
     init() {
     }
@@ -52,6 +64,11 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitEnum.system
             chapterType = .system
         
+        case Constants.Chapter.consonant0:
+            content = HangulUnitEnum.consonant0
+            quiz = HangulUnitEnum.consonant0
+            chapterType = .consonant
+            
         case Constants.Chapter.consonant1:
             content = HangulUnitEnum.consonant1
             quiz = HangulUnitEnum.consonant1
@@ -79,6 +96,11 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitEnum.consonant5
             chapterType = .consonant
             
+        case Constants.Chapter.vowel0:
+            content = HangulUnitEnum.vowel0
+            quiz = HangulUnitEnum.vowel0
+            chapterType = .vowel
+            
         case Constants.Chapter.vowel1:
             content = HangulUnitEnum.vowel1
             quiz = HangulUnitEnum.vowel1
@@ -93,6 +115,31 @@ class EducationManager: ObservableObject {
             content = HangulUnitEnum.vowel3
             quiz = HangulUnitEnum.vowel3
             chapterType = .vowel
+            
+        case Constants.Chapter.vowel4:
+            content = HangulUnitEnum.vowel4
+            quiz = HangulUnitEnum.vowel4
+            chapterType = .vowel
+         
+        case Constants.Chapter.batchim0:
+            content = HangulUnitEnum.batchim0
+            quiz = HangulUnitEnum.batchim0
+            chapterType = .batchim
+            
+        case Constants.Chapter.batchim1:
+            content = HangulUnitEnum.batchim1
+            quiz = HangulUnitEnum.batchim1
+            chapterType = .batchim
+            
+        case Constants.Chapter.batchim2:
+            content = HangulUnitEnum.batchim2
+            quiz = HangulUnitEnum.batchim2
+            chapterType = .batchim
+            
+        case Constants.Chapter.batchim3:
+            content = HangulUnitEnum.batchim3
+            quiz = HangulUnitEnum.batchim3
+            chapterType = .batchim
             
         default:
             return

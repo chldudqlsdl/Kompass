@@ -19,33 +19,48 @@ struct HangulEducationView: View {
     
     var body: some View {
         NavigationView {
-            switch currentEducation {
-            case .onboarding:
-                HangulEducationOnboardingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
+            switch educationManager.lessonType {
+            case .prologue:
+                PrologueView(isPresented: $isPresented)
                     .environmentObject(educationManager)
                 
-            case .vowelDrawing:
-                VowelDrawingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
-                    .environmentObject(educationManager)
+            case .lesson:
+                switch currentEducation {
+                case .onboarding:
+                    HangulEducationOnboardingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
+                        .environmentObject(educationManager)
+                    
+                case .vowelDrawing:
+                    VowelDrawingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
+                        .environmentObject(educationManager)
+                    
+                case .learning:
+                    HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+                        .environmentObject(educationManager)
+                        .transition(.opacity)
                 
-            case .learning:
-                HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
-                    .environmentObject(educationManager)
-                    .transition(.opacity)
+                case .basicVowelCheck:
+                    BasicVowelCheckView(progressValue: $progressValue, isPresented: $isPresented, currentEducation: $currentEducation)
+                        .environmentObject(educationManager)
+                        .transition(.opacity)
+                    
+                case .recap:
+                    HangulEducationRecapView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+                        .environmentObject(educationManager)
+                    
+                case .vowelQuiz:
+                    SameCardCollectingQuizView(currentEducation: $currentEducation, progressValue: $progressValue)
+                        .environmentObject(educationManager)
+                        .padding(16)
                 
-            case .recap:
-                HangulEducationRecapView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
-                    .environmentObject(educationManager)
-                
-            case .vowelQuiz:
-                SameCardCollectingQuizView(currentEducation: $currentEducation, progressValue: $progressValue)
-                    .environmentObject(educationManager)
-                    .padding(16)
-                
+                case .quiz:
+                    HangulEducationQuizView(progressValue: $progressValue, isPresented: $isPresented)
+                        .environmentObject(educationManager)
+                        .transition(.opacity)
+                }
             case .quiz:
-                HangulEducationQuizView(progressValue: $progressValue, isPresented: $isPresented)
+                QuizLessonView(isPresented: $isPresented)
                     .environmentObject(educationManager)
-                    .transition(.opacity)
             }
         }
         .edgesIgnoringSafeArea([.bottom])
@@ -56,6 +71,7 @@ enum CurrentEducation {
     case onboarding
     case vowelDrawing
     case learning
+    case basicVowelCheck
     case recap
     case vowelQuiz
     case quiz

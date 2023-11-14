@@ -12,6 +12,8 @@ struct HangulUnitEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g
     
     static let system: [HangulCard] = []
     
+    static let consonant0: [HangulCard] = []
+    
     static let consonant1: [HangulCard] = [
         HangulCard(name: "ㄱ"),
         HangulCard(name: "ㄴ"),
@@ -46,14 +48,46 @@ struct HangulUnitEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g
     
     static let consonant5: [HangulCard] = []
     
+    static let vowel0: [HangulCard] = []
+
+    
     static let vowel1: [HangulCard] = [
-        HangulCard(name: "ㄱ"),
-        HangulCard(name: "ㄴ"),
-        HangulCard(name: "ㄷ"),
-        HangulCard(name: "ㄹ"),
+        HangulCard(name: "ㅡ"),
+        HangulCard(name: "ㅣ"),
+        HangulCard(name: "ㅏ"),
+        HangulCard(name: "ㅓ"),
+        HangulCard(name: "ㅗ"),
+        HangulCard(name: "ㅜ"),
+        HangulCard(name: "ㅐ"),
+        HangulCard(name: "ㅔ"),
     ]
     
-    static let vowel2: [HangulCard] = []
+    static let vowel2: [HangulCard] = [
+        HangulCard(name: "ㅑ"),
+        HangulCard(name: "ㅕ"),
+        HangulCard(name: "ㅛ"),
+        HangulCard(name: "ㅠ"),
+        HangulCard(name: "ㅒ"),
+        HangulCard(name: "ㅖ"),
+    ]
     
-    static let vowel3: [HangulCard] = []
+    static let vowel3: [HangulCard] = [
+        HangulCard(name: "ㅢ"),
+        HangulCard(name: "ㅟ"),
+        HangulCard(name: "ㅚ"),
+        HangulCard(name: "ㅘ"),
+        HangulCard(name: "ㅝ"),
+        HangulCard(name: "ㅙ"),
+        HangulCard(name: "ㅞ"),
+    ]
+    
+    static let vowel4: [HangulCard] = []
+    
+    static let batchim0: [HangulCard] = []
+    
+    static let batchim1: [HangulCard] = []
+    
+    static let batchim2: [HangulCard] = []
+    
+    static let batchim3: [HangulCard] = []
 }

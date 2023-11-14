@@ -10,40 +10,67 @@ import Foundation
 struct Constants {
     struct Chapter {
         static let system: String = "System of Hangul"
-        static let consonant1: String = "Consonant1"
-        static let consonant2: String = "Consonant2"
-        static let consonant3: String = "Consonant3"
-        static let consonant4: String = "Consonant4"
-        static let consonant5: String = "Consonant5"
-        static let vowel1: String = "Vowel1"
-        static let vowel2: String = "Vowel2"
-        static let vowel3: String = "Vowel3"
+        
+        static let consonant0: String = "Consonant 0" // Consonant Prologue
+        static let consonant1: String = "Consonant 1" // ㄱ,ㄴ,ㄷ,ㄹ
+        static let consonant2: String = "Consonant 2" // ㅁ,ㅂ,ㅅ,ㅇ,ㅈ
+        static let consonant3: String = "Consonant 3" // ㅊ,ㅋ,ㅌ,ㅍ,ㅎ
+        static let consonant4: String = "Consonant 4" // ㄲ,ㄸ,ㅃ,ㅆ,ㅉ
+        static let consonant5: String = "Consonant 5" // Consonant Quiz
+        
+        static let vowel0: String = "Vowel 0" // Vowel Prologue
+        static let vowel1: String = "Vowel 1" // ㅡ,ㅣ : ㅏ,ㅓ,ㅗ,ㅜ : ㅐ,ㅔ
+        static let vowel2: String = "Vowel 2" // ㅑ,ㅕ,ㅛ,ㅠ,ㅒ,ㅖ
+        static let vowel3: String = "Vowel 3" // ㅢ,ㅟ,ㅚ,ㅘ,ㅝ,ㅙ,ㅞ
+        static let vowel4: String = "Vowel 4" // Vowel Quiz
+        
+        static let batchim0: String = "Batchim 0" // Batchim Prologue
+        static let batchim1: String = "Batchim 1" // ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅇ | ㅅ,ㅈ,ㅊ,ㅋ,ㅌ,ㅍ,ㄲ,ㅆ
+        static let batchim2: String = "Batchim 2" // ㅎ | 겹받침
+        static let batchim3: String = "Batchim 3" // Batchim Quiz
+
         
         static let chapters: [String] = [
-            system,
-            consonant1,
-            consonant2,
-            consonant3,
-            consonant4,
-            consonant5,
-            vowel1,
-            vowel2,
-            vowel3
+            system, // 0
+            consonant0, // 1
+            consonant1, // 2
+            consonant2, // 3
+            consonant3, // 4
+            consonant4, // 5
+            consonant5, // 6
+            vowel0, // 7
+            vowel1, // 8
+            vowel2, // 9
+            vowel3, // 10
+            vowel4, // 11
+            batchim0, // 12
+            batchim1, // 13
+            batchim2, // 14
+            batchim3, // 15
         ]
         
         static let chapterComponent: [[[String]]] = [
             [[]],
             [
+                ["Prologue"],
                 ["ㄱ","ㄴ","ㄷ","ㄹ"],
                 ["ㅁ","ㅂ","ㅅ","ㅇ","ㅈ"],
                 ["ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"],
                 ["ㄲ","ㄸ","ㅃ","ㅆ","ㅉ"],
-                []
+                ["Consonant Quiz"]
             ],
             [
+                ["Prologue"],
                 ["ㅡ","ㅣ","ㅏ","ㅓ","ㅗ","ㅜ","ㅐ","ㅔ"],
                 ["ㅑ","ㅕ","ㅛ","ㅠ","ㅒ","ㅖ"],
                 ["ㅢ","ㅚ","ㅟ","ㅘ","ㅝ","ㅙ","ㅞ"],
+                ["Vowel Quiz"]
+            ],
+            [
+                ["Prologue"],
+                ["Basic"],
+                ["Advanced"],
+                ["Batchim Quiz"]
             ]
         ]
     }
