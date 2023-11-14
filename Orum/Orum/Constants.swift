@@ -64,6 +64,11 @@ struct Constants {
             "ㅌ",
             "ㅍ",
             "ㅎ",
+            "ㄲ",
+            "ㄸ",
+            "ㅃ",
+            "ㅆ",
+            "ㅉ"
         ]
         
         static let consonantExamples: [String : [String]] = [
