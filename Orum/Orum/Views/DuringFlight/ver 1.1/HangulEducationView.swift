@@ -25,9 +25,8 @@ struct HangulEducationView: View {
                     .environmentObject(educationManager)
                 
             case .vowelDrawing:
-                VowelDrawingView(currentEducation: $currentEducation)
+                VowelDrawingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
                     .environmentObject(educationManager)
-                    .padding(16)
                 
             case .learning:
                 HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
