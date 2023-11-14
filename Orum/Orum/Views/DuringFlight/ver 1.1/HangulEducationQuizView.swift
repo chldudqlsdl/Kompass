@@ -25,6 +25,7 @@ struct HangulEducationQuizView: View {
     @State var answerIndex : Int = 5
     @State var isFinishButtonPressed: Bool = false
     @State var optionAlphabet : [String] = []
+    @Namespace var topID
     @Namespace var bottomID
     
     @State var ind: Int = 0
@@ -36,6 +37,7 @@ struct HangulEducationQuizView: View {
                     VStack {
                         ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                             .padding(.vertical, 16)
+                            .id(topID)
                         
                         HStack {
                             Text("Select appropriate pronunciation of underlined letter")
@@ -138,6 +140,9 @@ struct HangulEducationQuizView: View {
                                 }
                             }
                             Rectangle()
+                                .frame(height: 200)
+                                .foregroundColor(.clear)
+                            Rectangle()
                                 .frame(height: 1)
                                 .foregroundColor(.clear)
                                 .id(bottomID)
@@ -148,6 +153,7 @@ struct HangulEducationQuizView: View {
                     .padding(.horizontal, 16)
                     .onAppear {
                         optionAlphabet = makeQuizs()
+                        print(optionAlphabet)
                     }
                     .onChange(of: isNext) {
                         selectedOptionIndex = 5
@@ -161,6 +167,13 @@ struct HangulEducationQuizView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             withAnimation(.easeOut(duration: 0.3)) {
                                 proxy.scrollTo(bottomID)
+                            }
+                        }
+                    }
+                    .onChange(of: isOptionSelected) { _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                proxy.scrollTo(topID)
                             }
                         }
                     }
@@ -191,84 +204,110 @@ struct HangulEducationQuizView: View {
                         .hidden()
                     }
                     .padding(24)
-                    .background(Color(uiColor: .systemBackground)).opacity(0.8)
+//                    .background(Color(uiColor: .systemBackground)).opacity(0.8)
                     .background(.ultraThinMaterial)
                 }
                 
                 VStack {
                     Spacer()
-                    
-                    Button(action: {
-                        if quizButtonText == "Check" {
-                            isOptionSubmitted = true
-                            quizButtonText = "Got it"
-                            return
-                        }
-                        else {
-                            isNext.toggle()
-                            
-                            if  ind < educationManager.quiz.endIndex - 1 {
-                                if !isOptionWrong {
-                                    progressValue += 1
-                                    educationManager.quiz.remove(at: ind)
-                                }
-                                else {
-                                    if educationManager.wrongCount[educationManager.quiz[ind].name] == nil {
-                                        educationManager.wrongCount[educationManager.quiz[ind].name] = "1"
+                    ZStack{
+                        VStack(spacing: 0){
+                            if (isOptionSubmitted){
+                                VStack{
+                                    Rectangle()
+                                        .frame(height: 5)
+                                        .foregroundColor(isOptionWrong ? .red : .blue)
+                                    VStack(alignment: .leading, spacing: 16){
+                                        HStack{
+                                            Image(systemName: isOptionWrong ? "exclamationmark.circle.fill" : "checkmark.circle.fill")
+                                                .font(.title2)
+                                                .foregroundColor(isOptionWrong ? .red : .blue)
+                                            Text(isOptionWrong ? "Incorrect" : "Correct")
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                                .foregroundColor(isOptionWrong ? .red : .blue)
+                                        }
+                                        Text( isOptionWrong ? "\(educationManager.quiz[ind].name ) has a similar shape and [\(educationManager.quiz[ind].sound)] sound of \(educationManager.quiz[ind].lottieName)." : "감사합니다[gamsahabnida] means “Thank you” in Korean.")
+                                            .fontWeight(.bold)
+                                            .foregroundColor(isOptionWrong ? .red : .blue)
                                     }
-                                    else {
-                                        let count = Int(educationManager.wrongCount[educationManager.quiz[ind].name]!)
-                                        educationManager.wrongCount.updateValue(String(count! + 1) , forKey: "\(educationManager.quiz[ind].name)")
-                                    }
-                                    ind += 1
-                                }
-                                
-                                quizButtonText = "Check"
-                                isOptionSelected = false
-                                isOptionSubmitted = false
-                                isOptionWrong = false
-                            }
-                            else {
-                                if !isOptionWrong {
-                                    educationManager.quiz.remove(at: ind)
-                                }
-                                else {
-                                    if educationManager.wrongCount[educationManager.quiz[ind].name] == nil {
-                                        educationManager.wrongCount[educationManager.quiz[ind].name] = "1"
-                                    }
-                                    else {
-                                        let count = Int(educationManager.wrongCount[educationManager.quiz[ind].name]!)
-                                        educationManager.wrongCount.updateValue(String(count! + 1) , forKey: "\(educationManager.quiz[ind].name)")
-                                    }
-                                }
-                                
-                                if educationManager.quiz.isEmpty {
-                                    educationManager.endChapter()
-                                    isPresented.toggle()
-                                }
-                                else {
-                                    ind = 0
-                                    quizButtonText = "Check"
-                                    isOptionSelected = false
-                                    isOptionSubmitted = false
-                                    isOptionWrong = false
-                                }
-                                
-                                withAnimation(.easeIn(duration: 1)) {
-                                    progressValue += 1
                                 }
                             }
+                            Button(action: {
+                                if quizButtonText == "Check" {
+                                    isOptionSubmitted = true
+                                    quizButtonText = "Got it"
+                                    return
+                                }
+                                else {
+                                    isNext.toggle()
+                                    
+                                    if  ind < educationManager.quiz.endIndex - 1 {
+                                        if !isOptionWrong {
+                                            progressValue += 1
+                                            educationManager.quiz.remove(at: ind)
+                                        }
+                                        else {
+                                            if educationManager.wrongCount[educationManager.quiz[ind].name] == nil {
+                                                educationManager.wrongCount[educationManager.quiz[ind].name] = "1"
+                                            }
+                                            else {
+                                                let count = Int(educationManager.wrongCount[educationManager.quiz[ind].name]!)
+                                                educationManager.wrongCount.updateValue(String(count! + 1) , forKey: "\(educationManager.quiz[ind].name)")
+                                            }
+                                            ind += 1
+                                        }
+                                        
+                                        quizButtonText = "Check"
+                                        isOptionSelected = false
+                                        isOptionSubmitted = false
+                                        isOptionWrong = false
+                                    }
+                                    else {
+                                        if !isOptionWrong {
+                                            educationManager.quiz.remove(at: ind)
+                                        }
+                                        else {
+                                            if educationManager.wrongCount[educationManager.quiz[ind].name] == nil {
+                                                educationManager.wrongCount[educationManager.quiz[ind].name] = "1"
+                                            }
+                                            else {
+                                                let count = Int(educationManager.wrongCount[educationManager.quiz[ind].name]!)
+                                                educationManager.wrongCount.updateValue(String(count! + 1) , forKey: "\(educationManager.quiz[ind].name)")
+                                            }
+                                        }
+                                        
+                                        if educationManager.quiz.isEmpty {
+                                            educationManager.endChapter()
+                                            isPresented.toggle()
+                                        }
+                                        else {
+                                            ind = 0
+                                            quizButtonText = "Check"
+                                            isOptionSelected = false
+                                            isOptionSubmitted = false
+                                            isOptionWrong = false
+                                        }
+                                        
+                                        withAnimation(.easeIn(duration: 1)) {
+                                            progressValue += 1
+                                        }
+                                    }
+                                }
+                            },label: {
+                                Text(quizButtonText)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .bold()
+                            })
+                            .buttonStyle(.borderedProminent)
+                            .tint(!isOptionWrong ? .blue : .red)
+                            .disabled(!isOptionSelected)
+                            .padding(24)
                         }
-                    },label: {
-                        Text(quizButtonText)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .tint(!isOptionWrong ? .blue : .red)
-                    .disabled(!isOptionSelected)
-                    .padding(24)
+                        .background(correctionBackground())
+                        .background(correctionBackgroundBackground())
+                    }
                 }
             }
         }
@@ -333,6 +372,18 @@ struct HangulEducationQuizView: View {
         }
         else if isOptionSubmitted && isOptionWrong {
             Color.red.opacity(0.05)
+        } else {
+            Color.clear
+        }
+    }
+    
+    // 정답을 체크할때 나오는 배경이 투명도가 있어서 뒷부분이 콘텐츠가 비쳐보이는 문제가 발생해, 뒤에 시스템배경을 깔아줌
+    func correctionBackgroundBackground() -> Color {
+        if isOptionSubmitted && !isOptionWrong {
+            Color(uiColor: .systemBackground)
+        }
+        else if isOptionSubmitted && isOptionWrong {
+            Color(uiColor: .systemBackground)
         } else {
             Color.clear
         }
