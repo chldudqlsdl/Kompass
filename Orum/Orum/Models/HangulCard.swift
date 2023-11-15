@@ -38,15 +38,3 @@ struct HangulCard: Hashable {
         }
     }
 }
-
-
-
-
-extension HangulCard {
-    static let preview = [
-        HangulCard(name: "ㄱ"),
-        HangulCard(name: "ㄴ"),
-        HangulCard(name: "ㄷ"),
-        HangulCard(name: "ㄹ")
-    ]
-}
