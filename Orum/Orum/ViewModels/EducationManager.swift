@@ -47,11 +47,11 @@ class EducationManager: ObservableObject {
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
 
     @Published var content: [HangulCard] = HangulUnitEnum.vowel1
-    @Published var quiz: [HangulCard] = HangulUnitEnum.vowel1
+    @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.consonant1
     @Published var storage: [HangulCard] = []
     @Published var nowStudying: String = Constants.Chapter.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
     @Published var chapterType: ChapterType = .vowel
-    @Published var lessonType: lessonType = .prologue
+    @Published var lessonType: lessonType = .lesson
     @Published var index: Int = 0
     
     init() {
@@ -61,84 +61,84 @@ class EducationManager: ObservableObject {
         switch chapterName {
         case Constants.Chapter.system:
             content = HangulUnitEnum.system
-            quiz = HangulUnitEnum.system
+            quiz = HangulUnitQuizEnum.system
             chapterType = .system
         
         case Constants.Chapter.consonant0:
             content = HangulUnitEnum.consonant0
-            quiz = HangulUnitEnum.consonant0
+            quiz = HangulUnitQuizEnum.consonant0
             chapterType = .consonant
             
         case Constants.Chapter.consonant1:
             content = HangulUnitEnum.consonant1
-            quiz = HangulUnitEnum.consonant1
+            quiz = HangulUnitQuizEnum.consonant1
             chapterType = .consonant
             
         case Constants.Chapter.consonant2:
             content = HangulUnitEnum.consonant2
-            quiz = HangulUnitEnum.consonant2
+            quiz = HangulUnitQuizEnum.consonant2
             chapterType = .consonant
             
         case Constants.Chapter.consonant3:
             content = HangulUnitEnum.consonant3
-            quiz = HangulUnitEnum.consonant3
+            quiz = HangulUnitQuizEnum.consonant3
 
             chapterType = .consonant
 
         case Constants.Chapter.consonant4:
             content = HangulUnitEnum.consonant4
-            quiz = HangulUnitEnum.consonant4
+            quiz = HangulUnitQuizEnum.consonant4
 
             chapterType = .consonant
             
         case Constants.Chapter.consonant5:
             content = HangulUnitEnum.consonant5
-            quiz = HangulUnitEnum.consonant5
+            quiz = HangulUnitQuizEnum.consonant5
             chapterType = .consonant
             
         case Constants.Chapter.vowel0:
             content = HangulUnitEnum.vowel0
-            quiz = HangulUnitEnum.vowel0
+            quiz = HangulUnitQuizEnum.vowel0
             chapterType = .vowel
             
         case Constants.Chapter.vowel1:
             content = HangulUnitEnum.vowel1
-            quiz = HangulUnitEnum.vowel1
+            quiz = HangulUnitQuizEnum.vowel1
             chapterType = .vowel
 
         case Constants.Chapter.vowel2:
             content = HangulUnitEnum.vowel2
-            quiz = HangulUnitEnum.vowel2
+            quiz = HangulUnitQuizEnum.vowel2
             chapterType = .vowel
 
         case Constants.Chapter.vowel3:
             content = HangulUnitEnum.vowel3
-            quiz = HangulUnitEnum.vowel3
+            quiz = HangulUnitQuizEnum.vowel3
             chapterType = .vowel
             
         case Constants.Chapter.vowel4:
             content = HangulUnitEnum.vowel4
-            quiz = HangulUnitEnum.vowel4
+            quiz = HangulUnitQuizEnum.vowel4
             chapterType = .vowel
          
         case Constants.Chapter.batchim0:
             content = HangulUnitEnum.batchim0
-            quiz = HangulUnitEnum.batchim0
+            quiz = HangulUnitQuizEnum.batchim0
             chapterType = .batchim
             
         case Constants.Chapter.batchim1:
             content = HangulUnitEnum.batchim1
-            quiz = HangulUnitEnum.batchim1
+            quiz = HangulUnitQuizEnum.batchim1
             chapterType = .batchim
             
         case Constants.Chapter.batchim2:
             content = HangulUnitEnum.batchim2
-            quiz = HangulUnitEnum.batchim2
+            quiz = HangulUnitQuizEnum.batchim2
             chapterType = .batchim
             
         case Constants.Chapter.batchim3:
             content = HangulUnitEnum.batchim3
-            quiz = HangulUnitEnum.batchim3
+            quiz = HangulUnitQuizEnum.batchim3
             chapterType = .batchim
             
         default:

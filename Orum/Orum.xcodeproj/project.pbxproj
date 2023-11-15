@@ -50,6 +50,8 @@
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
 		D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */; };
 		D90B0DFC2AF8697000401C87 /* HangulEducationOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B0DFB2AF8697000401C87 /* HangulEducationOnboardingView.swift */; };
+		D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67452B04A3F00030F86D /* HangulQuiz.swift */; };
+		D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */; };
 		D950CF612AE125AF00BD9EB3 /* FlightInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */; };
 		D950CF632AE1277600BD9EB3 /* FlightCodeAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */; };
 		D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */; };
@@ -125,6 +127,8 @@
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
 		D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationRecapView.swift; sourceTree = "<group>"; };
 		D90B0DFB2AF8697000401C87 /* HangulEducationOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationOnboardingView.swift; sourceTree = "<group>"; };
+		D91B67452B04A3F00030F86D /* HangulQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuiz.swift; sourceTree = "<group>"; };
+		D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HnagulUnitQuizEnum.swift; sourceTree = "<group>"; };
 		D950CF602AE125AF00BD9EB3 /* FlightInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightInfoEditView.swift; sourceTree = "<group>"; };
 		D950CF622AE1277600BD9EB3 /* FlightCodeAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIManager.swift; sourceTree = "<group>"; };
 		D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCodeAPIData.swift; sourceTree = "<group>"; };
@@ -224,8 +228,10 @@
 				D950CF642AE127C600BD9EB3 /* FlightCodeAPIData.swift */,
 				D950CF662AE1283B00BD9EB3 /* FlightInfo.swift */,
 				D967D1BC2AE2932C008B3379 /* HangulCard.swift */,
+				D91B67452B04A3F00030F86D /* HangulQuiz.swift */,
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
+				D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -487,11 +493,13 @@
 				93DA78F62AFB6B4A004BB43F /* VowelOnboarding.swift in Sources */,
 				933A8E502ADD1AF6002AE727 /* TripRemainingDayView.swift in Sources */,
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
+				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
 				93DA78E92AFB2052004BB43F /* VowelLearningView.swift in Sources */,
 				D950CF652AE127C600BD9EB3 /* FlightCodeAPIData.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearnView.swift in Sources */,
 				93419DCE2AF0AA7100DCB322 /* StorageDetailView.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				93419DCE2AF0AA7100DCB322 /* StorageDetailView.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,

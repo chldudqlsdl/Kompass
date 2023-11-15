@@ -154,7 +154,7 @@ struct Chapter: View {
                     .foregroundStyle(Color.accentColor))
             }
         }
-        .disabled(isButtonLocked)
+//        .disabled(isButtonLocked)
     }
 }
 
