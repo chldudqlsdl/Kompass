@@ -1,5 +1,5 @@
 //
-//  HangulEducationQuizView.swift
+//  EpilogueQuizVIew.swift
 //  Orum
 //
 //  Created by Youngbin Choi on 11/16/23.
@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct HangulEducationQuizView: View {
+struct EpilogueQuizVIew: View {
+    
     @Binding var progressValue: Int
     @Binding var isPresented: Bool
     
@@ -20,6 +21,6 @@ struct HangulEducationQuizView: View {
 }
 
 #Preview {
-    HangulEducationQuizView(progressValue: .constant(0), isPresented: .constant(false))
+    EpilogueQuizVIew(progressValue: .constant(0), isPresented: .constant(false))
         .environmentObject(EducationManager())
 }

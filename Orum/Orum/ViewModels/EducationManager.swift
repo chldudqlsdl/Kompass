@@ -98,7 +98,7 @@ class EducationManager: ObservableObject {
             
         case Constants.Lesson.consonant5:
             content = HangulUnitEnum.consonant5
-            quiz = HangulUnitQuizEnum.consonant5
+            quiz = HangulUnitQuizEnum.consonant5.shuffled()
             chapterType = .consonant
             lessonType = .epilogue
 
@@ -128,7 +128,7 @@ class EducationManager: ObservableObject {
 
         case Constants.Lesson.vowel4:
             content = HangulUnitEnum.vowel4
-            quiz = HangulUnitQuizEnum.vowel4
+            quiz = HangulUnitQuizEnum.vowel4.shuffled()
             chapterType = .vowel
             lessonType = .epilogue
 
