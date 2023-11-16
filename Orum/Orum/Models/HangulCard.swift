@@ -14,7 +14,6 @@ struct HangulCard: Hashable {
     var example2 : String = ""
     var soundExample1 : String = ""
     var soundExample2 : String = ""
-    let quiz : String
     var lottieName : String = ""
     
     init(name: String) {
@@ -26,19 +25,16 @@ struct HangulCard: Hashable {
             self.example2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
             self.soundExample1 = Constants.Hangul.consonantExamples[name]?[0] ?? ""
             self.soundExample2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
-            self.quiz = Constants.Hangul.consonantQuiz[name] ?? ""
             self.lottieName = Constants.Hangul.lottieName[name] ?? ""
         }
         
         else if Constants.Hangul.vowels.contains(name) {
             self.sound = Constants.Hangul.vowelSound[name] ?? ""
-            self.quiz = Constants.Hangul.vowelQuiz[name] ?? ""
             self.lottieName = ""
         }
         
         else { // 받침
             self.sound = Constants.Hangul.consonantSound[name] ?? ""
-            self.quiz = Constants.Hangul.consonantQuiz[name] ?? ""
         }
     }
 }
