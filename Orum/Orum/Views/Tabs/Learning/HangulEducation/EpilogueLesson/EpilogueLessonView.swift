@@ -21,7 +21,6 @@ struct EpilogueLessonView: View {
                 Image(systemName: "xmark.circle.fill")
                     .font(.title3)
                     .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                    .symbolRenderingMode(.palette)
             }))
         }
     }

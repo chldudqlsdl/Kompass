@@ -32,7 +32,6 @@ struct VowelDrawingView: View {
                 Image(systemName: "xmark.circle.fill")
                     .font(.title3)
                     .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                    .symbolRenderingMode(.palette)
             }))
             
             // 버튼 뒷 배경
