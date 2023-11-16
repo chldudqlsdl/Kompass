@@ -53,14 +53,14 @@ struct HangulEducationQuizView: View {
                                 Spacer()
                                 
                                 ZStack(alignment: .leading) {
-                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quiz.prefix(1))
+                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName.prefix(1))
                                         .fontWeight(.bold)
                                         .font(.largeTitle)
                                         .padding(.bottom, 10)
                                         .foregroundColor(.clear)
                                         .underline(true, color: Color(uiColor: .label))
                                         .offset(y: 8)
-                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quiz)
+                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName)
                                         .fontWeight(.bold)
                                         .font(.largeTitle)
                                         .foregroundColor(Color(uiColor: .label))
@@ -100,11 +100,6 @@ struct HangulEducationQuizView: View {
                                                     .font(.title2)
                                                     .foregroundColor(optionColor.text)
                                                 +
-                                                Text("a")
-                                                    .fontWeight(.bold)
-                                                    .font(.title2)
-                                                    .foregroundColor(optionColor.bracket)
-                                                +
                                                 Text("]")
                                                     .fontWeight(.bold)
                                                     .font(.title2)
@@ -121,13 +116,13 @@ struct HangulEducationQuizView: View {
                                             selectedOptionIndex = index
                                             isOptionSelected = true
                                         }
-                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].sound {
+                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName {
                                             answerIndex = index
                                         }
                                         
                                     }
                                     .onAppear {
-                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].sound {
+                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName  {
                                             answerIndex = index
                                         }
                                     }
@@ -152,7 +147,7 @@ struct HangulEducationQuizView: View {
                     }
                     .padding(.horizontal, 16)
                     .onAppear {
-                        optionAlphabet = makeQuizs()
+                        optionAlphabet = makeQuiz()
                         print(optionAlphabet)
                     }
                     .onChange(of: isNext) {
@@ -160,7 +155,7 @@ struct HangulEducationQuizView: View {
                         answerIndex = 5
                         isFinishButtonPressed = false
                         if !educationManager.quiz.isEmpty {
-                            optionAlphabet = makeQuizs()
+                            optionAlphabet = makeQuiz()
                         }
                     }
                     .onChange(of: isOptionSubmitted) { _ in
@@ -213,11 +208,11 @@ struct HangulEducationQuizView: View {
                     ZStack{
                         VStack(spacing: 0){
                             if (isOptionSubmitted){
-                                VStack{
+                                VStack(alignment: .leading){
                                     Rectangle()
                                         .frame(height: 5)
                                         .foregroundColor(isOptionWrong ? .red : .blue)
-                                    VStack(alignment: .leading, spacing: 16){
+                                    VStack(alignment: .leading , spacing: 16){
                                         HStack{
                                             Image(systemName: isOptionWrong ? "exclamationmark.circle.fill" : "checkmark.circle.fill")
                                                 .font(.title2)
@@ -227,10 +222,11 @@ struct HangulEducationQuizView: View {
                                                 .fontWeight(.bold)
                                                 .foregroundColor(isOptionWrong ? .red : .blue)
                                         }
-                                        Text( isOptionWrong ? "\(educationManager.quiz[ind].name ) has a similar shape and [\(educationManager.quiz[ind].sound)] sound of \(educationManager.quiz[ind].lottieName)." : "감사합니다[gamsahabnida] means “Thank you” in Korean.")
+                                        Text( isOptionWrong ?(educationManager.quiz.isEmpty ? "" : "\(educationManager.quiz[ind].name ) has a [\(educationManager.quiz[ind].sound)] sound." ): (educationManager.quiz.isEmpty ? "" :"\(educationManager.quiz[ind].quizName) means “\(educationManager.quiz[ind].meaning)” in Korean."))
                                             .fontWeight(.bold)
                                             .foregroundColor(isOptionWrong ? .red : .blue)
                                     }
+                                    .padding(.horizontal, 24)
                                 }
                             }
                             Button(action: {
@@ -313,31 +309,37 @@ struct HangulEducationQuizView: View {
         }
     }
     
-    func makeQuizs() -> [String] { // TODO: 알파벳이 두 개인 경우 (ㅊ, 쌍자음, 모음)
-        if educationManager.chapterType == .consonant{
-            let answerConsonant = educationManager.quiz[ind].sound
-            var consonantsSoundList : [String] = []
-            for i in  0 ..< Constants.Hangul.consonants.count {
-                consonantsSoundList.append(Constants.Hangul.consonantSound[Constants.Hangul.consonants[i]]!)
-            }
-            let answerIndex = consonantsSoundList.firstIndex(of: answerConsonant)!
-            consonantsSoundList.remove(at: answerIndex)
-            var shuffledConsonantsSoundList = consonantsSoundList.shuffled().prefix(3)
-            shuffledConsonantsSoundList.append(answerConsonant)
-            
-            return Array(shuffledConsonantsSoundList)
-        } else if educationManager.chapterType == .vowel{
-            let answerVowel = educationManager.quiz[ind].sound
-            var vowelsSoundList : [String] = []
-            for i in  0 ..< Constants.Hangul.vowels.count {
-                vowelsSoundList.append(Constants.Hangul.vowelSound[Constants.Hangul.vowels[i]]!)
-            }
-            let answerIndex = vowelsSoundList.firstIndex(of: answerVowel)!
-            vowelsSoundList.remove(at: answerIndex)
-            var shuffledVowelsSoundList = vowelsSoundList.shuffled().prefix(3)
-            shuffledVowelsSoundList.append(answerVowel)
-            return Array(shuffledVowelsSoundList)
-        }
+    func makeQuiz() -> [String] {
+        var optionArray = educationManager.quiz[ind].options
+        optionArray.append(educationManager.quiz[ind].quizName)
+        return optionArray.shuffled()
+    }
+    
+//    func makeQuizs() -> [String] { // TODO: 알파벳이 두 개인 경우 (ㅊ, 쌍자음, 모음)
+//        if educationManager.chapterType == .consonant{
+//            let answerConsonant = educationManager.quiz[ind].sound
+//            var consonantsSoundList : [String] = []
+//            for i in  0 ..< Constants.Hangul.consonants.count {
+//                consonantsSoundList.append(Constants.Hangul.consonantSound[Constants.Hangul.consonants[i]]!)
+//            }
+//            let answerIndex = consonantsSoundList.firstIndex(of: answerConsonant)!
+//            consonantsSoundList.remove(at: answerIndex)
+//            var shuffledConsonantsSoundList = consonantsSoundList.shuffled().prefix(3)
+//            shuffledConsonantsSoundList.append(answerConsonant)
+//            
+//            return Array(shuffledConsonantsSoundList)
+//        } else if educationManager.chapterType == .vowel{
+//            let answerVowel = educationManager.quiz[ind].sound
+//            var vowelsSoundList : [String] = []
+//            for i in  0 ..< Constants.Hangul.vowels.count {
+//                vowelsSoundList.append(Constants.Hangul.vowelSound[Constants.Hangul.vowels[i]]!)
+//            }
+//            let answerIndex = vowelsSoundList.firstIndex(of: answerVowel)!
+//            vowelsSoundList.remove(at: answerIndex)
+//            var shuffledVowelsSoundList = vowelsSoundList.shuffled().prefix(3)
+//            shuffledVowelsSoundList.append(answerVowel)
+//            return Array(shuffledVowelsSoundList)
+//        }
 //        let alphabet: String = "abcdefghijklmnopqrstuvwxyz"
 //        let answerFilter: Character = Character(String(educationManager.quiz.isEmpty ? " " : educationManager.quiz[ind].sound))
 //        let tempOptionAlphabet: String = String(alphabet.filter { $0 != answerFilter })
@@ -347,8 +349,8 @@ struct HangulEducationQuizView: View {
 //        else {
 //            return [Character("")]
 //        }
-        return []
-    }
+//        return []
+//    }
     
     func fetchOptionColor(index: Int) -> OptionColor {
         if index != selectedOptionIndex && !isOptionSubmitted {

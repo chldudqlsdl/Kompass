@@ -154,7 +154,7 @@ struct Lesson: View {
                     .foregroundStyle(Color.accentColor))
             }
         }
-        .disabled(isButtonLocked)
+//        .disabled(isButtonLocked)
     }
 }
 

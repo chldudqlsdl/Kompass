@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct OrumApp: App {
+    @AppStorage("isFirstLaunching") var isFirstLaunching: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isFirstLaunching {
+                OnboardingView(isFirstLaunching: $isFirstLaunching)
+            }
+            else {
+                ContentView()
+            }
         }
     }
 }
