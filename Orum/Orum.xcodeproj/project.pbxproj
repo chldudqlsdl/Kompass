@@ -35,6 +35,7 @@
 		93DA78EF2AFB6233004BB43F /* VowelDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */; };
 		93DA78F12AFB6912004BB43F /* SameCardCollectingQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */; };
 		93DA78F42AFB6B35004BB43F /* ConsonantOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */; };
+		93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EF74AB2B04DA08003111CD /* OnboardingView.swift */; };
 		D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */; };
 		D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
@@ -98,6 +99,7 @@
 		93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VowelDrawingView.swift; sourceTree = "<group>"; };
 		93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameCardCollectingQuizView.swift; sourceTree = "<group>"; };
 		93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantOnboarding.swift; sourceTree = "<group>"; };
+		93EF74AB2B04DA08003111CD /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationLearningView.swift; sourceTree = "<group>"; };
 		D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				934912A22B04A00000AF7813 /* ContentView.swift */,
 				93194FD62AF8B8DC002C1BE4 /* Components */,
 				936BDEFF2B04B04500A609B8 /* Tabs */,
+				93EF74AB2B04DA08003111CD /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				936BDEF22B04A53400A609B8 /* CollectionDetailView.swift in Sources */,
 				936BDEF02B04A48700A609B8 /* CollectionView.swift in Sources */,
 				93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */,
+				93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */,
 				D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */,
 				9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */,
 				93DA78EF2AFB6233004BB43F /* VowelDrawingView.swift in Sources */,
