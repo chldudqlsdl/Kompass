@@ -64,84 +64,98 @@ class EducationManager: ObservableObject {
             content = HangulUnitEnum.system
             quiz = HangulUnitQuizEnum.system
             chapterType = .system
+            lessonType = .prologue
         
         case Constants.Lesson.consonant0:
             content = HangulUnitEnum.consonant0
             quiz = HangulUnitQuizEnum.consonant0
             chapterType = .consonant
+            lessonType = .prologue
             
         case Constants.Lesson.consonant1:
             content = HangulUnitEnum.consonant1
             quiz = HangulUnitQuizEnum.consonant1
             chapterType = .consonant
+            lessonType = .lesson
             
         case Constants.Lesson.consonant2:
             content = HangulUnitEnum.consonant2
             quiz = HangulUnitQuizEnum.consonant2
             chapterType = .consonant
+            lessonType = .lesson
             
         case Constants.Lesson.consonant3:
             content = HangulUnitEnum.consonant3
             quiz = HangulUnitQuizEnum.consonant3
-
             chapterType = .consonant
+            lessonType = .lesson
 
         case Constants.Lesson.consonant4:
             content = HangulUnitEnum.consonant4
             quiz = HangulUnitQuizEnum.consonant4
-
             chapterType = .consonant
+            lessonType = .lesson
             
         case Constants.Lesson.consonant5:
             content = HangulUnitEnum.consonant5
             quiz = HangulUnitQuizEnum.consonant5
             chapterType = .consonant
-            
+            lessonType = .epilogue
+
         case Constants.Lesson.vowel0:
             content = HangulUnitEnum.vowel0
             quiz = HangulUnitQuizEnum.vowel0
             chapterType = .vowel
-            
+            lessonType = .prologue
+
         case Constants.Lesson.vowel1:
             content = HangulUnitEnum.vowel1
             quiz = HangulUnitQuizEnum.vowel1
             chapterType = .vowel
+            lessonType = .lesson
 
         case Constants.Lesson.vowel2:
             content = HangulUnitEnum.vowel2
             quiz = HangulUnitQuizEnum.vowel2
             chapterType = .vowel
+            lessonType = .lesson
 
         case Constants.Lesson.vowel3:
             content = HangulUnitEnum.vowel3
             quiz = HangulUnitQuizEnum.vowel3
             chapterType = .vowel
-            
+            lessonType = .lesson
+
         case Constants.Lesson.vowel4:
             content = HangulUnitEnum.vowel4
             quiz = HangulUnitQuizEnum.vowel4
             chapterType = .vowel
-         
+            lessonType = .epilogue
+
         case Constants.Lesson.batchim0:
             content = HangulUnitEnum.batchim0
             quiz = HangulUnitQuizEnum.batchim0
             chapterType = .batchim
-            
+            lessonType = .prologue
+
         case Constants.Lesson.batchim1:
             content = HangulUnitEnum.batchim1
             quiz = HangulUnitQuizEnum.batchim1
             chapterType = .batchim
-            
+            lessonType = .lesson
+
         case Constants.Lesson.batchim2:
             content = HangulUnitEnum.batchim2
             quiz = HangulUnitQuizEnum.batchim2
             chapterType = .batchim
-            
+            lessonType = .lesson
+
         case Constants.Lesson.batchim3:
             content = HangulUnitEnum.batchim3
             quiz = HangulUnitQuizEnum.batchim3
             chapterType = .batchim
-            
+            lessonType = .epilogue
+
         default:
             return
         }

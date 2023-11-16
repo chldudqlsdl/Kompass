@@ -1,5 +1,5 @@
 //
-//  PrologueLessonView.swift
+//  EpilogueLessonView.swift
 //  Orum
 //
 //  Created by 차차 on 11/14/23.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct PrologueLessonView: View {
+struct EpilogueLessonView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Prologue")
+                Text("Epilogue")
             }
             .navigationBarItems(leading: Button(action: {
                 isPresented.toggle()
@@ -28,5 +28,5 @@ struct PrologueLessonView: View {
 }
 
 #Preview {
-    PrologueLessonView(isPresented: .constant(false))
+    EpilogueLessonView(isPresented: .constant(false))
 }
