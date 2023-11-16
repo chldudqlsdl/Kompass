@@ -10,6 +10,7 @@ import SwiftUI
 struct Chapter: View {
     let action: () -> ()
     let lessonNum: [Int] = [1, 6, 5, 4]
+    let lessonNums = 1
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -18,13 +19,13 @@ struct Chapter: View {
     var chapterName: String {
         switch chapterIndex {
         case 0:
-            "System"
+            "한글 (Hangul)"
         case 1:
-            "Consonant (Jaeum)"
+            "자음 (Consonant)"
         case 2:
-            "Vowel (Moeum)"
+            "모음 (Vowel)"
         case 3:
-            "Last Consonant (Batchim)"
+            "받침 (Final Consonant)"
         default:
             ""
         }
@@ -35,7 +36,7 @@ struct Chapter: View {
                 .bold()
                 .font(.title2)
             
-            ForEach (0 ..< lessonNum[chapterIndex]) { index in
+        ForEach (0 ..< lessonNum[chapterIndex], id: \.self) { index in
                 Lesson(action: action, chapterIndex: chapterIndex, lessonIndex: index)
                     .environmentObject(educationManager)
             }
