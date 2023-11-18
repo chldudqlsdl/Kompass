@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var educationManager: EducationManager = EducationManager()
+    @StateObject var practiceManager: PracticeManager = PracticeManager()
     
     var body: some View {
         ZStack {
@@ -20,7 +21,7 @@ struct ContentView: View {
                     }
                 
                 PracticeView()
-                    .environmentObject(educationManager)
+                    .environmentObject(practiceManager)
                     .tabItem {
                         Label("Practice", systemImage: "highlighter")
                     }
