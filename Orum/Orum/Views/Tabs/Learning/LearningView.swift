@@ -16,7 +16,6 @@ struct LearningView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Divider()
                 
                 VStack(alignment: .leading,spacing: 16) {
                     ForEach (0 ..< 4) { ind in
@@ -26,7 +25,7 @@ struct LearningView: View {
                     .environmentObject(educationManager)
                     }
                 }
-                .padding(.horizontal, 15)
+                .padding(.leading, 15)
             }
             .navigationTitle("Learn")
             .fullScreenCover(isPresented: $isPresented, content: {

@@ -11,7 +11,7 @@ struct PrologueLessonView: View {
     @Binding var isPresented: Bool
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("Prologue")
             }
@@ -21,12 +21,11 @@ struct PrologueLessonView: View {
                 Image(systemName: "xmark.circle.fill")
                     .font(.title3)
                     .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                    .symbolRenderingMode(.palette)
             }))
         }
     }
 }
 
 #Preview {
-    PrologueLessonView(isPresented: .constant(false))
+    PrologueLessonView(isPresented: .constant(true))
 }

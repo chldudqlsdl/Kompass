@@ -51,7 +51,6 @@ struct HangulEducationRecapView: View {
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
                         .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                        .symbolRenderingMode(.palette)
                 }))
             }
             
