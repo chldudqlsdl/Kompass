@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-enum ViewType {
-    case learningView, recapView
-}
-
 struct HangulCardView: View {
     @EnvironmentObject var educationManager: EducationManager
     var onTapGesture: () -> Void
@@ -18,7 +14,7 @@ struct HangulCardView: View {
     @State var isFlipped: Bool = false
     @State var isOnceFlipped: Bool = false
     
-    var isLearningView: Bool
+    var cardType: CardType
     
     var body: some View {
         ZStack{
@@ -26,86 +22,153 @@ struct HangulCardView: View {
                 
                 Spacer()
                 
-                VStack(spacing: 16){
+                VStack(spacing: cardType.imageMeaningSpacing){
                     if !isFlipped {
                         Image(hangulCard.name)
                             .resizable()
-                            .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)
+//                            .border(.red)
                         
-                            Text("[ ")
-                                .bold()
-                                .font( isLearningView ? .largeTitle : .title2)
-                                .foregroundColor(Color(uiColor: .systemGray4))
-                            +
-                            Text(hangulCard.sound)
-                                .fontWeight(.bold)
-                                .font( isLearningView ? .largeTitle : .title2)
-                            +
-                            Text(" ]")
-                                .fontWeight(.bold)
-                                .font( isLearningView ? .largeTitle : .title2)
-                                .foregroundColor(Color(uiColor: .systemGray4))
+                        Text("[ ")
+                            .bold()
+                            .font( cardType.font)
+                            .foregroundColor(Color(uiColor: .systemGray4))
+                        +
+                        Text(hangulCard.sound)
+                            .fontWeight(.bold)
+                            .font(cardType.font)
+                        +
+                        Text(" ]")
+                            .fontWeight(.bold)
+                            .font( cardType.font )
+                            .foregroundColor(Color(uiColor: .systemGray4))
+                        
                     } else {
-                        if educationManager.chapterType == .consonant {
-                            LottieView(fileName: hangulCard.name)
-                                .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                        if hangulCard.chapterType == .consonant {
+                            if hangulCard.hangulType == .single {
+                                LottieView(fileName: hangulCard.name)
+                                    .frame(width: cardType.imageFrame, height: cardType.imageFrame)
+                                    .scaleEffect(x: -1, y: 1)
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text("[")
+                                        .fontWeight(.bold)
+                                        .font(cardType.explanationFont(.consonant))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                    +
+                                    Text(hangulCard.lottieName.prefix(1))
+                                        .fontWeight(.bold)
+                                        .font(cardType.explanationFont(.consonant))
+                                    +
+                                    Text(hangulCard.lottieName.dropFirst(1))
+                                        .fontWeight(.bold)
+                                        .font(cardType.explanationFont(.consonant))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                    +
+                                    Text("]")
+                                        .fontWeight(.bold)
+                                        .font(cardType.explanationFont(.consonant))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                    
+                                    Spacer()
+                                }
                                 .scaleEffect(x: -1, y: 1)
-                            HStack {
-                                Spacer()
-                                
-                                Text("[")
-                                    .fontWeight(.bold)
-                                    .font( isLearningView ? .largeTitle : .title2)
-                                    .foregroundColor(Color(uiColor: .systemGray4))
-                                +
-                                Text(hangulCard.lottieName)
-                                    .fontWeight(.bold)
-                                    .font( isLearningView ? .largeTitle : .title2)
-                                +
-                                Text("]")
-                                    .fontWeight(.bold)
-                                    .font( isLearningView ? .largeTitle : .title2)
-                                    .foregroundColor(Color(uiColor: .systemGray4))
-                                
-                                Spacer()
+                            } else {
+                                Rectangle()
+                                    .foregroundStyle(.clear)
+    //                                .border(.black)
+                                    .frame(maxWidth: cardType.imageFrame, maxHeight: cardType.imageFrame )
+                                    .scaleEffect(x: -1, y: 1)
+                                HStack{
+                                    Text(hangulCard.explanation)
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                }
+                                .frame(width: cardType.imageFrame)
+                                .scaleEffect(x: -1, y: 1)
+                                .multilineTextAlignment(.center)
                             }
-                            .scaleEffect(x: -1, y: 1)
                         }
                         
-                        else {
+                        else if hangulCard.chapterType == .vowel  {
+                            Rectangle()
+                                .foregroundStyle(.clear)
+//                                .border(.black)
+                                .frame(maxWidth: cardType.imageFrame, maxHeight: cardType.imageFrame )
+                                .scaleEffect(x: -1, y: 1)
+                            HStack{
+                                if hangulCard.hangulType == .single {
+                                    Text(hangulCard.name)
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                        .foregroundColor(.blue)
+                                    +
+                                    Text(" is pronunce like ")
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                    +
+                                    Text("[")
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                    +
+                                    Text(hangulCard.sound)
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                    +
+                                    Text("]")
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                    +
+                                    Text(" in \(hangulCard.explanation)")
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                } else {
+                                    Text("Pronounce as \(hangulCard.explanation) simultaneously")
+                                        .bold()
+                                        .font( cardType.explanationFont(.vowel))
+                                }
+                            }
+                            .frame(width: cardType.imageFrame)
+                            .scaleEffect(x: -1, y: 1)
+                            .multilineTextAlignment(.center)
+                            
+                        } else {
                             Rectangle()
                                 .foregroundStyle(.clear)
                                 .border(.black)
-                                .frame(width: isLearningView ? 180 : 130 , height: isLearningView ? 180 : 130)
+                                .frame(width: cardType.imageFrame , height: cardType.imageFrame)
                                 .scaleEffect(x: -1, y: 1)
                             
                             Text("[]")
                                 .bold()
-                                .font( isLearningView ? .largeTitle : .title2)
+                                .font(cardType.explanationFont(.batchim))
                                 .scaleEffect(x: -1, y: 1)
                         }
                         
                     }
                 }
-                .padding(EdgeInsets(top: isLearningView ? 50 : 20 , leading: 0, bottom: isLearningView ? 40 : 20, trailing: 0))
+                .frame(minHeight : cardType.maxHeight, maxHeight: cardType.maxHeight)
+                .padding(EdgeInsets(top: cardType.paddingTop , leading: 0, bottom: cardType.paddingBottom, trailing: 0))
                 
                 Spacer()
             }
         }
-        .overlay(RoundedRectangle(cornerRadius: 24)
-            .stroke(isOnceFlipped ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+        .overlay(RoundedRectangle(cornerRadius: cardType.cornerRadius)
+            .strokeBorder(isOnceFlipped ? Color(uiColor: .systemGray4) : .blue , lineWidth: cardType.borderWidth))
         .rotation3DEffect(isFlipped ? Angle(degrees: 180) : .zero,
                           axis: (x: 0.0, y: 1.0, z: 0.0))
         .animation(.easeInOut(duration: 0.5), value: isFlipped)
+        .contentShape(Rectangle())
         .gesture(
             TapGesture()
                 .onEnded {
-                    if !isOnceFlipped && isLearningView {
-                            isOnceFlipped = true
+                    if !isOnceFlipped && cardType != .small {
+                        isOnceFlipped = true
                     }
-                    
                     isFlipped.toggle()
-                    
                     self.onTapGesture()
                 }
         )
@@ -119,6 +182,6 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[1], isLearningView: false)
+    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.vowel1[0], cardType: .large)
         .environmentObject(EducationManager())
 }

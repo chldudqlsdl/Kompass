@@ -195,12 +195,25 @@ struct Constants {
             "ㅂ" : "bucket",
             "ㅅ" : "squid",
             "ㅇ" : "nothing",
-            "ㅈ" : "",
-            "ㅊ" : "",
+            "ㅈ" : "jump",
+            "ㅊ" : "champion",
             "ㅋ" : "key",
             "ㅌ" : "tooth",
             "ㅍ" : "pillar",
             "ㅎ" : "hat",
+            "ㄲ" : "",
+            "ㄸ" : "",
+            "ㅃ" : "",
+            "ㅆ" : "",
+            "ㅉ" : "",
+        ]
+        
+        static let consonantCombination : [String: String] = [
+            "ㄲ" : "Pronounce two ㄱ[g] sounds simultaneously",
+            "ㄸ" : "Pronounce two ㄷ[d] sounds simultaneously",
+            "ㅃ" : "Pronounce two ㅂ[b] sounds simultaneously",
+            "ㅆ" : "Pronounce two ㅅ[s] sounds simultaneously",
+            "ㅉ" : "Pronounce two ㅈ[j] sounds simultaneously",
         ]
         
         static let vowels: [String] = [
@@ -249,6 +262,54 @@ struct Constants {
             "ㅝ" : "wue",
             "ㅙ" : "wea",
             "ㅞ" : "wea",
+        ]
+        
+        static let vowelSimilarSound : [String : String] = [
+            "ㅡ" : "Neutral",
+            "ㅣ" : "Tree",
+            "ㅏ" : "Analog",
+            "ㅓ" : "Seoul",
+            "ㅗ" : "Orange",
+            "ㅜ" : "Uber",
+            "ㅐ" : "Aesthetic",
+            "ㅔ" : "Aesthetic",
+            "ㅑ" : "",
+            "ㅕ" : "",
+            "ㅛ" : "",
+            "ㅠ" : "",
+            "ㅒ" : "",
+            "ㅖ" : "",
+            "ㅢ" : "",
+            "ㅟ" : "",
+            "ㅚ" : "",
+            "ㅘ" : "",
+            "ㅝ" : "",
+            "ㅙ" : "",
+            "ㅞ" : "",
+        ]
+        
+        static let vowelCombination : [String : String] = [
+            "ㅡ" : "",
+            "ㅣ" : "",
+            "ㅏ" : "",
+            "ㅓ" : "",
+            "ㅗ" : "",
+            "ㅜ" : "",
+            "ㅐ" : "",
+            "ㅔ" : "",
+            "ㅑ" : "ㅣ[ee] + ㅏ[a]",
+            "ㅕ" : "ㅣ[ee] + ㅓ[eo]",
+            "ㅛ" : "ㅣ[ee] + ㅗ[o]",
+            "ㅠ" : "ㅣ[ee] + ㅜ[u]",
+            "ㅒ" : "ㅣ[ee] + ㅐ[ae]",
+            "ㅖ" : "ㅣ[ee] + ㅔ[ae]",
+            "ㅢ" : "ㅡ[eu] + ㅣ[ee]",
+            "ㅟ" : "ㅗ[o] + ㅣ[ee]",
+            "ㅚ" : "ㅗ[o] + ㅏ[a]",
+            "ㅘ" : "ㅗ[o] + ㅐ[ae]",
+            "ㅝ" : "ㅜ[u] + ㅣ[ee]",
+            "ㅙ" : "ㅜ[u] + ㅓ[eo]",
+            "ㅞ" : "ㅜ[u] + ㅔ[ae]",
         ]
         
         static let vowelQuiz: [String : [String]] = [
