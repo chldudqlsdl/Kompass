@@ -542,4 +542,32 @@ struct Constants {
             "일상회화" : ["안녕하세요", "감사합니다", "죄송합니다", "맛있어요", "주세요", "어디에요", "얼마에요", "도와주세요", "편의점", "병원", "화장실", "좋아요", "싫어요", "네", "아니요"]
         ]
     }
+    
+    struct Prologue {
+        static let title : [String : String] = [
+        
+            "system0" : "Consonants and Vowels",
+            "system1" : "Letter in English and Hangul",
+            "system2" : "Hangul Letter",
+            "system3" : "Word",
+            
+        ]
+        
+        static let text : [String : String] = [
+        
+            "system0" : "Hangul is a character that can be written **phonetically**. It consists of **consonants** and **vowels!**",
+            "system1" : "A letter in English is one alphabet. But a **letter in Hangul** is a **combination of consonants and vowels!**",
+            "system2" : "A **Hangul letter** is a combination of consonants and vowels, so basically the form is **'C+V'** or **'C+V+C'**!",
+            "system3" : "A **Hangul word** is a combination of letters. Is it hard? \n\n Learning Hangul won't be difficult, **so give it a try!**",
+        ]
+        
+        static let image : [String : [String] ] = [
+        
+            "system0" : ["ㄱ"],
+            "system1" : ["ㄴ"],
+            "system2" : ["ㄷ", "ㄹ"],
+            "system3" : ["ㅁ"],
+            
+        ]
+    }
 }

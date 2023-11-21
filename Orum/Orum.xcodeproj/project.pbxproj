@@ -39,12 +39,11 @@
 		D90B0DFC2AF8697000401C87 /* HangulEducationInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B0DFB2AF8697000401C87 /* HangulEducationInstructionView.swift */; };
 		D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67452B04A3F00030F86D /* HangulQuiz.swift */; };
 		D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */; };
-		D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675E2B0609D00030F86D /* PracticeChapterView.swift */; };
-		D91B67612B062AA50030F86D /* PracticeLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67602B062AA50030F86D /* PracticeLessonView.swift */; };
-		D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */; };
 		D91B67582B05BB880030F86D /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67572B05BB880030F86D /* HangulEducationQuizView.swift */; };
 		D91B675B2B05C1380030F86D /* EpilogueInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */; };
 		D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */; };
+		D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675E2B0609D00030F86D /* PracticeChapterView.swift */; };
+		D91B67612B062AA50030F86D /* PracticeLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67602B062AA50030F86D /* PracticeLessonView.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
@@ -61,6 +60,8 @@
 		D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D943D2AE777E50077F2C1 /* 라.mp3 */; };
 		D96D94462AE777E50077F2C1 /* 누.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D943E2AE777E50077F2C1 /* 누.mp3 */; };
 		D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96D94472AE778680077F2C1 /* SoundManager.swift */; };
+		D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */; };
+		D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */; };
 		D98B83FC2AE6EC9C00B47C56 /* ㄴ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */; };
 		D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* ㄹ.json */; };
 		D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* ㄷ.json */; };
@@ -108,12 +109,11 @@
 		D90B0DFB2AF8697000401C87 /* HangulEducationInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationInstructionView.swift; sourceTree = "<group>"; };
 		D91B67452B04A3F00030F86D /* HangulQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuiz.swift; sourceTree = "<group>"; };
 		D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitQuizEnum.swift; sourceTree = "<group>"; };
-		D91B675E2B0609D00030F86D /* PracticeChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeChapterView.swift; sourceTree = "<group>"; };
-		D91B67602B062AA50030F86D /* PracticeLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeLessonView.swift; sourceTree = "<group>"; };
-		D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HnagulUnitQuizEnum.swift; sourceTree = "<group>"; };
 		D91B67572B05BB880030F86D /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
 		D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueInstructionView.swift; sourceTree = "<group>"; };
 		D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueQuizVIew.swift; sourceTree = "<group>"; };
+		D91B675E2B0609D00030F86D /* PracticeChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeChapterView.swift; sourceTree = "<group>"; };
+		D91B67602B062AA50030F86D /* PracticeLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeLessonView.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -129,6 +129,8 @@
 		D96D943D2AE777E50077F2C1 /* 라.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "라.mp3"; sourceTree = "<group>"; };
 		D96D943E2AE777E50077F2C1 /* 누.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "누.mp3"; sourceTree = "<group>"; };
 		D96D94472AE778680077F2C1 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulPrologue.swift; sourceTree = "<group>"; };
+		D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitPrologueEnum.swift; sourceTree = "<group>"; };
 		D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄴ.json"; sourceTree = "<group>"; };
 		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
 		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
@@ -211,8 +213,10 @@
 				D967D1BC2AE2932C008B3379 /* HangulCard.swift */,
 				D91B67452B04A3F00030F86D /* HangulQuiz.swift */,
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
+				D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */,
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
 				D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */,
+				D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,7 +515,8 @@
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				93D529792B031BFB00DA743E /* EpilogueLessonView.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
-				D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */,
+				D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */,
+				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */,
 				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
@@ -537,11 +542,12 @@
 				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */,
 				936BDEF72B04A65100A609B8 /* PracticeView.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
 				D91B67612B062AA50030F86D /* PracticeLessonView.swift in Sources */,
+				D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
 				D9DC995B2B070788005FC516 /* AudioRecorderManager.swift in Sources */,
@@ -552,7 +558,6 @@
 				9336E20E2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift in Sources */,
 				93DA78F42AFB6B35004BB43F /* ConsonantOnboarding.swift in Sources */,
 				D91B675B2B05C1380030F86D /* EpilogueInstructionView.swift in Sources */,
-				9336E2082AF7B306000B9E76 /* String+TranslateHangulToEnglish.swift in Sources */,
 				93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */,
 				D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */,
 				D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */,

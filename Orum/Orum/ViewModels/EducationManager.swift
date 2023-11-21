@@ -45,14 +45,14 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim3 : "currentLesson",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
-
+    
     @Published var content: [HangulCard] = HangulUnitEnum.vowel1
     @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.consonant1
     @Published var storage: [HangulCard] = []
     @Published var nowStudying: String = Constants.Lesson.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
     @Published var chapterType: ChapterType = .vowel
     @Published var lessonType: LessonType = .lesson
-
+    @Published var prologue: [HangulPrologue] = HangulUnitPrologueEnum.system
     @Published var index: Int = 0
     
     init() {
@@ -65,12 +65,14 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.system
             chapterType = .system
             lessonType = .prologue
+            prologue = HangulUnitPrologueEnum.system
         
         case Constants.Lesson.consonant0:
             content = HangulUnitEnum.consonant0
             quiz = HangulUnitQuizEnum.consonant0
             chapterType = .consonant
             lessonType = .prologue
+            prologue = HangulUnitPrologueEnum.consonant0
             
         case Constants.Lesson.consonant1:
             content = HangulUnitEnum.consonant1
@@ -107,6 +109,7 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.vowel0
             chapterType = .vowel
             lessonType = .prologue
+            prologue = HangulUnitPrologueEnum.vowel0
 
         case Constants.Lesson.vowel1:
             content = HangulUnitEnum.vowel1
@@ -137,6 +140,7 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.batchim0
             chapterType = .batchim
             lessonType = .prologue
+            prologue = HangulUnitPrologueEnum.batchim0
 
         case Constants.Lesson.batchim1:
             content = HangulUnitEnum.batchim1
