@@ -45,7 +45,6 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim3 : "currentLesson",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
-    @Published var content: [HangulCard] = HangulUnitEnum.vowel1
     @Published var content: [HangulCard] = HangulUnitEnum.consonant1
     @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.consonant1
     @Published var storage: [HangulCard] = []
