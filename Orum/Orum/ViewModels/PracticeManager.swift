@@ -14,5 +14,4 @@ class PracticeManager: ObservableObject {
     @AppStorage("practicedWords") var practicedWords: [String] = []
     
     @Published var chapterIndex = 0
-    @Published var wordIndex = 0
 }
