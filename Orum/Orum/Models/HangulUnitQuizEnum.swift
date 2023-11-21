@@ -1,5 +1,5 @@
 //
-//  HnagulUnitQuizEnum.swift
+//  HangulUnitQuizEnum.swift
 //  Orum
 //
 //  Created by Youngbin Choi on 11/15/23.

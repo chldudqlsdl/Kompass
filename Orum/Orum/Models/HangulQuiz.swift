@@ -46,6 +46,5 @@ struct HangulQuiz {
             self.meaning = Constants.HangulQuiz.meaning[quizName ?? ""] ?? ""
             self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
         }
-
     }
 }
