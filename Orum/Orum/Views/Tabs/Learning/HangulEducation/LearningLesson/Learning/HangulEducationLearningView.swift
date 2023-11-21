@@ -44,6 +44,7 @@ struct HangulEducationLearningView: View {
                             Text("Touch the Cards")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
+                                .multilineTextAlignment(.center)
                         }
                 
                 VStack(spacing: 25){
@@ -53,7 +54,7 @@ struct HangulEducationLearningView: View {
                         }
                         
                         isOnceFlipped = true
-                    }, hangulCard: educationManager.content[educationManager.index],  isLearningView: true)
+                    }, hangulCard: educationManager.content[educationManager.index], cardType: .large)
                     .environmentObject(educationManager)
                     
                     if educationManager.chapterType == .consonant {
@@ -62,9 +63,9 @@ struct HangulEducationLearningView: View {
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .font(.largeTitle)
-                                .padding(15)
+                                .padding(20)
                                 .overlay(RoundedRectangle(cornerRadius: 24)
-                                    .stroke(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                    .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
                                 .onTapGesture {
                                     if !isExample1Listened {
                                         touchCardsCount += 1
@@ -79,9 +80,9 @@ struct HangulEducationLearningView: View {
                                 .bold()
                                 .frame(maxWidth: .infinity)
                                 .font(.largeTitle)
-                                .padding(15)
+                                .padding(20)
                                 .overlay(RoundedRectangle(cornerRadius: 24)
-                                    .stroke(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                    .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
                                 .onTapGesture {
                                     if !isExample2Listened {
                                         touchCardsCount += 1

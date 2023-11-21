@@ -22,20 +22,22 @@ struct HangulEducationRecapView: View {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                         .padding(.vertical, 16)
                     
-                    HStack{
-                        Text("Recap what you learned to prepare Quiz session")
-                            .font(.largeTitle)
-                            .bold()
+                    VStack {
+                        Text("Before Quiz")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .foregroundStyle(.secondary)
                         
-                        Spacer()
+                        Text("Recap")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
                     }
-                    .padding(.bottom, 24)
                     
                     
                     VStack {
-                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 25), GridItem(.flexible())], spacing: 25) {
+                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
                             ForEach(0 ..< educationManager.content.count, id: \.self) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], cardType: .medium)
                             }
                         }
 

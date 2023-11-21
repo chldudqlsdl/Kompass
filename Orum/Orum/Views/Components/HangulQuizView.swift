@@ -39,15 +39,17 @@ struct HangulQuizView: View {
                             .padding(.vertical, 16)
                             .id(topID)
                         
-                        HStack {
-                            Text("Select appropriate pronunciation of underlined letter")
+                        VStack {
+                            Text("Quiz")
+                                .font(.body)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.secondary)
+                            
+                            Text("Select the corect pronunciation")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
-                            
-                            Spacer()
+                                .multilineTextAlignment(.center)
                         }
-                        .padding(.bottom, 16)
-                        
                         VStack {
                             HStack{
                                 Spacer()
@@ -390,7 +392,6 @@ struct HangulQuizView: View {
             Color.clear
         }
     }
-    
 }
 
 struct OptionColor {
