@@ -11,8 +11,8 @@ import SwiftUI
 class PracticeManager: ObservableObject {
     
     @AppStorage("practicedChapters") var practicedChapters: [String] = []
-    @AppStorage("practicedLessons") var practicedLessons: [String] = []
+    @AppStorage("practicedWords") var practicedWords: [String] = []
     
     @Published var chapterIndex = 0
-    @Published var lessonIndex = 0
+    @Published var wordIndex = 0
 }
