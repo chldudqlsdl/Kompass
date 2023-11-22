@@ -85,9 +85,26 @@ struct HangulUnitEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g
     
     static let batchim0: [HangulCard] = []
     
-    static let batchim1: [HangulCard] = []
+    static let batchim1: [HangulCard] = [
+        HangulCard(name: "ㄱb"),
+        HangulCard(name: "ㄴb"),
+        HangulCard(name: "ㄷb"),
+        HangulCard(name: "ㄹb"),
+        HangulCard(name: "ㅁb"),
+        HangulCard(name: "ㅂb"),
+        HangulCard(name: "ㅇb"),
+    ]
     
-    static let batchim2: [HangulCard] = []
+    static let batchim2: [HangulCard] = [
+        HangulCard(name: "ㅋb"),
+        HangulCard(name: "ㄲb"),
+        HangulCard(name: "ㅌb"),
+        HangulCard(name: "ㅍb"),
+        HangulCard(name: "ㅅb"),
+        HangulCard(name: "ㅆb"),
+        HangulCard(name: "ㅈb"),
+        HangulCard(name: "ㅊb"),
+    ]
     
     static let batchim3: [HangulCard] = []
 }

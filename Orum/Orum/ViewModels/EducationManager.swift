@@ -45,11 +45,11 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim3 : "currentLesson",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
-    @Published var content: [HangulCard] = HangulUnitEnum.consonant1
+    @Published var content: [HangulCard] = HangulUnitEnum.batchim2
     @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.consonant1
     @Published var storage: [HangulCard] = []
-    @Published var nowStudying: String = Constants.Lesson.consonant1 // 현재 공부하고 있는 단원 (진도와는 무관)
-    @Published var chapterType: ChapterType = .vowel
+    @Published var nowStudying: String = Constants.Lesson.batchim2 // 현재 공부하고 있는 단원 (진도와는 무관)
+    @Published var chapterType: ChapterType = .consonant
     @Published var lessonType: LessonType = .lesson
     @Published var prologue: [HangulPrologue] = HangulUnitPrologueEnum.system
     @Published var index: Int = 0
@@ -157,7 +157,7 @@ class EducationManager: ObservableObject {
             content = HangulUnitEnum.batchim3
             quiz = HangulUnitQuizEnum.batchim3
             chapterType = .batchim
-            lessonType = .epilogue
+            lessonType = .lesson
 
         default:
             return
