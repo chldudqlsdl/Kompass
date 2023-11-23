@@ -15,11 +15,13 @@ enum CurrentEducation {
     case recap
     case vowelQuiz
     case quiz
+    case batchim
+    case complexBatchim
 }
 
 struct LearningLessonView: View {
     @Binding var isPresented: Bool
-    
+    @State var currentEducation: CurrentEducation = .learning
     @EnvironmentObject var educationManager: EducationManager
     
     @State var progressValue: Int = 0
@@ -53,6 +55,12 @@ struct LearningLessonView: View {
             HangulEducationQuizView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
                 .transition(.opacity)
+        case .batchim:
+            BatchimLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+                .environmentObject(educationManager)
+        case .complexBatchim:
+            ComplexBatchimLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+                .environmentObject(educationManager)
         }
     }
 }

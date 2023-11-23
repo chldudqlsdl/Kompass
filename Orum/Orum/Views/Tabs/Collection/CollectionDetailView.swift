@@ -16,16 +16,16 @@ struct CollectionDetailView: View {
             ScrollView {
                 VStack {
                     if chapterName == "Consonant" {
-                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())],spacing: 16) {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
                             ForEach(0 ..< 14) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), cardType: .small)
                             }
                         }
                     }
                     else {
-                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())],spacing: 16) {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
                             ForEach(0 ..< 21) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), cardType: .small)
                             }
                         }
                     }
@@ -40,6 +40,6 @@ struct CollectionDetailView: View {
 }
 
 #Preview {
-    CollectionDetailView(chapterName: .constant("Vowel"))
+    CollectionDetailView(chapterName: .constant("Consonant"))
         .environmentObject(EducationManager())
 }

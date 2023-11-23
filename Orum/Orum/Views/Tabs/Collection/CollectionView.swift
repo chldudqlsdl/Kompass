@@ -89,10 +89,10 @@ struct CollectionView: View {
                         .bold()
                         .font(.title2)
                     
-                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())],spacing: 16) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
                         ForEach(mistakes, id:\.self) { mistake in
                             VStack(alignment: .leading, spacing: 10) {
-                                HangulCardView(onTapGesture: {}, hangulCard: mistake, isLearningView: false)
+                                HangulCardView(onTapGesture: {}, hangulCard: mistake, cardType: .small)
                             }
                         }
                     }

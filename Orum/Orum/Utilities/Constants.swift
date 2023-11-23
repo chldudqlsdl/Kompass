@@ -132,7 +132,7 @@ struct Constants {
             "ㅎ" : ["하트", "후참잘"],
             "ㄲ" : ["돈까스", "꿈꾸는"],
             "ㄸ" : ["아리따움", "뚜레쥬르"],
-            "ㅃ" : ["아빠", "뿌링크"],
+            "ㅃ" : ["아빠", "뿌링클"],
             "ㅆ" : ["싸이", "싸움의 고수"],
             "ㅉ" : ["짜파게티", "쭈꾸미"],
         ]
@@ -190,12 +190,25 @@ struct Constants {
             "ㅂ" : "bucket",
             "ㅅ" : "squid",
             "ㅇ" : "nothing",
-            "ㅈ" : "",
-            "ㅊ" : "",
+            "ㅈ" : "jump",
+            "ㅊ" : "champion",
             "ㅋ" : "key",
             "ㅌ" : "tooth",
             "ㅍ" : "pillar",
             "ㅎ" : "hat",
+            "ㄲ" : "",
+            "ㄸ" : "",
+            "ㅃ" : "",
+            "ㅆ" : "",
+            "ㅉ" : "",
+        ]
+        
+        static let consonantCombination : [String: String] = [
+            "ㄲ" : "Pronounce two ㄱ[g] sounds simultaneously",
+            "ㄸ" : "Pronounce two ㄷ[d] sounds simultaneously",
+            "ㅃ" : "Pronounce two ㅂ[b] sounds simultaneously",
+            "ㅆ" : "Pronounce two ㅅ[s] sounds simultaneously",
+            "ㅉ" : "Pronounce two ㅈ[j] sounds simultaneously",
         ]
         
         static let vowels: [String] = [
@@ -222,6 +235,30 @@ struct Constants {
             "ㅞ",
         ]
         
+        static let vowelStrokeCount: [String : Int] = [
+            "ㅡ" : 1,
+            "ㅣ" : 1,
+            "ㅏ" : 2,
+            "ㅓ" : 2,
+            "ㅗ" : 2,
+            "ㅜ" : 2,
+            "ㅐ" : 3,
+            "ㅔ" : 3,
+            "ㅑ" : 3,
+            "ㅕ" : 3,
+            "ㅛ" : 3,
+            "ㅠ" : 3,
+            "ㅒ" : 4,
+            "ㅖ" : 4,
+            "ㅢ" : 2,
+            "ㅟ" : 3,
+            "ㅚ" : 3,
+            "ㅘ" : 4,
+            "ㅝ" : 4,
+            "ㅙ" : 5,
+            "ㅞ" : 5,
+        ]
+        
         static let vowelSound : [String : String] = [
             "ㅡ" : "eu",
             "ㅣ" : "i",
@@ -246,6 +283,54 @@ struct Constants {
             "ㅞ" : "wea",
         ]
         
+        static let vowelSimilarSound : [String : String] = [
+            "ㅡ" : "Neutral",
+            "ㅣ" : "Tree",
+            "ㅏ" : "Analog",
+            "ㅓ" : "Seoul",
+            "ㅗ" : "Orange",
+            "ㅜ" : "Uber",
+            "ㅐ" : "Aesthetic",
+            "ㅔ" : "Aesthetic",
+            "ㅑ" : "",
+            "ㅕ" : "",
+            "ㅛ" : "",
+            "ㅠ" : "",
+            "ㅒ" : "",
+            "ㅖ" : "",
+            "ㅢ" : "",
+            "ㅟ" : "",
+            "ㅚ" : "",
+            "ㅘ" : "",
+            "ㅝ" : "",
+            "ㅙ" : "",
+            "ㅞ" : "",
+        ]
+        
+        static let vowelCombination : [String : String] = [
+            "ㅡ" : "",
+            "ㅣ" : "",
+            "ㅏ" : "",
+            "ㅓ" : "",
+            "ㅗ" : "",
+            "ㅜ" : "",
+            "ㅐ" : "",
+            "ㅔ" : "",
+            "ㅑ" : "ㅣ[ee] + ㅏ[a]",
+            "ㅕ" : "ㅣ[ee] + ㅓ[eo]",
+            "ㅛ" : "ㅣ[ee] + ㅗ[o]",
+            "ㅠ" : "ㅣ[ee] + ㅜ[u]",
+            "ㅒ" : "ㅣ[ee] + ㅐ[ae]",
+            "ㅖ" : "ㅣ[ee] + ㅔ[ae]",
+            "ㅢ" : "ㅡ[eu] + ㅣ[ee]",
+            "ㅟ" : "ㅗ[o] + ㅣ[ee]",
+            "ㅚ" : "ㅗ[o] + ㅏ[a]",
+            "ㅘ" : "ㅗ[o] + ㅐ[ae]",
+            "ㅝ" : "ㅜ[u] + ㅣ[ee]",
+            "ㅙ" : "ㅜ[u] + ㅓ[eo]",
+            "ㅞ" : "ㅜ[u] + ㅔ[ae]",
+        ]
+        
         static let vowelQuiz: [String : [String]] = [
             "ㅡ" : ["셀프","버스"],
             "ㅣ" : ["이태원","갈비"],
@@ -268,6 +353,117 @@ struct Constants {
             "ㅝ" : ["귀여워","뭐"],
             "ㅙ" : ["쉐이크","웨하스"],
             "ㅞ" : ["왜 ","돼지고기"],
+        ]
+        
+        static let batchim: [String] = [
+            "ㄱb",
+            "ㄴb",
+            "ㄷb",
+            "ㄹb",
+            "ㅁb",
+            "ㅂb",
+            "ㅅb",
+            "ㅇb",
+            "ㅈb",
+            "ㅊb",
+            "ㅋb",
+            "ㅌb",
+            "ㅍb",
+            "ㅎb",
+            "ㄲb",
+            "ㅆb",
+            "ㄱㅅ",
+            "ㄴㅈ",
+            "ㄴㅎ",
+            "ㄹㄱ",
+            "ㄹㅁ",
+            "ㄹㅂ",
+            "ㄹㅅ",
+            "ㄹㅌ",
+            "ㄹㅍ",
+            "ㄹㅎ",
+            "ㅂㅅ",
+        ]
+        
+        static let batchimSound: [String : String] = [
+            "ㄱb" : "g",
+            "ㄴb" : "n",
+            "ㄷb" : "d",
+            "ㄹb" : "r",
+            "ㅁb" : "m",
+            "ㅂb" : "b",
+            "ㅅb" : "d",
+            "ㅇb" : "ng",
+            "ㅈb" : "d",
+            "ㅊb" : "d",
+            "ㅋb" : "g",
+            "ㅌb" : "d",
+            "ㅍb" : "b",
+            "ㅎb" : "",
+            "ㄲb" : "g",
+            "ㅆb" : "d",
+            "ㄱㅅ" : "",
+            "ㄴㅈ" : "",
+            "ㄴㅎ" : "",
+            "ㄹㄱ" : "",
+            "ㄹㅁ" : "",
+            "ㄹㅂ" : "",
+            "ㄹㅅ" : "",
+            "ㄹㅌ" : "",
+            "ㄹㅍ" : "",
+            "ㄹㅎ" : "",
+            "ㅂㅅ" : "",
+        ]
+        
+        static let batchimEndingRule : [String : String] = [
+            "ㄱb" : "ㄱ",
+            "ㄴb" : "ㄴ",
+            "ㄷb" : "ㄷ",
+            "ㄹb" : "ㄹ",
+            "ㅁb" : "ㅁ",
+            "ㅂb" : "ㅂ",
+            "ㅅb" : "ㄷ",
+            "ㅇb" : "ㅇ",
+            "ㅈb" : "ㄷ",
+            "ㅊb" : "ㄷ",
+            "ㅋb" : "ㄱ",
+            "ㅌb" : "ㄷ",
+            "ㅍb" : "ㅂ",
+            "ㅎb" : "",
+            "ㄲb" : "ㄱ",
+            "ㅆb" : "ㄷ",
+            "ㄱㅅ" : "",
+            "ㄴㅈ" : "",
+            "ㄴㅎ" : "",
+            "ㄹㄱ" : "",
+            "ㄹㅁ" : "",
+            "ㄹㅂ" : "",
+            "ㄹㅅ" : "",
+            "ㄹㅌ" : "",
+            "ㄹㅍ" : "",
+            "ㄹㅎ" : "",
+            "ㅂㅅ" : "",
+        ]
+        
+        
+        static let batchimCardCount : [String : [Int]] = [
+            "Batchim 1" : [6, 1],
+            "Batchim 2" : [4, 4],
+        ]
+        
+        static let batchimTitle : [String : [String]] = [
+            "Batchim 1" : ["Simplification", "Touch the Cards"],
+            "Batchim 2" : ["Transformation", "Transformation"],
+        ]
+        
+        static let batchimExplainTitle : [String : [String]] = [
+            "Batchim 1" : ["Principle", "ㅇ got sound"],
+            "Batchim 2" : ["ㅋ, ㄲ, ㅌ, ㅍ", "ㅅ, ㅆ, ㅈ, ㅊ"],
+        ]
+        
+        static let batchimExplain : [String : [String]] = [
+            "Batchim 1" : ["For final consonant sounds, only the 7 consonants 'ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ' are pronounced", "In the final position, ㅇ creates a sound"],
+            "Batchim 2" : ["These are change to ㄱ, ㄷ, ㅂ respectively when used as final consonants", "Consonants containing ㅅ, namely ㅅ, ㅆ, ㅈ, and ㅊ, all transform into ㄷ when used as final consonants"],
         ]
     }
     
@@ -356,88 +552,89 @@ struct Constants {
             "돼지고기" : ["ㅙ3","ㅙ4","ㅙ5"]
         ]
         
-        static let meaning: [String : String] = [
+        static let meaning: [String : String] =  [
             "가로수길" : "Garosu-gil",
-            "강남구":"",
-            "바나나맛 우유":"",
-            "누나":"",
-            "다크나이트":"",
-            "두부":"",
-            "배스킨 라빈스":"",
-            "후루트링":"",
-            "마요네즈":"",
-            "무지개":"",
-            "보석바":"",
-            "부산행":"",
-            "사랑해":"",
-            "수퍼마켙":"",
-            "아이스크림":"",
-            "새우깡":"",
-            "자유시간":"",
-            "제주도":"",
-            "녹차":"",
-            "추억":"",
-            "카페":"",
-            "초코칩쿠키":"",
-            "스타벅스":"",
-            "투게더":"",
-            "초코파이":"",
-            "콘푸로스트":"",
-            "하트":"",
-            "후참잘":"",
-            "돈까스":"",
-            "꿈꾸는":"",
-            "아리따움":"",
-            "뚜레쥬르":"",
-            "아빠":"",
-            "뿌링클":"",
-            "싸이":"",
-            "싸움의 고수":"",
-            "짜파게티":"",
-            "쭈꾸미":"",
-            "셀프":"",
-            "버스":"",
-            "이태원":"",
-            "갈비":"",
-            "타는 곳":"",
-            "교통카드":"",
-            "서울":"",
-            "붕어빵":"",
-            "노래방":"",
-            "소주":"",
-            "금연구역":"",
-            "맥주":"",
-            "대한민국":"",
-            "홍대입구":"",
-            "인생네컷":"",
-            "당기세요":"",
-            "야구":"",
-            "뭐하냐":"",
-            "여기어때":"",
-            "겨울":"",
-            "비요뜨":"",
-            "안녕하세요":"",
-            "씨유":"",
-            "뉴진스":"",
-            "얘들아":"",
-            "쟤":"",
-            "에쁜":"",
-            "예":"",
-            "배달의 민족":"",
-            "여의도":"",
-            "다람쥐":"",
-            "뷔":"",
-            "외국인":"",
-            "육회":"",
-            "화장실":"",
-            "와":"",
-            "귀여워":"",
-            "뭐":"",
-            "쉐이크":"",
-            "웨하스":"",
-            "왜":"",
-            "돼지고기":""
+            "강남구":"Gangnam-district",
+            "바나나맛 우유":"Banana flavor milk",
+            "누나":"Sister",
+            "다크나이트":"Dark Knight(Film)",
+            "두부":"Tofu",
+            "배스킨 라빈스":"Baskin Robbins",
+            "후루트링":"Fruit Ring",
+            "마요네즈":"Mayonnaise",
+            "무지개":"Rainbow",
+            "보석바":"Jewelry bar(Ice cream)",
+            "부산행":"Train to busan",
+            "사랑해":"Love you",
+            "수퍼마켙":"Supermarket",
+            "아이스크림":"Ice cream",
+            "새우깡":"Shrimp snack",
+            "자유시간":"Free time(Chocolate bar)",
+            "제주도":"Jeju island",
+            "녹차":"Green tea",
+            "추억":"Memory",
+            "카페":"Cafe",
+            "초코칩쿠키":"Chocolate chip cookie",
+            "스타벅스":"Starbucks",
+            "투게더":"Together(Ice cream)",
+            "초코파이":"Chocolate pie",
+            "콘푸로스트":"Corn frost(Frosted Flakes)",
+            "하트":"Heart",
+            "후참잘":"Fuchamjal(Fried chicken restaurant)",
+            "돈까스":"Pork cutlet",
+            "꿈꾸는":"Dreaming",
+            "아리따움":"ARITAUM(Cosmetic shop)",
+            "뚜레쥬르":"Tous les Jours(Bakery)",
+            "아빠":"Father",
+            "뿌링클":"Bburinkle(Menu of Fried chicken restaurant)",
+            "싸이":"Psy",
+            "싸움의 고수":"Fighting",
+            "짜파게티":"Jjapagetti(Instant Chajangmyun Noodles)",
+            "쭈꾸미":"Small octopus",
+            "셀프":"Self",
+            "버스":"Bus",
+            "이태원":"Itaewon",
+            "갈비":"Galbi",
+            "타는 곳":"Place to ride",
+            "교통카드":"Transportaton Card",
+            "서울":"Seoul",
+            "붕어빵":"Fish-shaped bun(Street food)",
+            "노래방":"Karaoke",
+            "소주":"Soju",
+            "금연구역":"Non-smoking area",
+            "맥주":"Beer",
+            "대한민국":"Korea",
+            "홍대입구":"Hongik University(Subway station)",
+            "인생네컷":"Life's four cuts(Instant photo booth)",
+            "당기세요":"Pull",
+            "야구":"Baseball",
+            "뭐하냐":"What are you doing?",
+            "여기어때":"How about here?(Korean Airbnb)",
+            "겨울":"Winter",
+            "비요뜨":"Viyott",
+            "안녕하세요":"Hello",
+            "씨유":"CU(Convenience store)",
+            "뉴진스":"NewJeans",
+            "얘들아":"You guys",
+            "쟤":"He or She(That person)",
+            "에쁜":"Pretty",
+            "예":"Yes",
+            "배달의 민족":"Nation of delivery(Korean Uber)",
+            "여의도":"Yeouido(Large island on the Han River)",
+            "다람쥐":"Chipmunk",
+            "뷔":"V(BTS)",
+            "외국인":"Foreigner",
+            "육회":"Beef Tartare",
+            "화장실":"Toilet",
+            "와":"Wow(ice cream)",
+            "귀여워":"Cute",
+            "뭐":"What",
+            "쉐이크":"Shake",
+            "웨하스":"Wafers",
+            "왜":"Why",
+            "돼지고기":"Pork"
         ]
+        
         static let tmi : [String : String] = [
             "가로수길" : "used to be the hottest street in Korea, but not anymore",
             "강남구":"",
@@ -519,6 +716,71 @@ struct Constants {
             "웨하스":"",
             "왜":"",
             "돼지고기":""
+        ]
+    }
+    
+    struct Practice{
+        
+        static let chapter : [String] = [
+            "음식",
+            "여행",
+            "일상회화"
+        ]
+        
+        static let word : [String : [String]] = [
+            "음식" : ["국밥", "치맥", "삼겹살", "불고기", "삼계탕", "칼국수", "닭한마리", "라면", "불닭볶음면", "삼각김밥", "김치", "육회", "떡볶이", "소주", "빈대떡", "냉면", "비빔밥", "토스트", "붕어빵"],
+            "여행" : ["홍대", "성수", "서울", "강남", "인천", "부산", "한강", "익선동", "이태원", "동대문", "혜화", "종로", "광장시장", "지하철", "버스", "가로수길", "공항", "경복궁", "남산", "명동"],
+            "일상회화" : ["안녕하세요", "감사합니다", "죄송합니다", "맛있어요", "주세요", "어디에요", "얼마에요", "도와주세요", "편의점", "병원", "화장실", "좋아요", "싫어요", "네", "아니요"]
+        ]
+        
+        static let explanation : [String : String] = [
+            "국밥" : "1",
+            "치맥" : "2",
+            "삼겹살" : "3",
+            "불고기" : "4",
+            "삼계탕" : "5",
+            "칼국수" : "6",
+            "닭한마리" : "7",
+            "라면" : "8",
+            "불닭볶음변" : "9",
+            "삼각김밥" : "10",
+            "김치" : "11",
+            "육회" : "12",
+            "떡볶이" : "13",
+            "소주" : "14",
+            "빈대떡" : "15",
+            "냉면" : "16",
+            "비빔밥" : "17",
+            "토스트" : "18",
+            "붕어빵" : "19",
+        ]
+    }
+    
+    struct Prologue {
+        static let title : [String : String] = [
+        
+            "system0" : "Consonants and Vowels",
+            "system1" : "Letter in English and Hangul",
+            "system2" : "Hangul Letter",
+            "system3" : "Word",
+            
+        ]
+        
+        static let text : [String : String] = [
+        
+            "system0" : "Hangul is a character that can be written **phonetically**. It consists of **consonants** and **vowels!**",
+            "system1" : "A letter in English is one alphabet. But a **letter in Hangul** is a **combination of consonants and vowels!**",
+            "system2" : "A **Hangul letter** is a combination of consonants and vowels, so basically the form is **'C+V'** or **'C+V+C'**!",
+            "system3" : "A **Hangul word** is a combination of letters. Is it hard? \n\n Learning Hangul won't be difficult, **so give it a try!**",
+        ]
+        
+        static let image : [String : [String] ] = [
+        
+            "system0" : ["ㄱ"],
+            "system1" : ["ㄴ"],
+            "system2" : ["ㄷ", "ㄹ"],
+            "system3" : ["ㅁ"],
+            
         ]
     }
 }

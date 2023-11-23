@@ -11,6 +11,8 @@
 		930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26CC2ADD0D8C00896A32 /* Assets.xcassets */; };
 		930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */; };
 		93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
+		93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD42AF8B8D8002C1BE4 /* Lesson.swift */; };
+		93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD72AF8B910002C1BE4 /* Chapter.swift */; };
 		93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */; };
 		9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */; };
 		9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2092AF7B505000B9E76 /* Constants.swift */; };
@@ -40,18 +42,22 @@
 		93F1F5B82B0E2CF200C6D64C /* View+NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */; };
 		93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */; };
 		D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */; };
-		D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */; };
+		D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
 		D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */; };
 		D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67452B04A3F00030F86D /* HangulQuiz.swift */; };
-		D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */; };
+		D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */; };
+		D91B67582B05BB880030F86D /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67572B05BB880030F86D /* HangulEducationQuizView.swift */; };
+		D91B675B2B05C1380030F86D /* EpilogueInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */; };
+		D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */; };
+		D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675E2B0609D00030F86D /* PracticeChapterView.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
 		D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C82AE40F4E008B3379 /* TTSManager.swift */; };
 		D96BAC682AE6C35600613540 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D96BAC672AE6C35600613540 /* Lottie */; };
 		D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BAC692AE6C37800613540 /* LottieView.swift */; };
-		D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */ = {isa = PBXBuildFile; fileRef = D96BAC6C2AE6C46600613540 /* ㄱ.json */; };
+		D96BAC6D2AE6C46600613540 /* gun.json in Resources */ = {isa = PBXBuildFile; fileRef = D96BAC6C2AE6C46600613540 /* gun.json */; };
 		D96D943F2AE777E50077F2C1 /* 나.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D94372AE777E50077F2C1 /* 나.mp3 */; };
 		D96D94402AE777E50077F2C1 /* 구.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D94382AE777E50077F2C1 /* 구.mp3 */; };
 		D96D94412AE777E50077F2C1 /* 다.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D94392AE777E50077F2C1 /* 다.mp3 */; };
@@ -61,11 +67,20 @@
 		D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D943D2AE777E50077F2C1 /* 라.mp3 */; };
 		D96D94462AE777E50077F2C1 /* 누.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D96D943E2AE777E50077F2C1 /* 누.mp3 */; };
 		D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96D94472AE778680077F2C1 /* SoundManager.swift */; };
-		D98B83FC2AE6EC9C00B47C56 /* ㄴ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */; };
-		D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* ㄹ.json */; };
-		D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* ㄷ.json */; };
+		D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */; };
+		D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */; };
+		D9756EB52B0C91F10089A39B /* PracticeWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EB42B0C91F10089A39B /* PracticeWord.swift */; };
+		D9756EB72B0CCAEB0089A39B /* BatchimLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EB62B0CCAEB0089A39B /* BatchimLearningView.swift */; };
+		D9756EBB2B0E08D70089A39B /* BatchimExplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */; };
+		D9756EBD2B0E22E90089A39B /* ComplexBatchimLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EBC2B0E22E90089A39B /* ComplexBatchimLearningView.swift */; };
+		D98B83FC2AE6EC9C00B47C56 /* nose.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FB2AE6EC9C00B47C56 /* nose.json */; };
+		D98B83FE2AE6ECA100B47C56 /* road.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FD2AE6ECA100B47C56 /* road.json */; };
+		D98B84002AE6F56000B47C56 /* drink.json in Resources */ = {isa = PBXBuildFile; fileRef = D98B83FF2AE6F56000B47C56 /* drink.json */; };
 		D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A9CE092AFDF02300F821D6 /* Canvas.swift */; };
 		D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */; };
+		D9DC995B2B070788005FC516 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */; };
+		D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995C2B0887B2005FC516 /* PracticeManager.swift */; };
+		D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995E2B088E42005FC516 /* Array+RawValue.swift */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -106,17 +121,21 @@
 		93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBarColor.swift"; sourceTree = "<group>"; };
 		93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationLearningView.swift; sourceTree = "<group>"; };
-		D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
+		D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
 		D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationRecapView.swift; sourceTree = "<group>"; };
 		D91B67452B04A3F00030F86D /* HangulQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuiz.swift; sourceTree = "<group>"; };
-		D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HnagulUnitQuizEnum.swift; sourceTree = "<group>"; };
+		D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitQuizEnum.swift; sourceTree = "<group>"; };
+		D91B67572B05BB880030F86D /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
+		D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueInstructionView.swift; sourceTree = "<group>"; };
+		D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueQuizVIew.swift; sourceTree = "<group>"; };
+		D91B675E2B0609D00030F86D /* PracticeChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeChapterView.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D967D1C82AE40F4E008B3379 /* TTSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSManager.swift; sourceTree = "<group>"; };
 		D96BAC692AE6C37800613540 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		D96BAC6C2AE6C46600613540 /* ㄱ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄱ.json"; sourceTree = "<group>"; };
+		D96BAC6C2AE6C46600613540 /* gun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gun.json; sourceTree = "<group>"; };
 		D96D94372AE777E50077F2C1 /* 나.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "나.mp3"; sourceTree = "<group>"; };
 		D96D94382AE777E50077F2C1 /* 구.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "구.mp3"; sourceTree = "<group>"; };
 		D96D94392AE777E50077F2C1 /* 다.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "다.mp3"; sourceTree = "<group>"; };
@@ -126,11 +145,20 @@
 		D96D943D2AE777E50077F2C1 /* 라.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "라.mp3"; sourceTree = "<group>"; };
 		D96D943E2AE777E50077F2C1 /* 누.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "누.mp3"; sourceTree = "<group>"; };
 		D96D94472AE778680077F2C1 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄴ.json"; sourceTree = "<group>"; };
-		D98B83FD2AE6ECA100B47C56 /* ㄹ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄹ.json"; sourceTree = "<group>"; };
-		D98B83FF2AE6F56000B47C56 /* ㄷ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ㄷ.json"; sourceTree = "<group>"; };
+		D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulPrologue.swift; sourceTree = "<group>"; };
+		D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitPrologueEnum.swift; sourceTree = "<group>"; };
+		D9756EB42B0C91F10089A39B /* PracticeWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeWord.swift; sourceTree = "<group>"; };
+		D9756EB62B0CCAEB0089A39B /* BatchimLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchimLearningView.swift; sourceTree = "<group>"; };
+		D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchimExplainView.swift; sourceTree = "<group>"; };
+		D9756EBC2B0E22E90089A39B /* ComplexBatchimLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexBatchimLearningView.swift; sourceTree = "<group>"; };
+		D98B83FB2AE6EC9C00B47C56 /* nose.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nose.json; sourceTree = "<group>"; };
+		D98B83FD2AE6ECA100B47C56 /* road.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = road.json; sourceTree = "<group>"; };
+		D98B83FF2AE6F56000B47C56 /* drink.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = drink.json; sourceTree = "<group>"; };
 		D9A9CE092AFDF02300F821D6 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
+		D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
+		D9DC995C2B0887B2005FC516 /* PracticeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeManager.swift; sourceTree = "<group>"; };
+		D9DC995E2B088E42005FC516 /* Array+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawValue.swift"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,9 +233,13 @@
 				D967D1BC2AE2932C008B3379 /* HangulCard.swift */,
 				D91B67452B04A3F00030F86D /* HangulQuiz.swift */,
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
+				D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */,
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
 				D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */,
 				93D224DD2B0B538800A8FE4D /* Lesson.swift */,
+				D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */,
+				D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */,
+				D9756EB42B0C91F10089A39B /* PracticeWord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +252,7 @@
 				D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */,
 				9336E20D2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift */,
 				93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */,
+				D9DC995E2B088E42005FC516 /* Array+RawValue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -231,6 +264,8 @@
 				93419DD12AF0AB1600DCB322 /* EducationManager.swift */,
 				D96D94472AE778680077F2C1 /* SoundManager.swift */,
 				D9A9CE0D2AFE02BD00F821D6 /* HapticManager.swift */,
+				D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */,
+				D9DC995C2B0887B2005FC516 /* PracticeManager.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -241,6 +276,10 @@
 				D9037D082AF0D2B70098DB57 /* HangulCardView.swift */,
 				D96BAC692AE6C37800613540 /* LottieView.swift */,
 				D9A9CE092AFDF02300F821D6 /* Canvas.swift */,
+				93194FD42AF8B8D8002C1BE4 /* Lesson.swift */,
+				93194FD72AF8B910002C1BE4 /* Chapter.swift */,
+				D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */,
+				D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -267,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				936BDEF62B04A65100A609B8 /* PracticeView.swift */,
+				D91B675E2B0609D00030F86D /* PracticeChapterView.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -305,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */,
-				D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */,
+				D91B67572B05BB880030F86D /* HangulEducationQuizView.swift */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -316,6 +356,8 @@
 				93DA78EE2AFB6233004BB43F /* VowelDrawingView.swift */,
 				93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */,
 				D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */,
+				D9756EB62B0CCAEB0089A39B /* BatchimLearningView.swift */,
+				D9756EBC2B0E22E90089A39B /* ComplexBatchimLearningView.swift */,
 			);
 			path = Learning;
 			sourceTree = "<group>";
@@ -373,6 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				93D529782B031BFB00DA743E /* EpilogueLessonView.swift */,
+				D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */,
+				D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */,
 			);
 			path = EpilogueLesson;
 			sourceTree = "<group>";
@@ -400,10 +444,10 @@
 		D96BAC6B2AE6C42600613540 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				D96BAC6C2AE6C46600613540 /* ㄱ.json */,
-				D98B83FB2AE6EC9C00B47C56 /* ㄴ.json */,
-				D98B83FF2AE6F56000B47C56 /* ㄷ.json */,
-				D98B83FD2AE6ECA100B47C56 /* ㄹ.json */,
+				D96BAC6C2AE6C46600613540 /* gun.json */,
+				D98B83FB2AE6EC9C00B47C56 /* nose.json */,
+				D98B83FF2AE6F56000B47C56 /* drink.json */,
+				D98B83FD2AE6ECA100B47C56 /* road.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -494,14 +538,14 @@
 				D96D94412AE777E50077F2C1 /* 다.mp3 in Resources */,
 				D96D94432AE777E50077F2C1 /* 두.mp3 in Resources */,
 				D96D94422AE777E50077F2C1 /* 가.mp3 in Resources */,
-				D98B83FC2AE6EC9C00B47C56 /* ㄴ.json in Resources */,
-				D96BAC6D2AE6C46600613540 /* ㄱ.json in Resources */,
+				D98B83FC2AE6EC9C00B47C56 /* nose.json in Resources */,
+				D96BAC6D2AE6C46600613540 /* gun.json in Resources */,
 				930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */,
 				DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
-				D98B83FE2AE6ECA100B47C56 /* ㄹ.json in Resources */,
+				D98B83FE2AE6ECA100B47C56 /* road.json in Resources */,
 				D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */,
-				D98B84002AE6F56000B47C56 /* ㄷ.json in Resources */,
+				D98B84002AE6F56000B47C56 /* drink.json in Resources */,
 				D96D94402AE777E50077F2C1 /* 구.mp3 in Resources */,
 				D96D943F2AE777E50077F2C1 /* 나.mp3 in Resources */,
 			);
@@ -514,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9756EBB2B0E08D70089A39B /* BatchimExplainView.swift in Sources */,
 				934912A32B04A00000AF7813 /* ContentView.swift in Sources */,
 				93D5297B2B031C0500DA743E /* PrologueLessonView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
@@ -521,9 +566,14 @@
 				93D224E82B0C9A0000A8FE4D /* View+SafeArea.swift in Sources */,
 				93D224DE2B0B538800A8FE4D /* Lesson.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
-				D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */,
+				D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */,
+				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
+				D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */,
+				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
+				93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */,
+				D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
 				936BDEF22B04A53400A609B8 /* CollectionDetailView.swift in Sources */,
 				936BDEF02B04A48700A609B8 /* CollectionView.swift in Sources */,
@@ -540,21 +590,34 @@
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
 				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
 				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
+				D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */,
+				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
+				D9756EBD2B0E22E90089A39B /* ComplexBatchimLearningView.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
+				D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */,
+				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
+				D9756EB52B0C91F10089A39B /* PracticeWord.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */,
 				93D224E42B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift in Sources */,
 				93D224E62B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift in Sources */,
 				936BDEF72B04A65100A609B8 /* PracticeView.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
+				D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
+				D9DC995B2B070788005FC516 /* AudioRecorderManager.swift in Sources */,
 				93D529772B0311EF00DA743E /* BasicVowelCheckView.swift in Sources */,
 				93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */,
 				93DA78F12AFB6912004BB43F /* SameCardCollectingQuizView.swift in Sources */,
 				93D224EA2B0C9A8900A8FE4D /* ScaledButtonStyle.swift in Sources */,
 				93F1F5B82B0E2CF200C6D64C /* View+NavigationBarColor.swift in Sources */,
+				D91B67582B05BB880030F86D /* HangulEducationQuizView.swift in Sources */,
 				9336E20E2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift in Sources */,
 				93D224E22B0C974E00A8FE4D /* LearningView+LessonView.swift in Sources */,
 				93DA78F42AFB6B35004BB43F /* ConsonantOnboarding.swift in Sources */,
+				D9756EB72B0CCAEB0089A39B /* BatchimLearningView.swift in Sources */,
+				D91B675B2B05C1380030F86D /* EpilogueInstructionView.swift in Sources */,
 				93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */,
 				D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */,
 				D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */,
@@ -708,6 +771,7 @@
 				INFOPLIST_FILE = Orum/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Orum;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -749,6 +813,7 @@
 				INFOPLIST_FILE = Orum/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Orum;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
