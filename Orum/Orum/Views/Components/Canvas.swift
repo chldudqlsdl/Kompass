@@ -67,8 +67,8 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        width = guideImage.size.width / 6
-        height = guideImage.size.height / 6
+        width = guideImage.size.width / 4
+        height = guideImage.size.height / 4
         guideImageView = UIImageView(frame: CGRect(x: posX, y: posY, width: width, height: height))
         guideImageView.image = guideImage
         writedImageView = UIImageView()
@@ -101,7 +101,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
             
             let writedImage = canvasView.drawing.image(from: canvasView.drawing.bounds, scale: 1.0)
             
-            writedImageView.frame = CGRect(x: CGFloat.random(in: 0 ..< self.view.bounds.width - width * 0.5), y: 1, width: writedImage.size.width * 0.7, height: writedImage.size.height * 0.7)
+            writedImageView.frame = CGRect(x: CGFloat.random(in: 0 ..< self.view.bounds.width - width * 0.5), y: 1, width: writedImage.size.width * 0.5, height: writedImage.size.height * 0.5)
             writedImageView.image = writedImage
             
 //            writedImageView.frame = CGRect(x: CGFloat.random(in: 0 ..< self.view.bounds.width - width * 0.5), y: 1, width: width * 0.7, height: height * 0.7)
@@ -169,6 +169,17 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         animator.removeBehavior(collision)
         HapticManager.shared.hapticNotification(type: .warning)
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        for imageView in canvasItems {
+            imageView.removeFromSuperview()
+        }
+        canvasItems.removeAll()
+        animator.removeBehavior(gravity)
+        animator.removeBehavior(collision)
+    }
+    
+    
 
 }
 

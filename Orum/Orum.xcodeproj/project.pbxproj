@@ -11,8 +11,7 @@
 		930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26CC2ADD0D8C00896A32 /* Assets.xcassets */; };
 		930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */; };
 		93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
-		93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD42AF8B8D8002C1BE4 /* Lesson.swift */; };
-		93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD72AF8B910002C1BE4 /* Chapter.swift */; };
+		93194FD82AF8B910002C1BE4 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */; };
 		9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */; };
 		9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2092AF7B505000B9E76 /* Constants.swift */; };
@@ -235,7 +234,6 @@
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
 				D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */,
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
-				D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */,
 				93D224DD2B0B538800A8FE4D /* Lesson.swift */,
 				D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */,
 				D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */,
@@ -276,8 +274,6 @@
 				D9037D082AF0D2B70098DB57 /* HangulCardView.swift */,
 				D96BAC692AE6C37800613540 /* LottieView.swift */,
 				D9A9CE092AFDF02300F821D6 /* Canvas.swift */,
-				93194FD42AF8B8D8002C1BE4 /* Lesson.swift */,
-				93194FD72AF8B910002C1BE4 /* Chapter.swift */,
 				D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */,
 				D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */,
 			);
@@ -572,7 +568,7 @@
 				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
-				93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */,
+				93194FD82AF8B910002C1BE4 /* (null) in Sources */,
 				D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
 				936BDEF22B04A53400A609B8 /* CollectionDetailView.swift in Sources */,
@@ -588,7 +584,7 @@
 				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
 				93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
 				D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
@@ -764,7 +760,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -806,7 +802,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

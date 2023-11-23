@@ -21,12 +21,13 @@ struct PrologueLessonView: View {
         NavigationStack{
             ZStack{
                     VStack(spacing: 0){
-                        VStack(spacing: 20) {
+                        VStack(spacing: 16) {
                             Text(prologuePage.title)
                                 .bold()
                                 .font(.title)
                                 .foregroundStyle(Color(uiColor: prologuePage.color[0]))
                                 .multilineTextAlignment(.center)
+                                .padding(.top, 10)
 
                             Text(.init(prologuePage.text))
                                 .font(.body)
@@ -35,6 +36,7 @@ struct PrologueLessonView: View {
                             Spacer()
                         }
                         .frame(height : dynamicTypeSize.prologueTextHeight)
+                        
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: 358, height: 358)
                             .foregroundColor(Color(uiColor: UIColor(hex: "F8F8F8")))
