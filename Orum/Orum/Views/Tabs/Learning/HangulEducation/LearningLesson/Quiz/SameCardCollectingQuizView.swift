@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SameCardCollectingQuizView: View {
-    @Binding var currentEducation: CurrentEducation
+//    @Binding var currentEducation: CurrentEducation
     @Binding var progressValue: Int
     
     @State var firstTappedIndex : Int = 10
@@ -125,7 +125,7 @@ struct SameCardCollectingQuizView: View {
             VStack{
                 Spacer()
                 Button(action: {
-                    currentEducation = .quiz
+                    educationManager.currentEducation = .quiz
                     progressValue += 1
                 }, label: {
                     Text("Continue")
@@ -197,6 +197,6 @@ struct SameCardCollectingQuizView: View {
 }
 
 #Preview {
-    SameCardCollectingQuizView(currentEducation: .constant(.vowelQuiz), progressValue: .constant(0))
+    SameCardCollectingQuizView(progressValue: .constant(0))
         .environmentObject(EducationManager())
 }

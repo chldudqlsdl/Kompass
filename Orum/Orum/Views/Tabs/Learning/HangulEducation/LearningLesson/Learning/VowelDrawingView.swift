@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct VowelDrawingView: View {
-    @Binding var currentEducation: CurrentEducation
     @Binding var progressValue: Int
-    @Binding var isPresented: Bool
-    @State var writingCount = 0
+    @State var isPresented = false
+    
     @EnvironmentObject var educationManager: EducationManager
+    
+    @State var writingCount = 0
     
     var body: some View {
         VStack(spacing: 0) {
@@ -53,7 +54,7 @@ struct VowelDrawingView: View {
                 
                 VStack {
                     Button(action: {
-                        currentEducation = .learning
+                        educationManager.currentEducation = .learning
                         progressValue += 1
                         
                     }, label: {
@@ -73,6 +74,6 @@ struct VowelDrawingView: View {
 }
 
 #Preview {
-    VowelDrawingView(currentEducation: .constant(.vowelDrawing), progressValue: .constant(0), isPresented: .constant(false))
+    VowelDrawingView( progressValue: .constant(0))
         .environmentObject(EducationManager())
 }

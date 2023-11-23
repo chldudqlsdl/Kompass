@@ -23,8 +23,8 @@ struct HangulEducationLearningView: View {
     let ttsManager = TTSManager()
     
     @Binding var progressValue: Int
-    @Binding var currentEducation: CurrentEducation
-    @Binding var isPresented: Bool
+    //    @Binding var currentEducation: CurrentEducation
+    //    @Binding var isPresented: Bool
     
     var body: some View {
         
@@ -34,7 +34,6 @@ struct HangulEducationLearningView: View {
                     VStack {
                         ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                             .padding(.vertical, 16)
-                        
                         VStack {
                             Text("\(touchCardsCount)/3")
                                 .font(.body)
@@ -46,161 +45,153 @@ struct HangulEducationLearningView: View {
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
                         }
-                
-                VStack(spacing: 25){
-                    HangulCardView(onTapGesture: {
-                        if !isOnceFlipped {
-                            touchCardsCount += 1
-                        }
                         
-                        isOnceFlipped = true
-                    }, hangulCard: educationManager.content[educationManager.index], cardType: .large)
-                    .environmentObject(educationManager)
-                    
-                    if educationManager.chapterType == .consonant {
-                        HStack(spacing: 25) {
-                            Text(educationManager.content[educationManager.index].example1) //TODO: ForEach로 구현하기
-                                .bold()
-                                .frame(maxWidth: .infinity)
-                                .font(.largeTitle)
-                                .padding(20)
-                                .overlay(RoundedRectangle(cornerRadius: 24)
-                                    .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                                .onTapGesture {
-                                    if !isExample1Listened {
-                                        touchCardsCount += 1
-                                    }
-                                    withAnimation(.easeIn(duration: 0.5)){
-                                        isExample1Listened = true
-                                    }
-                                    ttsManager.play(educationManager.content[educationManager.index].example1)
+                        
+                        VStack(spacing: 25){
+                            HangulCardView(onTapGesture: {
+                                if !isOnceFlipped {
+                                    touchCardsCount += 1
                                 }
+                                
+                                isOnceFlipped = true
+                            }, hangulCard: educationManager.content[educationManager.index], cardType: .large)
+                            .environmentObject(educationManager)
                             
-                            Text(educationManager.content[educationManager.index].example2)
-                                .bold()
-                                .frame(maxWidth: .infinity)
-                                .font(.largeTitle)
-                                .padding(20)
-                                .overlay(RoundedRectangle(cornerRadius: 24)
-                                    .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                                .onTapGesture {
-                                    if !isExample2Listened {
-                                        touchCardsCount += 1
+                            if educationManager.chapterType == .consonant {
+                                HStack(spacing: 25) {
+                                    Text(educationManager.content[educationManager.index].example1) //TODO: ForEach로 구현하기
+                                        .bold()
+                                        .frame(maxWidth: .infinity)
+                                        .font(.largeTitle)
+                                        .padding(20)
+                                        .overlay(RoundedRectangle(cornerRadius: 24)
+                                            .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                        .onTapGesture {
+                                            if !isExample1Listened {
+                                                touchCardsCount += 1
+                                            }
+                                            withAnimation(.easeIn(duration: 0.5)){
+                                                isExample1Listened = true
+                                            }
+                                            ttsManager.play(educationManager.content[educationManager.index].example1)
+                                            
+                                        }
+                                    
+                                    Text(educationManager.content[educationManager.index].example2)
+                                        .bold()
+                                        .frame(maxWidth: .infinity)
+                                        .font(.largeTitle)
+                                        .padding(20)
+                                        .overlay(RoundedRectangle(cornerRadius: 24)
+                                            .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                        .onTapGesture {
+                                            if !isExample2Listened {
+                                                touchCardsCount += 1
+                                            }
+                                            withAnimation(.easeIn(duration: 0.5)){
+                                                isExample2Listened = true
+                                            }
+                                            ttsManager.play(educationManager.content[educationManager.index].example2)
+                                        }
+                                }
+                            }
+                                Rectangle()
+                                    .frame(height: 1)
+                                    .foregroundColor(.clear)
+                                    .id(bottomID)
+                            }
+                                .padding(.horizontal, 48)
+                                .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        withAnimation(.easeOut(duration: 0.3)) {
+                                            proxy.scrollTo(bottomID)
+                                        }
                                     }
-                                    withAnimation(.easeIn(duration: 0.5)){
-                                        isExample2Listened = true
-                                    }
-                                    ttsManager.play(educationManager.content[educationManager.index].example2)
                                 }
                         }
+                        .padding(.horizontal, 16)
                     }
                     
-                    Rectangle()
-                        .frame(height: 1)
-                        .foregroundColor(.clear)
-                        .id(bottomID)
-                }
-                .padding(.horizontal, 48)
-                .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        withAnimation(.easeOut(duration: 0.3)) {
-                            proxy.scrollTo(bottomID)
+                    //버튼 뒷배경
+                    VStack {
+                        Spacer()
+                        
+                        HStack {
+                            Button(action: {}, label: {
+                                Text("Continue")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .bold()
+                            })
+                            .buttonStyle(.borderedProminent)
+                            .hidden()
                         }
+                        .padding(24)
+                        .background(.ultraThinMaterial)
                     }
+                    
+                    VStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            if educationManager.index < educationManager.content.count - 1 {
+                                progressValue += 1
+                                
+                                if educationManager.chapterType == .vowel {
+                                    if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
+                                        print(educationManager.index)
+                                        educationManager.currentEducation = .basicVowelCheck
+                                        return
+                                    }
+                                    else {
+                                        educationManager.currentEducation = .vowelDrawing
+                                    }
+                                }
+                                
+                                educationManager.index += 1
+                            }
+                            else {
+                                if educationManager.chapterType == .vowel {
+                                    if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 7 {
+                                        educationManager.currentEducation = .basicVowelCheck
+                                        return
+                                    }
+                                }
+                                
+                                isOnceFlipped = false
+                                educationManager.index = 0
+                                withAnimation(.easeIn(duration: 1)) {
+                                    progressValue += 1
+                                    educationManager.currentEducation = .recap
+                                }
+                            }
+                            
+                            withAnimation (.easeIn(duration: 1)){
+                                isOnceFlipped = false
+                                isExample1Listened = false
+                                isExample2Listened = false
+                                touchCardsCount = 0
+                            }
+                        },label: {
+                            Text("Continue")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .bold()
+                        })
+                        .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                        .buttonStyle(.borderedProminent)
+                        .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
+                    }
+                    .padding(24)
                 }
+                //            .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
             }
-            .padding(.horizontal, 16)
         }
-        
-        //버튼 뒷배경
-        VStack {
-            Spacer()
-            
-            HStack {
-                Button(action: {}, label: {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .bold()
-                })
-                .buttonStyle(.borderedProminent)
-                .hidden()
-            }
-            .padding(24)
-            .background(.ultraThinMaterial)
-        }
-        
-        VStack {
-            Spacer()
-            
-            Button(action: {
-                if educationManager.index < educationManager.content.count - 1 {
-                    progressValue += 1
-                    
-                    if educationManager.chapterType == .vowel {
-                        if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
-                            print(educationManager.index)
-                            currentEducation = .basicVowelCheck
-                            return
-                        }
-                        else {
-                            currentEducation = .vowelDrawing
-                        }
-                    }
-                    
-                    educationManager.index += 1
-                }
-                else {
-                    if educationManager.chapterType == .vowel {
-                        if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 7 {
-                            currentEducation = .basicVowelCheck
-                            return
-                        }
-                    }
-                    
-                    isOnceFlipped = false
-                    educationManager.index = 0
-                    withAnimation(.easeIn(duration: 1)) {
-                        progressValue += 1
-                        currentEducation = .recap
-                    }
-                }
-                
-                withAnimation (.easeIn(duration: 1)){
-                    isOnceFlipped = false
-                    isExample1Listened = false
-                    isExample2Listened = false
-                    touchCardsCount = 0
-                }
-            },label: {
-                Text("Continue")
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
-                    .bold()
-            })
-            .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
-            .buttonStyle(.borderedProminent)
-            .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
-        }
-        .padding(24)
     }
-    //            .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
-}
-    .navigationTitle(educationManager.nowStudying)
-    .navigationBarTitleDisplayMode(.inline)
-    .navigationBarItems(leading: Button(action: {
-        isPresented.toggle()
-    }, label: {
-        Image(systemName: "xmark.circle.fill")
-            .font(.title3)
-            .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-    }))
-}
-}
 
 
 #Preview {
-    HangulEducationLearningView(progressValue: .constant(0), currentEducation: .constant(.learning), isPresented: .constant(true))
+    HangulEducationLearningView(progressValue: .constant(0))
         .environmentObject(EducationManager())
 }
 

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BasicVowelCheckView: View {
     @Binding var progressValue: Int
-    @Binding var isPresented: Bool
-    @Binding var currentEducation: CurrentEducation
+//    @Binding var isPresented: Bool
+//    @Binding var currentEducation: CurrentEducation
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -44,14 +44,6 @@ struct BasicVowelCheckView: View {
 
                 }
                 .padding(.horizontal, 16)
-                .navigationTitle(educationManager.nowStudying)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                }))
             }
             
             //버튼 뒷배경
@@ -79,11 +71,11 @@ struct BasicVowelCheckView: View {
                     if educationManager.index < 7 {
                         progressValue += 1
                         educationManager.index += 1
-                        currentEducation = .vowelDrawing
+                        educationManager.currentEducation = .vowelDrawing
                     }
                     else {
                         progressValue += 1
-                        currentEducation = .recap
+                        educationManager.currentEducation = .recap
                     }
                 } label: {
                     Text("Next")
@@ -101,6 +93,6 @@ struct BasicVowelCheckView: View {
 }
 
 #Preview {
-    BasicVowelCheckView(progressValue: .constant(0), isPresented: .constant(true), currentEducation: .constant(.recap))
+    BasicVowelCheckView(progressValue: .constant(0))
         .environmentObject(EducationManager())
 }

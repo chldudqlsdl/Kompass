@@ -49,29 +49,24 @@ struct Constants {
             batchim3, // 15
         ]
         
-        static let lessonComponent: [[[String]]] = [
-            [[]],
-            [
-                ["Prologue"],
-                ["ㄱ","ㄴ","ㄷ","ㄹ"],
-                ["ㅁ","ㅂ","ㅅ","ㅇ","ㅈ"],
-                ["ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"],
-                ["ㄲ","ㄸ","ㅃ","ㅆ","ㅉ"],
-                ["Consonant Quiz"]
-            ],
-            [
-                ["Prologue"],
-                ["ㅡ","ㅣ","ㅏ","ㅓ","ㅗ","ㅜ","ㅐ","ㅔ"],
-                ["ㅑ","ㅕ","ㅛ","ㅠ","ㅒ","ㅖ"],
-                ["ㅢ","ㅚ","ㅟ","ㅘ","ㅝ","ㅙ","ㅞ"],
-                ["Vowel Quiz"]
-            ],
-            [
-                ["Prologue"],
-                ["Basic"],
-                ["Advanced"],
-                ["Batchim Quiz"]
-            ]
+        static let lessonComponent: [String: [String]] = [
+            Constants.Lesson.system : ["System of Hangul"],
+            Constants.Lesson.consonant0 : ["Prologue"],
+            Constants.Lesson.consonant1 : ["ㄱ","ㄴ","ㄷ","ㄹ"],
+            Constants.Lesson.consonant2 : ["ㅁ","ㅂ","ㅅ","ㅇ","ㅈ"],
+            Constants.Lesson.consonant3 : ["ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"],
+            Constants.Lesson.consonant4 : ["ㄲ","ㄸ","ㅃ","ㅆ","ㅉ"],
+            Constants.Lesson.consonant5 : ["Epilogue"],
+            Constants.Lesson.vowel0 : ["Prologue"],
+            Constants.Lesson.vowel1 : ["ㅡ","ㅣ","ㅏ","ㅓ","ㅗ","ㅜ","ㅐ","ㅔ"],
+            Constants.Lesson.vowel2 : ["ㅑ","ㅕ","ㅛ","ㅠ","ㅒ","ㅖ"],
+            Constants.Lesson.vowel3 : ["ㅢ","ㅚ","ㅟ","ㅘ","ㅝ","ㅙ","ㅞ"],
+            Constants.Lesson.vowel4 : ["Epilogue"],
+            Constants.Lesson.batchim0 : ["Prologue"],
+//            Constants.Lesson.batchim1: ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅇ","ㅋ","ㅌ","ㅍ","ㄲ","ㅅ","ㅈ","ㅊ","ㅆ"],
+            Constants.Lesson.batchim1: ["Basic"],
+            Constants.Lesson.batchim2: ["ㅎ",],
+            Constants.Lesson.batchim3 : ["Epilogue"]
         ]
     }
     

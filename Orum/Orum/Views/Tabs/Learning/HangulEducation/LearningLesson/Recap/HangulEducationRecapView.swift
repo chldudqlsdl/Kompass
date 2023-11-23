@@ -10,8 +10,8 @@ import SwiftUI
 struct HangulEducationRecapView: View {
     
     @Binding var progressValue: Int
-    @Binding var currentEducation: CurrentEducation
-    @Binding var isPresented: Bool
+//    @Binding var currentEducation: CurrentEducation
+//    @Binding var isPresented: Bool
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -60,14 +60,6 @@ struct HangulEducationRecapView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .navigationTitle(educationManager.nowStudying)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                }))
             }
             
             //버튼 뒷배경
@@ -97,12 +89,14 @@ struct HangulEducationRecapView: View {
                         break
                     case .consonant:
                         progressValue += 1
-                        currentEducation = .quiz
+                        educationManager.currentEducation = .quiz
                     case .vowel:
                         progressValue += 1
-                        currentEducation = .vowelQuiz
+                        educationManager.currentEducation = .vowelQuiz
                     case .batchim:
-                        isPresented = false
+                        progressValue += 1
+                        educationManager.currentEducation = .quiz
+//                        isPresented = false
                         educationManager.index = 0
                     }
                 } label: {
@@ -123,6 +117,6 @@ struct HangulEducationRecapView: View {
 }
 
 #Preview {
-    HangulEducationRecapView(progressValue: .constant(0), currentEducation: .constant(.recap), isPresented: .constant(true))
+    HangulEducationRecapView(progressValue: .constant(0))
         .environmentObject(EducationManager())
 }
