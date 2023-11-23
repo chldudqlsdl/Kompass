@@ -10,9 +10,7 @@
 		930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930F26C82ADD0D8B00896A32 /* OrumApp.swift */; };
 		930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26CC2ADD0D8C00896A32 /* Assets.xcassets */; };
 		930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */; };
-		93194FD32AF8B75A002C1BE4 /* View+CornerRadixus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
-		93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD42AF8B8D8002C1BE4 /* Lesson.swift */; };
-		93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD72AF8B910002C1BE4 /* Chapter.swift */; };
+		93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
 		93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */; };
 		9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */; };
 		9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2092AF7B505000B9E76 /* Constants.swift */; };
@@ -25,6 +23,13 @@
 		936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936BDF052B04CF1D00A609B8 /* LearningLessonView.swift */; };
 		937620372AF0807F00DE2C50 /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937620362AF0807F00DE2C50 /* LearningView.swift */; };
 		9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9376203C2AF080B500DE2C50 /* HangulEducationView.swift */; };
+		93D224DE2B0B538800A8FE4D /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224DD2B0B538800A8FE4D /* Lesson.swift */; };
+		93D224E22B0C974E00A8FE4D /* LearningView+LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224E12B0C974E00A8FE4D /* LearningView+LessonView.swift */; };
+		93D224E42B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224E32B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift */; };
+		93D224E62B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224E52B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift */; };
+		93D224E82B0C9A0000A8FE4D /* View+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224E72B0C9A0000A8FE4D /* View+SafeArea.swift */; };
+		93D224EA2B0C9A8900A8FE4D /* ScaledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224E92B0C9A8900A8FE4D /* ScaledButtonStyle.swift */; };
+		93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D224EB2B0C9AD600A8FE4D /* OffsetKey.swift */; };
 		93D529772B0311EF00DA743E /* BasicVowelCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */; };
 		93D529792B031BFB00DA743E /* EpilogueLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D529782B031BFB00DA743E /* EpilogueLessonView.swift */; };
 		93D5297B2B031C0500DA743E /* PrologueLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D5297A2B031C0500DA743E /* PrologueLessonView.swift */; };
@@ -32,11 +37,12 @@
 		93DA78F12AFB6912004BB43F /* SameCardCollectingQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */; };
 		93DA78F42AFB6B35004BB43F /* ConsonantOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */; };
 		93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EF74AB2B04DA08003111CD /* OnboardingView.swift */; };
+		93F1F5B82B0E2CF200C6D64C /* View+NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */; };
+		93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */; };
 		D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */; };
 		D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
 		D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */; };
-		D90B0DFC2AF8697000401C87 /* HangulEducationInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90B0DFB2AF8697000401C87 /* HangulEducationInstructionView.swift */; };
 		D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67452B04A3F00030F86D /* HangulQuiz.swift */; };
 		D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
@@ -70,8 +76,6 @@
 		930F26CE2ADD0D8C00896A32 /* Orum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orum.entitlements; sourceTree = "<group>"; };
 		930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+CornerRadius.swift"; sourceTree = "<group>"; };
-		93194FD42AF8B8D8002C1BE4 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
-		93194FD72AF8B910002C1BE4 /* Chapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+RawValue.swift"; sourceTree = "<group>"; };
 		9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitEnum.swift; sourceTree = "<group>"; };
 		9336E2092AF7B505000B9E76 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -85,6 +89,13 @@
 		937620362AF0807F00DE2C50 /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		9376203C2AF080B500DE2C50 /* HangulEducationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationView.swift; sourceTree = "<group>"; };
 		93D0BDA52AE2B54E00455447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		93D224DD2B0B538800A8FE4D /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		93D224E12B0C974E00A8FE4D /* LearningView+LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningView+LessonView.swift"; sourceTree = "<group>"; };
+		93D224E32B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningView+ThumbnailView.swift"; sourceTree = "<group>"; };
+		93D224E52B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningView+HangulEducationInstructionView.swift"; sourceTree = "<group>"; };
+		93D224E72B0C9A0000A8FE4D /* View+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+SafeArea.swift"; sourceTree = "<group>"; };
+		93D224E92B0C9A8900A8FE4D /* ScaledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaledButtonStyle.swift; sourceTree = "<group>"; };
+		93D224EB2B0C9AD600A8FE4D /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
 		93D529762B0311EF00DA743E /* BasicVowelCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVowelCheckView.swift; sourceTree = "<group>"; };
 		93D529782B031BFB00DA743E /* EpilogueLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueLessonView.swift; sourceTree = "<group>"; };
 		93D5297A2B031C0500DA743E /* PrologueLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueLessonView.swift; sourceTree = "<group>"; };
@@ -92,11 +103,12 @@
 		93DA78F02AFB6912004BB43F /* SameCardCollectingQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameCardCollectingQuizView.swift; sourceTree = "<group>"; };
 		93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsonantOnboarding.swift; sourceTree = "<group>"; };
 		93EF74AB2B04DA08003111CD /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBarColor.swift"; sourceTree = "<group>"; };
+		93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationLearningView.swift; sourceTree = "<group>"; };
 		D9037CE82AF0C55A0098DB57 /* HangulEducationQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
 		D9037D0A2AF11FD50098DB57 /* HangulEducationRecapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationRecapView.swift; sourceTree = "<group>"; };
-		D90B0DFB2AF8697000401C87 /* HangulEducationInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationInstructionView.swift; sourceTree = "<group>"; };
 		D91B67452B04A3F00030F86D /* HangulQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuiz.swift; sourceTree = "<group>"; };
 		D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HnagulUnitQuizEnum.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
@@ -195,6 +207,7 @@
 				D967D1C02AE2A968008B3379 /* HangulUnit.swift */,
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
 				D91B67472B04B01C0030F86D /* HnagulUnitQuizEnum.swift */,
+				93D224DD2B0B538800A8FE4D /* Lesson.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,9 +215,10 @@
 		930F26D92ADD0DD900896A32 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				93D224EE2B0C9D1000A8FE4D /* View */,
+				93D224ED2B0C9CFB00A8FE4D /* LearningView */,
 				D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */,
 				9336E20D2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift */,
-				93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */,
 				93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */,
 			);
 			path = Extensions;
@@ -227,8 +241,6 @@
 				D9037D082AF0D2B70098DB57 /* HangulCardView.swift */,
 				D96BAC692AE6C37800613540 /* LottieView.swift */,
 				D9A9CE092AFDF02300F821D6 /* Canvas.swift */,
-				93194FD42AF8B8D8002C1BE4 /* Lesson.swift */,
-				93194FD72AF8B910002C1BE4 /* Chapter.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -264,6 +276,9 @@
 			children = (
 				9336E2092AF7B505000B9E76 /* Constants.swift */,
 				930F26D92ADD0DD900896A32 /* Extensions */,
+				93D224E92B0C9A8900A8FE4D /* ScaledButtonStyle.swift */,
+				93D224EB2B0C9AD600A8FE4D /* OffsetKey.swift */,
+				93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -282,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				93DA78F32AFB6B35004BB43F /* ConsonantOnboarding.swift */,
-				D90B0DFB2AF8697000401C87 /* HangulEducationInstructionView.swift */,
 			);
 			path = Instruction;
 			sourceTree = "<group>";
@@ -361,6 +375,26 @@
 				93D529782B031BFB00DA743E /* EpilogueLessonView.swift */,
 			);
 			path = EpilogueLesson;
+			sourceTree = "<group>";
+		};
+		93D224ED2B0C9CFB00A8FE4D /* LearningView */ = {
+			isa = PBXGroup;
+			children = (
+				93D224E12B0C974E00A8FE4D /* LearningView+LessonView.swift */,
+				93D224E32B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift */,
+				93D224E52B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift */,
+			);
+			path = LearningView;
+			sourceTree = "<group>";
+		};
+		93D224EE2B0C9D1000A8FE4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */,
+				93D224E72B0C9A0000A8FE4D /* View+SafeArea.swift */,
+				93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D96BAC6B2AE6C42600613540 /* Lottie */ = {
@@ -484,15 +518,15 @@
 				93D5297B2B031C0500DA743E /* PrologueLessonView.swift in Sources */,
 				D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */,
 				93D529792B031BFB00DA743E /* EpilogueLessonView.swift in Sources */,
+				93D224E82B0C9A0000A8FE4D /* View+SafeArea.swift in Sources */,
+				93D224DE2B0B538800A8FE4D /* Lesson.swift in Sources */,
 				D967D1C92AE40F4E008B3379 /* TTSManager.swift in Sources */,
 				D9037CE92AF0C55A0098DB57 /* HangulEducationQuizView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
-				93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
 				936BDEF22B04A53400A609B8 /* CollectionDetailView.swift in Sources */,
 				936BDEF02B04A48700A609B8 /* CollectionView.swift in Sources */,
-				93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */,
 				93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */,
 				D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */,
 				9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */,
@@ -500,12 +534,15 @@
 				D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */,
 				93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */,
 				D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */,
-				D90B0DFC2AF8697000401C87 /* HangulEducationInstructionView.swift in Sources */,
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
 				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
+				93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
 				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
+				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
 				936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */,
+				93D224E42B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift in Sources */,
+				93D224E62B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift in Sources */,
 				936BDEF72B04A65100A609B8 /* PracticeView.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
@@ -513,7 +550,10 @@
 				93D529772B0311EF00DA743E /* BasicVowelCheckView.swift in Sources */,
 				93419DD32AF0AB1600DCB322 /* EducationManager.swift in Sources */,
 				93DA78F12AFB6912004BB43F /* SameCardCollectingQuizView.swift in Sources */,
+				93D224EA2B0C9A8900A8FE4D /* ScaledButtonStyle.swift in Sources */,
+				93F1F5B82B0E2CF200C6D64C /* View+NavigationBarColor.swift in Sources */,
 				9336E20E2AF7BD00000B9E76 /* Array<String>+ConcatArray.swift in Sources */,
+				93D224E22B0C974E00A8FE4D /* LearningView+LessonView.swift in Sources */,
 				93DA78F42AFB6B35004BB43F /* ConsonantOnboarding.swift in Sources */,
 				93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */,
 				D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */,
@@ -661,7 +701,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X7HFG8283;
+				DEVELOPMENT_TEAM = 834B9VMHHG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -677,7 +717,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -703,7 +742,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X7HFG8283;
+				DEVELOPMENT_TEAM = 834B9VMHHG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -719,7 +758,6 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
