@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "자산 555.jpg",
+      "filename" : " 555.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "자산 575.jpg",
+      "filename" : " 575.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
