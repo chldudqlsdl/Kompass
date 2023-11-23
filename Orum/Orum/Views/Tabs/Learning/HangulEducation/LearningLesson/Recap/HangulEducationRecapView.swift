@@ -14,6 +14,14 @@ struct HangulEducationRecapView: View {
     @Binding var isPresented: Bool
     
     @EnvironmentObject var educationManager: EducationManager
+    
+    var lessonName : String {
+        educationManager.nowStudying
+    }
+    
+    var pageIndex : Int {
+        educationManager.index
+    }
         
     var body: some View {
         ZStack {
@@ -32,18 +40,24 @@ struct HangulEducationRecapView: View {
                             .font(.largeTitle)
                             .fontWeight(.bold)
                     }
-                    
-                    
-                    VStack {
-                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
-                            ForEach(0 ..< educationManager.content.count, id: \.self) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], cardType: .medium)
-                            }
+                    if educationManager.chapterType == .batchim {
+                        
+                        ForEach(0 ..< 2){ index in
+                            BatchimExplainView(explainTitle: Constants.Hangul.batchimExplainTitle[lessonName]![index], explain: Constants.Hangul.batchimExplain[lessonName]![index])
                         }
-
+                        
+                    } else {
+                        VStack {
+                            LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
+                                ForEach(0 ..< educationManager.content.count, id: \.self) { index in
+                                    HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], cardType: .medium)
+                                }
+                            }
+                            
+                        }
+                        .padding(.horizontal, 7)
+                        .padding(.bottom, 130)
                     }
-                    .padding(.horizontal, 7)
-                    .padding(.bottom, 130)
                 }
                 .padding(.horizontal, 16)
                 .navigationTitle(educationManager.nowStudying)
@@ -88,8 +102,8 @@ struct HangulEducationRecapView: View {
                         progressValue += 1
                         currentEducation = .vowelQuiz
                     case .batchim:
-                        progressValue += 1
-                        currentEducation = .quiz
+                        isPresented = false
+                        educationManager.index = 0
                     }
                 } label: {
                     Text("Ready to Quiz")

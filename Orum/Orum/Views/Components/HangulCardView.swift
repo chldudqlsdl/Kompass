@@ -18,17 +18,18 @@ struct HangulCardView: View {
     
     var body: some View {
         ZStack{
+            
             HStack{
                 
                 Spacer()
                 
                 VStack(spacing: cardType.imageMeaningSpacing){
                     if !isFlipped {
+                        
                         Image(hangulCard.name)
                             .resizable()
-                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)
-//                            .border(.red)
-                        
+                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)                            
+                            
                         Text("[ ")
                             .bold()
                             .font( cardType.font)
@@ -152,7 +153,6 @@ struct HangulCardView: View {
                 }
                 .frame(minHeight : cardType.maxHeight, maxHeight: cardType.maxHeight)
                 .padding(EdgeInsets(top: cardType.paddingTop , leading: 0, bottom: cardType.paddingBottom, trailing: 0))
-                
                 Spacer()
             }
         }
@@ -182,6 +182,6 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.vowel1[0], cardType: .large)
+    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large)
         .environmentObject(EducationManager())
 }
