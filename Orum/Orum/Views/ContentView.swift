@@ -16,20 +16,20 @@ struct ContentView: View {
                 LearningView()
                     .environmentObject(educationManager)
                     .tabItem {
-                        Label("Learn", systemImage: "book.fill")
+                        Label("Learn", systemImage: "book")
                     }
                 
                 PracticeView()
                     .environmentObject(practiceManager)
                     .tabItem {
-                        Label("Practice", systemImage: "highlighter")
+                        Label("Practice", systemImage: "message.and.waveform.fill")
                     }
                 
                 
                 CollectionView()
                     .environmentObject(educationManager)
                     .tabItem {
-                        Label("Collection", systemImage: "list.bullet.rectangle.portrait")
+                        Label("Collection", systemImage: "rectangle.stack.fill")
                     }
             }
     }

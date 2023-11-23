@@ -81,6 +81,7 @@
 		D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995C2B0887B2005FC516 /* PracticeManager.swift */; };
 		D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995E2B088E42005FC516 /* Array+RawValue.swift */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
+		DE9A7CF52B0F6B57002481DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		D9DC995E2B088E42005FC516 /* Array+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawValue.swift"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 				93194FD62AF8B8DC002C1BE4 /* Components */,
 				936BDEFF2B04B04500A609B8 /* Tabs */,
 				93EF74AB2B04DA08003111CD /* OnboardingView.swift */,
+				DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */,
 				DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
+				DE9A7CF52B0F6B57002481DA /* Launch Screen.storyboard in Resources */,
 				D98B83FE2AE6ECA100B47C56 /* road.json in Resources */,
 				D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */,
 				D98B84002AE6F56000B47C56 /* drink.json in Resources */,
@@ -565,7 +569,6 @@
 				D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */,
 				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */,
-				D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
 				93194FD82AF8B910002C1BE4 /* (null) in Sources */,
@@ -583,8 +586,7 @@
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
 				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
 				93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */,
-				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
 				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
 				D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
@@ -593,12 +595,10 @@
 				D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
 				D9756EB52B0C91F10089A39B /* PracticeWord.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */,
 				93D224E42B0C97BC00A8FE4D /* LearningView+ThumbnailView.swift in Sources */,
 				93D224E62B0C984D00A8FE4D /* LearningView+HangulEducationInstructionView.swift in Sources */,
 				936BDEF72B04A65100A609B8 /* PracticeView.swift in Sources */,
-				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
 				D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
@@ -761,6 +761,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X7HFG8283;
+				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -774,6 +775,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -803,6 +805,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X7HFG8283;
+				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -816,6 +819,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

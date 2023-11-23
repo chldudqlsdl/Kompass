@@ -18,11 +18,14 @@ struct BatchimExplainView: View {
                 Text(explainTitle)
                     .bold()
                     .font(.body)
+                
                 Spacer()
             }
             .padding(EdgeInsets(top: 16, leading: 16, bottom: 5, trailing: 16))
+            
             Divider()
                 .padding(.leading, 16)
+            
             Text(explain)
                 .padding(EdgeInsets(top: 5, leading: 16, bottom: 16, trailing: 16))
         }
