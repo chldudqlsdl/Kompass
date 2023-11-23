@@ -34,7 +34,6 @@ struct CollectionDetailView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .padding(.top, 16)
             }
             .navigationTitle(chapterName)
             .navigationBarTitleDisplayMode(.inline)
