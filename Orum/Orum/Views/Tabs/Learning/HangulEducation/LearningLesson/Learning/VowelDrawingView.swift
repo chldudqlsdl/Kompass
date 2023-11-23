@@ -19,11 +19,12 @@ struct VowelDrawingView: View {
             VStack {
                 ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                     .padding(.vertical, 16)
+                    .padding(.horizontal, 16)
                 
                 //            Divider()
                 Canvas(writingCount: $writingCount)
+                    .environmentObject(educationManager)
             }
-            .padding(.horizontal, 16)
             .navigationTitle(educationManager.nowStudying)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button(action: {
@@ -64,7 +65,7 @@ struct VowelDrawingView: View {
                     .buttonStyle(.borderedProminent)
                     .padding(.horizontal, 24)
 //                    .padding(.bottom, 24)
-//                    .disabled(writingCount < 3)
+                    .disabled(writingCount < 3)
                 }
             }
         }

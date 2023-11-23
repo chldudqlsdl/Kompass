@@ -240,6 +240,30 @@ struct Constants {
             "ㅞ",
         ]
         
+        static let vowelStrokeCount: [String : Int] = [
+            "ㅡ" : 1,
+            "ㅣ" : 1,
+            "ㅏ" : 2,
+            "ㅓ" : 2,
+            "ㅗ" : 2,
+            "ㅜ" : 2,
+            "ㅐ" : 3,
+            "ㅔ" : 3,
+            "ㅑ" : 3,
+            "ㅕ" : 3,
+            "ㅛ" : 3,
+            "ㅠ" : 3,
+            "ㅒ" : 4,
+            "ㅖ" : 4,
+            "ㅢ" : 2,
+            "ㅟ" : 3,
+            "ㅚ" : 3,
+            "ㅘ" : 4,
+            "ㅝ" : 4,
+            "ㅙ" : 5,
+            "ㅞ" : 5,
+        ]
+        
         static let vowelSound : [String : String] = [
             "ㅡ" : "eu",
             "ㅣ" : "i",
@@ -334,6 +358,117 @@ struct Constants {
             "ㅝ" : ["귀여워","뭐"],
             "ㅙ" : ["쉐이크","웨하스"],
             "ㅞ" : ["왜 ","돼지고기"],
+        ]
+        
+        static let batchim: [String] = [
+            "ㄱb",
+            "ㄴb",
+            "ㄷb",
+            "ㄹb",
+            "ㅁb",
+            "ㅂb",
+            "ㅅb",
+            "ㅇb",
+            "ㅈb",
+            "ㅊb",
+            "ㅋb",
+            "ㅌb",
+            "ㅍb",
+            "ㅎb",
+            "ㄲb",
+            "ㅆb",
+            "ㄱㅅ",
+            "ㄴㅈ",
+            "ㄴㅎ",
+            "ㄹㄱ",
+            "ㄹㅁ",
+            "ㄹㅂ",
+            "ㄹㅅ",
+            "ㄹㅌ",
+            "ㄹㅍ",
+            "ㄹㅎ",
+            "ㅂㅅ",
+        ]
+        
+        static let batchimSound: [String : String] = [
+            "ㄱb" : "g",
+            "ㄴb" : "n",
+            "ㄷb" : "d",
+            "ㄹb" : "r",
+            "ㅁb" : "m",
+            "ㅂb" : "b",
+            "ㅅb" : "d",
+            "ㅇb" : "ng",
+            "ㅈb" : "d",
+            "ㅊb" : "d",
+            "ㅋb" : "g",
+            "ㅌb" : "d",
+            "ㅍb" : "b",
+            "ㅎb" : "",
+            "ㄲb" : "g",
+            "ㅆb" : "d",
+            "ㄱㅅ" : "",
+            "ㄴㅈ" : "",
+            "ㄴㅎ" : "",
+            "ㄹㄱ" : "",
+            "ㄹㅁ" : "",
+            "ㄹㅂ" : "",
+            "ㄹㅅ" : "",
+            "ㄹㅌ" : "",
+            "ㄹㅍ" : "",
+            "ㄹㅎ" : "",
+            "ㅂㅅ" : "",
+        ]
+        
+        static let batchimEndingRule : [String : String] = [
+            "ㄱb" : "ㄱ",
+            "ㄴb" : "ㄴ",
+            "ㄷb" : "ㄷ",
+            "ㄹb" : "ㄹ",
+            "ㅁb" : "ㅁ",
+            "ㅂb" : "ㅂ",
+            "ㅅb" : "ㄷ",
+            "ㅇb" : "ㅇ",
+            "ㅈb" : "ㄷ",
+            "ㅊb" : "ㄷ",
+            "ㅋb" : "ㄱ",
+            "ㅌb" : "ㄷ",
+            "ㅍb" : "ㅂ",
+            "ㅎb" : "",
+            "ㄲb" : "ㄱ",
+            "ㅆb" : "ㄷ",
+            "ㄱㅅ" : "",
+            "ㄴㅈ" : "",
+            "ㄴㅎ" : "",
+            "ㄹㄱ" : "",
+            "ㄹㅁ" : "",
+            "ㄹㅂ" : "",
+            "ㄹㅅ" : "",
+            "ㄹㅌ" : "",
+            "ㄹㅍ" : "",
+            "ㄹㅎ" : "",
+            "ㅂㅅ" : "",
+        ]
+        
+        
+        static let batchimCardCount : [String : [Int]] = [
+            "Batchim 1" : [6, 1],
+            "Batchim 2" : [4, 4],
+        ]
+        
+        static let batchimTitle : [String : [String]] = [
+            "Batchim 1" : ["Simplification", "Touch the Cards"],
+            "Batchim 2" : ["Transformation", "Transformation"],
+        ]
+        
+        static let batchimExplainTitle : [String : [String]] = [
+            "Batchim 1" : ["Principle", "ㅇ got sound"],
+            "Batchim 2" : ["ㅋ, ㄲ, ㅌ, ㅍ", "ㅅ, ㅆ, ㅈ, ㅊ"],
+        ]
+        
+        static let batchimExplain : [String : [String]] = [
+            "Batchim 1" : ["For final consonant sounds, only the 7 consonants 'ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ' are pronounced", "In the final position, ㅇ creates a sound"],
+            "Batchim 2" : ["These are change to ㄱ, ㄷ, ㅂ respectively when used as final consonants", "Consonants containing ㅅ, namely ㅅ, ㅆ, ㅈ, and ㅊ, all transform into ㄷ when used as final consonants"],
         ]
     }
     

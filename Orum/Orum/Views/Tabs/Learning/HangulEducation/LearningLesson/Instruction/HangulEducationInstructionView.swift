@@ -75,8 +75,13 @@ struct HangulEducationInstructionView: View {
                         currentEducation = .vowelDrawing
                         progressValue += 1
                     case .batchim:
-                        currentEducation = .learning
                         progressValue += 1
+                        if educationManager.nowStudying == "Batchim 3" {
+                            print("Hi")
+                            currentEducation = .complexBatchim
+                        } else {
+                            currentEducation = .batchim
+                        }
                     }
                 }, label: {
                     Text("Continue")

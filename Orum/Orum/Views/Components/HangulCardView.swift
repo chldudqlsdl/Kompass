@@ -18,17 +18,18 @@ struct HangulCardView: View {
     
     var body: some View {
         ZStack{
+            
             HStack{
                 
                 Spacer()
                 
                 VStack(spacing: cardType.imageMeaningSpacing){
                     if !isFlipped {
+                        
                         Image(hangulCard.name)
                             .resizable()
-                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)
-//                            .border(.red)
-                        
+                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)                            
+                            
                         Text("[ ")
                             .bold()
                             .font( cardType.font)
@@ -44,9 +45,9 @@ struct HangulCardView: View {
                             .foregroundColor(Color(uiColor: .systemGray4))
                         
                     } else {
-                        if hangulCard.chapterType == .consonant {
+                        if hangulCard.chapterType == .consonant || hangulCard.chapterType == .batchim {
                             if hangulCard.hangulType == .single {
-                                LottieView(fileName: hangulCard.name)
+                                LottieView(fileName: hangulCard.lottieName)
                                     .frame(width: cardType.imageFrame, height: cardType.imageFrame)
                                     .scaleEffect(x: -1, y: 1)
                                 HStack {
@@ -57,14 +58,15 @@ struct HangulCardView: View {
                                         .font(cardType.explanationFont(.consonant))
                                         .foregroundColor(Color(uiColor: .systemGray4))
                                     +
-                                    Text(hangulCard.lottieName.prefix(1))
+                                    Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.prefix(5) : hangulCard.lottieName.prefix(1))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant))
+                                        .foregroundColor(hangulCard.name == "ㅇb" ? Color(uiColor: .systemGray4) : .primary)
                                     +
-                                    Text(hangulCard.lottieName.dropFirst(1))
+                                    Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.dropFirst(5) : hangulCard.lottieName.dropFirst(1))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant))
-                                        .foregroundColor(Color(uiColor: .systemGray4))
+                                        .foregroundColor(hangulCard.name == "ㅇb" ? .primary : Color(uiColor: .systemGray4))
                                     +
                                     Text("]")
                                         .fontWeight(.bold)
@@ -152,7 +154,6 @@ struct HangulCardView: View {
                 }
                 .frame(minHeight : cardType.maxHeight, maxHeight: cardType.maxHeight)
                 .padding(EdgeInsets(top: cardType.paddingTop , leading: 0, bottom: cardType.paddingBottom, trailing: 0))
-                
                 Spacer()
             }
         }
@@ -182,6 +183,6 @@ struct HangulCardView: View {
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.vowel1[0], cardType: .large)
+    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large)
         .environmentObject(EducationManager())
 }
