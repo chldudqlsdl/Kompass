@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum CurrentEducation {
-    case instruction
+//    case instruction
     case vowelDrawing
     case learning
     case basicVowelCheck
@@ -22,35 +22,30 @@ struct LearningLessonView: View {
     
     @EnvironmentObject var educationManager: EducationManager
     
-    @State var currentEducation: CurrentEducation = .instruction
     @State var progressValue: Int = 0
     
     var body: some View {
-        switch currentEducation {
-        case .instruction:
-            HangulEducationInstructionView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
-                .environmentObject(educationManager)
-            
+        switch educationManager.currentEducation {
         case .vowelDrawing:
-            VowelDrawingView(currentEducation: $currentEducation, progressValue: $progressValue, isPresented: $isPresented)
+            VowelDrawingView(progressValue: $progressValue)
                 .environmentObject(educationManager)
             
         case .learning:
-            HangulEducationLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+            HangulEducationLearningView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .transition(.opacity)
         
         case .basicVowelCheck:
-            BasicVowelCheckView(progressValue: $progressValue, isPresented: $isPresented, currentEducation: $currentEducation)
+            BasicVowelCheckView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .transition(.opacity)
             
         case .recap:
-            HangulEducationRecapView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+            HangulEducationRecapView(progressValue: $progressValue)
                 .environmentObject(educationManager)
             
         case .vowelQuiz:
-            SameCardCollectingQuizView(currentEducation: $currentEducation, progressValue: $progressValue)
+            SameCardCollectingQuizView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .padding(16)
         

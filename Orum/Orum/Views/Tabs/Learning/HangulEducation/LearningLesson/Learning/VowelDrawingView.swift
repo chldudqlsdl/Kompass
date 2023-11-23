@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct VowelDrawingView: View {
-    @Binding var currentEducation: CurrentEducation
     @Binding var progressValue: Int
-    @Binding var isPresented: Bool
-    @State var writingCount = 0
+    
     @EnvironmentObject var educationManager: EducationManager
+    
+    @State var writingCount = 0
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,15 +24,6 @@ struct VowelDrawingView: View {
                 Canvas(writingCount: $writingCount)
             }
             .padding(.horizontal, 16)
-            .navigationTitle(educationManager.nowStudying)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button(action: {
-                isPresented.toggle()
-            }, label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-            }))
             
             // 버튼 뒷 배경
             ZStack{
@@ -52,7 +43,7 @@ struct VowelDrawingView: View {
                 
                 VStack {
                     Button(action: {
-                        currentEducation = .learning
+                        educationManager.currentEducation = .learning
                         progressValue += 1
                         
                     }, label: {
@@ -72,6 +63,6 @@ struct VowelDrawingView: View {
 }
 
 #Preview {
-    VowelDrawingView(currentEducation: .constant(.vowelDrawing), progressValue: .constant(0), isPresented: .constant(false))
+    VowelDrawingView( progressValue: .constant(0))
         .environmentObject(EducationManager())
 }

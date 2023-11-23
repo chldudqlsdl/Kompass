@@ -15,17 +15,10 @@ struct PrologueLessonView: View {
             VStack {
                 Text("Prologue")
             }
-            .navigationBarItems(leading: Button(action: {
-                isPresented.toggle()
-            }, label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-            }))
         }
     }
 }
 
 #Preview {
-    PrologueLessonView(isPresented: .constant(true))
+    PrologueLessonView(isPresented: .constant(false))
 }

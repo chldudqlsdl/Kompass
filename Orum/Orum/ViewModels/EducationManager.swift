@@ -42,7 +42,7 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim0: "complete",
         Constants.Lesson.batchim1 : "complete",
         Constants.Lesson.batchim2 : "complete",
-        Constants.Lesson.batchim3 : "currentLesson",
+        Constants.Lesson.batchim3 : "complete",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
 
@@ -52,7 +52,7 @@ class EducationManager: ObservableObject {
     @Published var nowStudying: String = Constants.Lesson.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
     @Published var chapterType: ChapterType = .vowel
     @Published var lessonType: LessonType = .lesson
-
+    @Published var currentEducation: CurrentEducation = .learning
     @Published var index: Int = 0
     
     init() {
@@ -180,5 +180,7 @@ class EducationManager: ObservableObject {
         }
         
         nowStudying = ""
+        currentEducation = .learning
+        index = 0
     }
 }
