@@ -43,7 +43,6 @@
 		D91B675B2B05C1380030F86D /* EpilogueInstructionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */; };
 		D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */; };
 		D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B675E2B0609D00030F86D /* PracticeChapterView.swift */; };
-		D91B67612B062AA50030F86D /* PracticeLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B67602B062AA50030F86D /* PracticeLessonView.swift */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
@@ -62,6 +61,7 @@
 		D96D94482AE778680077F2C1 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96D94472AE778680077F2C1 /* SoundManager.swift */; };
 		D9756E7D2B0B6C3F0089A39B /* HangulPrologue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */; };
 		D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */; };
+		D9756EB52B0C91F10089A39B /* PracticeWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EB42B0C91F10089A39B /* PracticeWord.swift */; };
 		D9756EB72B0CCAEB0089A39B /* BatchimLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EB62B0CCAEB0089A39B /* BatchimLearningView.swift */; };
 		D9756EBB2B0E08D70089A39B /* BatchimExplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */; };
 		D9756EBD2B0E22E90089A39B /* ComplexBatchimLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9756EBC2B0E22E90089A39B /* ComplexBatchimLearningView.swift */; };
@@ -116,7 +116,6 @@
 		D91B675A2B05C1380030F86D /* EpilogueInstructionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueInstructionView.swift; sourceTree = "<group>"; };
 		D91B675C2B05C41D0030F86D /* EpilogueQuizVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueQuizVIew.swift; sourceTree = "<group>"; };
 		D91B675E2B0609D00030F86D /* PracticeChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeChapterView.swift; sourceTree = "<group>"; };
-		D91B67602B062AA50030F86D /* PracticeLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeLessonView.swift; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -134,6 +133,7 @@
 		D96D94472AE778680077F2C1 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		D9756E7C2B0B6C3F0089A39B /* HangulPrologue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulPrologue.swift; sourceTree = "<group>"; };
 		D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnitPrologueEnum.swift; sourceTree = "<group>"; };
+		D9756EB42B0C91F10089A39B /* PracticeWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeWord.swift; sourceTree = "<group>"; };
 		D9756EB62B0CCAEB0089A39B /* BatchimLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchimLearningView.swift; sourceTree = "<group>"; };
 		D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchimExplainView.swift; sourceTree = "<group>"; };
 		D9756EBC2B0E22E90089A39B /* ComplexBatchimLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexBatchimLearningView.swift; sourceTree = "<group>"; };
@@ -223,6 +223,7 @@
 				9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */,
 				D91B67472B04B01C0030F86D /* HangulUnitQuizEnum.swift */,
 				D9756E7E2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift */,
+				D9756EB42B0C91F10089A39B /* PracticeWord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -289,7 +290,6 @@
 			children = (
 				936BDEF62B04A65100A609B8 /* PracticeView.swift */,
 				D91B675E2B0609D00030F86D /* PracticeChapterView.swift */,
-				D91B67602B062AA50030F86D /* PracticeLessonView.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -553,11 +553,11 @@
 				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				D91B675D2B05C41D0030F86D /* EpilogueQuizVIew.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
+				D9756EB52B0C91F10089A39B /* PracticeWord.swift in Sources */,
 				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				936BDF062B04CF1D00A609B8 /* LearningLessonView.swift in Sources */,
 				936BDEF72B04A65100A609B8 /* PracticeView.swift in Sources */,
 				937620372AF0807F00DE2C50 /* LearningView.swift in Sources */,
-				D91B67612B062AA50030F86D /* PracticeLessonView.swift in Sources */,
 				D9756E7F2B0B7DF40089A39B /* HangulUnitPrologueEnum.swift in Sources */,
 				D9A9CE0A2AFDF02300F821D6 /* Canvas.swift in Sources */,
 				930F26C92ADD0D8B00896A32 /* OrumApp.swift in Sources */,
