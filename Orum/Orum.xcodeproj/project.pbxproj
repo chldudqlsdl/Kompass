@@ -11,8 +11,7 @@
 		930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26CC2ADD0D8C00896A32 /* Assets.xcassets */; };
 		930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 930F26D02ADD0D8C00896A32 /* Preview Assets.xcassets */; };
 		93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD22AF8B75A002C1BE4 /* View+CornerRadius.swift */; };
-		93194FD52AF8B8D8002C1BE4 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD42AF8B8D8002C1BE4 /* Lesson.swift */; };
-		93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FD72AF8B910002C1BE4 /* Chapter.swift */; };
+		93194FD82AF8B910002C1BE4 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		93194FDD2AF8F28D002C1BE4 /* Dictionary+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93194FDC2AF8F28D002C1BE4 /* Dictionary+RawValue.swift */; };
 		9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2032AF7B0D3000B9E76 /* HangulUnitEnum.swift */; };
 		9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9336E2092AF7B505000B9E76 /* Constants.swift */; };
@@ -82,6 +81,7 @@
 		D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995C2B0887B2005FC516 /* PracticeManager.swift */; };
 		D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995E2B088E42005FC516 /* Array+RawValue.swift */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
+		DE9A7CF52B0F6B57002481DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +161,7 @@
 		D9DC995E2B088E42005FC516 /* Array+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawValue.swift"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +224,7 @@
 				93194FD62AF8B8DC002C1BE4 /* Components */,
 				936BDEFF2B04B04500A609B8 /* Tabs */,
 				93EF74AB2B04DA08003111CD /* OnboardingView.swift */,
+				DE9A7CF42B0F6B57002481DA /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,8 +277,6 @@
 				D9037D082AF0D2B70098DB57 /* HangulCardView.swift */,
 				D96BAC692AE6C37800613540 /* LottieView.swift */,
 				D9A9CE092AFDF02300F821D6 /* Canvas.swift */,
-				93194FD42AF8B8D8002C1BE4 /* Lesson.swift */,
-				93194FD72AF8B910002C1BE4 /* Chapter.swift */,
 				D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */,
 				D9756EBA2B0E08D70089A39B /* BatchimExplainView.swift */,
 			);
@@ -542,6 +542,7 @@
 				930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */,
 				DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
+				DE9A7CF52B0F6B57002481DA /* Launch Screen.storyboard in Resources */,
 				D98B83FE2AE6ECA100B47C56 /* road.json in Resources */,
 				D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */,
 				D98B84002AE6F56000B47C56 /* drink.json in Resources */,
@@ -570,7 +571,7 @@
 				D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */,
 				9376203D2AF080B500DE2C50 /* HangulEducationView.swift in Sources */,
 				D9A9CE0E2AFE02BD00F821D6 /* HapticManager.swift in Sources */,
-				93194FD82AF8B910002C1BE4 /* Chapter.swift in Sources */,
+				93194FD82AF8B910002C1BE4 /* (null) in Sources */,
 				D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */,
 				D9037D0B2AF11FD50098DB57 /* HangulEducationRecapView.swift in Sources */,
 				936BDEF22B04A53400A609B8 /* CollectionDetailView.swift in Sources */,
@@ -759,7 +760,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -773,6 +774,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -801,7 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -815,6 +817,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
