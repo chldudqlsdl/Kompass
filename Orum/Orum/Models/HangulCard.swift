@@ -55,6 +55,7 @@ struct HangulCard: Hashable {
         else { // 받침
             self.sound = Constants.Hangul.batchimSound[name] ?? ""
             self.chapterType = .batchim
+            self.lottieName = Constants.Hangul.lottieName[Constants.Hangul.batchimEndingRule[name]!] ?? ""
         }
     }
 }

@@ -34,7 +34,7 @@ struct PrologueLessonView: View {
                             
                             Spacer()
                         }
-                        .frame(maxHeight : dynamicTypeSize.prologueTextHeight)
+                        .frame(height : dynamicTypeSize.prologueTextHeight)
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: 358, height: 358)
                             .foregroundColor(Color(uiColor: UIColor(hex: "F8F8F8")))

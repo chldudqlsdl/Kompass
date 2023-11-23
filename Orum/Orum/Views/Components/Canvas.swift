@@ -57,7 +57,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
     init(writingCount: Binding<Int>, educationManager: EducationManager) {
         self._writingCount = writingCount
         self.educationManager = educationManager
-        self.guideImage = UIImage(named: "\(educationManager.content[educationManager.index].name)drawing") ?? UIImage(named: "ㅏdrawing")!
+        self.guideImage = UIImage(named: "\(educationManager.content[educationManager.index].name)drawing") ?? UIImage(named: "ㅡdrawing")!
         super.init(nibName: nil, bundle: nil)
     }
     required init?(coder: NSCoder) {
