@@ -23,13 +23,18 @@ struct PracticeView: View {
                                     if !practiceManager.practicedChapters.contains(Constants.Practice.chapter[index]) {
                                         practiceManager.practicedChapters.append(Constants.Practice.chapter[index])
                                     }
+                                    practiceManager.chapterIndex = index
                                 }
                         } label: {
                             HStack(alignment: .top, spacing: 0) {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .frame(maxWidth: 102, maxHeight: 57)
-                                    .padding(.trailing, 7)
                                 
+                                Image("Thumbnail_\(Constants.Practice.thumbnail[Constants.Practice.chapter[index]]!)")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 102, height: 57)
+                                    .clipShape(RoundedRectangle(cornerRadius: 5))
+                                    
+                                    
                                 VStack{
                                     HStack {
                                         VStack(alignment: .leading) {
