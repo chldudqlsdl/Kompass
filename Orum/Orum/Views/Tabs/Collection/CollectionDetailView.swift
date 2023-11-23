@@ -16,18 +16,21 @@ struct CollectionDetailView: View {
             ScrollView {
                 VStack {
                     if chapterName == "Consonant" {
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
+                        LazyVGrid(columns: [GridItem(.flexible(),spacing: 15), GridItem(.flexible(),spacing: 15)],spacing: 16) {
                             ForEach(0 ..< 14) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), cardType: .small)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), cardType: .medium)
+                            }
+                        }
+                    }
+                    else if chapterName == "Vowel" {
+                        LazyVGrid(columns: [GridItem(.flexible(),spacing: 15), GridItem(.flexible(),spacing: 15)],spacing: 16) {
+                            ForEach(0 ..< 21) { index in
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), cardType: .medium)
                             }
                         }
                     }
                     else {
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
-                            ForEach(0 ..< 21) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), cardType: .small)
-                            }
-                        }
+                        
                     }
                 }
                 .padding(.horizontal, 16)

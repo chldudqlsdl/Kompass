@@ -13,92 +13,159 @@ struct CollectionView: View {
     @State var chapterName: String = ""
     @State var isConsonantPage = false
     @State var isVowelPage = false
-    @State var cardViewTitle = "Common Mistakes"
-    @State var isCanvasOpened = false
-    @State var isWrited: Bool = false
+    @State var isBatchimPage = false
     @State var mistakes: [HangulCard] = []
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    Button(action: {
-                        chapterName = "Consonant"
-                        isConsonantPage.toggle()
-                    }, label: {
-                        HStack(alignment: .top, spacing: 14.5) {
-                            Circle()
-                                .stroke(Color.accentColor, lineWidth: 2)
-                                .frame(width: 23, height: 23)
-                                .overlay(Text("ㄱ")
-                                    .bold()
-                                    .font(.body))
-                                .foregroundStyle(Color.accentColor)
-                            
-                            
-                            VStack {
-                                HStack {
-                                    Text("Consonant")
-                                        .font(.title2)
-                                        .foregroundStyle(.black)
+                    VStack(spacing: 8) {
+                        Divider()
+                        
+                        
+                        VStack(spacing: 8) {
+                            Button(action: {
+                                chapterName = "Consonant"
+                                isConsonantPage.toggle()
+                            }, label: {
+                                HStack(alignment: .top, spacing: 11) {
+                                    Text("ㄱ")
+                                        .bold()
+                                        .font(.body)
+                                        .padding(.all, 4)
+                                        .overlay(
+                                            Circle()
+                                                .stroke(lineWidth: 2)
+                                        )
                                     
-                                    Spacer()
                                     
-                                    Image(systemName: "chevron.right")
-                                        .padding(.trailing, 16)
-                                        .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                    VStack(spacing: 16) {
+                                        HStack {
+                                            Text("Consonant")
+                                                .font(.title2)
+                                                .foregroundStyle(.black)
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .padding(.trailing, 16)
+                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                        }
+                                        .padding(.leading, 3.5)
+                                        
+                                        Divider()
+                                    }
                                 }
-                                
-                                Divider()
-                            }
-                        }
-                    })
-                    
-                    Button(action: {
-                        chapterName = "Vowel"
-                        isVowelPage.toggle()
-                    }, label: {
-                        HStack(alignment: .top, spacing: 14.5) {
-                            Circle()
-                                .stroke(Color.accentColor, lineWidth: 2)
-                                .frame(width: 23, height: 23)
-                                .overlay(Text("ㅏ")
-                                    .bold()
-                                    .font(.body))
-                                .foregroundStyle(Color.accentColor)
+                            })
                             
-                            VStack {
-                                HStack {
-                                    Text("Vowel")
-                                        .font(.title2)
-                                        .foregroundStyle(.black)
+                            Button(action: {
+                                chapterName = "Vowel"
+                                isVowelPage.toggle()
+                            }, label: {
+                                HStack(alignment: .top, spacing: 11) {
+                                    Text("ㅏ")
+                                        .bold()
+                                        .font(.body)
+                                        .padding(.all, 4)
+                                        .overlay(
+                                            Circle()
+                                                .stroke(lineWidth: 2)
+                                        )
                                     
-                                    Spacer()
-                                    
-                                    Image(systemName: "chevron.right")
-                                        .padding(.trailing, 16)
-                                        .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                    VStack(spacing: 16) {
+                                        HStack {
+                                            Text("Vowel")
+                                                .font(.title2)
+                                                .foregroundStyle(.black)
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .padding(.trailing, 16)
+                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                        }
+                                        .padding(.leading, 3.5)
+                                        
+                                        Divider()
+                                    }
                                 }
-                                
-                                Divider()
-                            }
+                            })
+
+                            Button(action: {
+                                chapterName = "Batchim"
+                                isBatchimPage.toggle()
+                            }, label: {
+                                HStack(alignment: .top, spacing: 11) {
+                                    ZStack {
+                                            
+                                            Text("ㄱ")
+                                                .bold()
+                                                .font(.body)
+                                                .offset(y: 4)
+                                                .overlay{
+                                                    VStack {
+                                                        Circle()
+                                                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [1,1]))
+                                                            .frame(width: 7)
+                                                            .offset(y: -5)
+                                                        
+                                                    }
+                                                }
+
+                                        
+                                        Text("ㄱ")
+                                            .foregroundStyle(.clear)
+                                            .font(.body)
+                                            .bold()
+                                            .padding(.all, 4)
+                                            .overlay(
+                                                Circle()
+                                                    .stroke(lineWidth: 2)
+                                            )
+                                    }
+                                    
+                                    
+                                    VStack(spacing: 16) {
+                                        HStack {
+                                            Text("Batchim")
+                                                .font(.title2)
+                                                .foregroundStyle(.black)
+                                            
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right")
+                                                .padding(.trailing, 16)
+                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                        }
+                                        .padding(.leading, 3.5)
+                                        
+                                        Divider()
+                                        
+                                    }
+
+                                }
+                            })
                         }
-                    })
+                        .padding(.leading, 3)
+                    }
+                    .padding(.top, 8)
+                    .padding(.leading, 16)
                     
-                    Text("\(cardViewTitle)")
-                        .bold()
-                        .font(.title2)
-                    
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())],spacing: 16) {
-                        ForEach(mistakes, id:\.self) { mistake in
-                            VStack(alignment: .leading, spacing: 10) {
-                                HangulCardView(onTapGesture: {}, hangulCard: mistake, cardType: .small)
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Common Mistakes")
+                            .bold()
+                            .font(.title2)
+                        
+                        
+                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible(), spacing: 15)],spacing: 16) {
+                            ForEach(mistakes, id:\.self) { mistake in
+                                HangulCardView(onTapGesture: {}, hangulCard: mistake, cardType: .medium)
                             }
                         }
                     }
-                    .padding(.trailing, 16)
+                    .padding(.horizontal, 16)
                 }
-                .padding(.leading, 16)
             }
             .navigationTitle("Collection")
             .navigationDestination(isPresented: $isConsonantPage, destination: {
@@ -117,7 +184,7 @@ struct CollectionView: View {
                 
                 return Int(first.value)! > Int(second.value)!
             }
-                        
+            
             for i in 0 ..< sortedDict.count {
                 mistakes.append(HangulCard(name: sortedDict[i].key))
             }
