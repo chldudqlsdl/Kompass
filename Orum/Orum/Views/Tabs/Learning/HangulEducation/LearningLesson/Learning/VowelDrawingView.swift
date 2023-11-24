@@ -22,19 +22,9 @@ struct VowelDrawingView: View {
                     .padding(.vertical, 16)
                     .padding(.horizontal, 16)
                 
-                //            Divider()
                 Canvas(writingCount: $writingCount)
                     .environmentObject(educationManager)
             }
-            .navigationTitle(educationManager.nowStudying)
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(leading: Button(action: {
-                isPresented.toggle()
-            }, label: {
-                Image(systemName: "xmark.circle.fill")
-                    .font(.title3)
-                    .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-            }))
             
             // 버튼 뒷 배경
             ZStack{
@@ -65,7 +55,6 @@ struct VowelDrawingView: View {
                     })
                     .buttonStyle(.borderedProminent)
                     .padding(.horizontal, 24)
-//                    .padding(.bottom, 24)
                     .disabled(writingCount < 3)
                 }
             }

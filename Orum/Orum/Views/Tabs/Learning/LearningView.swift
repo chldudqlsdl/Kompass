@@ -84,14 +84,6 @@ struct LearningView: View {
             .fullScreenCover(isPresented: $prologue, content: {
                 PrologueLessonView(isPresented: $prologue)
                     .environmentObject(educationManager)
-                    .overlay(alignment: .topLeading){
-                        Button(action: {
-                            prologue.toggle()
-                        }, label: {
-                            Image(systemName: "xmark")
-                        })
-                        .padding(.horizontal, 16)
-                    }
             })
             .overlay {
                 if let currentLesson = currentLesson, isPresented {
