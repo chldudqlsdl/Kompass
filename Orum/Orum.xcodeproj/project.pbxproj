@@ -40,6 +40,8 @@
 		93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EF74AB2B04DA08003111CD /* OnboardingView.swift */; };
 		93F1F5B82B0E2CF200C6D64C /* View+NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */; };
 		93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */; };
+		93F1F5BC2B0F789D00C6D64C /* LessonEndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F1F5BB2B0F789D00C6D64C /* LessonEndingView.swift */; };
+		93F1F5BF2B0F7D6A00C6D64C /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 93F1F5BE2B0F7D6A00C6D64C /* ConfettiSwiftUI */; };
 		D9037CE72AF0C4270098DB57 /* HangulEducationLearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */; };
 		D9037CE92AF0C55A0098DB57 /* HangulQuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */; };
 		D9037D092AF0D2B70098DB57 /* HangulCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9037D082AF0D2B70098DB57 /* HangulCardView.swift */; };
@@ -120,6 +122,7 @@
 		93EF74AB2B04DA08003111CD /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		93F1F5B72B0E2CF200C6D64C /* View+NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+NavigationBarColor.swift"; sourceTree = "<group>"; };
 		93F1F5B92B0E2D3800C6D64C /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		93F1F5BB2B0F789D00C6D64C /* LessonEndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEndingView.swift; sourceTree = "<group>"; };
 		D9037CE62AF0C4260098DB57 /* HangulEducationLearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulEducationLearningView.swift; sourceTree = "<group>"; };
 		D9037CE82AF0C55A0098DB57 /* HangulQuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulQuizView.swift; sourceTree = "<group>"; };
 		D9037D082AF0D2B70098DB57 /* HangulCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCardView.swift; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F1F5BF2B0F7D6A00C6D64C /* ConfettiSwiftUI in Frameworks */,
 				D96BAC682AE6C35600613540 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +390,7 @@
 				936BDF032B04B3E800A609B8 /* PrologueLesson */,
 				936BDF012B04B2E800A609B8 /* LearningLesson */,
 				936BDF042B04B3F800A609B8 /* EpilogueLesson */,
+				93F1F5BB2B0F789D00C6D64C /* LessonEndingView.swift */,
 			);
 			path = HangulEducation;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 			name = Orum;
 			packageProductDependencies = (
 				D96BAC672AE6C35600613540 /* Lottie */,
+				93F1F5BE2B0F7D6A00C6D64C /* ConfettiSwiftUI */,
 			);
 			productName = Orum;
 			productReference = 930F26C52ADD0D8B00896A32 /* Orum.app */;
@@ -517,6 +523,7 @@
 			mainGroup = 930F26BC2ADD0D8A00896A32;
 			packageReferences = (
 				D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				93F1F5BD2B0F7D6A00C6D64C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = 930F26C62ADD0D8B00896A32 /* Products */;
 			projectDirPath = "";
@@ -579,6 +586,7 @@
 				93EF74AC2B04DA08003111CD /* OnboardingView.swift in Sources */,
 				D96BAC6A2AE6C37800613540 /* LottieView.swift in Sources */,
 				9336E20A2AF7B505000B9E76 /* Constants.swift in Sources */,
+				93F1F5BC2B0F789D00C6D64C /* LessonEndingView.swift in Sources */,
 				93DA78EF2AFB6233004BB43F /* VowelDrawingView.swift in Sources */,
 				D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */,
 				93194FD32AF8B75A002C1BE4 /* View+CornerRadius.swift in Sources */,
@@ -586,7 +594,7 @@
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
 				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
 				93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
 				D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
@@ -760,7 +768,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X7HFG8283;
 				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -804,7 +811,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 3X7HFG8283;
 				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -863,6 +869,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		93F1F5BD2B0F7D6A00C6D64C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -874,6 +888,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		93F1F5BE2B0F7D6A00C6D64C /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93F1F5BD2B0F7D6A00C6D64C /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
 		D96BAC672AE6C35600613540 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D96BAC662AE6C35600613540 /* XCRemoteSwiftPackageReference "lottie-ios" */;
