@@ -23,7 +23,7 @@ struct PrologueLessonView: View {
     var body: some View {
         NavigationStack{
             ZStack{
-                    VStack(spacing: 0){
+                    VStack(spacing: 0) {
                         VStack(spacing: 16) {
                             Text(prologuePage.title)
                                 .bold()
@@ -62,42 +62,36 @@ struct PrologueLessonView: View {
                 VStack {
                     Spacer()
                     
-                    HStack {
-                        Button(action: {}, label: {
-                            Text("Continue")
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 8)
-                        })
-                        .buttonStyle(.borderedProminent)
-                        .hidden()
-                    }
-                    .padding(24)
-                    .background(.ultraThinMaterial)
-                }
-                
-                VStack {
-                    Spacer()
-                    
-                    Button(action: {
-                        if index < educationManager.prologue.count - 1 {
-                            index += 1
-                        } else {
-                            withAnimation {
-                                isPresented.toggle()
-                            }
-                        }
-                    }, label: {
-                        Text("Continue")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(.ultraThinMaterial)
+                            .frame(height: UIScreen.main.bounds.height * 0.15)
+                        
+                        VStack(spacing: 0){
                             
-                    })
-                    .tint(Color(uiColor: prologuePage.color[1]))
-                    .buttonStyle(.borderedProminent)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 24)
+                            Button(action: {
+                                if index < educationManager.prologue.count - 1 {
+                                    index += 1
+                                } else {
+                                    withAnimation {
+                                        isPresented.toggle()
+                                    }
+                                }
+                            },label: {
+                                Text("Continue")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .bold()
+                            })
+                            .buttonStyle(.borderedProminent)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 24)
+                            .padding(.bottom, 48)
+                        }
+                        .tint(Color(uiColor: prologuePage.color[1]))
+                    }
                 }
+                .ignoresSafeArea(edges: .bottom)
             }
             .navigationBarItems(leading: Button(action: {
                 index -= 1

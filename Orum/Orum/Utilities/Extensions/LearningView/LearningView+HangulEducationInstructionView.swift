@@ -111,7 +111,6 @@ extension LearningView {
             }
             .transition(.identity)
             
-            // Button
             VStack {
                 Spacer()
                 

@@ -112,79 +112,73 @@ struct HangulEducationLearningView: View {
                         .padding(.horizontal, 16)
                     }
                     
-                    //버튼 뒷배경
-                    VStack {
-                        Spacer()
+                VStack {
+                    Spacer()
+                    
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(.ultraThinMaterial)
+                            .frame(height: UIScreen.main.bounds.height * 0.15)
                         
-                        HStack {
-                            Button(action: {}, label: {
+                        VStack(spacing: 0){
+                            
+                            Button(action: {
+                                if educationManager.index < educationManager.content.count - 1 {
+                                    progressValue += 1
+                                    
+                                    if educationManager.chapterType == .vowel {
+                                        if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
+                                            print(educationManager.index)
+                                            educationManager.currentEducation = .basicVowelCheck
+                                            return
+                                        }
+                                        else {
+                                            educationManager.currentEducation = .vowelDrawing
+                                        }
+                                    }
+                                    
+                                    educationManager.index += 1
+                                }
+                                else {
+                                    if educationManager.chapterType == .vowel {
+                                        if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 7 {
+                                            educationManager.currentEducation = .basicVowelCheck
+                                            return
+                                        }
+                                    }
+                                    
+                                    isOnceFlipped = false
+                                    educationManager.index = 0
+                                    withAnimation(.easeIn(duration: 1)) {
+                                        progressValue += 1
+                                        educationManager.currentEducation = .recap
+                                    }
+                                }
+                                
+                                withAnimation (.easeIn(duration: 1)){
+                                    isOnceFlipped = false
+                                    isExample1Listened = false
+                                    isExample2Listened = false
+                                    touchCardsCount = 0
+                                }
+                            },label: {
                                 Text("Continue")
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 8)
                                     .bold()
                             })
                             .buttonStyle(.borderedProminent)
-                            .hidden()
+                            .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
+                            .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
+                            .padding(.horizontal, 24)
+                            .padding(.top, 24)
+                            .padding(.bottom, 48)
                         }
-                        .padding(24)
-                        .background(.ultraThinMaterial)
                     }
-                    
-                    VStack {
-                        Spacer()
-                        
-                        Button(action: {
-                            if educationManager.index < educationManager.content.count - 1 {
-                                progressValue += 1
-                                
-                                if educationManager.chapterType == .vowel {
-                                    if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
-                                        print(educationManager.index)
-                                        educationManager.currentEducation = .basicVowelCheck
-                                        return
-                                    }
-                                    else {
-                                        educationManager.currentEducation = .vowelDrawing
-                                    }
-                                }
-                                
-                                educationManager.index += 1
-                            }
-                            else {
-                                if educationManager.chapterType == .vowel {
-                                    if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 7 {
-                                        educationManager.currentEducation = .basicVowelCheck
-                                        return
-                                    }
-                                }
-                                
-                                isOnceFlipped = false
-                                educationManager.index = 0
-                                withAnimation(.easeIn(duration: 1)) {
-                                    progressValue += 1
-                                    educationManager.currentEducation = .recap
-                                }
-                            }
-                            
-                            withAnimation (.easeIn(duration: 1)){
-                                isOnceFlipped = false
-                                isExample1Listened = false
-                                isExample2Listened = false
-                                touchCardsCount = 0
-                            }
-                        },label: {
-                            Text("Continue")
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 8)
-                                .bold()
-                        })
-                        .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
-                        .buttonStyle(.borderedProminent)
-                        .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
-                    }
-                    .padding(24)
                 }
-                //            .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
+                .ignoresSafeArea(edges: .bottom)
+                }
+//                .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
             }
         }
     }
