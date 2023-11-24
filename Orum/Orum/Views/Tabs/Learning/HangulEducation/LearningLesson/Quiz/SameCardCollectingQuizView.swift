@@ -122,8 +122,10 @@ struct SameCardCollectingQuizView: View {
                     }
                 }
             }
-            VStack{
+            
+            VStack {
                 Spacer()
+                
                 Button(action: {
                     educationManager.currentEducation = .quiz
                     progressValue += 1
@@ -132,18 +134,16 @@ struct SameCardCollectingQuizView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                 })
-                .buttonStyle(.borderedProminent)
+                    .buttonStyle(.borderedProminent)
             }
         }
-        .onAppear{
+        .onAppear {
             rightOptionVowels = makeOptions()
             leftOptionVowels = rightOptionVowels.shuffled()
-            print(leftOptionVowels)
-            print(rightOptionVowels)
         }
     }
     
-    func makeOptions() -> [Character]{
+    func makeOptions() -> [Character] {
         var learnedVowels: [Character] = []
         for i in 0 ..< educationManager.content.count {
             learnedVowels.append(contentsOf: educationManager.content[i].name)

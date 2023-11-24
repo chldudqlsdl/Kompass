@@ -40,7 +40,8 @@ extension LearningView {
 //                            }
                         }
                         else {
-                            prologue = true
+                            educationManager.lessonType = .prologue
+                            isLessonStart = true
                         }
                     }
                 }

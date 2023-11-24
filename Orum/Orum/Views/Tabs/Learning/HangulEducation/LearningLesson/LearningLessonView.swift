@@ -8,7 +8,6 @@
 import SwiftUI
 
 enum CurrentEducation {
-//    case instruction
     case vowelDrawing
     case learning
     case basicVowelCheck

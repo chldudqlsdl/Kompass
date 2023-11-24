@@ -145,10 +145,9 @@ extension LearningView {
                 }
                 .frame(height: animateView ? 122 : 0)
             }
-            .opacity(animateView ? 1 : 0)
             .ignoresSafeArea(edges: .bottom)
+            .opacity(animateView ? 1 : 0)
             .onAppear {
-                print("#1",navigationHidden)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                     withAnimation(.linear.delay(1)) {
                         navigationHidden.toggle()
@@ -157,7 +156,6 @@ extension LearningView {
 
             }
             .onDisappear() {
-                print("#2",navigationHidden)
                 withAnimation {
                     navigationHidden.toggle()
                 }

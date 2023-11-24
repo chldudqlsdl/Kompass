@@ -10,11 +10,14 @@ import SwiftUI
 struct PrologueLessonView: View {
     
     @Binding var isPresented: Bool
+    
     @EnvironmentObject var educationManager: EducationManager
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize : DynamicTypeSize
     
+    @State private var index = 0
+    
     var prologuePage : HangulPrologue {
-        educationManager.prologue[educationManager.index]
+        educationManager.prologue[index]
     }
     
     var body: some View {
@@ -55,6 +58,7 @@ struct PrologueLessonView: View {
                         Spacer()
                     }
                     .padding(.horizontal, 16)
+                
                 VStack {
                     Spacer()
                     
@@ -75,11 +79,12 @@ struct PrologueLessonView: View {
                     Spacer()
                     
                     Button(action: {
-                        if educationManager.index < educationManager.prologue.count - 1 {
-                            educationManager.index += 1
+                        if index < educationManager.prologue.count - 1 {
+                            index += 1
                         } else {
-                            isPresented.toggle()
-                            educationManager.index = 0
+                            withAnimation {
+                                isPresented.toggle()
+                            }
                         }
                     }, label: {
                         Text("Continue")
@@ -95,13 +100,14 @@ struct PrologueLessonView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: {
-                educationManager.index -= 1
+                index -= 1
             }, label: {
                 Image(systemName: "chevron.left")
                     .font(.title3)
-                    .foregroundStyle(educationManager.index == 0 ? .clear : Color(uiColor: .systemGray3))
+                    .foregroundStyle(index == 0 ? .clear : Color(uiColor: .systemGray3))
+
             })
-                .disabled(educationManager.index == 0 ? true : false)
+                .disabled(index == 0 ? true : false)
             )
             .buttonStyle(.plain)
 
