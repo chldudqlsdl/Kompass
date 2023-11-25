@@ -586,7 +586,7 @@
 				D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */,
 				D91B67462B04A3F00030F86D /* HangulQuiz.swift in Sources */,
 				93F1F5BA2B0E2D3800C6D64C /* NavigationBarModifier.swift in Sources */,
-				D91B67482B04B01C0030F86D /* HnagulUnitQuizEnum.swift in Sources */,
+				D91B67482B04B01C0030F86D /* HangulUnitQuizEnum.swift in Sources */,
 				93D224EC2B0C9AD600A8FE4D /* OffsetKey.swift in Sources */,
 				D91B675F2B0609D00030F86D /* PracticeChapterView.swift in Sources */,
 				9336E2042AF7B0D3000B9E76 /* HangulUnitEnum.swift in Sources */,
@@ -761,7 +761,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X7HFG8283;
-				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -805,7 +804,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
 				DEVELOPMENT_TEAM = 3X7HFG8283;
-				DEVELOPMENT_TEAM = 7DAR847RN7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

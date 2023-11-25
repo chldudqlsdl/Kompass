@@ -165,7 +165,7 @@ struct CollectionView: View {
                         
                         LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible(), spacing: 15)],spacing: 16) {
                             ForEach(mistakes, id:\.self) { mistake in
-                                HangulCardView(onTapGesture: {}, hangulCard: mistake, cardType: .medium)
+                                HangulCardView(onTapGesture: {}, hangulCard: mistake, cardType: .medium, canBorderColorChange: false)
                             }
                         }
                     }

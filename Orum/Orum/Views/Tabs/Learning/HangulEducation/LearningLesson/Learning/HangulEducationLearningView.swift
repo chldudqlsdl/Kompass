@@ -54,10 +54,10 @@ struct HangulEducationLearningView: View {
                                 }
                                 
                                 isOnceFlipped = true
-                            }, hangulCard: educationManager.content[educationManager.index], cardType: .large)
+                            }, hangulCard: educationManager.content[educationManager.index], cardType: .large, canBorderColorChange: true)
                             .environmentObject(educationManager)
                             
-                            if educationManager.chapterType == .consonant {
+                            if educationManager.chapterType == .consonant || educationManager.chapterType == .vowel {
                                 HStack(spacing: 25) {
                                     Text(educationManager.content[educationManager.index].example1) //TODO: ForEach로 구현하기
                                         .bold()
@@ -74,7 +74,6 @@ struct HangulEducationLearningView: View {
                                                 isExample1Listened = true
                                             }
                                             ttsManager.play(educationManager.content[educationManager.index].example1)
-                                            
                                         }
                                     
                                     Text(educationManager.content[educationManager.index].example2)
@@ -101,13 +100,13 @@ struct HangulEducationLearningView: View {
                                     .id(bottomID)
                             }
                                 .padding(.horizontal, 48)
-                                .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                        withAnimation(.easeOut(duration: 0.3)) {
-                                            proxy.scrollTo(bottomID)
-                                        }
-                                    }
-                                }
+//                                .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                                        withAnimation(.easeOut(duration: 0.3)) {
+//                                            proxy.scrollTo(bottomID)
+//                                        }
+//                                    }
+//                                }
                         }
                         .padding(.horizontal, 16)
                     }
@@ -147,8 +146,9 @@ struct HangulEducationLearningView: View {
                                         educationManager.currentEducation = .vowelDrawing
                                     }
                                 }
-                                
-                                educationManager.index += 1
+                                withAnimation(.easeIn(duration: 1)){
+                                    educationManager.index += 1
+                                }
                             }
                             else {
                                 if educationManager.chapterType == .vowel {

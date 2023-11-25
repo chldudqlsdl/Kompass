@@ -11,10 +11,8 @@ import SwiftUI
 struct HangulCard: Hashable {
     let name : String
     let sound : String
-    var example1 : String = ""
-    var example2 : String = ""
-    var soundExample1 : String = ""
-    var soundExample2 : String = ""
+    var example1: String = ""
+    var example2: String = ""
     var lottieName : String = ""
     var explanation : String = ""
     var strokeCount : Int = 1
@@ -28,8 +26,6 @@ struct HangulCard: Hashable {
             self.sound = Constants.Hangul.consonantSound[name] ?? ""
             self.example1 = Constants.Hangul.consonantExamples[name]?[0] ?? ""
             self.example2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
-            self.soundExample1 = Constants.Hangul.consonantExamples[name]?[0] ?? ""
-            self.soundExample2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
             self.lottieName = Constants.Hangul.lottieName[name] ?? ""
             self.chapterType = .consonant
             if Constants.Hangul.lottieName[name] == "" {
@@ -40,6 +36,8 @@ struct HangulCard: Hashable {
         
         else if Constants.Hangul.vowels.contains(name) {
             self.sound = Constants.Hangul.vowelSound[name] ?? ""
+            self.example1 = Constants.Hangul.vowelExamples[name]?[0] ?? ""
+            self.example2 = Constants.Hangul.vowelExamples[name]?[1] ?? ""
             self.lottieName = ""
             self.chapterType = .vowel
             self.strokeCount = Constants.Hangul.vowelStrokeCount[name] ?? 1

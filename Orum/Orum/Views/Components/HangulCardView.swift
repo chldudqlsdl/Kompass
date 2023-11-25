@@ -13,8 +13,11 @@ struct HangulCardView: View {
     var hangulCard: HangulCard
     @State var isFlipped: Bool = false
     @State var isOnceFlipped: Bool = false
+    @State var flashCardRotation = 0.0
+    @State var contentRotation = 0.0
     
     var cardType: CardType
+    var canBorderColorChange: Bool
     
     var body: some View {
         ZStack{
@@ -49,7 +52,7 @@ struct HangulCardView: View {
                             if hangulCard.hangulType == .single {
                                 LottieView(fileName: hangulCard.lottieName)
                                     .frame(width: cardType.imageFrame, height: cardType.imageFrame)
-                                    .scaleEffect(x: -1, y: 1)
+//                                    .scaleEffect(x: -1, y: 1)
                                 HStack {
                                     Spacer()
                                     
@@ -75,20 +78,20 @@ struct HangulCardView: View {
                                     
                                     Spacer()
                                 }
-                                .scaleEffect(x: -1, y: 1)
+//                                .scaleEffect(x: -1, y: 1)
                             } else {
                                 Rectangle()
                                     .foregroundStyle(.clear)
     //                                .border(.black)
                                     .frame(maxWidth: cardType.imageFrame, maxHeight: cardType.imageFrame )
-                                    .scaleEffect(x: -1, y: 1)
+//                                    .scaleEffect(x: -1, y: 1)
                                 HStack{
                                     Text(hangulCard.explanation)
                                         .bold()
                                         .font( cardType.explanationFont(.vowel))
                                 }
                                 .frame(width: cardType.imageFrame)
-                                .scaleEffect(x: -1, y: 1)
+//                                .scaleEffect(x: -1, y: 1)
                                 .multilineTextAlignment(.center)
                             }
                         }
@@ -98,7 +101,7 @@ struct HangulCardView: View {
                                 .foregroundStyle(.clear)
 //                                .border(.black)
                                 .frame(maxWidth: cardType.imageFrame, maxHeight: cardType.imageFrame )
-                                .scaleEffect(x: -1, y: 1)
+//                                .scaleEffect(x: -1, y: 1)
                             HStack{
                                 if hangulCard.hangulType == .single {
                                     Text(hangulCard.name)
@@ -134,7 +137,7 @@ struct HangulCardView: View {
                                 }
                             }
                             .frame(width: cardType.imageFrame)
-                            .scaleEffect(x: -1, y: 1)
+//                            .scaleEffect(x: -1, y: 1)
                             .multilineTextAlignment(.center)
                             
                         } else {
@@ -142,12 +145,12 @@ struct HangulCardView: View {
                                 .foregroundStyle(.clear)
                                 .border(.black)
                                 .frame(width: cardType.imageFrame , height: cardType.imageFrame)
-                                .scaleEffect(x: -1, y: 1)
+//                                .scaleEffect(x: -1, y: 1)
                             
                             Text("[]")
                                 .bold()
                                 .font(cardType.explanationFont(.batchim))
-                                .scaleEffect(x: -1, y: 1)
+//                                .scaleEffect(x: -1, y: 1)
                         }
                         
                     }
@@ -159,30 +162,65 @@ struct HangulCardView: View {
         }
         .overlay(RoundedRectangle(cornerRadius: cardType.cornerRadius)
             .strokeBorder(isOnceFlipped ? Color(uiColor: .systemGray4) : .blue , lineWidth: cardType.borderWidth))
-        .rotation3DEffect(isFlipped ? Angle(degrees: 180) : .zero,
-                          axis: (x: 0.0, y: 1.0, z: 0.0))
-        .animation(.easeInOut(duration: 0.5), value: isFlipped)
+        .rotation3DEffect(.degrees(contentRotation), axis: (0, 1, 0))
+        .rotation3DEffect(.degrees(flashCardRotation), axis: (0, 1, 0))
+//        .rotation3DEffect(isFlipped ? Angle(degrees: 180) : .zero,
+//                          axis: (x: 0.0, y: 1.0, z: 0.0))
+//        .animation(.easeInOut(duration: 0.5), value: isFlipped)
         .contentShape(Rectangle())
         .gesture(
             TapGesture()
                 .onEnded {
-                    if !isOnceFlipped && cardType != .small {
+                    if !isOnceFlipped && canBorderColorChange {
                         isOnceFlipped = true
                     }
-                    isFlipped.toggle()
                     self.onTapGesture()
+                    let animationTime = 0.5
+                    withAnimation(Animation.easeInOut(duration: animationTime)){
+                        if isFlipped {
+                            flashCardRotation -= 180
+                        } else {
+                            flashCardRotation += 180
+                        }
+                    }
+                    withAnimation(Animation.easeInOut(duration: 0.001).delay(animationTime / 2)){
+                        if isFlipped {
+                            contentRotation -= 180
+                            isFlipped.toggle()
+                        } else {
+                            contentRotation += 180
+                            isFlipped.toggle()
+                        }
+                    }
+//                    isFlipped.toggle()
                 }
         )
         .onChange(of: hangulCard){
-            withAnimation (.easeIn(duration: 1)){
-                isOnceFlipped = false
-                isFlipped = false
+            let animationTime = 1.0
+            if isFlipped {
+                withAnimation(Animation.easeInOut(duration: animationTime)){
+                        flashCardRotation -= 180
+                }
+                withAnimation(Animation.easeInOut(duration: 0.001).delay(animationTime / 2)){
+                        contentRotation -= 180
+                }
+                
+                withAnimation (.easeIn(duration: 0.5).delay(0.5)){
+                    isOnceFlipped = false
+                    isFlipped = false
+                }
+            }
+            else {
+                withAnimation (.easeIn(duration: 1)){
+                    isOnceFlipped = false
+                    isFlipped = false
+                }
             }
         }
     }
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large)
+    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large, canBorderColorChange: true)
         .environmentObject(EducationManager())
 }
