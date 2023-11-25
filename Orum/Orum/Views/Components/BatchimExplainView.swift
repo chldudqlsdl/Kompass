@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BatchimExplainView: View {
     
-    var explainTitle : String
+    var explainTitle : LocalizedStringKey
     var explain : String
     
     var body: some View {

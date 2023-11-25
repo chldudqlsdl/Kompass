@@ -46,6 +46,10 @@ struct HangulEducationLearningView: View {
                                 .multilineTextAlignment(.center)
                         }
                         
+                        if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 0 {
+                            BatchimExplainView(explainTitle: "\(Image(systemName: "lightbulb.max")) Tip" , explain: "The closest pronunciation in English to the given word, and listen carefully to the Korean pronunciation below")
+                                .padding(.bottom, 30)
+                        }                        
                         
                         VStack(spacing: 25){
                             HangulCardView(onTapGesture: {

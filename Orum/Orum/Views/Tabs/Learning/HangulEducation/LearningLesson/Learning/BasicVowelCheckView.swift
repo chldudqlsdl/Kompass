@@ -52,7 +52,7 @@ struct BasicVowelCheckView: View {
                         .bold()
                         .font(.largeTitle)
                     
-                    BatchimExplainView(explainTitle: str.concatArray(isComma: true), explain: strExplain)
+                    BatchimExplainView(explainTitle: "\(str.concatArray(isComma: true))", explain: strExplain)
                         
                     
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], content: {

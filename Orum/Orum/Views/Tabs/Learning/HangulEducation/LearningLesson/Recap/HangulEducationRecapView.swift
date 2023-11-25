@@ -43,7 +43,7 @@ struct HangulEducationRecapView: View {
                     if educationManager.chapterType == .batchim {
                         
                         ForEach(0 ..< 2){ index in
-                            BatchimExplainView(explainTitle: Constants.Hangul.batchimExplainTitle[lessonName]![index], explain: Constants.Hangul.batchimExplain[lessonName]![index])
+                            BatchimExplainView(explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![index])", explain: Constants.Hangul.batchimExplain[lessonName]![index])
                         }
                         
                     } else {
