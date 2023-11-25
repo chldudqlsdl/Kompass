@@ -175,16 +175,6 @@ struct HangulQuizView: View {
                         }
                     }
                 }
-                .navigationTitle(educationManager.nowStudying)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title3)
-                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                        .symbolRenderingMode(.palette)
-                }))
                 
                 //버튼 뒷배경
                 VStack {
@@ -276,8 +266,9 @@ struct HangulQuizView: View {
                                         }
                                         
                                         if educationManager.quiz.isEmpty {
-                                            educationManager.endLesson()
-                                            isPresented.toggle()
+                                            educationManager.currentEducation = .end
+//                                            educationManager.endLesson()
+//                                            isPresented.toggle()
                                         }
                                         else {
                                             ind = 0

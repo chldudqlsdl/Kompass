@@ -20,9 +20,7 @@ struct EpilogueInstructionView: View {
                 VStack {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                         .padding(.vertical, 16)
-                    
-                    Text("Epilogue Instruction")
-                    
+                                        
 //                    switch educationManager.chapterType {
 //                    case .system:
 //                        Spacer()
@@ -35,16 +33,6 @@ struct EpilogueInstructionView: View {
 //                    }
                 }
                 .padding(.horizontal, 16)
-                .navigationTitle(educationManager.nowStudying)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title3)
-                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-                        .symbolRenderingMode(.palette)
-            }))
             }
             
             // 버튼 뒷 배경
@@ -85,6 +73,6 @@ struct EpilogueInstructionView: View {
 }
 
 #Preview {
-    EpilogueInstructionView(currentEpliogue: .constant(.instruction), progressValue: .constant(0),isPresented: .constant(false))
+    EpilogueInstructionView(currentEpliogue: .constant(.quiz), progressValue: .constant(0),isPresented: .constant(false))
         .environmentObject(EducationManager())
 }

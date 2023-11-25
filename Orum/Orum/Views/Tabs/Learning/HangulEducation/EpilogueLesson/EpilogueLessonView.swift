@@ -8,8 +8,9 @@
 import SwiftUI
 
 enum CurrentEpliogue {
-    case instruction
+//    case instruction
     case quiz
+    case end
 }
 
 struct EpilogueLessonView: View {
@@ -17,20 +18,19 @@ struct EpilogueLessonView: View {
     
     @EnvironmentObject var educationManager: EducationManager
     
-    @State var currentEpliogue: CurrentEpliogue = .instruction
+    @State var currentEpliogue: CurrentEpliogue = .quiz
     @State var progressValue: Int = 0
     
     var body: some View {
         switch currentEpliogue {
-            
-        case .instruction:
-            EpilogueInstructionView(currentEpliogue: $currentEpliogue, progressValue: $progressValue, isPresented: $isPresented)
-                .environmentObject(educationManager)
-            
         case .quiz:
             EpilogueQuizVIew(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
                 .transition(.opacity)
+            
+        case .end:
+            LessonEndingView(isPresented: $isPresented)
+                .environmentObject(educationManager)
         }
     }
 }

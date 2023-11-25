@@ -66,15 +66,6 @@ struct BatchimLearningView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .navigationTitle(educationManager.nowStudying)
-                .navigationBarTitleDisplayMode(.inline)
-                .navigationBarItems(leading: Button(action: {
-                    isPresented.toggle()
-                }, label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title3)
-                        .foregroundStyle(.blue, Color(uiColor: .secondarySystemFill))
-            }))
             }
             
             // 버튼 뒷 배경
