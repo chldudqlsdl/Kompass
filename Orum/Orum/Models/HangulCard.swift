@@ -41,7 +41,7 @@ struct HangulCard: Hashable {
             self.lottieName = ""
             self.chapterType = .vowel
             self.strokeCount = Constants.Hangul.vowelStrokeCount[name] ?? 1
-            if Constants.Hangul.vowelSimilarSound[name] == "" {
+            if Constants.Hangul.vowelSimilarSound[name] == nil {
                 hangulType = .double
                 self.explanation = Constants.Hangul.vowelCombination[name] ?? ""
             } else {
