@@ -19,10 +19,26 @@ struct LessonEndingView: View {
         VStack {
             Spacer()
             
-            Text("Well Done!")
-                .bold()
-                .font(.largeTitle)
-                .confettiCannon(counter: $counter, num: 50, confettis: [.image("ㄱ"),.image("ㄴ"),.image("ㄷ"),.image("ㄹ")], confettiSize: 40)
+            ZStack {
+                Text("Well Done!")
+                    .bold()
+                    .font(.largeTitle)
+                
+                // 최초 발사용
+                VStack {
+                    EmptyView()
+                        .confettiCannon(counter: $counter, num: 21, confettiSize: 5, rainHeight: 1000, openingAngle: Angle.degrees(30), closingAngle: Angle.degrees(150),radius: 360)
+                        .offset(y: -40)
+                }
+                
+                // 위에서 지속적으로 내려오는 가루
+                VStack {
+                    EmptyView()
+                        .confettiCannon(counter: $counter, num: 5, confettiSize: 5, rainHeight: 1000, openingAngle: Angle.degrees(30), closingAngle: Angle.degrees(150),radius: 360, repetitions: 200, repetitionInterval: 0.2)
+                        .offset(y: -300)
+                }
+                
+            }
 
             Spacer()
             
@@ -36,6 +52,7 @@ struct LessonEndingView: View {
                         .padding(.vertical, 14)
                 })
                 .buttonStyle(.borderedProminent)
+                .padding(.bottom, 16)
             }
         }
         .padding(.horizontal, 16)

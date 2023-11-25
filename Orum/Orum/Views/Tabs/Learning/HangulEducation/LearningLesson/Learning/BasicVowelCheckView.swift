@@ -57,7 +57,7 @@ struct BasicVowelCheckView: View {
                     
                     LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], content: {
                         ForEach(str, id: \.self) { name in
-                            HangulCardView(onTapGesture: {},hangulCard: HangulCard(name: name), cardType: .medium)
+                            HangulCardView(onTapGesture: {},hangulCard: HangulCard(name: name), cardType: .medium, canBorderColorChange: false)
                         }
                     })
 

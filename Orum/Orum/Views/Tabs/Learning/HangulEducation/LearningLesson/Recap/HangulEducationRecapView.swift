@@ -50,7 +50,7 @@ struct HangulEducationRecapView: View {
                         VStack {
                             LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
                                 ForEach(0 ..< educationManager.content.count, id: \.self) { index in
-                                    HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], cardType: .medium)
+                                    HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[index], cardType: .medium, canBorderColorChange: true)
                                 }
                             }
                             

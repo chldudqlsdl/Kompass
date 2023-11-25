@@ -17,15 +17,15 @@ struct CollectionDetailView: View {
                 VStack {
                     if chapterName == "Consonant" {
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 15), GridItem(.flexible(),spacing: 15)],spacing: 16) {
-                            ForEach(0 ..< 14) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), cardType: .medium)
+                            ForEach(0 ..< Constants.Hangul.consonants.count) { index in
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.consonants[index]), cardType: .medium, canBorderColorChange: false)
                             }
                         }
                     }
                     else if chapterName == "Vowel" {
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 15), GridItem(.flexible(),spacing: 15)],spacing: 16) {
                             ForEach(0 ..< 21) { index in
-                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), cardType: .medium)
+                                HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: Constants.Hangul.vowels[index]), cardType: .medium, canBorderColorChange: false)
                             }
                         }
                     }
