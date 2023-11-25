@@ -208,11 +208,11 @@ struct Constants {
         ]
         
         static let consonantCombination : [String: String] = [
-            "ㄲ" : "Pronounce two ㄱ[g] sounds simultaneously",
-            "ㄸ" : "Pronounce two ㄷ[d] sounds simultaneously",
-            "ㅃ" : "Pronounce two ㅂ[b] sounds simultaneously",
-            "ㅆ" : "Pronounce two ㅅ[s] sounds simultaneously",
-            "ㅉ" : "Pronounce two ㅈ[j] sounds simultaneously",
+            "ㄲ" : "ㄱ",
+            "ㄸ" : "ㄷ",
+            "ㅃ" : "ㅂ",
+            "ㅆ" : "ㅅ",
+            "ㅉ" : "ㅈ",
         ]
         
         static let vowels: [String] = [
