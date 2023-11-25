@@ -45,7 +45,7 @@ struct BatchimLearningView: View {
                             .multilineTextAlignment(.center)
                         
                         BatchimExplainView(
-                            explainTitle: Constants.Hangul.batchimExplainTitle[lessonName]![pageIndex],
+                            explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![pageIndex])",
                             explain: Constants.Hangul.batchimExplain[lessonName]![pageIndex])
                         
                         if ((Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])! > 1) {
