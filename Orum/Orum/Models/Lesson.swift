@@ -15,12 +15,12 @@ struct Lesson: Identifiable {
     let lessonState: String
     let completedDates: String
     
-    init(lessonName: String) {
+    init(lessonName: String, lessonType: LessonType, chapterType: ChapterType) {
         let educationManager = EducationManager()
         
         self.lessonName = lessonName
-        self.lessonType = .lesson
-        self.chapterType = .consonant
+        self.lessonType = lessonType
+        self.chapterType = chapterType
         self.lessonState = educationManager.lessonState[lessonName] ?? "locked"
         self.completedDates = educationManager.completedDates[lessonName] ?? ""
     }
@@ -35,30 +35,30 @@ let lessons: [[Lesson]] = [
 ]
 
 let hangulSystemLesson: [Lesson] = [
-    Lesson(lessonName: Constants.Lesson.system)
+    Lesson(lessonName: Constants.Lesson.system, lessonType: .prologue, chapterType: .system)
 ]
 
 let consonantLesson: [Lesson] = [
-    Lesson(lessonName: Constants.Lesson.consonant0),
-    Lesson(lessonName: Constants.Lesson.consonant1),
-    Lesson(lessonName: Constants.Lesson.consonant2),
-    Lesson(lessonName: Constants.Lesson.consonant3),
-    Lesson(lessonName: Constants.Lesson.consonant4),
-    Lesson(lessonName: Constants.Lesson.consonant5),
+    Lesson(lessonName: Constants.Lesson.consonant0, lessonType: .prologue, chapterType: .consonant),
+    Lesson(lessonName: Constants.Lesson.consonant1, lessonType: .lesson, chapterType: .consonant),
+    Lesson(lessonName: Constants.Lesson.consonant2, lessonType: .lesson, chapterType: .consonant),
+    Lesson(lessonName: Constants.Lesson.consonant3, lessonType: .lesson, chapterType: .consonant),
+    Lesson(lessonName: Constants.Lesson.consonant4, lessonType: .lesson, chapterType: .consonant),
+    Lesson(lessonName: Constants.Lesson.consonant5, lessonType: .epilogue, chapterType: .consonant),
     ]
 
 let vowelLesson: [Lesson] = [
-    Lesson(lessonName: Constants.Lesson.vowel0),
-    Lesson(lessonName: Constants.Lesson.vowel1),
-    Lesson(lessonName: Constants.Lesson.vowel2),
-    Lesson(lessonName: Constants.Lesson.vowel3),
-    Lesson(lessonName: Constants.Lesson.vowel4),
+    Lesson(lessonName: Constants.Lesson.vowel0, lessonType: .prologue, chapterType: .vowel),
+    Lesson(lessonName: Constants.Lesson.vowel1, lessonType: .lesson, chapterType: .vowel),
+    Lesson(lessonName: Constants.Lesson.vowel2, lessonType: .lesson, chapterType: .vowel),
+    Lesson(lessonName: Constants.Lesson.vowel3, lessonType: .lesson, chapterType: .vowel),
+    Lesson(lessonName: Constants.Lesson.vowel4, lessonType: .epilogue, chapterType: .vowel),
 ]
 
 let batchimLesson: [Lesson] = [
-    Lesson(lessonName: Constants.Lesson.batchim0),
-    Lesson(lessonName: Constants.Lesson.batchim1),
-    Lesson(lessonName: Constants.Lesson.batchim2),
-    Lesson(lessonName: Constants.Lesson.batchim3),
+    Lesson(lessonName: Constants.Lesson.batchim0, lessonType: .prologue, chapterType: .batchim),
+    Lesson(lessonName: Constants.Lesson.batchim1, lessonType: .lesson, chapterType: .batchim),
+    Lesson(lessonName: Constants.Lesson.batchim2, lessonType: .lesson, chapterType: .batchim),
+    Lesson(lessonName: Constants.Lesson.batchim3, lessonType: .epilogue, chapterType: .batchim),
 ]
 
