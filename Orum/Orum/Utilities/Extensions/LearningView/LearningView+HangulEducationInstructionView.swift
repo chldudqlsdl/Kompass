@@ -40,7 +40,7 @@ extension LearningView {
                             Spacer()
                             
                         case .lesson:
-                            Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray())")
+                            Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))")
                                 .frame(maxWidth: .infinity)
                                 .font(.largeTitle)
                                 .bold()

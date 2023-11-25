@@ -14,33 +14,52 @@ struct BasicVowelCheckView: View {
     
     @EnvironmentObject var educationManager: EducationManager
     
-    private var str: String {
+    private var str: [String] {
         if educationManager.index == 1 {
-            return "ㅡ,ㅣ"
+            return ["ㅡ","ㅣ"]
         }
         else if educationManager.index == 5 {
-            return "ㅏ,ㅓ,ㅗ,ㅜ"
+            return ["ㅏ","ㅓ","ㅗ","ㅜ"]
         }
         else {
-            return "ㅐ,ㅔ"
+            return ["ㅐ","ㅔ"]
+        }
+    }
+    
+    private var strExplain: String {
+        if educationManager.index == 1 {
+            return "These vowels have the most minimalistic forms"
+        }
+        else if educationManager.index == 5 {
+            return "These vowels are distinguished by top, bottom, left, and right positions."
+        }
+        else {
+            return "These vowels have similar shapes and the same pronunciation."
         }
     }
     
     var body: some View {
         ZStack {
             ScrollView{
-                VStack {
+                VStack(spacing: 16) {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
                     
-                    HStack{
-                        Text("\(str)")
-                            .font(.largeTitle)
-                            .bold()
+                    Text("Intermission")
+                        .bold()
+                        .foregroundStyle(Color(uiColor: .secondaryLabel))
+                    
+                    Text("Compare Difference")
+                        .bold()
+                        .font(.largeTitle)
+                    
+                    BatchimExplainView(explainTitle: str.concatArray(isComma: true), explain: strExplain)
                         
-                        Spacer()
-                    }
-                    .padding(.bottom, 24)
+                    
+                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], content: {
+                        ForEach(str, id: \.self) { name in
+                            HangulCardView(onTapGesture: {},hangulCard: HangulCard(name: name), cardType: .medium)
+                        }
+                    })
 
                 }
                 .padding(.horizontal, 16)
