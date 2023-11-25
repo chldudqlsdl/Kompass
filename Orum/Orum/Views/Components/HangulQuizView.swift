@@ -34,7 +34,7 @@ struct HangulQuizView: View {
         ScrollViewReader { proxy in
             ZStack {
                 ScrollView {
-                    VStack {
+                    VStack(spacing: 16) {
                         ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                             .padding(.vertical, 16)
                             .id(topID)
@@ -50,105 +50,105 @@ struct HangulQuizView: View {
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
                         }
+                        .padding(.bottom, 9)
+                        
+                        
                         VStack {
-                            HStack{
-                                Spacer()
-                                
-                                ZStack(alignment: .leading) {
-                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName.prefix(1))
-                                        .fontWeight(.bold)
-                                        .font(.largeTitle)
-                                        .padding(.bottom, 10)
-                                        .foregroundColor(.clear)
-                                        .underline(true, color: Color(uiColor: .label))
-                                        .offset(y: 8)
-                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName)
-                                        .fontWeight(.bold)
-                                        .font(.largeTitle)
-                                        .foregroundColor(Color(uiColor: .label))
-                                }
-                                
-                                Spacer()
-                            }
-                            .padding(.vertical, 8)
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(Color(uiColor: .systemFill) , lineWidth: 8)
-                            }
-                            .padding(.bottom, 12)
-                            
-                            VStack{
-                                ForEach(0..<optionAlphabet.count, id: \.self) { index in
-                                    let optionColor = fetchOptionColor(index: index)
-                                    
-                                    ZStack{
-                                        HStack(spacing: 20){
-                                            Circle()
-                                                .strokeBorder(.blue, lineWidth: 3)
-                                                .frame(width: 20, height: 20)
-                                                .overlay {
-                                                    Circle()
-                                                        .frame(width: 20, height: 20)
-                                                        .foregroundColor(optionColor.circle)
-                                                }
-                                            ZStack{
-                                                Text("[")
-                                                    .fontWeight(.bold)
-                                                    .font(.title2)
-                                                    .foregroundColor(optionColor.bracket)
-                                                +
-                                                Text("\(String(optionAlphabet[index]))")
-                                                    .fontWeight(.bold)
-                                                    .font(.title2)
-                                                    .foregroundColor(optionColor.text)
-                                                +
-                                                Text("]")
-                                                    .fontWeight(.bold)
-                                                    .font(.title2)
-                                                    .foregroundColor(optionColor.bracket)
-                                            }
-                                            Spacer()
-                                        }
-                                        .padding()
-                                    }
-                                    .overlay(RoundedRectangle(cornerRadius: 15.0)
-                                        .stroke(optionColor.border, lineWidth: 4))
-                                    .onTapGesture {
-                                        if !isOptionSubmitted {
-                                            selectedOptionIndex = index
-                                            isOptionSelected = true
-                                        }
-                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName {
-                                            answerIndex = index
-                                        }
-                                        
-                                    }
-                                    .onAppear {
-                                        if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName  {
-                                            answerIndex = index
-                                        }
-                                    }
-                                    .onChange(of: isOptionSubmitted) { _ in
-                                        if answerIndex != selectedOptionIndex && isOptionSubmitted {
-                                            isOptionWrong = true
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                            
-                            Spacer()
-                            
-                            Rectangle()
-                                .frame(height: 200)
-                                .foregroundColor(.clear)
-                            
-                            Rectangle()
-                                .frame(height: 1)
-                                .foregroundColor(.clear)
-                                .id(bottomID)
+                            Image("국밥")
+                                .resizable()
+                                .scaledToFit()
                         }
-
+                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.2)
+                        .background(Color(uiColor: .quaternarySystemFill))
+                        
+                        //                            HStack{
+                        //                                Spacer()
+                        //
+                        //                                ZStack(alignment: .leading) {
+                        //                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName.prefix(1))
+                        //                                        .fontWeight(.bold)
+                        //                                        .font(.largeTitle)
+                        //                                        .padding(.bottom, 10)
+                        //                                        .foregroundColor(.clear)
+                        //                                        .underline(true, color: Color(uiColor: .label))
+                        //                                        .offset(y: 8)
+                        //                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName)
+                        //                                        .fontWeight(.bold)
+                        //                                        .font(.largeTitle)
+                        //                                        .foregroundColor(Color(uiColor: .label))
+                        //                                }
+                        //
+                        //                                Spacer()
+                        //                            }
+                        //                            .padding(.vertical, 8)
+                        //                            .overlay {
+                        //                                RoundedRectangle(cornerRadius: 16)
+                        //                                    .strokeBorder(Color(uiColor: .systemFill) , lineWidth: 8)
+                        //                            }
+                        //                            .padding(.bottom, 12)
+                        
+                        LazyVGrid(columns: [GridItem(.flexible(),spacing: 16),GridItem(.flexible(),spacing: 16)], spacing: 16, content: {
+                            ForEach(0..<optionAlphabet.count, id: \.self) { index in
+                                let optionColor = fetchOptionColor(index: index)
+                                
+                                ZStack{
+                                    HStack(spacing: 20){
+                                        Circle()
+                                            .strokeBorder(.blue, lineWidth: 3)
+                                            .frame(width: 20, height: 20)
+                                            .overlay {
+                                                Circle()
+                                                    .frame(width: 20, height: 20)
+                                                    .foregroundColor(optionColor.circle)
+                                            }
+                                        
+                                        Image(systemName: "speaker.wave.2.fill")
+                                            .bold()
+                                            .font(.title2)
+                                            .foregroundColor(optionColor.text)
+                                        
+                                        Spacer()
+                                    }
+                                    .padding()
+                                }
+                                .overlay(RoundedRectangle(cornerRadius: 15.0)
+                                    .stroke(optionColor.border, lineWidth: 4))
+                                .onTapGesture {
+                                    if !isOptionSubmitted {
+                                        selectedOptionIndex = index
+                                        isOptionSelected = true
+                                    }
+                                    if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName {
+                                        answerIndex = index
+                                    }
+                                    
+                                }
+                                .onAppear {
+                                    if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName  {
+                                        answerIndex = index
+                                    }
+                                }
+                                .onChange(of: isOptionSubmitted) { _ in
+                                    if answerIndex != selectedOptionIndex && isOptionSubmitted {
+                                        isOptionWrong = true
+                                    }
+                                    
+                                }
+                            }
+                        })
+                        
+                        Spacer()
+                        
+                        Rectangle()
+                            .frame(height: 200)
+                            .foregroundColor(.clear)
+                        
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.clear)
+                            .id(bottomID)
+                        
+                        
                         
                     }
                     .padding(.horizontal, 16)
@@ -189,11 +189,11 @@ struct HangulQuizView: View {
                             .foregroundStyle(.ultraThinMaterial)
                             .frame(height: UIScreen.main.bounds.height * 0.15)
                     }
-                        .ignoresSafeArea(edges: .bottom)
+                    .ignoresSafeArea(edges: .bottom)
                     
                     if (isOptionSubmitted) {
-                            answerBox()
-                                .transition(.move(edge: .bottom))
+                        answerBox()
+                            .transition(.move(edge: .bottom))
                     }
                     
                     VStack {
@@ -204,14 +204,14 @@ struct HangulQuizView: View {
                                 if quizButtonText == "Check" {
                                     DispatchQueue.global().async {
                                         quizButtonText = "Got it"
-
+                                        
                                     }
                                     DispatchQueue.global().async {
                                         withAnimation {
                                             isOptionSubmitted = true
                                         }
                                     }
-                                                                        
+                                    
                                     return
                                 }
                                 else {
@@ -256,8 +256,8 @@ struct HangulQuizView: View {
                                         
                                         if educationManager.quiz.isEmpty {
                                             educationManager.currentEducation = .end
-//                                            educationManager.endLesson()
-//                                            isPresented.toggle()
+                                            //                                            educationManager.endLesson()
+                                            //                                            isPresented.toggle()
                                         }
                                         else {
                                             withAnimation {
@@ -289,7 +289,7 @@ struct HangulQuizView: View {
                             .padding(.bottom, 48)
                         }
                     }
-                        .ignoresSafeArea(edges: .bottom)
+                    .ignoresSafeArea(edges: .bottom)
                 }
             }
         }
