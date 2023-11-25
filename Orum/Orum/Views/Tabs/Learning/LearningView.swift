@@ -69,21 +69,20 @@ struct LearningView: View {
                     .navigationBarBackButtonHidden(true)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                isLessonStart.toggle()
-                                educationManager.index = 0
-                                educationManager.currentEducation = .learning
-                            }, label: {
-                                Image(systemName: "xmark.circle.fill")
-                                    .font(.title3)
-                                    .foregroundStyle(.blue, Color(uiColor: .quaternarySystemFill))
-                            })
+                            if educationManager.lessonType != .prologue {
+                                Button(action: {
+                                    isLessonStart.toggle()
+                                    educationManager.index = 0
+                                    educationManager.currentEducation = .learning
+                                }, label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .font(.title3)
+                                        .foregroundStyle(.blue, Color(uiColor: .quaternarySystemFill))
+                                })
+                            }
+
                         }
                     }
-            })
-            .fullScreenCover(isPresented: $prologue, content: {
-                PrologueLessonView(isPresented: $prologue)
-                    .environmentObject(educationManager)
             })
             .overlay {
                 if let currentLesson = currentLesson, isPresented {

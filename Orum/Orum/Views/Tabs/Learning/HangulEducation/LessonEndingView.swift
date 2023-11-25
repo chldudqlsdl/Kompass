@@ -47,14 +47,7 @@ struct LessonEndingView: View {
                     educationManager.endLesson()
                     isPresented.toggle()
                 }, label: {
-                    Text("Exit")
-                        .padding()
-                })
-                
-                Button(action: {
-                    
-                }, label: {
-                    Text("Next Lesson \(Image(systemName: "forward.fill"))")
+                    Text("Complete")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
                 })
@@ -66,6 +59,7 @@ struct LessonEndingView: View {
         .onAppear {
             counter += 1
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

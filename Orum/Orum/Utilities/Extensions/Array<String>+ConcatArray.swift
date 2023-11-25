@@ -8,15 +8,15 @@
 import Foundation
 
 extension Array<String> {
-    func concatArray() -> String {
+    func concatArray(isComma: Bool) -> String {
         var result = ""
         
         for i in 0 ..< self.count {
             result += self[i]
             
-//            if i != self.count - 1 {
-//                result += ","
-//            }
+            if isComma && i != self.count - 1 {
+                result += ", "
+            }
         }
         
         return result

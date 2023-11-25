@@ -122,28 +122,43 @@ struct SameCardCollectingQuizView: View {
                     }
                 }
             }
-            VStack{
+            
+            VStack {
                 Spacer()
-                Button(action: {
-                    educationManager.currentEducation = .quiz
-                    progressValue += 1
-                }, label: {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                })
-                .buttonStyle(.borderedProminent)
+                
+                ZStack{
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                    
+                    VStack(spacing: 0){
+                        
+                        Button(action: {
+                            educationManager.currentEducation = .quiz
+                            progressValue += 1
+                        },label: {
+                            Text("Continue")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .bold()
+                        })
+                        .buttonStyle(.borderedProminent)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 48)
+                    }
+                }
             }
+            .ignoresSafeArea(edges: .bottom)
+
         }
-        .onAppear{
+        .onAppear {
             rightOptionVowels = makeOptions()
             leftOptionVowels = rightOptionVowels.shuffled()
-            print(leftOptionVowels)
-            print(rightOptionVowels)
         }
     }
     
-    func makeOptions() -> [Character]{
+    func makeOptions() -> [Character] {
         var learnedVowels: [Character] = []
         for i in 0 ..< educationManager.content.count {
             learnedVowels.append(contentsOf: educationManager.content[i].name)

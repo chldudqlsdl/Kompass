@@ -26,38 +26,35 @@ struct VowelDrawingView: View {
                     .environmentObject(educationManager)
             }
             
-            // 버튼 뒷 배경
-            ZStack{
-                VStack {
-                    HStack {
-                        Button(action: {}, label: {
+            VStack {
+                Spacer()
+                
+                ZStack {
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                    
+                    VStack(spacing: 0){
+                        
+                        Button(action: {
+                            educationManager.currentEducation = .learning
+                            progressValue += 1
+                            
+                        },label: {
                             Text("Continue")
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 8)
+                                .bold()
                         })
                         .buttonStyle(.borderedProminent)
-                        .hidden()
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .disabled(writingCount < 3)
+                        .padding(.bottom, 48)
                     }
-                    .padding(24)
-                    .background(.ultraThinMaterial)
-                }
-                
-                VStack {
-                    Button(action: {
-                        educationManager.currentEducation = .learning
-                        progressValue += 1
-                        
-                    }, label: {
-                        Text("Continue")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .padding(.horizontal, 24)
-                    .disabled(writingCount < 3)
                 }
             }
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }

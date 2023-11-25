@@ -40,7 +40,8 @@ extension LearningView {
 //                            }
                         }
                         else {
-                            prologue = true
+                            educationManager.lessonType = .prologue
+                            isLessonStart = true
                         }
                     }
                 }
@@ -71,7 +72,7 @@ extension LearningView {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack {
-                                    Text(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray())
+                                    Text(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))
                                         .bold()
                                         .font(.body)
                                     

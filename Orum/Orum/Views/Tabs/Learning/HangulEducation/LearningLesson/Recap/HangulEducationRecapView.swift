@@ -62,57 +62,47 @@ struct HangulEducationRecapView: View {
                 .padding(.horizontal, 16)
             }
             
-            //버튼 뒷배경
             VStack {
                 Spacer()
                 
-                HStack {
-                    Button(action: {}, label: {
-                        Text("background")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .hidden()
-                }
-                .padding(24)
-                .background(.ultraThinMaterial)
-            }
-            
-            VStack {
-                Spacer()
-                
-                Button {
-                    switch educationManager.chapterType {
-                    case .system:
-                        break
-                    case .consonant:
-                        progressValue += 1
-                        educationManager.currentEducation = .quiz
-                    case .vowel:
-                        progressValue += 1
-                        educationManager.currentEducation = .vowelQuiz
-                    case .batchim:
-                        progressValue += 1
-                        educationManager.currentEducation = .quiz
-//                        isPresented = false
-                        educationManager.index = 0
+                ZStack {
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                    
+                    VStack(spacing: 0){
+                        
+                        Button(action: {
+                            switch educationManager.chapterType {
+                            case .system:
+                                break
+                            case .consonant:
+                                progressValue += 1
+                                educationManager.currentEducation = .quiz
+                            case .vowel:
+                                progressValue += 1
+                                educationManager.currentEducation = .vowelQuiz
+                            case .batchim:
+                                progressValue += 1
+                                educationManager.currentEducation = .quiz
+        //                        isPresented = false
+                                educationManager.index = 0
+                            }
+                        },label: {
+                            Text("Ready to Quiz")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .bold()
+                        })
+                        .buttonStyle(.borderedProminent)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 48)
                     }
-                } label: {
-                    Text("Ready to Quiz")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .bold()
                 }
-                .buttonStyle(.borderedProminent)
-                .padding(24)
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemBackground).opacity(0.0), Color(uiColor: .systemBackground).opacity(1.0)]), startPoint: .top, endPoint: .bottom)
-                )}
+            }
+            .ignoresSafeArea(edges: .bottom)
         }
-        
-        
     }
 }
 

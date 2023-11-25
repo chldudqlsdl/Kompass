@@ -10,17 +10,20 @@ import SwiftUI
 struct PrologueLessonView: View {
     
     @Binding var isPresented: Bool
+    
     @EnvironmentObject var educationManager: EducationManager
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize : DynamicTypeSize
     
+    @State private var index = 0
+    
     var prologuePage : HangulPrologue {
-        educationManager.prologue[educationManager.index]
+        educationManager.prologue[index]
     }
     
     var body: some View {
         NavigationStack{
             ZStack{
-                    VStack(spacing: 0){
+                    VStack(spacing: 0) {
                         VStack(spacing: 16) {
                             Text(prologuePage.title)
                                 .bold()
@@ -55,53 +58,50 @@ struct PrologueLessonView: View {
                         Spacer()
                     }
                     .padding(.horizontal, 16)
-                VStack {
-                    Spacer()
-                    
-                    HStack {
-                        Button(action: {}, label: {
-                            Text("Continue")
-                                .frame(maxWidth: .infinity)
-                                .padding(.vertical, 8)
-                        })
-                        .buttonStyle(.borderedProminent)
-                        .hidden()
-                    }
-                    .padding(24)
-                    .background(.ultraThinMaterial)
-                }
                 
                 VStack {
                     Spacer()
                     
-                    Button(action: {
-                        if educationManager.index < educationManager.prologue.count - 1 {
-                            educationManager.index += 1
-                        } else {
-                            isPresented.toggle()
-                            educationManager.index = 0
-                        }
-                    }, label: {
-                        Text("Continue")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
+                    ZStack {
+                        Rectangle()
+                            .foregroundStyle(.ultraThinMaterial)
+                            .frame(height: UIScreen.main.bounds.height * 0.15)
+                        
+                        VStack(spacing: 0){
                             
-                    })
-                    .tint(Color(uiColor: prologuePage.color[1]))
-                    .buttonStyle(.borderedProminent)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 24)
+                            Button(action: {
+                                if index < educationManager.prologue.count - 1 {
+                                    index += 1
+                                } else {
+                                    withAnimation {
+                                        isPresented.toggle()
+                                    }
+                                }
+                            },label: {
+                                Text("Continue")
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 8)
+                                    .bold()
+                            })
+                            .buttonStyle(.borderedProminent)
+                            .padding(.horizontal, 24)
+                            .padding(.top, 24)
+                            .padding(.bottom, 48)
+                        }
+                        .tint(Color(uiColor: prologuePage.color[1]))
+                    }
                 }
+                .ignoresSafeArea(edges: .bottom)
             }
             .navigationBarItems(leading: Button(action: {
-                educationManager.index -= 1
+                index -= 1
             }, label: {
                 Image(systemName: "chevron.left")
                     .font(.title3)
-                    .foregroundStyle(educationManager.index == 0 ? .clear : Color(uiColor: .systemGray3))
+                    .foregroundStyle(index == 0 ? .clear : Color(uiColor: .systemGray3))
+
             })
-                .disabled(educationManager.index == 0 ? true : false)
+                .disabled(index == 0 ? true : false)
             )
             .buttonStyle(.plain)
 

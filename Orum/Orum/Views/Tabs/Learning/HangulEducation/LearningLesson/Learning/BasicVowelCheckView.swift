@@ -14,80 +14,91 @@ struct BasicVowelCheckView: View {
     
     @EnvironmentObject var educationManager: EducationManager
     
-    private var str: String {
+    private var str: [String] {
         if educationManager.index == 1 {
-            return "ㅡ,ㅣ"
+            return ["ㅡ","ㅣ"]
         }
         else if educationManager.index == 5 {
-            return "ㅏ,ㅓ,ㅗ,ㅜ"
+            return ["ㅏ","ㅓ","ㅗ","ㅜ"]
         }
         else {
-            return "ㅐ,ㅔ"
+            return ["ㅐ","ㅔ"]
+        }
+    }
+    
+    private var strExplain: String {
+        if educationManager.index == 1 {
+            return "These vowels have the most minimalistic forms"
+        }
+        else if educationManager.index == 5 {
+            return "These vowels are distinguished by top, bottom, left, and right positions."
+        }
+        else {
+            return "These vowels have similar shapes and the same pronunciation."
         }
     }
     
     var body: some View {
         ZStack {
             ScrollView{
-                VStack {
+                VStack(spacing: 16) {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
                     
-                    HStack{
-                        Text("\(str)")
-                            .font(.largeTitle)
-                            .bold()
+                    Text("Intermission")
+                        .bold()
+                        .foregroundStyle(Color(uiColor: .secondaryLabel))
+                    
+                    Text("Compare Difference")
+                        .bold()
+                        .font(.largeTitle)
+                    
+                    BatchimExplainView(explainTitle: str.concatArray(isComma: true), explain: strExplain)
                         
-                        Spacer()
-                    }
-                    .padding(.bottom, 24)
+                    
+                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], content: {
+                        ForEach(str, id: \.self) { name in
+                            HangulCardView(onTapGesture: {},hangulCard: HangulCard(name: name), cardType: .medium, canBorderColorChange: false)
+                        }
+                    })
 
                 }
                 .padding(.horizontal, 16)
             }
             
-            //버튼 뒷배경
             VStack {
                 Spacer()
                 
-                HStack {
-                    Button(action: {}, label: {
-                        Text("background")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                            .bold()
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .hidden()
+                ZStack {
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                    
+                    VStack(spacing: 0) {
+                        
+                        Button(action: {
+                            if educationManager.index < 7 {
+                                progressValue += 1
+                                educationManager.index += 1
+                                educationManager.currentEducation = .vowelDrawing
+                            }
+                            else {
+                                progressValue += 1
+                                educationManager.currentEducation = .recap
+                            }
+                        },label: {
+                            Text("Next")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .bold()
+                        })
+                        .buttonStyle(.borderedProminent)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 48)
+                    }
                 }
-                .padding(24)
-                .background(.ultraThinMaterial)
             }
-            
-            VStack {
-                Spacer()
-                
-                Button {
-                    if educationManager.index < 7 {
-                        progressValue += 1
-                        educationManager.index += 1
-                        educationManager.currentEducation = .vowelDrawing
-                    }
-                    else {
-                        progressValue += 1
-                        educationManager.currentEducation = .recap
-                    }
-                } label: {
-                    Text("Next")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .bold()
-                }
-                .buttonStyle(.borderedProminent)
-                .padding(24)
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color(uiColor: .systemBackground).opacity(0.0), Color(uiColor: .systemBackground).opacity(1.0)]), startPoint: .top, endPoint: .bottom)
-                )}
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }

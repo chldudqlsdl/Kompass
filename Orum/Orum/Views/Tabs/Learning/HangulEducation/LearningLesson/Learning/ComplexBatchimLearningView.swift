@@ -49,39 +49,33 @@ struct ComplexBatchimLearningView: View {
                 .padding(.horizontal, 16)
             }
             
-            // 버튼 뒷 배경
             VStack {
                 Spacer()
                 
-                HStack {
-                    Button(action: {}, label: {
-                        Text("Continue")
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 8)
-                    })
-                    .buttonStyle(.borderedProminent)
-                    .hidden()
+                ZStack{
+                    Rectangle()
+                        .foregroundStyle(.ultraThinMaterial)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                    
+                    VStack(spacing: 0){
+                        
+                        Button(action: {
+                            isPresented = false
+                            educationManager.index = 0
+                        },label: {
+                            Text("Continue")
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 8)
+                                .bold()
+                        })
+                        .buttonStyle(.borderedProminent)
+                        .padding(.horizontal, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 48)
+                    }
                 }
-                .padding(24)
-                .background(.ultraThinMaterial)
             }
-            
-            VStack {
-                Spacer()
-                
-                Button(action: {
-                    isPresented = false
-                    educationManager.index = 0
-                }, label: {
-                    Text("Continue")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
-                        .bold()
-                })
-                .buttonStyle(.borderedProminent)
-                .padding(.horizontal, 24)
-                .padding(.bottom, 24)
-            }
+            .ignoresSafeArea(edges: .bottom)
         }
     }
 }
