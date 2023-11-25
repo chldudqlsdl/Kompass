@@ -155,11 +155,16 @@ extension CardType {
         }
     }
     
-    func explanationFont( _ chapterType : ChapterType) -> Font {
+    func explanationFont( _ chapterType : ChapterType, hangulType: HangulType) -> Font {
         switch self {
         case .small:
             if chapterType == .consonant {
-                return .body
+                if hangulType == .single {
+                    return .body
+                }
+                else {
+                    return .footnote
+                }
             } else if chapterType == .vowel {
                 return .footnote
             } else {
@@ -167,7 +172,12 @@ extension CardType {
             }
         case .medium:
             if chapterType == .consonant {
-                return .title2
+                if hangulType == .single {
+                    return .title2
+                }
+                else {
+                    return .body
+                }
             } else if chapterType == .vowel {
                 return .body
             } else {
@@ -175,11 +185,16 @@ extension CardType {
             }
         case .large:
             if chapterType == .consonant {
-                return .largeTitle
+                if hangulType == .single {
+                    return .largeTitle
+                }
+                else {
+                    return .title2
+                }
             } else if chapterType == .vowel {
-                return .title2
+                return .largeTitle
             } else {
-                return .title2
+                return .largeTitle
             }
             
         }

@@ -46,7 +46,7 @@ struct HangulCardView: View {
                         
                         Image(hangulCard.name)
                             .resizable()
-                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)                            
+                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)
                         
                         Text("[ ")
                             .bold()
@@ -73,37 +73,32 @@ struct HangulCardView: View {
                                     
                                     Text("[")
                                         .fontWeight(.bold)
-                                        .font(cardType.explanationFont(.consonant))
+                                        .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(Color(uiColor: .systemGray4))
                                     +
                                     Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.prefix(5) : hangulCard.lottieName.prefix(1))
                                         .fontWeight(.bold)
-                                        .font(cardType.explanationFont(.consonant))
+                                        .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(hangulCard.name == "ㅇb" ? Color(uiColor: .systemGray4) : .primary)
                                     +
                                     Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.dropFirst(5) : hangulCard.lottieName.dropFirst(1))
                                         .fontWeight(.bold)
-                                        .font(cardType.explanationFont(.consonant))
+                                        .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(hangulCard.name == "ㅇb" ? .primary : Color(uiColor: .systemGray4))
                                     +
                                     Text("]")
                                         .fontWeight(.bold)
-                                        .font(cardType.explanationFont(.consonant))
+                                        .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(Color(uiColor: .systemGray4))
                                     
                                     Spacer()
                                 }
                                 //                                .scaleEffect(x: -1, y: 1)
                             } else {
-                                Rectangle()
-                                    .foregroundStyle(.clear)
-                                //                                .border(.black)
-                                    .frame(maxWidth: cardType.imageFrame, maxHeight: cardType.imageFrame )
-                                //                                    .scaleEffect(x: -1, y: 1)
                                 HStack{
-                                    Text(hangulCard.explanation)
+                                    Text("Pronounce '\(hangulCard.explanation)' with a strong empahsis.")
                                         .bold()
-                                        .font( cardType.explanationFont(.vowel))
+                                        .font(cardType.explanationFont(.consonant, hangulType: .double))
                                 }
                                 .frame(width: cardType.imageFrame)
                                 //                                .scaleEffect(x: -1, y: 1)
@@ -116,13 +111,15 @@ struct HangulCardView: View {
                                 if hangulCard.hangulType == .single {
                                     TextWithColoredCharacters(text: hangulCard.explanation, targetCharacter: basicVowel, color: .blue)
                                         .bold()
-                                        .font(.largeTitle)
+                                        .font(cardType.explanationFont(.vowel, hangulType: .single))
+//                                        .font(.largeTitle)
                                     
                                     
                                 } else {
                                     Text("\(hangulCard.explanation)")
                                         .bold()
-                                        .font(.largeTitle)
+                                        .font(cardType.explanationFont(.consonant, hangulType: .double))
+//                                        .font(.largeTitle)
                                 }
                             }
                             .frame(width: cardType.imageFrame)
@@ -138,7 +135,7 @@ struct HangulCardView: View {
                             
                             Text("[]")
                                 .bold()
-                                .font(cardType.explanationFont(.batchim))
+                                .font(cardType.explanationFont(.consonant, hangulType: .single))
                             //                                .scaleEffect(x: -1, y: 1)
                         }
                         
@@ -231,7 +228,7 @@ struct TextWithColoredCharacters: View {
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large, canBorderColorChange: true)
+    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant4[0], cardType: .large, canBorderColorChange: true)
         .environmentObject(EducationManager())
 }
 
