@@ -17,9 +17,9 @@ struct HangulQuiz {
     let tmi : String
     
     init(lessonType: LessonType, name: String) {
-        let quizName  = Constants.Hangul.consonantQuiz[name]?[0]
-        
         if Constants.Hangul.consonants.contains(name) {
+            let quizName  = Constants.Hangul.consonantQuiz[name]?[0]
+
             self.lessonType = lessonType
             self.name = name
             self.sound = Constants.Hangul.consonantSound[name] ?? ""
@@ -29,19 +29,23 @@ struct HangulQuiz {
             self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
         }
         else if Constants.Hangul.vowels.contains(name) {
+            let quizName  = Constants.Hangul.vowelQuiz[name]?[0]
+
             self.lessonType = lessonType
             self.name = name
             self.sound = Constants.Hangul.vowelSound[name] ?? ""
-            self.quizName = Constants.Hangul.consonantQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
+            self.quizName = Constants.Hangul.vowelQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
             self.options = Constants.HangulQuiz.options[quizName ?? ""] ?? [""]
             self.meaning = Constants.HangulQuiz.meaning[quizName ?? ""] ?? ""
             self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
         }
         else {
+            let quizName  = Constants.Hangul.consonantQuiz[name]?[0]
+
             self.lessonType = lessonType
             self.name = name
-            self.sound = Constants.Hangul.consonantSound[name] ?? ""
-            self.quizName = Constants.Hangul.consonantQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
+            self.sound = Constants.Hangul.consonantSound[name] ?? "" // change to batchim sound ... ?
+            self.quizName = Constants.Hangul.consonantQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? "" // change to batchim quiz
             self.options = Constants.HangulQuiz.options[quizName ?? ""] ?? [""]
             self.meaning = Constants.HangulQuiz.meaning[quizName ?? ""] ?? ""
             self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
