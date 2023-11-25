@@ -52,7 +52,7 @@ struct BatchimLearningView: View {
                             VStack {
                                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
                                     ForEach(0 ..< (Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])!, id: \.self) { index in
-                                        HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[pageIndex == 0 ? index : index + 4], cardType: .medium)
+                                        HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[pageIndex == 0 ? index : index + 4], cardType: .medium, canBorderColorChange: true)
                                     }
                                 }
 
@@ -60,7 +60,7 @@ struct BatchimLearningView: View {
                             .padding(.horizontal, 7)
                             .padding(.bottom, 130)
                         } else {
-                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㅇb"), cardType: .large)
+                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㅇb"), cardType: .large, canBorderColorChange: true)
                                 .padding(.horizontal, 48)
                         }
                     }
