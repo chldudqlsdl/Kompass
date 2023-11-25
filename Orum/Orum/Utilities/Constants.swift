@@ -68,6 +68,10 @@ struct Constants {
             Constants.Lesson.batchim2: ["ㅎ",],
             Constants.Lesson.batchim3 : ["Epilogue"]
         ]
+        
+        static let instructionText : [String] = [
+            "",
+        ]
     }
     
     struct Hangul {

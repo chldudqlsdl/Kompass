@@ -40,30 +40,63 @@ extension LearningView {
                             Spacer()
                             
                         case .lesson:
-                            Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))")
-                                .frame(maxWidth: .infinity)
-                                .font(.largeTitle)
-                                .bold()
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 8)
-                                .padding(.vertical, 48)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .foregroundStyle(Color(uiColor: .secondarySystemFill))
-                                )
-                            
-                            
-                            Text("These batchim don't appear \nfrequently and have very complex \nrules. Instead of memorizing them, \nwhen you encounter ㅎ or complex \nbatchim refer to the app for pronunciation. I'll always be here, ready to assist.")
-                                .font(.title2)
-                            
-                            Spacer()
-                                .frame(height: 100)
+                            VStack(spacing: 16) {
+                                Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))")
+                                    .frame(maxWidth: .infinity)
+                                    .font(.largeTitle)
+                                    .bold()
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 48)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .foregroundStyle(Color(uiColor: .secondarySystemFill))
+                                    )
+                                
+                                
+                                Text("These batchim don't appear \nfrequently and have very complex \nrules. Instead of memorizing them, \nwhen you encounter ㅎ or complex \nbatchim refer to the app for pronunciation. I'll always be here, ready to assist.")
+                                    .font(.title2)
+                                
+                                Spacer()
+                                    .frame(height: 100)
+                            }
+                            .padding(.horizontal, 32)
                             
                         case .epilogue:
-                            Spacer()
+                            Text("Let's review the consonant we learned through a quiz.")
+                                .bold()
+                                .font(.title2)
+                                .padding(.horizontal, 32)
+                            
+                            VStack {
+                                switch lesson.chapterType {
+                                case .system:
+                                    EmptyView()
+                                    
+                                case .consonant:
+                                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16),GridItem(.flexible(), spacing: 16)],spacing: 16, content: {
+                                        ForEach(Constants.Hangul.consonants, id: \.self) { consonant in
+                                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: consonant), cardType: .medium, canBorderColorChange: false)
+                                        }
+                                    })
+                                    
+                                case .vowel:
+                                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16),GridItem(.flexible(), spacing: 16)],spacing: 16, content: {
+                                        ForEach(Constants.Hangul.vowels, id: \.self) { vowel in
+                                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: vowel), cardType: .medium, canBorderColorChange: false)
+                                        }
+                                    })
+                                    
+                                case.batchim:
+                                    //                                    ForEach(Constants.Hangul.batchim, id: \.self) { i in
+                                    //                                        HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㄱ"), cardType: .medium, canBorderColorChange: false)
+                                    //                                    }
+                                    EmptyView()
+                                }
+                            }
+                            .padding(.horizontal, 16)
                         }
                     }
-                    .padding(.horizontal, 32)
                     .transition(.move(edge: .top))
                     .background(.white)
                 }
