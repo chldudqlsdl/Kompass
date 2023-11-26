@@ -14,7 +14,7 @@ struct HangulPrologue {
     let title : String
     let text : String
     let image : [String]
-    let color : [UIColor]
+    let color : [Color]
     let type : PrologueType
     
     init(prologueType: PrologueType , name: String) {
@@ -25,18 +25,21 @@ struct HangulPrologue {
         self.type = prologueType
         
         switch prologueType {
+        case .onboarding:
+            color = [Color("onboardingMain"), Color("onboardingSub")]
         case .system:
-            color = [UIColor(hex: "33BBED"), UIColor(hex: "18A5D9")]
+            color = [Color("systemMain"), Color("systemSub")]
         case .consonant:
-            color = [UIColor(hex: "64C396"), UIColor(hex: "2DB173")]
+            color = [Color("consonantMain"), Color("consonantSub")]
         case .vowel:
-            color = [UIColor(hex: "FEAA00"), UIColor(hex: "EF8100")]
+            color = [Color("vowelMain"), Color("vowelSub")]
         case .batchim:
-            color = [UIColor(hex: "F07E96"), UIColor(hex: "EA4769")]
+            color = [Color("batchimMain"), Color("batchimSub")]
+        
         }
     }
 }
 
 enum PrologueType {
-    case system, consonant, vowel, batchim
+    case system, consonant, vowel, batchim, onboarding
 }

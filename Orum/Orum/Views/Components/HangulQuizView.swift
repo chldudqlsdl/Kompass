@@ -96,7 +96,6 @@ struct HangulQuizView: View {
                                     if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName {
                                         answerIndex = index
                                     }
-                                    
                                 }
                                 .onAppear {
                                     if String(optionAlphabet[index]) == educationManager.quiz[ind].quizName  {

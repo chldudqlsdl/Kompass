@@ -10,14 +10,14 @@ import SwiftUI
 
     struct HangulEducationView: View {
         @Binding var isPresented: Bool
-
+        @State var isFirstLaunching: Bool = false
         @EnvironmentObject var educationManager: EducationManager
         
         var body: some View {
             VStack {
                 switch educationManager.lessonType {
                 case .prologue:
-                    PrologueLessonView(isPresented: $isPresented)
+                    PrologueLessonView(isFirstLaunching: $isFirstLaunching, isPresented: $isPresented)
                     
                 case .lesson:
                     LearningLessonView(isPresented: $isPresented)

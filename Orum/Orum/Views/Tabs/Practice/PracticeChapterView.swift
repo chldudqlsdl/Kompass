@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 struct PracticeChapterView: View {
     
     var chapterIndex: Int {
@@ -18,6 +20,7 @@ struct PracticeChapterView: View {
     
     @EnvironmentObject var practiceManager : PracticeManager
     
+    @State private var symbolEffectCounter: Bool = false
     @State private var selectedWord: PracticeWord? = nil
     @Namespace private var animation
     
@@ -58,6 +61,7 @@ struct PracticeChapterView: View {
                         ForEach(practiceWords[chapterName]!) { practiceWord in
                             VStack(alignment: .leading ,spacing: 0){
                                 Button(action: {
+                                    
                                     withAnimation {
                                         if selectedWord == practiceWord {
                                             selectedWord = nil
@@ -68,21 +72,37 @@ struct PracticeChapterView: View {
                                         
                                         practiceManager.practicedWords.append(practiceWord.name)
                                     }
+                                    symbolEffectCounter.toggle()
                                 }, label: {
                                     HStack(alignment: .center, spacing: 15) {
                                         if ( practiceWord != selectedWord ){
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [5]))
-                                                .foregroundColor( practiceManager.practicedWords.contains(practiceWord.name) ? .clear : Color(uiColor: .secondarySystemFill))
-                                                .frame(width: 32, height: 32)
-                                                .overlay{
-                                                    if practiceManager.practicedWords.contains(practiceWord.name) {
-                                                        Image("국밥")
-                                                            .resizable()
-                                                            .scaledToFit()
-                                                            .matchedGeometryEffect(id: practiceWord.image, in: animation)
-                                                    }
-                                                }
+                                            
+                                            if practiceManager.practicedWords.contains(practiceWord.name) {
+                                                Image("\(Constants.Practice.image[practiceWord.name]!)")
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    .matchedGeometryEffect(id: practiceWord.image, in: animation)
+                                                    .frame(width: 32, height: 32)
+                                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                            } else {
+                                                RoundedRectangle(cornerRadius: 8)
+                                                    .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [5]))
+                                                    .foregroundColor( practiceManager.practicedWords.contains(practiceWord.name) ? .clear : Color(uiColor: .secondarySystemFill))
+                                                    .frame(width: 32, height: 32)
+                                            }
+                                            
+                                            //                                            RoundedRectangle(cornerRadius: 8)
+                                            //                                                .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [5]))
+                                            //                                                .foregroundColor( practiceManager.practicedWords.contains(practiceWord.name) ? .clear : Color(uiColor: .secondarySystemFill))
+                                            //                                                .frame(width: 32, height: 32)
+                                            //                                                .overlay{
+                                            //                                                    if practiceManager.practicedWords.contains(practiceWord.name) {
+                                            //                                                        Image("\(Constants.Practice.image[practiceWord.name]!)")
+                                            //                                                            .resizable()
+                                            //                                                            .scaledToFit()
+                                            //                                                            .matchedGeometryEffect(id: practiceWord.image, in: animation)
+                                            //                                                    }
+                                            //                                                }
                                         }
                                         
                                         
@@ -100,7 +120,7 @@ struct PracticeChapterView: View {
                                                     .foregroundStyle(Color(uiColor: .tertiarySystemFill))
                                                     .overlay {
                                                         HStack(spacing: 0){
-                                                            Image(systemName: "chevron.down")
+                                                            Image(systemName: "chevron.up")
                                                                 .font(.footnote)
                                                                 .foregroundStyle(.blue)
                                                                 .opacity(0.4)
@@ -108,7 +128,9 @@ struct PracticeChapterView: View {
                                                             Image(systemName: practiceWord == selectedWord ? "waveform" : "speaker.wave.2.fill")
                                                                 .font(.body)
                                                                 .foregroundStyle(.blue)
+//                                                                .symbolEffect(.bounce, value: symbolEffectCounter )
                                                         }
+                                                        
                                                     }
                                                     .padding(.trailing, 15)
                                             }
@@ -127,23 +149,37 @@ struct PracticeChapterView: View {
                                     Text("\(practiceWord.explanation)")
                                         .foregroundStyle(Color(uiColor: .secondaryLabel))
                                         .transition(.asymmetric(insertion: .move(edge: .top), removal: .opacity))
-                                        
-                                }
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .foregroundStyle(Color(uiColor: .quaternarySystemFill))
-                                        .overlay {
-                                            if selectedWord == practiceWord {
-                                                Image("국밥")
-                                                    .resizable()
-                                                    .scaledToFit()
-                                                    .matchedGeometryEffect(id: practiceWord.image, in: animation)
-                                            }
-                                        }
-                                        .padding(.bottom, selectedWord == practiceWord ? 16 : 0 )
+                                        .padding(.trailing)
                                     
                                 }
-                                .frame(height: practiceWord == selectedWord ? 190 : 0)
+                                
+                                ZStack {
+                                    
+                                    if selectedWord == practiceWord {
+                                        if chapterIndex == 2 {
+                                            RoundedRectangle(cornerRadius: 8)
+                                                .foregroundStyle(Color(uiColor: .systemBackground))
+                                                .overlay {
+                                                    Image("\(Constants.Practice.image[practiceWord.name]!)")
+                                                            .resizable()
+                                                            .scaledToFit()
+                                                            .matchedGeometryEffect(id: practiceWord.image, in: animation)
+                                                }
+                                                .frame(height: practiceWord == selectedWord ? 190 : 0)
+                                                .padding(.vertical, selectedWord == practiceWord ? 16 : 0 )
+                                        } else {
+                                            Image("\(Constants.Practice.image[practiceWord.name]!)")
+                                                .resizable()
+                                                .aspectRatio(contentMode: chapterIndex == 2 ? .fit : .fill)
+                                                .matchedGeometryEffect(id: practiceWord.image, in: animation)
+                                                .frame(height: practiceWord == selectedWord ? 190 : 0)
+                                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                                .padding(.vertical, selectedWord == practiceWord ? 16 : 0 )
+                                        }
+                                    }
+                                    
+                                }
+                                .padding(.trailing)
                                 
                                 
                                 Divider()
