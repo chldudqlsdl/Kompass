@@ -110,7 +110,7 @@ struct PracticeChapterView: View {
                                             HStack(alignment: .center) {
                                                 Text("\(practiceWord.name)")
                                                     .bold()
-                                                    .font(.title2)
+                                                    .font(.title2) // MARK: 여기는 font 변경 안해도 되는지?
                                                     .matchedGeometryEffect(id: practiceWord.id, in: animation)
                                                 
                                                 Spacer()
