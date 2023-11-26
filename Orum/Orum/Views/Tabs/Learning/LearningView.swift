@@ -37,7 +37,7 @@ struct LearningView: View {
                         VStack(alignment: .leading) {
                             Text(chapterName[index])
                                 .bold()
-                                .font(.title2)
+                                .font(.custom("Pretendard-Bold", size: 22, relativeTo: .title2))
                             
                             ForEach(lessons[index]) { lesson in
                                 LessonView(lesson: lesson)

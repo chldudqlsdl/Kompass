@@ -59,6 +59,7 @@ let batchimLesson: [Lesson] = [
     Lesson(lessonName: Constants.Lesson.batchim0, lessonType: .prologue, chapterType: .batchim),
     Lesson(lessonName: Constants.Lesson.batchim1, lessonType: .lesson, chapterType: .batchim),
     Lesson(lessonName: Constants.Lesson.batchim2, lessonType: .lesson, chapterType: .batchim),
-    Lesson(lessonName: Constants.Lesson.batchim3, lessonType: .epilogue, chapterType: .batchim),
+    Lesson(lessonName: Constants.Lesson.batchim3, lessonType: .lesson, chapterType: .batchim),
+    Lesson(lessonName: Constants.Lesson.batchim4, lessonType: .epilogue, chapterType: .batchim),
 ]
 

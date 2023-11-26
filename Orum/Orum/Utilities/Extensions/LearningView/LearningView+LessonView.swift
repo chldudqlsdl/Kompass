@@ -75,7 +75,7 @@ extension LearningView {
                                 HStack {
                                     Text(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))
                                         .bold()
-                                        .font(.body)
+                                        .font(.custom("Pretendard-Bold", size: 17, relativeTo: .body))
                                     
                                     Circle()
                                         .frame(width: 7, height:7)

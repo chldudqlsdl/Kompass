@@ -84,6 +84,9 @@
 		D9DC995B2B070788005FC516 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */; };
 		D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995C2B0887B2005FC516 /* PracticeManager.swift */; };
 		D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995E2B088E42005FC516 /* Array+RawValue.swift */; };
+		DE0A511D2B137F2200B30995 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */; };
+		DE0A511E2B137F2200B30995 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */; };
+		DE0A511F2B137F2200B30995 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 		DE9A7CF72B103D56002481DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9A7CF62B103D56002481DA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -166,6 +169,9 @@
 		D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		D9DC995C2B0887B2005FC516 /* PracticeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeManager.swift; sourceTree = "<group>"; };
 		D9DC995E2B088E42005FC516 /* Array+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawValue.swift"; sourceTree = "<group>"; };
+		DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE9A7CF62B103D56002481DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -333,6 +339,7 @@
 		936BDEFA2B04A82000A609B8 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A51192B137EE900B30995 /* Fonts */,
 				DE18C4F02AE6BC2E00915A64 /* Localizable.strings */,
 				D96BAC6B2AE6C42600613540 /* Lottie */,
 				D96D94362AE777C30077F2C1 /* Sound */,
@@ -477,6 +484,17 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		DE0A51192B137EE900B30995 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */,
+				DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */,
+				DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */,
+			);
+			name = Fonts;
+			path = "래ㅜㅅ";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -545,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				D94399972B13723D00C7D59F /* nose.json in Resources */,
 				D94399A12B13724700C7D59F /* nothing.json in Resources */,
 				D94399922B13723D00C7D59F /* road.json in Resources */,
@@ -552,6 +571,7 @@
 				D94399962B13723D00C7D59F /* mouth.json in Resources */,
 				D94399A32B13724700C7D59F /* tooth.json in Resources */,
 				D94399A02B13724700C7D59F /* jump.json in Resources */,
+				DE0A511F2B137F2200B30995 /* Pretendard-Bold.otf in Resources */,
 				930F26D12ADD0D8C00896A32 /* Preview Assets.xcassets in Resources */,
 				DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */,
 				D94399932B13723D00C7D59F /* gun.json in Resources */,
@@ -564,6 +584,8 @@
 				D943999E2B13724700C7D59F /* champion.json in Resources */,
 				D94399AD2B13A0A500C7D59F /* vowel3.json in Resources */,
 				D94399A62B13724F00C7D59F /* pillar.json in Resources */,
+				DE0A511E2B137F2200B30995 /* Pretendard-Regular.otf in Resources */,
+				DE0A511D2B137F2200B30995 /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +803,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Orum/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Orum;
+				INFOPLIST_KEY_CFBundleDisplayName = Kompass;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -824,7 +846,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Orum/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Orum;
+				INFOPLIST_KEY_CFBundleDisplayName = Kompass;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;

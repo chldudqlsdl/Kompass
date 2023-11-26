@@ -36,12 +36,10 @@ struct HangulCardView: View {
     
     var body: some View {
         ZStack{
-            
             HStack{
-                
                 Spacer()
                 
-                VStack(spacing: cardType.imageMeaningSpacing){
+                VStack(spacing: cardType.imageMeaningSpacing) {
                     if !isFlipped {
                         
                         Image(hangulCard.name)
@@ -62,12 +60,16 @@ struct HangulCardView: View {
                             .font( cardType.font )
                             .foregroundColor(Color(uiColor: .systemGray4))
                         
-                    } else {
-                        if hangulCard.chapterType == .consonant || hangulCard.chapterType == .batchim {
+                    }
+                    else {
+                        switch hangulCard.chapterType {
+                        case .system:
+                            EmptyView()
+                            
+                        case .consonant:
                             if hangulCard.hangulType == .single {
                                 LottieView(fileName: hangulCard.lottieName)
                                     .frame(width: cardType.imageFrame, height: cardType.imageFrame)
-                                //                                    .scaleEffect(x: -1, y: 1)
                                 HStack {
                                     Spacer()
                                     
@@ -76,15 +78,14 @@ struct HangulCardView: View {
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(Color(uiColor: .systemGray4))
                                     +
-                                    Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.prefix(5) : hangulCard.lottieName.prefix(1))
+                                    Text(hangulCard.lottieName.prefix(1))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
-                                        .foregroundColor(hangulCard.name == "ㅇb" ? Color(uiColor: .systemGray4) : .primary)
                                     +
-                                    Text(hangulCard.name == "ㅇb" ? hangulCard.lottieName.dropFirst(5) : hangulCard.lottieName.dropFirst(1))
+                                    Text(hangulCard.lottieName.dropFirst(1))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
-                                        .foregroundColor(hangulCard.name == "ㅇb" ? .primary : Color(uiColor: .systemGray4))
+                                        .foregroundColor(Color(uiColor: .systemGray4))
                                     +
                                     Text("]")
                                         .fontWeight(.bold)
@@ -93,52 +94,66 @@ struct HangulCardView: View {
                                     
                                     Spacer()
                                 }
-                                //                                .scaleEffect(x: -1, y: 1)
-                            } else {
+                            } 
+                            else {
                                 HStack{
                                     Text("Pronounce '\(hangulCard.explanation)' with a strong empahsis.")
                                         .bold()
                                         .font(cardType.explanationFont(.consonant, hangulType: .double))
                                 }
                                 .frame(width: cardType.imageFrame)
-                                //                                .scaleEffect(x: -1, y: 1)
                                 .multilineTextAlignment(.center)
                             }
-                        }
-                        
-                        else if hangulCard.chapterType == .vowel  {
-                            HStack{
-                                if hangulCard.hangulType == .single {
-                                    TextWithColoredCharacters(text: hangulCard.explanation, targetCharacter: basicVowel, color: .blue)
-                                        .bold()
-                                        .font(cardType.explanationFont(.vowel, hangulType: .single))
-//                                        .font(.largeTitle)
-                                    
-                                    
-                                } else {
-                                    Text("\(hangulCard.explanation)")
-                                        .bold()
-                                        .font(cardType.explanationFont(.consonant, hangulType: .double))
-//                                        .font(.largeTitle)
+                            
+                        case .vowel:
+                                HStack {
+                                    if hangulCard.hangulType == .single {
+                                        TextWithColoredCharacters(text: hangulCard.explanation, targetCharacter: basicVowel, color: .blue)
+                                            .bold()
+                                            .font(cardType.explanationFont(.vowel, hangulType: .single))
+                                    } 
+                                    else {
+                                        Text("\(hangulCard.explanation)")
+                                            .bold()
+                                            .font(cardType.explanationFont(.consonant, hangulType: .double))
+                                    }
                                 }
-                            }
-                            .frame(width: cardType.imageFrame)
-                            //                            .scaleEffect(x: -1, y: 1)
-                            .multilineTextAlignment(.center)
+                                .frame(width: cardType.imageFrame)
+                                .multilineTextAlignment(.center)
                             
-                        } else {
-                            Rectangle()
-                                .foregroundStyle(.clear)
-                                .border(.black)
-                                .frame(width: cardType.imageFrame , height: cardType.imageFrame)
-                            //                                .scaleEffect(x: -1, y: 1)
-                            
-                            Text("[]")
-                                .bold()
-                                .font(cardType.explanationFont(.consonant, hangulType: .single))
-                            //                                .scaleEffect(x: -1, y: 1)
+                        case .batchim:
+                                switch hangulCard.batchimType {
+                                case .basic:
+                                    Text(hangulCard.name.prefix(1))
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+                                    +
+                                    Text(" does not change in the final position")
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+
+                                case .eung:
+                                    Text(hangulCard.name.prefix(1))
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+                                    +
+                                    Text(" changes to [ng] in the final position")
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+                                
+                                case .change:
+                                    Text(hangulCard.name.prefix(1))
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+                                    +
+                                    Text(" changes to [\(Constants.Hangul.batchimEndingRule[hangulCard.name]!)] in the final position")
+                                        .bold()
+                                        .font(cardType.explanationFont(.batchim))
+
+                                case nil:
+                                    EmptyView()
+                                }
                         }
-                        
                     }
                 }
                 .frame(minHeight : cardType.maxHeight, maxHeight: cardType.maxHeight)
@@ -150,9 +165,6 @@ struct HangulCardView: View {
             .strokeBorder(isOnceFlipped ? Color(uiColor: .systemGray4) : .blue , lineWidth: cardType.borderWidth))
         .rotation3DEffect(.degrees(contentRotation), axis: (0, 1, 0))
         .rotation3DEffect(.degrees(flashCardRotation), axis: (0, 1, 0))
-        //        .rotation3DEffect(isFlipped ? Angle(degrees: 180) : .zero,
-        //                          axis: (x: 0.0, y: 1.0, z: 0.0))
-        //        .animation(.easeInOut(duration: 0.5), value: isFlipped)
         .contentShape(Rectangle())
         .gesture(
             TapGesture()
@@ -228,7 +240,7 @@ struct TextWithColoredCharacters: View {
 }
 
 #Preview {
-    HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant4[0], cardType: .large, canBorderColorChange: true)
-        .environmentObject(EducationManager())
+        HangulCardView(onTapGesture: {},hangulCard: HangulUnitEnum.consonant1[0], cardType: .large, canBorderColorChange: true)
+            .environmentObject(EducationManager())
 }
 

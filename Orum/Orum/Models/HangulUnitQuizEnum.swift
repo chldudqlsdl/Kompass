@@ -132,4 +132,6 @@ struct HangulUnitQuizEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ 
     static let batchim2: [HangulQuiz] = []
     
     static let batchim3: [HangulQuiz] = []
+    
+    static let batchim4: [HangulQuiz] = []
 }
