@@ -81,6 +81,9 @@
 		D9DC995B2B070788005FC516 /* AudioRecorderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */; };
 		D9DC995D2B0887B2005FC516 /* PracticeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995C2B0887B2005FC516 /* PracticeManager.swift */; };
 		D9DC995F2B088E42005FC516 /* Array+RawValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC995E2B088E42005FC516 /* Array+RawValue.swift */; };
+		DE0A511D2B137F2200B30995 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */; };
+		DE0A511E2B137F2200B30995 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */; };
+		DE0A511F2B137F2200B30995 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */; };
 		DE18C4EE2AE6BC2E00915A64 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE18C4F02AE6BC2E00915A64 /* Localizable.strings */; };
 		DE9A7CF72B103D56002481DA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE9A7CF62B103D56002481DA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
@@ -160,6 +163,9 @@
 		D9DC995A2B070788005FC516 /* AudioRecorderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderManager.swift; sourceTree = "<group>"; };
 		D9DC995C2B0887B2005FC516 /* PracticeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeManager.swift; sourceTree = "<group>"; };
 		D9DC995E2B088E42005FC516 /* Array+RawValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RawValue.swift"; sourceTree = "<group>"; };
+		DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		DE18C4EF2AE6BC2E00915A64 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE18C4F22AE6BC7200915A64 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DE9A7CF62B103D56002481DA /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -327,6 +333,7 @@
 		936BDEFA2B04A82000A609B8 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				DE0A51192B137EE900B30995 /* Fonts */,
 				DE18C4F02AE6BC2E00915A64 /* Localizable.strings */,
 				D96BAC6B2AE6C42600613540 /* Lottie */,
 				D96D94362AE777C30077F2C1 /* Sound */,
@@ -468,6 +475,17 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		DE0A51192B137EE900B30995 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DE0A511C2B137F2200B30995 /* Pretendard-Bold.otf */,
+				DE0A511B2B137F2200B30995 /* Pretendard-Regular.otf */,
+				DE0A511A2B137F2200B30995 /* Pretendard-SemiBold.otf */,
+			);
+			name = Fonts;
+			path = "래ㅜㅅ";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -536,6 +554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE0A511F2B137F2200B30995 /* Pretendard-Bold.otf in Resources */,
 				D96D94462AE777E50077F2C1 /* 누.mp3 in Resources */,
 				D96D94442AE777E50077F2C1 /* 루.mp3 in Resources */,
 				D96D94412AE777E50077F2C1 /* 다.mp3 in Resources */,
@@ -549,9 +568,11 @@
 				DE9A7CF72B103D56002481DA /* Launch Screen.storyboard in Resources */,
 				D98B83FE2AE6ECA100B47C56 /* road.json in Resources */,
 				D96D94452AE777E50077F2C1 /* 라.mp3 in Resources */,
+				DE0A511E2B137F2200B30995 /* Pretendard-Regular.otf in Resources */,
 				D98B84002AE6F56000B47C56 /* drink.json in Resources */,
 				D96D94402AE777E50077F2C1 /* 구.mp3 in Resources */,
 				D96D943F2AE777E50077F2C1 /* 나.mp3 in Resources */,
+				DE0A511D2B137F2200B30995 /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
