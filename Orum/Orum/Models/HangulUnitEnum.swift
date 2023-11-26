@@ -107,4 +107,6 @@ struct HangulUnitEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g
     ]
     
     static let batchim3: [HangulCard] = []
+    
+    static let batchim4: [HangulCard] = []
 }

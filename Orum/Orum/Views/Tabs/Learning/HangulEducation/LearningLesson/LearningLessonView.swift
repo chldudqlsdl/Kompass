@@ -61,7 +61,7 @@ struct LearningLessonView: View {
                 .environmentObject(educationManager)
         
         case .complexBatchim:
-            ComplexBatchimLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
+            ComplexBatchimLearningView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
         
         case .end:

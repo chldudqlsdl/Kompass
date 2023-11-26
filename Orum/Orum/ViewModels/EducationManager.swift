@@ -43,6 +43,7 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim1 : "complete",
         Constants.Lesson.batchim2 : "complete",
         Constants.Lesson.batchim3 : "complete",
+        Constants.Lesson.batchim4 : "complete",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
     @Published var content: [HangulCard] = HangulUnitEnum.vowel1
@@ -158,6 +159,13 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.batchim3
             chapterType = .batchim
             lessonType = .lesson
+            currentEducation = .complexBatchim
+            
+        case Constants.Lesson.batchim4:
+            content = HangulUnitEnum.batchim4
+            quiz = HangulUnitQuizEnum.batchim4
+            chapterType = .batchim
+            lessonType = .epilogue
 
         default:
             return
