@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "LaunchIcon-L2.jpg",
+      "filename" : "AppIcon_Light2.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "LaunchIcon-D2.jpg",
+      "filename" : "AppIcon_Dark2.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },

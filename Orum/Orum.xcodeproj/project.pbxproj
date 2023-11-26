@@ -769,7 +769,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Orum/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Orum;
+				INFOPLIST_KEY_CFBundleDisplayName = Kompass;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -812,7 +812,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Orum/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Orum;
+				INFOPLIST_KEY_CFBundleDisplayName = Kompass;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone permission is required to record audio.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
