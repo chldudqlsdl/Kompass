@@ -18,6 +18,7 @@ struct HangulCard: Hashable {
     var strokeCount : Int = 1
     var chapterType : ChapterType = .system
     var hangulType : HangulType = .single
+    var batchimType: BatchimType?
     
     init(name: String) {
         self.name = name
@@ -51,6 +52,15 @@ struct HangulCard: Hashable {
         }
         
         else { // 받침
+            if name == "ㄱb" || name == "ㄴb" || name == "ㄷb" || name == "ㄹb" || name == "ㅁb" || name == "ㅂb" {
+                self.batchimType = .basic
+            }
+            else if name == "ㅇb" {
+                self.batchimType = .eung
+            }
+            else {
+                self.batchimType = .change
+            }
             self.sound = Constants.Hangul.batchimSound[name] ?? ""
             self.chapterType = .batchim
             self.lottieName = Constants.Hangul.lottieName[Constants.Hangul.batchimEndingRule[name]!] ?? ""
@@ -63,6 +73,10 @@ enum HangulType {
 
 enum CardType {
     case small, medium, large
+}
+
+enum BatchimType {
+    case basic, eung, change
 }
 
 extension CardType {
@@ -155,7 +169,7 @@ extension CardType {
         }
     }
     
-    func explanationFont( _ chapterType : ChapterType, hangulType: HangulType) -> Font {
+    func explanationFont( _ chapterType : ChapterType, hangulType: HangulType = .single) -> Font {
         switch self {
         case .small:
             if chapterType == .consonant {
