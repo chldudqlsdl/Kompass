@@ -8,7 +8,6 @@
 import SwiftUI
 
 enum CurrentEpliogue {
-//    case instruction
     case quiz
     case end
 }

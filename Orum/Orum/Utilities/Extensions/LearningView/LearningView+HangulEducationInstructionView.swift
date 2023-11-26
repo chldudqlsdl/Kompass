@@ -8,11 +8,12 @@
 import SwiftUI
 
 extension LearningView {
+    
     @ViewBuilder
     func HangulEducationInstructionView(lesson: Lesson) -> some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 32) {
+                VStack(spacing: 0) {
                     ZStack {
                         ThumbnailView(lesson: lesson)
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
@@ -54,16 +55,17 @@ extension LearningView {
                                     )
                                 
                                 
-                                Text("These batchim don't appear \nfrequently and have very complex \nrules. Instead of memorizing them, \nwhen you encounter ㅎ or complex \nbatchim refer to the app for pronunciation. I'll always be here, ready to assist.")
+                                Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
                                     .font(.title2)
                                 
                                 Spacer()
                                     .frame(height: 100)
                             }
                             .padding(.horizontal, 32)
+                            .padding(.top, 32)
                             
                         case .epilogue:
-                            Text("Let's review the consonant we learned through a quiz.")
+                            Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
                                 .bold()
                                 .font(.title2)
                                 .padding(.horizontal, 32)
@@ -88,17 +90,17 @@ extension LearningView {
                                     })
                                     
                                 case.batchim:
-                                    //                                    ForEach(Constants.Hangul.batchim, id: \.self) { i in
-                                    //                                        HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㄱ"), cardType: .medium, canBorderColorChange: false)
-                                    //                                    }
-                                    EmptyView()
+                                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16),GridItem(.flexible(), spacing: 16)],spacing: 16, content: {
+                                        ForEach(Constants.Hangul.batchim, id: \.self) { batchim in
+                                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: batchim), cardType: .medium, canBorderColorChange: false)
+                                        }
+                                    })
                                 }
                             }
                             .padding(.horizontal, 16)
                         }
                     }
                     .transition(.move(edge: .top))
-                    .background(.white)
                 }
                 .offset(y: scrollOffset > 0 ? -scrollOffset : 0)
                 .overlay {
@@ -112,18 +114,13 @@ extension LearningView {
                     }
                 }
             }
-            .background(.white)
             .coordinateSpace(name: "SCROLL_INSTRUCTION")
             .overlay(alignment: .topLeading) {
                 Button(action: {
-//                    withAnimation(.linear(duration: 0.01)) {
-//                        navigationHidden = false
-//                    } completion: {
                         withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7).delay(0.05)) {
                             currentLesson = nil
                             isPresented = false
                         }
-//                    }
 
                         withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7)) {
                             animateView = false
@@ -135,7 +132,7 @@ extension LearningView {
                         .opacity(animateView ? 1 : 0)
                 })
                 .padding()
-                .padding(.top, 20)
+                .padding(.top, safeArea().top)
             }
             .onAppear {
                 withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7)) {

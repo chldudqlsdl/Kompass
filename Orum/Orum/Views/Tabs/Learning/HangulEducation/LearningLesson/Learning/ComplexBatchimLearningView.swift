@@ -60,8 +60,6 @@ struct ComplexBatchimLearningView: View {
                         
                         Button(action: {
                             educationManager.currentEducation = .end
-//                            isPresented = false
-//                            educationManager.index = 0
                         },label: {
                             Text("Continue")
                                 .frame(maxWidth: .infinity)

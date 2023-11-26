@@ -11,9 +11,6 @@ struct CollectionView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     @State var chapterName: String = ""
-//    @State var isConsonantPage = false
-//    @State var isVowelPage = false
-//    @State var isBatchimPage = false
     @State var isPresented = false
     @State var mistakes: [HangulCard] = []
     
@@ -28,7 +25,6 @@ struct CollectionView: View {
                         VStack(spacing: 8) {
                             Button(action: {
                                 chapterName = "Consonant"
-//                                isConsonantPage.toggle()
                                 isPresented.toggle()
                             }, label: {
                                 HStack(alignment: .top, spacing: 11) {
@@ -63,7 +59,6 @@ struct CollectionView: View {
                             
                             Button(action: {
                                 chapterName = "Vowel"
-//                                isVowelPage.toggle()
                                 isPresented.toggle()
 
                             }, label: {
@@ -98,7 +93,6 @@ struct CollectionView: View {
 
                             Button(action: {
                                 chapterName = "Batchim"
-//                                isBatchimPage.toggle()
                                 isPresented.toggle()
                             }, label: {
                                 HStack(alignment: .top, spacing: 11) {
@@ -176,12 +170,6 @@ struct CollectionView: View {
             .navigationDestination(isPresented: $isPresented, destination: {
                 CollectionDetailView(chapterName: $chapterName)
             })
-//            .navigationDestination(isPresented: $isVowelPage, destination: {
-//                CollectionDetailView(chapterName: $chapterName)
-//            })
-//            .navigationDestination(isPresented: $isConsonantPage, destination: {
-//                CollectionDetailView(chapterName: $chapterName)
-//            })
             .scrollIndicators(.hidden)
         }
         .onAppear {

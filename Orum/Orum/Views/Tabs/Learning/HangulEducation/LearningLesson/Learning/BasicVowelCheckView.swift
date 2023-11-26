@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BasicVowelCheckView: View {
     @Binding var progressValue: Int
-//    @Binding var isPresented: Bool
-//    @Binding var currentEducation: CurrentEducation
     
     @EnvironmentObject var educationManager: EducationManager
     

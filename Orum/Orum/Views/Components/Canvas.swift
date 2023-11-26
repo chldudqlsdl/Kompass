@@ -79,7 +79,6 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         
         canvas = PKCanvasView()
         canvas.backgroundColor = .clear
-//        canvas.frame = CGRect(x: posX, y: posY, width: width, height: height)
         canvas.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         canvas.drawingPolicy = .anyInput
         canvas.tool = PKInkingTool(PKInkTools[Int.random(in: 0 ..< PKInkTools.count)], color: Colors[Int.random(in: 0 ..< Colors.count)], width: 5)
@@ -93,7 +92,6 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
         
         let stroke = canvasView.drawing.strokes.count
-//        print(stroke)
         
         if stroke == educationManager.content[educationManager.index].strokeCount  {
             writingCount += 1
@@ -103,10 +101,6 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
             
             writedImageView.frame = CGRect(x: CGFloat.random(in: 0 ..< self.view.bounds.width - width * 0.5), y: 1, width: writedImage.size.width * 0.5, height: writedImage.size.height * 0.5)
             writedImageView.image = writedImage
-            
-//            writedImageView.frame = CGRect(x: CGFloat.random(in: 0 ..< self.view.bounds.width - width * 0.5), y: 1, width: width * 0.7, height: height * 0.7)
-//            writedImageView.image = canvasView.drawing.image(from: canvasView.bounds, scale: 1.0)
-
             
             canvasView.drawing = PKDrawing()
             

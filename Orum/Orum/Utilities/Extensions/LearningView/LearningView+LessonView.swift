@@ -35,9 +35,6 @@ extension LearningView {
                             withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7).delay(0.5)) {
                                 animateView = true
                             }
-//                            completion: {
-//                                navigationHidden = true
-//                            }
                         }
                         else {
                             educationManager.lessonType = .prologue
@@ -59,9 +56,6 @@ extension LearningView {
                     withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7).delay(0.5)) {
                         animateView = true
                     } 
-//                completion: {
-//                        navigationHidden = true
-//                    }
                 }
                 else {
                     educationManager.lessonType = .prologue

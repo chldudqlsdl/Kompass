@@ -29,7 +29,7 @@ class EducationManager: ObservableObject {
     @AppStorage("lessonState") var lessonState: [String:String] = [
         Constants.Lesson.system : "complete",
         Constants.Lesson.consonant0 : "complete",
-        Constants.Lesson.consonant1 : "complete", // 현재 가장 최신의 진도
+        Constants.Lesson.consonant1 : "complete",
         Constants.Lesson.consonant2 : "complete",
         Constants.Lesson.consonant3 : "complete",
         Constants.Lesson.consonant4 : "complete",
