@@ -22,6 +22,20 @@ struct PrologueLessonView: View {
         educationManager.prologue[index]
     }
     
+    var buttonText: String {
+        if index < educationManager.prologue.count - 1 {
+            return "Continue"
+        }
+        else {
+            if isFirstLaunching {
+                return "Let's Kompass"
+            }
+            else {
+                return "Complete"
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -92,7 +106,7 @@ struct PrologueLessonView: View {
                                     }
                                 }
                             },label: {
-                                Text("Continue")
+                                Text("\(buttonText)")
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 8)
                                     .bold()
