@@ -54,7 +54,7 @@ extension LearningView {
                                     )
                                 
                                 
-                                Text("These batchim don't appear \nfrequently and have very complex \nrules. Instead of memorizing them, \nwhen you encounter ㅎ or complex \nbatchim refer to the app for pronunciation. I'll always be here, ready to assist.")
+                                Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
                                     .font(.title2)
                                 
                                 Spacer()
@@ -63,7 +63,7 @@ extension LearningView {
                             .padding(.horizontal, 32)
                             
                         case .epilogue:
-                            Text("Let's review the consonant we learned through a quiz.")
+                            Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
                                 .bold()
                                 .font(.title2)
                                 .padding(.horizontal, 32)
@@ -88,10 +88,11 @@ extension LearningView {
                                     })
                                     
                                 case.batchim:
-                                    //                                    ForEach(Constants.Hangul.batchim, id: \.self) { i in
-                                    //                                        HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㄱ"), cardType: .medium, canBorderColorChange: false)
-                                    //                                    }
-                                    EmptyView()
+                                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 16),GridItem(.flexible(), spacing: 16)],spacing: 16, content: {
+                                        ForEach(Constants.Hangul.batchim, id: \.self) { batchim in
+                                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: batchim), cardType: .medium, canBorderColorChange: false)
+                                        }
+                                    })
                                 }
                             }
                             .padding(.horizontal, 16)

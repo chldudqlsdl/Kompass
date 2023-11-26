@@ -71,8 +71,20 @@ struct Constants {
             Constants.Lesson.batchim4: ["Epilogue"],
         ]
         
-        static let instructionText : [String] = [
-            "",
+        static let instructionText : [String : String] = [
+            Constants.Lesson.consonant1 : "The simplest consonants with the fewest strokes",
+            Constants.Lesson.consonant2 : "Consonants with balanced forms",
+            Constants.Lesson.consonant3 : "Consonants with high, peculiar pronunciations and complex forms",
+            Constants.Lesson.consonant4 : "These consonants are doubled versions of the consonants ㄱ, ㄷ, ㅂ, ㅅ, and ㅈ that we previously learned. Their characteristic is pronouncing them with a strong emphasis.",
+            Constants.Lesson.consonant5 : "Let's review the consonant we learned through a quiz.",
+            Constants.Lesson.vowel1 : "We're going to learn about basic vowels that are used to make other vowels.",
+            Constants.Lesson.vowel2 : "We're going to learn about vowels that are pronounced with 'ㅣ' based on basic vowels. There are two short lines for each.",
+            Constants.Lesson.vowel3 : "We're going to learn about vowels that are composed of two basic vowels.",
+            Constants.Lesson.vowel4 : "Let's review the vowel we learned through a quiz.",
+            Constants.Lesson.batchim1: "",
+            Constants.Lesson.batchim2: "When these consonants serve as batchim(final consonant), they follow pronunciation rules different from when they are initial consonants.",
+            Constants.Lesson.batchim3 : "These batchim don't appear frequently and have very complex rules. Instead of memorizing them, when you encounter ㅎ or complex batchim, refer to the app for pronunciation. I'll always be here, ready to assist.",
+            Constants.Lesson.batchim4: "Let's review the consonants we learned through a quiz.", // TODO: consonants -> ?
         ]
     }
     
@@ -373,11 +385,10 @@ struct Constants {
             "ㅋb",
             "ㅌb",
             "ㅍb",
-            "ㅎb",
             "ㄲb",
             "ㅆb",
         ]
-        
+                
         static let batchimSound: [String : String] = [
             "ㄱb" : "g",
             "ㄴb" : "n",
