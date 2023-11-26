@@ -8,11 +8,12 @@
 import SwiftUI
 
 extension LearningView {
+    
     @ViewBuilder
     func HangulEducationInstructionView(lesson: Lesson) -> some View {
         ZStack {
             ScrollView(showsIndicators: false) {
-                VStack(spacing: 32) {
+                VStack(spacing: 0) {
                     ZStack {
                         ThumbnailView(lesson: lesson)
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
@@ -61,6 +62,7 @@ extension LearningView {
                                     .frame(height: 100)
                             }
                             .padding(.horizontal, 32)
+                            .padding(.top, 32)
                             
                         case .epilogue:
                             Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
@@ -99,7 +101,7 @@ extension LearningView {
                         }
                     }
                     .transition(.move(edge: .top))
-                    .background(.white)
+//                    .background(.white)
                 }
                 .offset(y: scrollOffset > 0 ? -scrollOffset : 0)
                 .overlay {
@@ -113,7 +115,6 @@ extension LearningView {
                     }
                 }
             }
-            .background(.white)
             .coordinateSpace(name: "SCROLL_INSTRUCTION")
             .overlay(alignment: .topLeading) {
                 Button(action: {
@@ -136,7 +137,7 @@ extension LearningView {
                         .opacity(animateView ? 1 : 0)
                 })
                 .padding()
-                .padding(.top, 20)
+                .padding(.top, safeArea().top)
             }
             .onAppear {
                 withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7)) {
