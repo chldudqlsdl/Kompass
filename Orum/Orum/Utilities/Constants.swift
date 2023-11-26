@@ -25,9 +25,10 @@ struct Constants {
         static let vowel4: String = "Vowel 4" // Vowel Quiz
         
         static let batchim0: String = "Batchim 0" // Batchim Prologue
-        static let batchim1: String = "Batchim 1" // ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅇ | ㅅ,ㅈ,ㅊ,ㅋ,ㅌ,ㅍ,ㄲ,ㅆ
-        static let batchim2: String = "Batchim 2" // ㅎ | 겹받침
-        static let batchim3: String = "Batchim 3" // Batchim Quiz
+        static let batchim1: String = "Batchim 1" // ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅇ
+        static let batchim2: String = "Batchim 2" // ㅅ,ㅈ,ㅊ,ㅋ,ㅌ,ㅍ,ㄲ,ㅆ
+        static let batchim3: String = "Batchim 3" // ㅎ | 겹받침
+        static let batchim4: String = "Batchim 4" // Batchim Epilogue
 
         
         static let lessons: [String] = [
@@ -47,6 +48,7 @@ struct Constants {
             batchim1, // 13
             batchim2, // 14
             batchim3, // 15
+            batchim4,
         ]
         
         static let lessonComponent: [String: [String]] = [
@@ -63,10 +65,10 @@ struct Constants {
             Constants.Lesson.vowel3 : ["ㅢ","ㅚ","ㅟ","ㅘ","ㅝ","ㅙ","ㅞ"],
             Constants.Lesson.vowel4 : ["Epilogue"],
             Constants.Lesson.batchim0 : ["Prologue"],
-//            Constants.Lesson.batchim1: ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅇ","ㅋ","ㅌ","ㅍ","ㄲ","ㅅ","ㅈ","ㅊ","ㅆ"],
-            Constants.Lesson.batchim1: ["Basic"],
-            Constants.Lesson.batchim2: ["ㅎ",],
-            Constants.Lesson.batchim3 : ["Epilogue"]
+            Constants.Lesson.batchim1: ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅇ"],
+            Constants.Lesson.batchim2: ["ㅋ","ㅌ","ㄲ","ㅅ","ㅈ","ㅊ","ㅆ"],
+            Constants.Lesson.batchim3 : ["ㅎ"],
+            Constants.Lesson.batchim4: ["Epilogue"],
         ]
         
         static let instructionText : [String] = [
@@ -200,11 +202,6 @@ struct Constants {
             "ㅌ" : "tooth",
             "ㅍ" : "pillar",
             "ㅎ" : "hat",
-            "ㄲ" : "",
-            "ㄸ" : "",
-            "ㅃ" : "",
-            "ㅆ" : "",
-            "ㅉ" : "",
         ]
         
         static let consonantCombination : [String: String] = [
@@ -379,17 +376,6 @@ struct Constants {
             "ㅎb",
             "ㄲb",
             "ㅆb",
-            "ㄱㅅ",
-            "ㄴㅈ",
-            "ㄴㅎ",
-            "ㄹㄱ",
-            "ㄹㅁ",
-            "ㄹㅂ",
-            "ㄹㅅ",
-            "ㄹㅌ",
-            "ㄹㅍ",
-            "ㄹㅎ",
-            "ㅂㅅ",
         ]
         
         static let batchimSound: [String : String] = [
@@ -409,17 +395,6 @@ struct Constants {
             "ㅎb" : "",
             "ㄲb" : "g",
             "ㅆb" : "d",
-            "ㄱㅅ" : "",
-            "ㄴㅈ" : "",
-            "ㄴㅎ" : "",
-            "ㄹㄱ" : "",
-            "ㄹㅁ" : "",
-            "ㄹㅂ" : "",
-            "ㄹㅅ" : "",
-            "ㄹㅌ" : "",
-            "ㄹㅍ" : "",
-            "ㄹㅎ" : "",
-            "ㅂㅅ" : "",
         ]
         
         static let batchimEndingRule : [String : String] = [
@@ -439,17 +414,6 @@ struct Constants {
             "ㅎb" : "",
             "ㄲb" : "ㄱ",
             "ㅆb" : "ㄷ",
-            "ㄱㅅ" : "",
-            "ㄴㅈ" : "",
-            "ㄴㅎ" : "",
-            "ㄹㄱ" : "",
-            "ㄹㅁ" : "",
-            "ㄹㅂ" : "",
-            "ㄹㅅ" : "",
-            "ㄹㅌ" : "",
-            "ㄹㅍ" : "",
-            "ㄹㅎ" : "",
-            "ㅂㅅ" : "",
         ]
         
         

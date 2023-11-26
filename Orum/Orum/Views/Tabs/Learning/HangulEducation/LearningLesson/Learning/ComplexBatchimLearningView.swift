@@ -12,7 +12,6 @@ struct ComplexBatchimLearningView: View {
     @EnvironmentObject var educationManager: EducationManager
     
     @Binding var progressValue: Int
-    @Binding var currentEducation: CurrentEducation
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -60,8 +59,9 @@ struct ComplexBatchimLearningView: View {
                     VStack(spacing: 0){
                         
                         Button(action: {
-                            isPresented = false
-                            educationManager.index = 0
+                            educationManager.currentEducation = .end
+//                            isPresented = false
+//                            educationManager.index = 0
                         },label: {
                             Text("Continue")
                                 .frame(maxWidth: .infinity)
@@ -126,6 +126,6 @@ struct ComplexBatchimExplainView: View {
 }
 
 #Preview {
-    ComplexBatchimLearningView(progressValue: .constant(0), currentEducation: .constant(.learning), isPresented: .constant(true))
+    ComplexBatchimLearningView(progressValue: .constant(0), isPresented: .constant(true))
         .environmentObject(EducationManager())
 }
