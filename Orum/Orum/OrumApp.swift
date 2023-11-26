@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct OrumApp: App {
+    @StateObject var educationManager: EducationManager = EducationManager()
     @AppStorage("isFirstLaunching") var isFirstLaunching: Bool = true
+    @State var isPresented : Bool = false
     
     var body: some Scene {
         WindowGroup {
             if isFirstLaunching {
-                OnboardingView(isFirstLaunching: $isFirstLaunching)
+                PrologueLessonView(isFirstLaunching: $isFirstLaunching, isPresented: $isFirstLaunching)
+                    .environmentObject(educationManager)
             }
             else {
                 ContentView()

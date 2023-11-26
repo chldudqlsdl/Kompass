@@ -9,10 +9,12 @@ import SwiftUI
 
 struct PrologueLessonView: View {
     
+    @Binding var isFirstLaunching: Bool
     @Binding var isPresented: Bool
     
     @EnvironmentObject var educationManager: EducationManager
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize : DynamicTypeSize
+    @Environment(\.colorScheme) private var colorScheme : ColorScheme
     
     @State private var index = 0
     
@@ -27,8 +29,8 @@ struct PrologueLessonView: View {
                         VStack(spacing: 16) {
                             Text(prologuePage.title)
                                 .bold()
-                                .font(.title)
-                                .foregroundStyle(Color(uiColor: prologuePage.color[0]))
+                                .font(.title2)
+                                .foregroundStyle(Color(prologuePage.color[0]))
                                 .multilineTextAlignment(.center)
                                 .padding(.top, 10)
 
@@ -36,18 +38,29 @@ struct PrologueLessonView: View {
                                 .font(.body)
                                 .multilineTextAlignment(.center)
                             
+//                            if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
+//                                VStack {
+//                                    <#code#>
+//                                }
+//                            }
+                            
                             Spacer()
                         }
                         .frame(height : dynamicTypeSize.prologueTextHeight)
                         
                         RoundedRectangle(cornerRadius: 16)
                             .frame(width: 358, height: 358)
-                            .foregroundColor(Color(uiColor: UIColor(hex: "F8F8F8")))
+                            .foregroundColor(Color(uiColor: colorScheme == .light ? UIColor(hex: "F1F1F1") : UIColor(hex: "3C3C3C")))
                             .overlay {
                                 if prologuePage.image.count == 1 {
-                                    Image(prologuePage.image[0])
-                                        .resizable()
-                                        .scaledToFit()
+                                    if prologuePage.image[0] == "vowel3" {
+                                        LottieView(fileName: "vowel3")
+                                            .scaledToFit()
+                                    } else {
+                                        Image(prologuePage.image[0])
+                                            .resizable()
+                                            .scaledToFit()
+                                    }
                                 } else {
                                     LazyHStack{
                                         PageView(images: prologuePage.image)
@@ -75,6 +88,7 @@ struct PrologueLessonView: View {
                                 } else {
                                     withAnimation {
                                         isPresented.toggle()
+                                        isFirstLaunching = false
                                     }
                                 }
                             },label: {
@@ -88,7 +102,7 @@ struct PrologueLessonView: View {
                             .padding(.top, 24)
                             .padding(.bottom, 48)
                         }
-                        .tint(Color(uiColor: prologuePage.color[1]))
+                        .tint(Color(prologuePage.color[1]))
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -163,6 +177,6 @@ extension DynamicTypeSize {
 }
 
 #Preview {
-    PrologueLessonView(isPresented: .constant(true))
+    PrologueLessonView(isFirstLaunching: .constant(true), isPresented: .constant(true))
         .environmentObject(EducationManager())
 }
