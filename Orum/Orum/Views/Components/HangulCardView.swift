@@ -190,7 +190,6 @@ struct HangulCardView: View {
                             isFlipped.toggle()
                         }
                     }
-                    //                    isFlipped.toggle()
                 }
         )
         .onChange(of: hangulCard){

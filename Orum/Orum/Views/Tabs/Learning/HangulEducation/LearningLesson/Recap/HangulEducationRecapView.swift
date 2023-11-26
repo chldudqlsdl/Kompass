@@ -10,8 +10,6 @@ import SwiftUI
 struct HangulEducationRecapView: View {
     
     @Binding var progressValue: Int
-//    @Binding var currentEducation: CurrentEducation
-//    @Binding var isPresented: Bool
     
     @EnvironmentObject var educationManager: EducationManager
     

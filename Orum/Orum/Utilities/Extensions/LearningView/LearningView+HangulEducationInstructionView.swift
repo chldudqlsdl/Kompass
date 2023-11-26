@@ -101,7 +101,6 @@ extension LearningView {
                         }
                     }
                     .transition(.move(edge: .top))
-//                    .background(.white)
                 }
                 .offset(y: scrollOffset > 0 ? -scrollOffset : 0)
                 .overlay {
@@ -118,14 +117,10 @@ extension LearningView {
             .coordinateSpace(name: "SCROLL_INSTRUCTION")
             .overlay(alignment: .topLeading) {
                 Button(action: {
-//                    withAnimation(.linear(duration: 0.01)) {
-//                        navigationHidden = false
-//                    } completion: {
                         withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7).delay(0.05)) {
                             currentLesson = nil
                             isPresented = false
                         }
-//                    }
 
                         withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7)) {
                             animateView = false

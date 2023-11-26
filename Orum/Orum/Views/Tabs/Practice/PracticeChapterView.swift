@@ -57,7 +57,6 @@ struct PracticeChapterView: View {
                     VStack(spacing: 8) {
                         ForEach(practiceWords[chapterName]!) { practiceWord in
                             VStack(alignment: .leading ,spacing: 0){
-                                //                        if(practiceWord != selectedWord) {
                                 Button(action: {
                                     withAnimation {
                                         if selectedWord == practiceWord {

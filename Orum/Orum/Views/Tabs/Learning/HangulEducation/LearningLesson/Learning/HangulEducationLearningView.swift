@@ -23,8 +23,6 @@ struct HangulEducationLearningView: View {
     let ttsManager = TTSManager()
     
     @Binding var progressValue: Int
-    //    @Binding var currentEducation: CurrentEducation
-    //    @Binding var isPresented: Bool
     
     var body: some View {
         
@@ -104,13 +102,6 @@ struct HangulEducationLearningView: View {
                                     .id(bottomID)
                             }
                                 .padding(.horizontal, 48)
-//                                .onChange(of: (!(educationManager.index == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)) {
-//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-//                                        withAnimation(.easeOut(duration: 0.3)) {
-//                                            proxy.scrollTo(bottomID)
-//                                        }
-//                                    }
-//                                }
                         }
                         .padding(.horizontal, 16)
                     }
@@ -181,7 +172,6 @@ struct HangulEducationLearningView: View {
                 }
                 .ignoresSafeArea(edges: .bottom)
                 }
-//                .scrollDisabled(!(content.unitIndex == 0) || !isOnceFlipped || !isExample1Listened || !isExample2Listened)
             }
         }
     }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SameCardCollectingQuizView: View {
-//    @Binding var currentEducation: CurrentEducation
     @Binding var progressValue: Int
     
     @State var firstTappedIndex : Int = 10

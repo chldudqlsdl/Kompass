@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HangulUnitQuizEnum: RawRepresentable { // 자모 분리를 통해서 ㄱ -> g & 가 -> ga, 구 -> gu 로 변환 되게 하기
+struct HangulUnitQuizEnum: RawRepresentable {
     let rawValue: Int
     
     static let system: [HangulQuiz] = []

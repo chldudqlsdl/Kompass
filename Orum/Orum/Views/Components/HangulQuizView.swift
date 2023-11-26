@@ -61,32 +61,6 @@ struct HangulQuizView: View {
                         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.2)
                         .background(Color(uiColor: .quaternarySystemFill))
                         
-                        //                            HStack{
-                        //                                Spacer()
-                        //
-                        //                                ZStack(alignment: .leading) {
-                        //                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName.prefix(1))
-                        //                                        .fontWeight(.bold)
-                        //                                        .font(.largeTitle)
-                        //                                        .padding(.bottom, 10)
-                        //                                        .foregroundColor(.clear)
-                        //                                        .underline(true, color: Color(uiColor: .label))
-                        //                                        .offset(y: 8)
-                        //                                    Text(educationManager.quiz.isEmpty ? "" : educationManager.quiz[ind].quizName)
-                        //                                        .fontWeight(.bold)
-                        //                                        .font(.largeTitle)
-                        //                                        .foregroundColor(Color(uiColor: .label))
-                        //                                }
-                        //
-                        //                                Spacer()
-                        //                            }
-                        //                            .padding(.vertical, 8)
-                        //                            .overlay {
-                        //                                RoundedRectangle(cornerRadius: 16)
-                        //                                    .strokeBorder(Color(uiColor: .systemFill) , lineWidth: 8)
-                        //                            }
-                        //                            .padding(.bottom, 12)
-                        
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 16),GridItem(.flexible(),spacing: 16)], spacing: 16, content: {
                             ForEach(0..<optionAlphabet.count, id: \.self) { index in
                                 let optionColor = fetchOptionColor(index: index)
