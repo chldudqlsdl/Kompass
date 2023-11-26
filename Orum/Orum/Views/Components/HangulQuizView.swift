@@ -88,6 +88,7 @@ struct HangulQuizView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 15.0)
                                     .stroke(optionColor.border, lineWidth: 4))
                                 .onTapGesture {
+                                    SoundManager.instance.playSound(sound: optionAlphabet[index])
                                     if !isOptionSubmitted {
                                         selectedOptionIndex = index
                                         isOptionSelected = true

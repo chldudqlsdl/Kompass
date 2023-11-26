@@ -75,7 +75,7 @@ struct HangulEducationLearningView: View {
                                             withAnimation(.easeIn(duration: 0.5)){
                                                 isExample1Listened = true
                                             }
-                                            ttsManager.play(educationManager.content[educationManager.index].example1)
+                                            SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example1)")
                                         }
                                     
                                     Text(educationManager.content[educationManager.index].example2)
@@ -92,7 +92,7 @@ struct HangulEducationLearningView: View {
                                             withAnimation(.easeIn(duration: 0.5)){
                                                 isExample2Listened = true
                                             }
-                                            ttsManager.play(educationManager.content[educationManager.index].example2)
+                                            SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example2)")
                                         }
                                 }
                             }
