@@ -51,7 +51,7 @@ class EducationManager: ObservableObject {
     @Published var chapterType: ChapterType = .vowel
     @Published var lessonType: LessonType = .lesson
     @Published var currentEducation: CurrentEducation = .learning
-    @Published var prologue: [HangulPrologue] = HangulUnitPrologueEnum.system
+    @Published var prologue: [HangulPrologue] = HangulUnitPrologueEnum.onboarding
     @Published var index: Int = 0
     
     init() {
@@ -71,7 +71,7 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.consonant0
             chapterType = .consonant
             lessonType = .prologue
-            prologue = HangulUnitPrologueEnum.consonant0
+            prologue = HangulUnitPrologueEnum.consonant
             
         case Constants.Lesson.consonant1:
             content = HangulUnitEnum.consonant1
@@ -108,7 +108,7 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.vowel0
             chapterType = .vowel
             lessonType = .prologue
-            prologue = HangulUnitPrologueEnum.vowel0
+            prologue = HangulUnitPrologueEnum.vowel
 
         case Constants.Lesson.vowel1:
             content = HangulUnitEnum.vowel1
@@ -139,7 +139,7 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.batchim0
             chapterType = .batchim
             lessonType = .prologue
-            prologue = HangulUnitPrologueEnum.batchim0
+            prologue = HangulUnitPrologueEnum.batchim
 
         case Constants.Lesson.batchim1:
             content = HangulUnitEnum.batchim1
