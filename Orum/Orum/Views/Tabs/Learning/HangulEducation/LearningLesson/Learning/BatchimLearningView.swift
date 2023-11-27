@@ -15,6 +15,9 @@ struct BatchimLearningView: View {
     @Binding var currentEducation: CurrentEducation
     @Binding var isPresented: Bool
     
+    @State var touchCardsCount : Int = 0
+    @State var isCardView = false
+    
     var lessonName : String {
         educationManager.nowStudying
     }
@@ -31,37 +34,62 @@ struct BatchimLearningView: View {
                         .padding(.vertical, 16)
                     
                     VStack {
-                        Text("Principle")
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.secondary)
-                            .onAppear{
-                                print(educationManager.nowStudying)
-                            }
-                        
-                        Text(Constants.Hangul.batchimTitle[lessonName]![pageIndex])
-                            .font(.largeTitle)
-                            .fontWeight(.bold)
-                            .multilineTextAlignment(.center)
-                        
-                        BatchimExplainView(
-                            explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![pageIndex])",
-                            explain: Constants.Hangul.batchimExplain[lessonName]![pageIndex])
-                        
                         if ((Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])! > 1) {
-                            VStack {
-                                LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
-                                    ForEach(0 ..< (Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])!, id: \.self) { index in
-                                        HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[pageIndex == 0 ? index : index + 4], cardType: .medium, canBorderColorChange: true)
-                                    }
+                            VStack(spacing: 16) {
+                                VStack(spacing: 0) {
+                                    Text("Principle")
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.secondary)
+                                        .onAppear{
+                                            print(educationManager.nowStudying)
+                                        }
+                                    
+                                    Text(Constants.Hangul.batchimTitle[lessonName]![pageIndex])
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+                                        .multilineTextAlignment(.center)
                                 }
+                                
+                                BatchimExplainView(
+                                    explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![pageIndex])",
+                                    explain: Constants.Hangul.batchimExplain[lessonName]![pageIndex])
+                                
+                                
+                                    LazyVGrid(columns: [GridItem(.flexible(), spacing: 15), GridItem(.flexible())], spacing: 15) {
+                                        ForEach(0 ..< (Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])!, id: \.self) { index in
+                                            HangulCardView(onTapGesture: {}, hangulCard: educationManager.content[pageIndex == 0 ? index : index + 4], cardType: .medium, canBorderColorChange: true)
+                                        }
+                                    }
 
+                                
                             }
                             .padding(.horizontal, 7)
                             .padding(.bottom, 130)
-                        } else {
-                            HangulCardView(onTapGesture: {}, hangulCard: HangulCard(name: "ㅇb"), cardType: .large, canBorderColorChange: true)
+                        } 
+                        else {
+                            VStack(spacing: 16) {
+                                VStack(spacing: 0) {
+                                    Text("\(touchCardsCount)/1")
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    Text(Constants.Hangul.batchimTitle[lessonName]![pageIndex])
+                                        .font(.largeTitle)
+                                        .fontWeight(.bold)
+                                        .multilineTextAlignment(.center)
+                                }
+                                
+                                BatchimExplainView(
+                                    explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![pageIndex])",
+                                    explain: Constants.Hangul.batchimExplain[lessonName]![pageIndex])
+                                
+                                HangulCardView(onTapGesture: {
+                                    touchCardsCount += 1
+                                }, hangulCard: HangulCard(name: "ㅇb"), cardType: .large, canBorderColorChange: true)
                                 .padding(.horizontal, 48)
+                            }
                         }
                     }
                 }
@@ -81,10 +109,14 @@ struct BatchimLearningView: View {
                         Button(action: {
                             if educationManager.index < 1 {
                                 educationManager.index += 1
+                                isCardView.toggle()
 
                             } 
                             else {
-                                educationManager.currentEducation = .recap
+                                withAnimation(.easeIn(duration: 0.5)) {
+                                    educationManager.currentEducation = .recap
+
+                                }
                             }
                         },label: {
                             Text("Continue")
@@ -93,6 +125,7 @@ struct BatchimLearningView: View {
                                 .bold()
                         })
                         .buttonStyle(.borderedProminent)
+                        .disabled(lessonName == Constants.Lesson.batchim1 && isCardView && touchCardsCount < 1 ? true : false)
                         .padding(.horizontal, 24)
                         .padding(.top, 24)
                         .padding(.bottom, 48)
@@ -105,6 +138,6 @@ struct BatchimLearningView: View {
 }
 
 #Preview {
-    BatchimLearningView(progressValue: .constant(0), currentEducation: .constant(.learning), isPresented: .constant(true))
+    BatchimLearningView(progressValue: .constant(0), currentEducation: .constant(.batchim), isPresented: .constant(true))
         .environmentObject(EducationManager())
 }

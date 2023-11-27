@@ -84,7 +84,10 @@ struct HangulEducationRecapView: View {
 //                                educationManager.currentEducation = .vowelQuiz
                             case .batchim:
                                 progressValue += 1
-                                educationManager.currentEducation = .end
+                                withAnimation(.easeIn(duration: 0.5)) {
+                                    educationManager.currentEducation = .end
+
+                                }
         //                        isPresented = false
                                 educationManager.index = 0
                             }

@@ -133,7 +133,11 @@ struct SameCardCollectingQuizView: View {
                     VStack(spacing: 0){
                         
                         Button(action: {
-                            educationManager.currentEducation = .quiz
+                            withAnimation(.easeIn(duration: 0.5)) {
+                                educationManager.currentEducation = .quiz
+
+                            }
+                            
                             progressValue += 1
                         },label: {
                             Text("Continue")

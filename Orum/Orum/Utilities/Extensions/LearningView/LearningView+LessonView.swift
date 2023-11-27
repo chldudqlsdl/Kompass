@@ -80,7 +80,7 @@ extension LearningView {
                                 Text("\(lesson.completedDates)")
                                     .bold()
                                     .font(.footnote)
-                                    .foregroundStyle(.quaternary)
+                                    .foregroundStyle(.secondary)
                                 
                                 Spacer()
                             }

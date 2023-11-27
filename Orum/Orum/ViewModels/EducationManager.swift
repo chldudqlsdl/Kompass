@@ -27,7 +27,7 @@ class EducationManager: ObservableObject {
         Constants.Lesson.vowel1: ""
     ]
     @AppStorage("lessonState") var lessonState: [String:String] = [
-        Constants.Lesson.system : "complete",
+        Constants.Lesson.system : "locked",
         Constants.Lesson.consonant0 : "complete",
         Constants.Lesson.consonant1 : "complete",
         Constants.Lesson.consonant2 : "complete",

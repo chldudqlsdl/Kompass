@@ -84,7 +84,7 @@ struct Constants {
             Constants.Lesson.batchim1: "",
             Constants.Lesson.batchim2: "When these consonants serve as batchim(final consonant), they follow pronunciation rules different from when they are initial consonants.",
             Constants.Lesson.batchim3 : "These batchim don't appear frequently and have very complex rules. Instead of memorizing them, when you encounter ㅎ or complex batchim, refer to the app for pronunciation. I'll always be here, ready to assist.",
-            Constants.Lesson.batchim4: "Let's review the consonants we learned through a quiz.", // TODO: consonants -> ?
+            Constants.Lesson.batchim4: "Let's review the batchims we learned through a quiz.", // TODO: consonants -> ?
         ]
     }
     

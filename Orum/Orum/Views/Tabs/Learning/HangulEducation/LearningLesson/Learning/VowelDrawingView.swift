@@ -17,7 +17,7 @@ struct VowelDrawingView: View {
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 0) {
                 VStack {
                     ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
                         .padding(.vertical, 16)
@@ -39,11 +39,13 @@ struct VowelDrawingView: View {
                             }
                         }
                 }
-                .frame(height: UIScreen.main.bounds.height - safeArea().top - UIScreen.main.bounds.height * 0.15)
-
                 
-                Spacer()
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
+                
             }
+            .ignoresSafeArea(edges: .bottom)
             
             VStack {
                 Spacer()
@@ -56,7 +58,11 @@ struct VowelDrawingView: View {
                     VStack(spacing: 0){
                         
                         Button(action: {
-                            educationManager.currentEducation = .learning
+                            withAnimation(.easeIn(duration: 0.5)) {
+                                educationManager.currentEducation = .learning
+
+                            }
+
                             progressValue += 1
                             
                         },label: {

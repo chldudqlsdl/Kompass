@@ -58,7 +58,9 @@ struct BasicVowelCheckView: View {
                             HangulCardView(onTapGesture: {},hangulCard: HangulCard(name: name), cardType: .medium, canBorderColorChange: false)
                         }
                     })
-
+                    
+                    Spacer()
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
                 }
                 .padding(.horizontal, 16)
             }
@@ -77,11 +79,17 @@ struct BasicVowelCheckView: View {
                             if educationManager.index < 7 {
                                 progressValue += 1
                                 educationManager.index += 1
-                                educationManager.currentEducation = .vowelDrawing
+                                withAnimation(.easeIn(duration: 0.5)) {
+                                    educationManager.currentEducation = .vowelDrawing
+
+                                }
                             }
                             else {
                                 progressValue += 1
-                                educationManager.currentEducation = .recap
+                                withAnimation(.easeIn(duration: 0.5)) {
+                                    educationManager.currentEducation = .recap
+
+                                }
                             }
                         },label: {
                             Text("Next")

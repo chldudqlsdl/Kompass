@@ -6,22 +6,45 @@
 //
 
 import SwiftUI
+//import AVKit
+//
+//class SoundManager {
+//    static let instance = SoundManager()
+//    var player: AVAudioPlayer?
+//    
+//    
+//    func playSound(sound: String) {
+//        guard let url = Bundle.main.url(forResource: sound, withExtension: ".m4a") else { return }
+//        do {
+//            player = try AVAudioPlayer(contentsOf: url)
+//            player?.play()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//    }
+//}
 import AVKit
 
-class SoundManager {
+class SoundManager: NSObject, AVAudioPlayerDelegate {
     static let instance = SoundManager()
     var player: AVAudioPlayer?
-    
-    
-    func playSound(sound: String) {
+    var completion: (() -> Void)?
+
+    func playSound(sound: String, completion: (() -> Void)?) {
         guard let url = Bundle.main.url(forResource: sound, withExtension: ".m4a") else { return }
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            player?.delegate = self
             player?.play()
+            self.completion = completion
         } catch {
             print(error.localizedDescription)
         }
     }
-    
-    
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        // 사운드 재생이 끝났을 때 호출되는 메서드
+        completion?()
+        completion = nil
+    }
 }
