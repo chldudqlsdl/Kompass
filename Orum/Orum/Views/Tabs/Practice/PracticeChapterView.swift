@@ -18,6 +18,20 @@ struct PracticeChapterView: View {
         Constants.Practice.chapter[chapterIndex]
     }
     
+    @State var symbolEffectArray: [Bool] = [Bool](repeating: false, count: 20)
+//    var symbolEffectArray: [Bool] {
+//        if chapterName == "Food" {
+//            return [Bool](repeating: false, count: 18)
+//        }
+//        else if chapterName == "Tourism" {
+//            return [Bool](repeating: false, count: 20)
+//
+//        }
+//        else {
+//            return [Bool](repeating: false, count: 15)
+//        }
+//    }
+    
     @EnvironmentObject var practiceManager : PracticeManager
     
     @State private var symbolEffectCounter: Bool = false
@@ -58,7 +72,8 @@ struct PracticeChapterView: View {
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16))
                     
                     VStack(spacing: 8) {
-                        ForEach(practiceWords[chapterName]!) { practiceWord in
+//                        ForEach(practiceWords[chapterName]!) { practiceWord in
+                        ForEach(Array(practiceWords[chapterName]!.enumerated()), id: \.element.id) { index, practiceWord in
                             VStack(alignment: .leading ,spacing: 0){
                                 Button(action: {
                                     
@@ -68,13 +83,13 @@ struct PracticeChapterView: View {
                                         }
                                         else {
                                             selectedWord = practiceWord
-                                            SoundManager.instance.playSound(sound: practiceWord.name )
+                                            SoundManager.instance.playSound(sound: practiceWord.name, completion: {} )
                                         }
                                         
                                         practiceManager.practicedWords.append(practiceWord.name)
                                        
                                     }
-                                    symbolEffectCounter.toggle()
+                                    symbolEffectArray[index].toggle()
                                 }, label: {
                                     HStack(alignment: .center, spacing: 15) {
                                         if ( practiceWord != selectedWord ){
@@ -127,10 +142,17 @@ struct PracticeChapterView: View {
                                                                 .foregroundStyle(.blue)
                                                                 .opacity(0.4)
                                                                 .rotationEffect(.degrees(practiceWord == selectedWord ? 0 : 180))
-                                                            Image(systemName: practiceWord == selectedWord ? "waveform" : "speaker.wave.2.fill")
-                                                                .font(.body)
-                                                                .foregroundStyle(.blue)
-//                                                                .symbolEffect(.bounce, value: symbolEffectCounter )
+                                                            if #available(iOS 17.0, *) {
+                                                                Image(systemName: "speaker.wave.2.fill")
+                                                                    .font(.body)
+                                                                    .foregroundStyle(.blue)
+                                                                    .symbolEffect(.bounce, value: symbolEffectArray[index])
+                                                            }
+                                                            else {
+                                                                Image(systemName: "speaker.wave.2.fill")
+                                                                    .font(.body)
+                                                                    .foregroundStyle(.blue)
+                                                            }
                                                         }
                                                         
                                                     }
@@ -150,7 +172,7 @@ struct PracticeChapterView: View {
                                 if selectedWord == practiceWord {
                                     Text("\(practiceWord.explanation)")
                                         .foregroundStyle(Color(uiColor: .secondaryLabel))
-                                        .transition(.asymmetric(insertion: .move(edge: .top), removal: .opacity))
+                                        .transition(.opacity)
                                         .padding(.trailing)
                                     
                                 }
@@ -193,7 +215,6 @@ struct PracticeChapterView: View {
             }
             .navigationTitle(chapterName)
             .toolbarTitleDisplayMode(.inline)
-            
         }
     }
 }

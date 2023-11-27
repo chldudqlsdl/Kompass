@@ -32,7 +32,7 @@ let practiceWords: [String : [PracticeWord]] = [
         PracticeWord(word: "닭한마리"),
         PracticeWord(word: "라면"),
         PracticeWord(word: "불닭볶음면"),
-        PracticeWord(word: "김밥"),
+        PracticeWord(word: "삼각김밥"),
         PracticeWord(word: "김치"),
         PracticeWord(word: "육회"),
         PracticeWord(word: "떡볶이"),

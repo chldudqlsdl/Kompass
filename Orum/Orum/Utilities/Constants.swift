@@ -81,7 +81,7 @@ struct Constants {
             Constants.Lesson.vowel2 : "We're going to learn about vowels that are pronounced with 'ㅣ' based on basic vowels. There are two short lines for each.",
             Constants.Lesson.vowel3 : "We're going to learn about vowels that are composed of two basic vowels.",
             Constants.Lesson.vowel4 : "Let's review the vowel we learned through a quiz.",
-            Constants.Lesson.batchim1: "",
+            Constants.Lesson.batchim1: "In the final consonants, sounds are produced only by these final consonants.",
             Constants.Lesson.batchim2: "When these consonants serve as batchim(final consonant), they follow pronunciation rules different from when they are initial consonants.",
             Constants.Lesson.batchim3 : "These batchim don't appear frequently and have very complex rules. Instead of memorizing them, when you encounter ㅎ or complex batchim, refer to the app for pronunciation. I'll always be here, ready to assist.",
             Constants.Lesson.batchim4: "Let's review the batchims we learned through a quiz.", // TODO: consonants -> ?
@@ -171,7 +171,7 @@ struct Constants {
             "ㅍ" : "p",
             "ㅎ" : "h",
             "ㄲ" : "gg",
-            "ㄸ" : "tt",
+            "ㄸ" : "dd",
             "ㅃ" : "bb",
             "ㅆ" : "ss",
             "ㅉ" : "jj",
@@ -193,7 +193,7 @@ struct Constants {
             "ㅍ" : ["pa","pu"],
             "ㅎ" : ["ha","hu"],
             "ㄲ" : ["gga", "ggu"],
-            "ㄸ" : ["tta", "ttu"],
+            "ㄸ" : ["dda", "ddu"],
             "ㅃ" : ["bba", "bbu"],
             "ㅆ" : ["ssa", "ssu"],
             "ㅉ" : ["jja", "jju"],
@@ -312,12 +312,12 @@ struct Constants {
             "ㅒ" : "yae",
             "ㅖ" : "yae",
             "ㅢ" : "eui",
-            "ㅟ" : "wui",
-            "ㅚ" : "wea",
+            "ㅟ" : "ui",
+            "ㅚ" : "oe",
             "ㅘ" : "wa",
-            "ㅝ" : "wue",
-            "ㅙ" : "wea",
-            "ㅞ" : "wea",
+            "ㅝ" : "wo",
+            "ㅙ" : "wae",
+            "ㅞ" : "wae",
         ]
         
         static let vowelSimilarSound : [String : String] = [
@@ -717,7 +717,7 @@ struct Constants {
         ]
         
         static let word : [String : [String]] = [
-            "Food" : ["국밥", "치맥", "삼겹살", "불고기", "삼계탕", "칼국수", "닭한마리", "라면", "불닭볶음면", "김밥", "김치", "육회", "떡볶이", "소주", "빈대떡", "냉면", "비빔밥","붕어빵"],
+            "Food" : ["국밥", "치맥", "삼겹살", "불고기", "삼계탕", "칼국수", "닭한마리", "라면", "불닭볶음면", "삼각김밥", "김치", "육회", "떡볶이", "소주", "빈대떡", "냉면", "비빔밥","붕어빵"],
             "Tourism" : ["홍대", "성수", "서울", "강남", "인천", "부산", "한강", "익선동", "이태원", "동대문", "혜화", "종로", "광장시장", "지하철", "버스", "가로수길", "공항", "경복궁", "남산", "명동"],
             "Daily Life" : ["안녕하세요", "감사합니다", "죄송합니다", "맛있어요", "주세요", "어디에요", "얼마에요", "도와주세요", "편의점", "병원", "화장실", "좋아요", "싫어요", "네", "아니요"]
         ]
@@ -732,7 +732,7 @@ struct Constants {
             "닭한마리" : "dakanmari",
             "라면" : "ramyun",
             "불닭볶음면" : "buldak",
-            "김밥" : "gimbap",
+            "삼각김밥" : "gimbap",
             "김치" : "kimchi",
             "육회" : "yukhoe",
             "떡볶이" : "tteokbokki",
@@ -788,7 +788,7 @@ struct Constants {
             "닭한마리" : "닭한마리 is a Seoul-style cuisine where chicken pieces, boiled in broth with green onions, onions, and other ingredients, are simmered with black pepper, spices, garlic, ginger, and more in a hot pot. It is more famous among foreigners than Koreans.",
             "라면" : "라면 is a popular and easy-to-make noodle dish from Korea. It involves boiling noodles and mixing them with soup. There are various flavors and types, making it a favorite among many. It's well-known for being a quick and tasty meal!",
             "불닭볶음면" : "불닭볶음면, also known as 'Spicy Fire Chicken Noodles,' is a spicy chicken 라면. It's a popular choice among those who enjoy spicy foods in Korea!",
-            "김밥" : "삼각김밥, also known as 'Triangle Kimbap,' is a simple triangular-shaped rice roll. Inside, you'll find a variety of ingredients such as rice, egg, tuna, and vegetables. It's a convenient and popular snack enjoyed at schools or workplaces.",
+            "삼각김밥" : "삼각김밥, also known as 'Triangle Kimbap,' is a simple triangular-shaped rice roll. Inside, you'll find a variety of ingredients such as rice, egg, tuna, and vegetables. It's a convenient and popular snack enjoyed at schools or workplaces.",
             "김치" : "김치 is a traditional Korean dish, made by fermenting vegetables like cabbage or radishes with gochujang (red chili paste). It has a spicy flavor and is often enjoyed with rice or used in various dishes. It plays a significant role in Korean culinary culture.",
             "육회" : "육회 is a Korean dish made with raw beef that is fresh and seasoned. Typically, the beef is finely chopped and mixed with a seasoning sauce containing soy sauce, sugar, sesame oil, and other ingredients. It has a tender texture and a rich, savory flavor. It's often enjoyed on special occasions or gatherings in Korea.",
             "떡볶이" : "떡볶이 is a popular Korean snack made with chewy rice cakes in a sweet and spicy gochujang (red chili paste) sauce With every bite, you get a delightful mix of sweet and spicy flavors. It's a beloved street food and commonly enjoyed at snack stalls or casual eateries in Korea.",
@@ -900,7 +900,7 @@ struct Constants {
             "system3" : ["system3"],
             "consonant0" : ["consonant0"],
             "consonant1" : ["consonant1"],
-            "consonant2" : ["consonant2"],
+            "consonant2" : ["gun"],
             "consonant3" : ["consonant3"],
             "consonant4" : ["consonant4"],
             "vowel0" : ["vowel0"],
@@ -912,6 +912,12 @@ struct Constants {
             "batchim2" : ["batchim2"],
             "batchim3" : ["batchim3"],
             
+        ]
+        
+        static let example : [String : String] = [
+            "consonant0" : "ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ\nㄲ ㄸ ㅃ ㅆ ㅉ",
+            "vowel0" : "ㅡ ㅣ ㅏ ㅓ ㅗ ㅜ ㅐ ㅔ\nㅑ ㅕ ㅛ ㅠ ㅒ ㅖ\nㅢ ㅟ ㅝ ㅞ ㅚ ㅘ ㅙ",
+            "batchim0" : "ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅇ\nㅋ ㄲ ㅌ ㅍ ㅅ ㅈ ㅊ ㅆ\nㅎ ㄳ ㄵ ㄶ ㄺ ㄻ ㄼ ㄽ ㄾ ㅀ ㄿ ㅄ",
         ]
     }
 }

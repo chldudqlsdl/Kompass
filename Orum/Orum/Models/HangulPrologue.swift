@@ -30,11 +30,11 @@ struct HangulPrologue {
         case .system:
             color = [Color("systemMain"), Color("systemSub")]
         case .consonant:
-            color = [Color("consonantMain"), Color("consonantSub")]
+            color = [Color("consonantMain"), Color("consonantSub"), Color("consonantThird")]
         case .vowel:
-            color = [Color("vowelMain"), Color("vowelSub")]
+            color = [Color("vowelMain"), Color("vowelSub"), Color("vowelThird")]
         case .batchim:
-            color = [Color("batchimMain"), Color("batchimSub")]
+            color = [Color("batchimMain"), Color("batchimSub"), Color("batchimThird")]
         
         }
     }
