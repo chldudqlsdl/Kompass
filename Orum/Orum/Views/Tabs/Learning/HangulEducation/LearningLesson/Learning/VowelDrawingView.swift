@@ -28,7 +28,7 @@ struct VowelDrawingView: View {
                         .overlay {
                             VStack {
                                 Text("\(writingCount)/3")
-                                    .foregroundStyle(writingCount < 3 ? Color(uiColor: .secondaryLabel) : .accentColor) // MARK: 색상 변경 되는 것은 별로?
+                                    .foregroundStyle(writingCount < 3 ? Color(uiColor: .secondaryLabel) : .accentColor)
                                 
                                 Text("Draw vowel along the lines")
                                     .multilineTextAlignment(.center)
@@ -39,7 +39,7 @@ struct VowelDrawingView: View {
                             }
                         }
                 }
-                .frame(height: UIScreen.main.bounds.height - safeArea().top - UIScreen.main.bounds.height *  0.15)
+                .frame(height: UIScreen.main.bounds.height - safeArea().top - UIScreen.main.bounds.height * 0.15)
 
                 
                 Spacer()

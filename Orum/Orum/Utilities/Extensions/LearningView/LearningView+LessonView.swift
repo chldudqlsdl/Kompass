@@ -84,7 +84,7 @@ extension LearningView {
                                 
                                 Spacer()
                             }
-                            .padding(.top, 4) // MARK: 여기 패딩 4 주는게 맞나?
+                            .padding(.top, 4)
                             
                             Spacer()
                             

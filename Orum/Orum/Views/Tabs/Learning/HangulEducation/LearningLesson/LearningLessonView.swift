@@ -36,7 +36,7 @@ struct LearningLessonView: View {
             HangulEducationLearningView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .transition(.opacity)
-        
+            
         case .basicVowelCheck:
             BasicVowelCheckView(progressValue: $progressValue)
                 .environmentObject(educationManager)
@@ -50,24 +50,25 @@ struct LearningLessonView: View {
             SameCardCollectingQuizView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .padding(16)
-        
+            
         case .quiz:
             HangulEducationQuizView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
                 .transition(.opacity)
-        
+            
         case .batchim:
             BatchimLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
                 .environmentObject(educationManager)
-        
+            
         case .complexBatchim:
             ComplexBatchimLearningView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
-        
+            
         case .end:
             LessonEndingView(isPresented: $isPresented)
                 .environmentObject(educationManager)
         }
+        
     }
 }
 

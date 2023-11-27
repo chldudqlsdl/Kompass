@@ -74,15 +74,15 @@ struct HangulEducationRecapView: View {
                             switch educationManager.chapterType {
                             case .system:
                                 break
-                            case .consonant:
+                            case .consonant, .vowel:
                                 progressValue += 1
                                 educationManager.currentEducation = .quiz
-                            case .vowel:
-                                progressValue += 1
-                                educationManager.currentEducation = .vowelQuiz
+//                            case .vowel:
+//                                progressValue += 1
+//                                educationManager.currentEducation = .vowelQuiz
                             case .batchim:
                                 progressValue += 1
-                                educationManager.currentEducation = .quiz
+                                educationManager.currentEducation = .end
         //                        isPresented = false
                                 educationManager.index = 0
                             }

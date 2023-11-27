@@ -79,24 +79,32 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.consonant1
             chapterType = .consonant
             lessonType = .lesson
+            currentEducation = .learning
+
             
         case Constants.Lesson.consonant2:
             content = HangulUnitEnum.consonant2
             quiz = HangulUnitQuizEnum.consonant2
             chapterType = .consonant
             lessonType = .lesson
+            currentEducation = .learning
+
             
         case Constants.Lesson.consonant3:
             content = HangulUnitEnum.consonant3
             quiz = HangulUnitQuizEnum.consonant3
             chapterType = .consonant
             lessonType = .lesson
+            currentEducation = .learning
+
 
         case Constants.Lesson.consonant4:
             content = HangulUnitEnum.consonant4
             quiz = HangulUnitQuizEnum.consonant4
             chapterType = .consonant
             lessonType = .lesson
+            currentEducation = .learning
+
             
         case Constants.Lesson.consonant5:
             content = HangulUnitEnum.consonant5
@@ -116,18 +124,24 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.vowel1
             chapterType = .vowel
             lessonType = .lesson
+            currentEducation = .vowelDrawing
+
 
         case Constants.Lesson.vowel2:
             content = HangulUnitEnum.vowel2
             quiz = HangulUnitQuizEnum.vowel2
             chapterType = .vowel
             lessonType = .lesson
+            currentEducation = .vowelDrawing
+
 
         case Constants.Lesson.vowel3:
             content = HangulUnitEnum.vowel3
             quiz = HangulUnitQuizEnum.vowel3
             chapterType = .vowel
             lessonType = .lesson
+            currentEducation = .vowelDrawing
+
 
         case Constants.Lesson.vowel4:
             content = HangulUnitEnum.vowel4
@@ -147,12 +161,15 @@ class EducationManager: ObservableObject {
             quiz = HangulUnitQuizEnum.batchim1
             chapterType = .batchim
             lessonType = .lesson
+            currentEducation = .batchim
+
 
         case Constants.Lesson.batchim2:
             content = HangulUnitEnum.batchim2
             quiz = HangulUnitQuizEnum.batchim2
             chapterType = .batchim
             lessonType = .lesson
+            currentEducation = .batchim
 
         case Constants.Lesson.batchim3:
             content = HangulUnitEnum.batchim3
@@ -190,8 +207,8 @@ class EducationManager: ObservableObject {
             }
         }
         
-        nowStudying = ""
-        currentEducation = .learning
+//        nowStudying = ""
+//        currentEducation = .learning
         index = 0
     }
 }

@@ -44,7 +44,7 @@ extension LearningView {
                             VStack(spacing: 16) {
                                 Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))")
                                     .frame(maxWidth: .infinity)
-                                    .font(.custom("Pretendard-Bold", size: 34, relativeTo: .largeTitle))  // MARK: relativeTo: .largeTitle 이거 맞나?
+                                    .font(.custom("Pretendard-Bold", size: 34, relativeTo: .largeTitle))
                                     .bold()
                                     .multilineTextAlignment(.center)
                                     .padding(.horizontal, 8)

@@ -76,13 +76,15 @@ struct BatchimLearningView: View {
                         .foregroundStyle(.ultraThinMaterial)
                         .frame(height: UIScreen.main.bounds.height * 0.15)
                     
-                    VStack(spacing: 0){
+                    VStack(spacing: 0) {
                         
                         Button(action: {
-                            if educationManager.index == 1 {
-                                currentEducation = .recap
-                            } else{
+                            if educationManager.index < 1 {
                                 educationManager.index += 1
+
+                            } 
+                            else {
+                                educationManager.currentEducation = .recap
                             }
                         },label: {
                             Text("Continue")

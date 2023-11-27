@@ -49,7 +49,7 @@ struct PracticeView: View {
                                                         .foregroundStyle(.blue)
                                                 }
                                             }
-                                            .padding(.top, 4) // MARK: Padding .top, 4???
+                                            .padding(.top, 4)
                                             
                                             Spacer()
                                         }
