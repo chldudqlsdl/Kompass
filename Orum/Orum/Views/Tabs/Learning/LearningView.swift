@@ -22,11 +22,17 @@ struct LearningView: View {
     
     @Namespace var animation
     
+    let chapterName_hangul = [
+        "한글",
+        "자음",
+        "모음",
+        "받침"
+    ]
     let chapterName = [
-        "한글 (Hangul)",
-        "자음 (Consonant)",
-        "모음 (Vowel)",
-        "받침 (Batchim)",
+        "Hangul",
+        "Consonant",
+        "Vowel",
+        "Batchim",
     ]
     
     var body: some View {
@@ -35,12 +41,19 @@ struct LearningView: View {
                 VStack(alignment: .leading,spacing: 16) {
                     ForEach (0 ..< 4) { index in
                         VStack(alignment: .leading) {
-                            Text(chapterName[index])
-                                .bold()
-                                .font(.custom("Pretendard-Bold", size: 22, relativeTo: .title2))
+                            VStack(alignment: .leading) {
+                                Text(chapterName_hangul[index])
+                                    .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                
+                                Text(chapterName[index])
+                                    .bold()
+                                    .font(.custom("Pretendard-Bold", size: 22, relativeTo: .title2))
+                            }
                             
-                            ForEach(lessons[index]) { lesson in
-                                LessonView(lesson: lesson)
+                            VStack(spacing: 8) {
+                                ForEach(lessons[index]) { lesson in
+                                    LessonView(lesson: lesson)
+                                }
                             }
                         }
                         

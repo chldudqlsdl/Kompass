@@ -44,7 +44,7 @@ extension LearningView {
                             VStack(spacing: 16) {
                                 Text("\(Constants.Lesson.lessonComponent[lesson.lessonName]!.concatArray(isComma: false))")
                                     .frame(maxWidth: .infinity)
-                                    .font(.largeTitle)
+                                    .font(.custom("Pretendard-Bold", size: 34, relativeTo: .largeTitle))
                                     .bold()
                                     .multilineTextAlignment(.center)
                                     .padding(.horizontal, 8)

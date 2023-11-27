@@ -14,7 +14,7 @@ struct PracticeView: View {
     var body: some View {
         NavigationView {
             ScrollView{
-                VStack{
+                VStack(spacing: 8) {
                     ForEach(0 ..< Constants.Practice.chapter.count) { index in
                         NavigationLink {
                             PracticeChapterView()
@@ -33,29 +33,35 @@ struct PracticeView: View {
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 102, height: 57)
                                     .clipShape(RoundedRectangle(cornerRadius: 5))
+                                    .padding(.trailing, 7)
                                     
                                     
-                                VStack{
+                                VStack(spacing: 8) {
                                     HStack {
-                                        VStack(alignment: .leading) {
+                                        VStack(alignment: .leading, spacing: 0) {
                                             HStack {
                                                 Text("\(Constants.Practice.chapter[index])")
                                                     .bold()
+
                                                 if !practiceManager.practicedChapters.contains(Constants.Practice.chapter[index]) {
                                                     Circle()
                                                         .frame(width: 7, height:7)
                                                         .foregroundStyle(.blue)
                                                 }
                                             }
+                                            .padding(.top, 4)
+                                            
+                                            Spacer()
                                         }
+                                        
                                         Spacer()
+                                        
                                         Image(systemName: "chevron.right")
                                             .foregroundStyle(.quaternary)
                                             .padding(.trailing, 16)
                                     }
                                     .padding(.leading, 9)
-                                    
-                                    Spacer()
+                                    .frame(height: 57)
                                     
                                     Divider()
                                 }

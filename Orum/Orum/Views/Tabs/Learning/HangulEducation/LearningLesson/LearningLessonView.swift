@@ -31,43 +31,49 @@ struct LearningLessonView: View {
         case .vowelDrawing:
             VowelDrawingView(progressValue: $progressValue)
                 .environmentObject(educationManager)
-            
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .learning:
             HangulEducationLearningView(progressValue: $progressValue)
                 .environmentObject(educationManager)
-                .transition(.opacity)
-        
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .basicVowelCheck:
             BasicVowelCheckView(progressValue: $progressValue)
                 .environmentObject(educationManager)
-                .transition(.opacity)
-            
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
         case .recap:
             HangulEducationRecapView(progressValue: $progressValue)
                 .environmentObject(educationManager)
-            
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .vowelQuiz:
             SameCardCollectingQuizView(progressValue: $progressValue)
                 .environmentObject(educationManager)
                 .padding(16)
-        
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .quiz:
             HangulEducationQuizView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
-                .transition(.opacity)
-        
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+            
         case .batchim:
             BatchimLearningView(progressValue: $progressValue, currentEducation: $currentEducation, isPresented: $isPresented)
                 .environmentObject(educationManager)
-        
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .complexBatchim:
             ComplexBatchimLearningView(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
-        
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
         case .end:
             LessonEndingView(isPresented: $isPresented)
                 .environmentObject(educationManager)
+
         }
+        
     }
 }
 

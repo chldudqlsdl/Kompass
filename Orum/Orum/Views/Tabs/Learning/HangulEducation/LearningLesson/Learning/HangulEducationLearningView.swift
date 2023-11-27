@@ -104,6 +104,9 @@ struct HangulEducationLearningView: View {
                                 .padding(.horizontal, 48)
                         }
                         .padding(.horizontal, 16)
+                    
+                    Spacer()
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
                     }
                     
                 VStack {
@@ -142,8 +145,7 @@ struct HangulEducationLearningView: View {
                                     }
                                     
                                     isOnceFlipped = false
-                                    educationManager.index = 0
-                                    withAnimation(.easeIn(duration: 1)) {
+                                    withAnimation(.easeIn(duration: 0.5)) {
                                         progressValue += 1
                                         educationManager.currentEducation = .recap
                                     }

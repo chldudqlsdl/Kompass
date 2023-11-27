@@ -63,7 +63,7 @@ extension LearningView {
                 }
             },label: {
                 HStack(alignment: .top, spacing: 0) {
-                    VStack {
+                    VStack(spacing: 8) {
                         HStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack {
@@ -81,7 +81,10 @@ extension LearningView {
                                     .bold()
                                     .font(.footnote)
                                     .foregroundStyle(.quaternary)
+                                
+                                Spacer()
                             }
+                            .padding(.top, 4)
                             
                             Spacer()
                             
@@ -90,9 +93,8 @@ extension LearningView {
                                 .foregroundStyle(.quaternary)
                                 .padding(.trailing, 16)
                         }
+                        .frame(height: 57)
                         .padding(.leading, 9)
-                        .padding(.bottom,25)
-                        
                         
                         Divider()
                     }

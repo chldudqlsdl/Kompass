@@ -22,6 +22,20 @@ struct PrologueLessonView: View {
         educationManager.prologue[index]
     }
     
+    var buttonText: String {
+        if index < educationManager.prologue.count - 1 {
+            return "Continue"
+        }
+        else {
+            if isFirstLaunching {
+                return "Let's Kompass"
+            }
+            else {
+                return "Complete"
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack{
             ZStack{
@@ -37,12 +51,6 @@ struct PrologueLessonView: View {
                             Text(.init(prologuePage.text))
                                 .font(.body)
                                 .multilineTextAlignment(.center)
-                            
-//                            if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
-//                                VStack {
-//                                    <#code#>
-//                                }
-//                            }
                             
                             Spacer()
                         }
@@ -84,7 +92,9 @@ struct PrologueLessonView: View {
                             
                             Button(action: {
                                 if index < educationManager.prologue.count - 1 {
-                                    index += 1
+                                    withAnimation {
+                                        index += 1
+                                    }
                                 } else {
                                     withAnimation {
                                         isPresented.toggle()
@@ -92,7 +102,7 @@ struct PrologueLessonView: View {
                                     }
                                 }
                             },label: {
-                                Text("Continue")
+                                Text("\(buttonText)")
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 8)
                                     .bold()

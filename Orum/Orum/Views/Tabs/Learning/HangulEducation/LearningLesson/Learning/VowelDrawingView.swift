@@ -16,14 +16,33 @@ struct VowelDrawingView: View {
     @State var writingCount = 0
     
     var body: some View {
-        VStack(spacing: 0) {
+        ZStack {
             VStack {
-                ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                    .padding(.vertical, 16)
-                    .padding(.horizontal, 16)
+                VStack {
+                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                        .padding(.vertical, 16)
+                        .padding(.horizontal, 16)
+                    
+                    Canvas(writingCount: $writingCount)
+                        .environmentObject(educationManager)
+                        .overlay {
+                            VStack {
+                                Text("\(writingCount)/3")
+                                    .foregroundStyle(writingCount < 3 ? Color(uiColor: .secondaryLabel) : .accentColor)
+                                
+                                Text("Draw vowel along the lines")
+                                    .multilineTextAlignment(.center)
+                                    .bold()
+                                    .font(.largeTitle)
+                                
+                                Spacer()
+                            }
+                        }
+                }
+                .frame(height: UIScreen.main.bounds.height - safeArea().top - UIScreen.main.bounds.height * 0.15)
+
                 
-                Canvas(writingCount: $writingCount)
-                    .environmentObject(educationManager)
+                Spacer()
             }
             
             VStack {

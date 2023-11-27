@@ -45,7 +45,7 @@ struct HangulQuizView: View {
                                 .fontWeight(.bold)
                                 .foregroundStyle(.secondary)
                             
-                            Text("Select the corect pronunciation")
+                            Text("Select the correct pronunciation")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
@@ -54,9 +54,11 @@ struct HangulQuizView: View {
                         
                         
                         VStack {
-                            Image("국밥")
-                                .resizable()
-                                .scaledToFit()
+                            if !educationManager.quiz.isEmpty {
+                                Image(educationManager.quiz[ind].name + "\(educationManager.lessonType == .epilogue ? 1 : 0)")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                         }
                         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.2)
                         .background(Color(uiColor: .quaternarySystemFill))
@@ -229,13 +231,15 @@ struct HangulQuizView: View {
                                         }
                                         
                                         if educationManager.quiz.isEmpty {
+                                            
                                             educationManager.currentEducation = .end
                                             //                                            educationManager.endLesson()
                                             //                                            isPresented.toggle()
                                         }
                                         else {
+                                            ind = 0
+
                                             withAnimation {
-                                                ind = 0
                                                 quizButtonText = "Check"
                                                 isOptionSelected = false
                                                 isOptionSubmitted = false
@@ -292,10 +296,11 @@ struct HangulQuizView: View {
                         
                         Spacer()
                     }
-                    
-                    Text( isOptionWrong ?(educationManager.quiz.isEmpty ? "" : "\(educationManager.quiz[ind].name ) has a [\(educationManager.quiz[ind].sound)] sound." ): (educationManager.quiz.isEmpty ? "" :"\(educationManager.quiz[ind].quizName) means “\(educationManager.quiz[ind].meaning)” in Korean."))
-                        .fontWeight(.bold)
-                        .foregroundColor(isOptionWrong ? .red : .blue)
+                    if !educationManager.quiz.isEmpty{
+                        Text(isOptionWrong ? (educationManager.quiz.isEmpty ? "" : "\(educationManager.quiz[ind].name ) has a [\(educationManager.quiz[ind].sound)] sound." ) : (educationManager.quiz.isEmpty ? "" :"\(educationManager.quiz[ind].quizName) means “\(educationManager.quiz[ind].meaning)” in Korean."))
+                            .fontWeight(.bold)
+                            .foregroundColor(isOptionWrong ? .red : .blue)
+                    }
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 16)
