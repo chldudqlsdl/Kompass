@@ -35,7 +35,7 @@ struct HangulQuizView: View {
             ZStack {
                 ScrollView {
                     VStack(spacing: 16) {
-                        ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                        ProgressView(value: Double(progressValue) / Double(educationManager.quiz.count * 2 + 2))
                             .padding(.vertical, 16)
                             .id(topID)
                         

@@ -54,7 +54,7 @@ struct PrologueLessonView: View {
                             .overlay {
                                 if prologuePage.image.count == 1 {
                                     if prologuePage.image[0] == "vowel3" {
-                                        LottieView(fileName: "vowel3")
+                                        LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
                                             .scaledToFit()
                                     } else {
                                         Image(prologuePage.image[0])
