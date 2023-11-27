@@ -148,7 +148,6 @@ struct HangulQuizView: View {
                     .padding(.horizontal, 16)
                     .onAppear {
                         optionAlphabet = makeQuiz()
-                        print(optionAlphabet)
                     }
                     .onChange(of: isNext) {
                         selectedOptionIndex = 5

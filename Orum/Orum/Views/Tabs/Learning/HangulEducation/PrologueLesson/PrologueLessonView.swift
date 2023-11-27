@@ -52,6 +52,46 @@ struct PrologueLessonView: View {
                                 .font(.body)
                                 .multilineTextAlignment(.center)
                             
+                            if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
+                                if prologuePage.name == "consonant0" {
+                                    VStack{
+                                        Text(Constants.Prologue.example["consonant0"]!)
+                                            .foregroundStyle(.black)
+                                            .font(.body)
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                            .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
+                                            .padding(.horizontal, 30)
+                                            .multilineTextAlignment(.center)
+                                            .background(Color(prologuePage.color[2]))
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                                            
+                                    }
+                                } else if prologuePage.name == "vowel0" {
+                                    Text(Constants.Prologue.example["vowel0"]!)
+                                        .foregroundStyle(.black)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
+                                        .padding(.horizontal, 30)
+                                        .multilineTextAlignment(.center)
+                                        .background(Color(prologuePage.color[2]))
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                } else {
+                                    Text(Constants.Prologue.example["batchim0"]!)
+                                        .foregroundStyle(.black)
+                                        .font(.body)
+                                        .fontWeight(.bold)
+                                        .frame(maxWidth: .infinity)
+                                        .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
+                                        .padding(.horizontal, 30)
+                                        .multilineTextAlignment(.center)
+                                        .background(Color(prologuePage.color[2]))
+                                        .clipShape(RoundedRectangle(cornerRadius: 16))
+                                }
+                            }
+                            
                             Spacer()
                         }
                         .frame(height : dynamicTypeSize.prologueTextHeight)
@@ -65,7 +105,11 @@ struct PrologueLessonView: View {
                                         if prologuePage.image[0] == "vowel3" {
                                             LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
                                                 .scaledToFit()
-                                        } else {
+                                        } else if prologuePage.image[0] == "gun" {
+                                            LottieView(fileName: "gun")
+                                                .scaledToFit()
+                                        }
+                                        else {
                                             Image(prologuePage.image[0])
                                                 .resizable()
                                                 .scaledToFit()
@@ -85,7 +129,6 @@ struct PrologueLessonView: View {
                                             .offset(y: 90)
                                             .onTapGesture {
                                                 SoundManager.instance.playSound(sound: "ㅏ"){}
-                                                print("Hi")
                                             }
                                         Capsule()
                                             .foregroundColor(.white)
@@ -94,7 +137,6 @@ struct PrologueLessonView: View {
                                             .offset(y: 90)
                                             .onTapGesture {
                                                 SoundManager.instance.playSound(sound: "ㅜ"){}
-                                                print("Bye")
                                             }
                                     }
                                 }

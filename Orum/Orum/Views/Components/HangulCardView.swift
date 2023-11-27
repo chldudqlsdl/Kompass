@@ -15,6 +15,7 @@ struct HangulCardView: View {
     @State var isOnceFlipped: Bool = false
     @State var flashCardRotation = 0.0
     @State var contentRotation = 0.0
+    @Environment(\.colorScheme) private var colorScheme : ColorScheme
     
     var cardType: CardType
     var canBorderColorChange: Bool
@@ -68,21 +69,28 @@ struct HangulCardView: View {
                             
                         case .consonant:
                             if hangulCard.hangulType == .single {
-                                LottieView(fileName: hangulCard.lottieName)
+                                RoundedRectangle(cornerRadius: 16)
+                                    .foregroundStyle( colorScheme == .light ? .clear : Color(uiColor: .systemGray4) )
                                     .frame(width: cardType.imageFrame, height: cardType.imageFrame)
+                                    .overlay {
+                                        LottieView(fileName: hangulCard.lottieName)
+                                            .frame(width: cardType.imageFrame, height: cardType.imageFrame)
+                                    }
+                                
+                                    
                                 HStack {
                                     Spacer()
-                                    
                                     Text("[")
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(Color(uiColor: .systemGray4))
                                     +
-                                    Text(hangulCard.lottieName.prefix(1))
+                                    Text(hangulCard.lottieName.prefix(hangulCard.name == "ㅊ" ? 2 : 1 ))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
+                                        .foregroundColor(hangulCard.lottieName == "nothing" ? Color(uiColor: .systemGray4) : .primary)
                                     +
-                                    Text(hangulCard.lottieName.dropFirst(1))
+                                    Text(hangulCard.lottieName.dropFirst(hangulCard.name == "ㅊ" ? 2 : 1 ))
                                         .fontWeight(.bold)
                                         .font(cardType.explanationFont(.consonant, hangulType: .single))
                                         .foregroundColor(Color(uiColor: .systemGray4))

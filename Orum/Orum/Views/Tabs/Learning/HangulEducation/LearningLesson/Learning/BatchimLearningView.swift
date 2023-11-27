@@ -42,9 +42,6 @@ struct BatchimLearningView: View {
                                         .font(.body)
                                         .fontWeight(.bold)
                                         .foregroundStyle(.secondary)
-                                        .onAppear{
-                                            print(educationManager.nowStudying)
-                                        }
                                     
                                     Text(Constants.Hangul.batchimTitle[lessonName]![pageIndex])
                                         .font(.largeTitle)

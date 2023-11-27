@@ -95,6 +95,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         
         if stroke == educationManager.content[educationManager.index].strokeCount  {
             writingCount += 1
+
             SoundManager.instance.playSound(sound: educationManager.content[educationManager.index].name){}
             
             let writedImage = canvasView.drawing.image(from: canvasView.drawing.bounds, scale: 1.0)

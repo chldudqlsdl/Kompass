@@ -27,9 +27,6 @@ struct ComplexBatchimLearningView: View {
                             .font(.body)
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
-                            .onAppear{
-                                print(educationManager.nowStudying)
-                            }
                         
                         Text("Complex Batchim")
                             .font(.largeTitle)
