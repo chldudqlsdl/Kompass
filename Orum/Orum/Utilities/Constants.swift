@@ -350,7 +350,7 @@ struct Constants {
         static let vowelQuiz: [String : [String]] = [
             "ㅡ" : ["셀프","버스"],
             "ㅣ" : ["이태원","갈비"],
-            "ㅏ" : ["타는 곳","교통카드"],
+            "ㅏ" : ["타는곳","교통카드"],
             "ㅓ" : ["서울","붕어빵"],
             "ㅗ" : ["노래방","소주"],
             "ㅜ" : ["금연구역","맥주"],
@@ -361,14 +361,15 @@ struct Constants {
             "ㅛ" : ["비요뜨","안녕하세요"],
             "ㅠ" : ["씨유","뉴진스"],
             "ㅒ" : ["얘들아","쟤"],
-            "ㅖ" : ["예쁜","예 "],
+            "ㅖ" : ["예쁜","예"],
             "ㅢ" : ["배달의 민족","여의도"],
             "ㅟ" : ["다람쥐","뷔"],
             "ㅚ" : ["외국인","육회"],
             "ㅘ" : ["화장실","와"],
             "ㅝ" : ["귀여워","뭐"],
-            "ㅙ" : ["쉐이크","웨하스"],
-            "ㅞ" : ["왜 ","돼지고기"],
+            "ㅙ" : ["왜","돼지고기"],
+            "ㅞ" : ["쉐이크","웨하스"],
+            
         ]
         
         static let batchim: [String] = [
@@ -494,7 +495,7 @@ struct Constants {
             "버스" : ["ㅡ3","ㅡ4","ㅡ5"],
             "이태원" : ["ㅣ0","ㅣ1","ㅣ2"],
             "갈비" : ["ㅣ3","ㅣ4","ㅣ5"],
-            "타는 곳" : ["ㅏ0","ㅏ1","ㅏ2"],
+            "타는곳" : ["ㅏ0","ㅏ1","ㅏ2"],
             "교통카드" : ["ㅏ3","ㅏ4","ㅏ5"],
             "서울" : ["ㅓ0","ㅓ1","ㅓ2"],
             "붕어빵" : ["ㅓ3","ㅓ4","ㅓ5"],
@@ -513,7 +514,7 @@ struct Constants {
             "비요뜨" : ["ㅛ0","ㅛ1","ㅛ2"],
             "안녕하세요" : ["ㅛ3","ㅛ4","ㅛ5"],
             "씨유" : ["ㅠ0","ㅠ1","ㅠ2"],
-            "뉴진스" : ["ㅠ3","ㅠ4","ㅍ5"],
+            "뉴진스" : ["ㅠ3","ㅠ4","ㅠ5"],
             "얘들아" : ["ㅒ0","ㅒ1","ㅒ2"],
             "쟤" : ["ㅒ3","ㅒ4","ㅒ5"],
             "예쁜" : ["ㅖ0","ㅖ1","ㅖ2"],
@@ -577,7 +578,7 @@ struct Constants {
             "버스":"Bus",
             "이태원":"Itaewon",
             "갈비":"Galbi",
-            "타는 곳":"Place to ride",
+            "타는곳":"Place to ride",
             "교통카드":"Transportaton Card",
             "서울":"Seoul",
             "붕어빵":"Fish-shaped bun(Street food)",
@@ -660,7 +661,7 @@ struct Constants {
             "버스":"",
             "이태원":"",
             "갈비":"",
-            "타는 곳":"",
+            "타는곳":"",
             "교통카드":"",
             "서울":"",
             "붕어빵":"",
@@ -717,8 +718,8 @@ struct Constants {
         
         static let word : [String : [String]] = [
             "Food" : ["국밥", "치맥", "삼겹살", "불고기", "삼계탕", "칼국수", "닭한마리", "라면", "불닭볶음면", "김밥", "김치", "육회", "떡볶이", "소주", "빈대떡", "냉면", "비빔밥","붕어빵"],
-            "Tourism" : ["홍대", "성수", "서울", "강남", "인천", "부산", "한강", "익선동", "이태원", "동대문", "혜화", "종로", "광장시장", "지하철", "버스", "가로수길", "인천국제공항", "경복궁", "남산", "명동"],
-            "Daily Life" : ["안녕하세요", "감사합니다", "죄송합니다", "맛있어요", "~ 주세요", "~ 어디에요", "얼마에요", "도와주세요", "편의점", "병원", "화장실", "좋아요", "싫어요", "네", "아니요"]
+            "Tourism" : ["홍대", "성수", "서울", "강남", "인천", "부산", "한강", "익선동", "이태원", "동대문", "혜화", "종로", "광장시장", "지하철", "버스", "가로수길", "공항", "경복궁", "남산", "명동"],
+            "Daily Life" : ["안녕하세요", "감사합니다", "죄송합니다", "맛있어요", "주세요", "어디에요", "얼마에요", "도와주세요", "편의점", "병원", "화장실", "좋아요", "싫어요", "네", "아니요"]
         ]
         
         static let image : [String : String] = [
@@ -756,7 +757,7 @@ struct Constants {
             "지하철" : "jihachul",
             "버스" : "bus",
             "가로수길" : "garosugil",
-            "인천국제공항" : "airport",
+            "공항" : "airport",
             "경복궁" : "gyeongbokgung",
             "남산" : "namsan",
             "명동" : "myeongdong",
@@ -764,8 +765,8 @@ struct Constants {
             "감사합니다" : "thankyou",
             "죄송합니다" : "sorry",
             "맛있어요" : "delicious",
-            "~ 주세요" : "giveme",
-            "~ 어디에요" : "where",
+            "주세요" : "giveme",
+            "어디에요" : "where",
             "얼마에요" :  "howmuch",
             "도와주세요" : "helpme",
             "편의점" : "conveniencestore",
@@ -812,7 +813,7 @@ struct Constants {
             "지하철" : "Korean 지하철(Subway) system is known for its efficiency and cleanliness. It's a convenient way to navigate the city with signs and announcements in both Korean and English. The stations are equipped with various facilities like rest areas, shops, and even underground malls.",
             "버스" : "At Korean 버스(Bus) stops, there are digital screens displaying upcoming bus information. These screens typically show the expected arrival time, route number, and types of buses serving the stop. They are continuously updated in real-time, providing accurate information on the current location of the bus and its estimated time of arrival.",
             "가로수길" : "가로수길 is a trendy and fashionable street in Seoul, South Korea. Lined with beautiful gingko trees, it's a popular destination for shopping, dining, and exploring unique boutiques. The street is known for its vibrant atmosphere, stylish cafes, and a mix of both local and international fashion brands. ",
-            "인천국제공항" : "인천 국제 공항(Incheon International Airport) is South Korea's primary gateway, located near Seoul. Renowned for its world-class facilities and efficiency, it serves as a major hub for international travel. The airport boasts modern amenities, diverse dining options, duty-free shopping, and convenient transportation links to the city.",
+            "공항" : "인천 국제 공항(Incheon International Airport) is South Korea's primary gateway, located near Seoul. Renowned for its world-class facilities and efficiency, it serves as a major hub for international travel. The airport boasts modern amenities, diverse dining options, duty-free shopping, and convenient transportation links to the city.",
             "경복궁" : "경복궁, located in the heart of Seoul is a grand and historic palace. It served as the main royal palace during the Joseon Dynasty and is renowned for its beautiful traditional architecture and expansive grounds. Visitors can explore the impressive main gate, Gwanghwamun, the iconic throne hall, Geunjeongjeon.",
             "남산" : "남산, situated in the heart of Seoul, South Korea, is a prominent mountain offering panoramic views of the city. At its summit stands N Seoul Tower, an iconic landmark and observation deck providing breathtaking vistas. The mountain is a popular destination for locals and tourists alike, offering scenic walking paths, beautiful parks, and a cable car for a convenient ascent.",
             "명동" : "명동, located in the heart of Seoul, is a vibrant and bustling shopping district that attracts locals and tourists alike. Known for its trendy fashion boutiques, beauty shops, and diverse street food stalls, 명동 offers a dynamic shopping experience. The area is also home to major international brands, making it a popular destination for fashion enthusiasts. ",
@@ -820,8 +821,8 @@ struct Constants {
             "감사합니다" : "Thank you",
             "죄송합니다" : "I’m sorry",
             "맛있어요" : "It's delicious",
-            "~ 주세요" : "Please give me ~",
-            "~ 어디에요" : "Where is the ~",
+            "주세요" : "Please give me ~",
+            "어디에요" : "Where is the ~",
             "얼마에요" :  "How much is it",
             "도와주세요" : "Help me",
             "편의점" : "Convenience Store",

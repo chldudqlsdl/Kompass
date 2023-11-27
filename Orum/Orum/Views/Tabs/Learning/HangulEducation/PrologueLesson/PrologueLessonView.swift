@@ -60,18 +60,42 @@ struct PrologueLessonView: View {
                             .frame(width: 358, height: 358)
                             .foregroundColor(Color(uiColor: colorScheme == .light ? UIColor(hex: "F1F1F1") : UIColor(hex: "3C3C3C")))
                             .overlay {
-                                if prologuePage.image.count == 1 {
-                                    if prologuePage.image[0] == "vowel3" {
-                                        LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
-                                            .scaledToFit()
+                                ZStack{
+                                    if prologuePage.image.count == 1 {
+                                        if prologuePage.image[0] == "vowel3" {
+                                            LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
+                                                .scaledToFit()
+                                        } else {
+                                            Image(prologuePage.image[0])
+                                                .resizable()
+                                                .scaledToFit()
+                                        }
                                     } else {
-                                        Image(prologuePage.image[0])
-                                            .resizable()
-                                            .scaledToFit()
+                                        LazyHStack{
+                                            PageView(images: prologuePage.image)
+                                        }
                                     }
-                                } else {
-                                    LazyHStack{
-                                        PageView(images: prologuePage.image)
+                                }
+                                if prologuePage.image[0] == "consonant4" {
+                                    HStack(spacing: 80){
+                                        Capsule()
+                                            .foregroundColor(.white)
+                                            .opacity(0.01)
+                                            .frame(width: 100, height: 50)
+                                            .offset(y: 90)
+                                            .onTapGesture {
+                                                SoundManager.instance.playSound(sound: "ㅏ")
+                                                print("Hi")
+                                            }
+                                        Capsule()
+                                            .foregroundColor(.white)
+                                            .opacity(0.01)
+                                            .frame(width: 100, height: 50)
+                                            .offset(y: 90)
+                                            .onTapGesture {
+                                                SoundManager.instance.playSound(sound: "ㅜ")
+                                                print("Bye")
+                                            }
                                     }
                                 }
                             }

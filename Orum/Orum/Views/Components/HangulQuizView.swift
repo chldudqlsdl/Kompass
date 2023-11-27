@@ -58,10 +58,11 @@ struct HangulQuizView: View {
                                 Image(educationManager.quiz[ind].name + "\(educationManager.lessonType == .epilogue ? 1 : 0)")
                                     .resizable()
                                     .scaledToFit()
+                                    .clipShape(RoundedRectangle(cornerRadius: 20))
                             }
                         }
-                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.2)
-                        .background(Color(uiColor: .quaternarySystemFill))
+                        .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.3)
+//                        .background(Color(uiColor: .quaternarySystemFill))
                         
                         LazyVGrid(columns: [GridItem(.flexible(),spacing: 16),GridItem(.flexible(),spacing: 16)], spacing: 16, content: {
                             ForEach(0..<optionAlphabet.count, id: \.self) { index in
