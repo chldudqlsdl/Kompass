@@ -52,12 +52,6 @@ struct PrologueLessonView: View {
                                 .font(.body)
                                 .multilineTextAlignment(.center)
                             
-//                            if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
-//                                VStack {
-//                                    <#code#>
-//                                }
-//                            }
-                            
                             Spacer()
                         }
                         .frame(height : dynamicTypeSize.prologueTextHeight)
@@ -98,7 +92,9 @@ struct PrologueLessonView: View {
                             
                             Button(action: {
                                 if index < educationManager.prologue.count - 1 {
-                                    index += 1
+                                    withAnimation {
+                                        index += 1
+                                    }
                                 } else {
                                     withAnimation {
                                         isPresented.toggle()

@@ -231,6 +231,7 @@ struct HangulQuizView: View {
                                         }
                                         
                                         if educationManager.quiz.isEmpty {
+                                            
                                             educationManager.currentEducation = .end
                                             //                                            educationManager.endLesson()
                                             //                                            isPresented.toggle()

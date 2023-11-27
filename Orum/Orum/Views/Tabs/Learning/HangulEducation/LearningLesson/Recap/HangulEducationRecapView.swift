@@ -76,7 +76,9 @@ struct HangulEducationRecapView: View {
                                 break
                             case .consonant, .vowel:
                                 progressValue += 1
-                                educationManager.currentEducation = .quiz
+                                withAnimation(.easeInOut(duration: 0.5)) {
+                                    educationManager.currentEducation = .quiz
+                                }
 //                            case .vowel:
 //                                progressValue += 1
 //                                educationManager.currentEducation = .vowelQuiz

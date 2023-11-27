@@ -145,7 +145,7 @@ struct HangulEducationLearningView: View {
                                     }
                                     
                                     isOnceFlipped = false
-                                    withAnimation(.easeIn(duration: 1)) {
+                                    withAnimation(.easeIn(duration: 0.5)) {
                                         progressValue += 1
                                         educationManager.currentEducation = .recap
                                     }
