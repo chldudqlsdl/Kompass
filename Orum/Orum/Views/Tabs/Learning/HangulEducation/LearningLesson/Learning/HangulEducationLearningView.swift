@@ -104,6 +104,9 @@ struct HangulEducationLearningView: View {
                                 .padding(.horizontal, 48)
                         }
                         .padding(.horizontal, 16)
+                    
+                    Spacer()
+                        .frame(height: UIScreen.main.bounds.height * 0.15)
                     }
                     
                 VStack {

@@ -29,7 +29,7 @@ struct HangulCard: Hashable {
             self.example2 = Constants.Hangul.consonantExamples[name]?[1] ?? ""
             self.lottieName = Constants.Hangul.lottieName[name] ?? ""
             self.chapterType = .consonant
-            if Constants.Hangul.lottieName[name] == "" {
+            if Constants.Hangul.lottieName[name] == nil {
                 hangulType = .double
                 self.explanation = Constants.Hangul.consonantCombination[name] ?? ""
             }

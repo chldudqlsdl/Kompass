@@ -96,7 +96,7 @@ struct HangulCardView: View {
                                 }
                             } 
                             else {
-                                HStack{
+                                HStack {
                                     Text("Pronounce '\(hangulCard.explanation)' with a strong empahsis.")
                                         .bold()
                                         .font(cardType.explanationFont(.consonant, hangulType: .double))
@@ -115,7 +115,7 @@ struct HangulCardView: View {
                                     else {
                                         Text("\(hangulCard.explanation)")
                                             .bold()
-                                            .font(cardType.explanationFont(.consonant, hangulType: .double))
+                                            .font(cardType.explanationFont(.vowel, hangulType: .double))
                                     }
                                 }
                                 .frame(width: cardType.imageFrame)
