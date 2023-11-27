@@ -12,12 +12,15 @@ struct HangulQuizView: View {
     @Binding var progressValue: Int
     @Binding var isPresented: Bool
     
+    @State var isButtonPressed : [Bool] = [false, false, false, false]
     @State var isSameCardEnded: Bool = false
     @State var isOptionSelected : Bool = false
     @State var isOptionSubmitted : Bool = false
     @State var isOptionWrong : Bool = false
     @State var isNext: Bool = false
     @State var quizButtonText: String = "Check"
+    @State var topText: String = "Quiz"
+    @State var topTextColor: Color = .secondary
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -40,10 +43,10 @@ struct HangulQuizView: View {
                             .id(topID)
                         
                         VStack {
-                            Text("Quiz")
+                            Text(topText)
                                 .font(.body)
                                 .fontWeight(.bold)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(topTextColor)
                             
                             Text("Select the correct pronunciation")
                                 .font(.largeTitle)
@@ -78,10 +81,19 @@ struct HangulQuizView: View {
                                                     .foregroundColor(optionColor.circle)
                                             }
                                         
-                                        Image(systemName: "speaker.wave.2.fill")
-                                            .bold()
-                                            .font(.title2)
-                                            .foregroundColor(optionColor.text)
+                                        if #available(iOS 17.0, *) {
+                                            Image(systemName: "speaker.wave.2.fill")
+                                                .bold()
+                                                .font(.title2)
+                                                .foregroundColor(optionColor.text)
+                                                .symbolEffect(.bounce, value: isButtonPressed[index])
+                                        }
+                                        else {
+                                            Image(systemName: "speaker.wave.2.fill")
+                                                .bold()
+                                                .font(.title2)
+                                                .foregroundColor(optionColor.text)
+                                        }
                                         
                                         Spacer()
                                     }
@@ -90,7 +102,10 @@ struct HangulQuizView: View {
                                 .overlay(RoundedRectangle(cornerRadius: 15.0)
                                     .stroke(optionColor.border, lineWidth: 4))
                                 .onTapGesture {
-                                    SoundManager.instance.playSound(sound: optionAlphabet[index])
+                                    isButtonPressed[index].toggle()
+                                    
+                                    SoundManager.instance.playSound(sound: optionAlphabet[index]){}
+                                    
                                     if !isOptionSubmitted {
                                         selectedOptionIndex = index
                                         isOptionSelected = true
@@ -236,7 +251,8 @@ struct HangulQuizView: View {
                                         }
                                         else {
                                             ind = 0
-
+                                            topText = "Previous Mistakes"
+                                            topTextColor = .red
                                             withAnimation {
                                                 quizButtonText = "Check"
                                                 isOptionSelected = false

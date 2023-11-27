@@ -14,7 +14,9 @@ struct HangulEducationLearningView: View {
     @State var isExample1Listened = false
     @State var isExample2Listened = false
     @State var isDrawingViewShowing = true
-    
+    @State var isExample1Touched = false
+    @State var isExample2Touched = false
+    @State var isButtonPressed = false
     
     @EnvironmentObject var educationManager: EducationManager
     
@@ -61,39 +63,113 @@ struct HangulEducationLearningView: View {
                             
                             if educationManager.chapterType == .consonant || educationManager.chapterType == .vowel {
                                 HStack(spacing: 25) {
-                                    Text(educationManager.content[educationManager.index].example1) //TODO: ForEach로 구현하기
-                                        .bold()
-                                        .frame(maxWidth: .infinity)
-                                        .font(.largeTitle)
-                                        .padding(20)
-                                        .overlay(RoundedRectangle(cornerRadius: 24)
-                                            .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                                        .onTapGesture {
-                                            if !isExample1Listened {
-                                                touchCardsCount += 1
+                                        if isExample1Touched {
+                                            if #available(iOS 17.0, *) {
+                                            Image(systemName: "speaker.wave.2.fill")
+                                                .bold()
+                                                .frame(maxWidth: .infinity)
+                                                .font(.largeTitle)
+                                                .padding(20)
+                                                .overlay(RoundedRectangle(cornerRadius: 24)
+                                                    .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                                .transition(.opacity)
+                                                .symbolEffect(.bounce, value: isButtonPressed)
                                             }
-                                            withAnimation(.easeIn(duration: 0.5)){
-                                                isExample1Listened = true
+                                            else {
+                                                Image(systemName: "speaker.wave.2.fill")
+                                                    .bold()
+                                                    .frame(maxWidth: .infinity)
+                                                    .font(.largeTitle)
+                                                    .padding(20)
+                                                    .overlay(RoundedRectangle(cornerRadius: 24)
+                                                        .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                                    .transition(.opacity)
                                             }
-                                            SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example1)")
-                                        }
+                                    }
+                                    else {
+                                        Text(educationManager.content[educationManager.index].example1)
+                                            .bold()
+                                            .frame(maxWidth: .infinity)
+                                            .font(.largeTitle)
+                                            .padding(20)
+                                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                                .strokeBorder(isExample1Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    isExample1Touched.toggle()
+                                                }
+                                                
+                                                isButtonPressed.toggle()
+                                                
+                                                if !isExample1Listened {
+                                                    touchCardsCount += 1
+                                                }
+                                                withAnimation(.easeIn(duration: 0.5)){
+                                                    isExample1Listened = true
+                                                }
+                                                
+                                                SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example1)") {
+                                                    withAnimation {
+                                                        isExample1Touched.toggle()
+                                                    }
+                                                }
+                                            }
+                                            .transition(.opacity)
+                                    }
                                     
-                                    Text(educationManager.content[educationManager.index].example2)
-                                        .bold()
-                                        .frame(maxWidth: .infinity)
-                                        .font(.largeTitle)
-                                        .padding(20)
-                                        .overlay(RoundedRectangle(cornerRadius: 24)
-                                            .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
-                                        .onTapGesture {
-                                            if !isExample2Listened {
-                                                touchCardsCount += 1
-                                            }
-                                            withAnimation(.easeIn(duration: 0.5)){
-                                                isExample2Listened = true
-                                            }
-                                            SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example2)")
+                                    if isExample2Touched {
+                                        if #available(iOS 17.0, *) {
+                                        Image(systemName: "speaker.wave.2.fill")
+                                            .bold()
+                                            .frame(maxWidth: .infinity)
+                                            .font(.largeTitle)
+                                            .padding(20)
+                                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                                .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                            .transition(.opacity)
+                                            .symbolEffect(.bounce, value: isButtonPressed)
                                         }
+                                        else {
+                                            Image(systemName: "speaker.wave.2.fill")
+                                                .bold()
+                                                .frame(maxWidth: .infinity)
+                                                .font(.largeTitle)
+                                                .padding(20)
+                                                .overlay(RoundedRectangle(cornerRadius: 24)
+                                                    .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                                .transition(.opacity)
+                                        }
+                                    }
+                                    else {
+                                        Text(educationManager.content[educationManager.index].example2)
+                                            .bold()
+                                            .frame(maxWidth: .infinity)
+                                            .font(.largeTitle)
+                                            .padding(20)
+                                            .overlay(RoundedRectangle(cornerRadius: 24)
+                                                .strokeBorder(isExample2Listened ? Color(uiColor: .systemGray4) : .blue , lineWidth: 11))
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    isExample2Touched.toggle()
+                                                }
+                                                
+                                                isButtonPressed.toggle()
+                                                
+                                                if !isExample2Listened {
+                                                    touchCardsCount += 1
+                                                }
+                                                withAnimation(.easeIn(duration: 0.5)){
+                                                    isExample2Listened = true
+                                                }
+                                                
+                                                SoundManager.instance.playSound(sound: "\(educationManager.content[educationManager.index].example2)") {
+                                                    withAnimation {
+                                                        isExample2Touched.toggle()
+                                                    }
+                                                }
+                                            }
+                                            .transition(.opacity)
+                                    }
                                 }
                             }
                                 Rectangle()
