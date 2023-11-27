@@ -114,6 +114,7 @@ extension LearningView {
                     }
                 }
             }
+            .background(Color(uiColor: .systemBackground)) // systemBackground
             .coordinateSpace(name: "SCROLL_INSTRUCTION")
             .overlay(alignment: .topLeading) {
                 Button(action: {
