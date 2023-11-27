@@ -364,7 +364,6 @@
 		93E932122B139C0E009E7E70 /* 녀.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E9303D2B139C07009E7E70 /* 녀.m4a */; };
 		93E932132B139C0E009E7E70 /* ㅙ0.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E9303E2B139C07009E7E70 /* ㅙ0.m4a */; };
 		93E932142B139C0E009E7E70 /* ㅗ3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E9303F2B139C07009E7E70 /* ㅗ3.m4a */; };
-		93E932152B139C0E009E7E70 /* 가3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E930402B139C07009E7E70 /* 가3.m4a */; };
 		93E932162B139C0E009E7E70 /* 맛있어요.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E930412B139C07009E7E70 /* 맛있어요.m4a */; };
 		93E932172B139C0E009E7E70 /* 가0.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E930422B139C07009E7E70 /* 가0.m4a */; };
 		93E932182B139C0E009E7E70 /* 육회.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 93E930432B139C07009E7E70 /* 육회.m4a */; };
@@ -534,7 +533,9 @@
 		D94399A32B13724700C7D59F /* tooth.json in Resources */ = {isa = PBXBuildFile; fileRef = D943999D2B13724700C7D59F /* tooth.json */; };
 		D94399A62B13724F00C7D59F /* pillar.json in Resources */ = {isa = PBXBuildFile; fileRef = D94399A42B13724E00C7D59F /* pillar.json */; };
 		D94399A72B13724F00C7D59F /* hat.json in Resources */ = {isa = PBXBuildFile; fileRef = D94399A52B13724F00C7D59F /* hat.json */; };
-		D94399AD2B13A0A500C7D59F /* vowel3.json in Resources */ = {isa = PBXBuildFile; fileRef = D94399AC2B13A0A500C7D59F /* vowel3.json */; };
+		D94399B02B142FB400C7D59F /* vowel3.json in Resources */ = {isa = PBXBuildFile; fileRef = D94399AE2B142FB400C7D59F /* vowel3.json */; };
+		D94399B12B142FB400C7D59F /* vowel3d.json in Resources */ = {isa = PBXBuildFile; fileRef = D94399AF2B142FB400C7D59F /* vowel3d.json */; };
+		D94399B32B14327000C7D59F /* 가2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = D94399B22B14327000C7D59F /* 가2.m4a */; };
 		D967D1BD2AE2932C008B3379 /* HangulCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1BC2AE2932C008B3379 /* HangulCard.swift */; };
 		D967D1C12AE2A968008B3379 /* HangulUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C02AE2A968008B3379 /* HangulUnit.swift */; };
 		D967D1C72AE2C761008B3379 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */; };
@@ -920,7 +921,6 @@
 		93E9303D2B139C07009E7E70 /* 녀.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "녀.m4a"; sourceTree = "<group>"; };
 		93E9303E2B139C07009E7E70 /* ㅙ0.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ㅙ0.m4a"; sourceTree = "<group>"; };
 		93E9303F2B139C07009E7E70 /* ㅗ3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ㅗ3.m4a"; sourceTree = "<group>"; };
-		93E930402B139C07009E7E70 /* 가3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "가3.m4a"; sourceTree = "<group>"; };
 		93E930412B139C07009E7E70 /* 맛있어요.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "맛있어요.m4a"; sourceTree = "<group>"; };
 		93E930422B139C07009E7E70 /* 가0.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "가0.m4a"; sourceTree = "<group>"; };
 		93E930432B139C07009E7E70 /* 육회.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "육회.m4a"; sourceTree = "<group>"; };
@@ -1089,7 +1089,9 @@
 		D943999D2B13724700C7D59F /* tooth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tooth.json; sourceTree = "<group>"; };
 		D94399A42B13724E00C7D59F /* pillar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pillar.json; sourceTree = "<group>"; };
 		D94399A52B13724F00C7D59F /* hat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hat.json; sourceTree = "<group>"; };
-		D94399AC2B13A0A500C7D59F /* vowel3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vowel3.json; sourceTree = "<group>"; };
+		D94399AE2B142FB400C7D59F /* vowel3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vowel3.json; sourceTree = "<group>"; };
+		D94399AF2B142FB400C7D59F /* vowel3d.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vowel3d.json; sourceTree = "<group>"; };
+		D94399B22B14327000C7D59F /* 가2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "가2.m4a"; sourceTree = "<group>"; };
 		D967D1BC2AE2932C008B3379 /* HangulCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulCard.swift; sourceTree = "<group>"; };
 		D967D1C02AE2A968008B3379 /* HangulUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangulUnit.swift; sourceTree = "<group>"; };
 		D967D1C62AE2C761008B3379 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -1397,10 +1399,11 @@
 			isa = PBXGroup;
 			children = (
 				D94399A52B13724F00C7D59F /* hat.json */,
-				D94399AC2B13A0A500C7D59F /* vowel3.json */,
 				D94399A42B13724E00C7D59F /* pillar.json */,
 				D94399982B13724700C7D59F /* champion.json */,
 				D943999A2B13724700C7D59F /* jump.json */,
+				D94399AE2B142FB400C7D59F /* vowel3.json */,
+				D94399AF2B142FB400C7D59F /* vowel3d.json */,
 				D943999C2B13724700C7D59F /* key.json */,
 				D943999B2B13724700C7D59F /* nothing.json */,
 				D94399992B13724700C7D59F /* squid.json */,
@@ -1421,7 +1424,7 @@
 				93E92FD22B139BEF009E7E70 /* 가.m4a */,
 				93E930422B139C07009E7E70 /* 가0.m4a */,
 				93E92F9B2B139BEC009E7E70 /* 가1.m4a */,
-				93E930402B139C07009E7E70 /* 가3.m4a */,
+				D94399B22B14327000C7D59F /* 가2.m4a */,
 				93E930792B139C0A009E7E70 /* 가로수길 2.m4a */,
 				93E92F442B139BE8009E7E70 /* 가로수길.m4a */,
 				93E930592B139C08009E7E70 /* 갈비.m4a */,
@@ -1991,7 +1994,6 @@
 				93E931A52B139C0E009E7E70 /* ㅠ1.m4a in Resources */,
 				93E932582B139C0F009E7E70 /* 두부.m4a in Resources */,
 				93E931FF2B139C0E009E7E70 /* 까1.m4a in Resources */,
-				D98B83FC2AE6EC9C00B47C56 /* nose.json in Resources */,
 				93E9323F2B139C0F009E7E70 /* 바1.m4a in Resources */,
 				93E931422B139C0E009E7E70 /* 푸.m4a in Resources */,
 				93E932062B139C0E009E7E70 /* 짜1.m4a in Resources */,
@@ -2121,7 +2123,6 @@
 				93E931F22B139C0E009E7E70 /* 다.m4a in Resources */,
 				93E930EA2B139C0E009E7E70 /* 하2.m4a in Resources */,
 				93E931EF2B139C0E009E7E70 /* 나1.m4a in Resources */,
-				D96BAC6D2AE6C46600613540 /* gun.json in Resources */,
 				93E9310C2B139C0E009E7E70 /* 쉐이크.m4a in Resources */,
 				93E931BA2B139C0E009E7E70 /* 루2.m4a in Resources */,
 				93E931312B139C0E009E7E70 /* ㅜ5.m4a in Resources */,
@@ -2248,7 +2249,6 @@
 				93E932422B139C0F009E7E70 /* 싸1.m4a in Resources */,
 				93E9316B2B139C0E009E7E70 /* 추1.m4a in Resources */,
 				93E9328D2B139C0F009E7E70 /* 다0.m4a in Resources */,
-
 				D94399972B13723D00C7D59F /* nose.json in Resources */,
 				D94399A12B13724700C7D59F /* nothing.json in Resources */,
 				D94399922B13723D00C7D59F /* road.json in Resources */,
@@ -2289,7 +2289,6 @@
 				93E932982B139C0F009E7E70 /* 사랑해.m4a in Resources */,
 				93E932942B139C0F009E7E70 /* ㅖ1.m4a in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
-				93E932152B139C0E009E7E70 /* 가3.m4a in Resources */,
 				DE9A7CF72B103D56002481DA /* Launch Screen.storyboard in Resources */,
 				93E930F12B139C0E009E7E70 /* ㅞ2.m4a in Resources */,
 				93E932402B139C0F009E7E70 /* 파2.m4a in Resources */,
@@ -2337,6 +2336,7 @@
 				93E931802B139C0E009E7E70 /* ㅝ5.m4a in Resources */,
 				93E931A62B139C0E009E7E70 /* ㅛ1.m4a in Resources */,
 				93E9328E2B139C0F009E7E70 /* 따0.m4a in Resources */,
+				D94399B02B142FB400C7D59F /* vowel3.json in Resources */,
 				93E932602B139C0F009E7E70 /* ㅗ4.m4a in Resources */,
 				93E930D42B139C0E009E7E70 /* ㅝ1.m4a in Resources */,
 				93E932A12B139C0F009E7E70 /* 부0.m4a in Resources */,
@@ -2381,9 +2381,9 @@
 				93E931C42B139C0E009E7E70 /* ㅏ0.m4a in Resources */,
 				93E932612B139C0F009E7E70 /* 느.m4a in Resources */,
 				93E9315B2B139C0E009E7E70 /* 짜2.m4a in Resources */,
+				D94399B32B14327000C7D59F /* 가2.m4a in Resources */,
 				93E932012B139C0E009E7E70 /* 따2.m4a in Resources */,
 				93E931822B139C0E009E7E70 /* 마요네즈.m4a in Resources */,
-				D98B83FE2AE6ECA100B47C56 /* road.json in Resources */,
 				93E931122B139C0E009E7E70 /* 강남구.m4a in Resources */,
 				93E931E72B139C0E009E7E70 /* 하트.m4a in Resources */,
 				93E932632B139C0F009E7E70 /* ㅚ2.m4a in Resources */,
@@ -2396,7 +2396,6 @@
 				93E9311F2B139C0E009E7E70 /* 바.m4a in Resources */,
 				93E9312B2B139C0E009E7E70 /* 다1.m4a in Resources */,
 				93E931102B139C0E009E7E70 /* ㅑ.m4a in Resources */,
-				D98B84002AE6F56000B47C56 /* drink.json in Resources */,
 				93E9325B2B139C0F009E7E70 /* 카페.m4a in Resources */,
 				93E932A22B139C0F009E7E70 /* ㅢ5.m4a in Resources */,
 				93E9314F2B139C0E009E7E70 /* ㅐ4.m4a in Resources */,
@@ -2456,6 +2455,7 @@
 				93E9317D2B139C0E009E7E70 /* 마0.m4a in Resources */,
 				93E931EB2B139C0E009E7E70 /* ㅏ5.m4a in Resources */,
 				93E931232B139C0E009E7E70 /* ㅕ0.m4a in Resources */,
+				D94399B12B142FB400C7D59F /* vowel3d.json in Resources */,
 				D94399932B13723D00C7D59F /* gun.json in Resources */,
 				930F26CD2ADD0D8C00896A32 /* Assets.xcassets in Resources */,
 				D94399942B13723D00C7D59F /* drink.json in Resources */,
@@ -2464,7 +2464,6 @@
 				D94399952B13723D00C7D59F /* bucket.json in Resources */,
 				D94399A72B13724F00C7D59F /* hat.json in Resources */,
 				D943999E2B13724700C7D59F /* champion.json in Resources */,
-				D94399AD2B13A0A500C7D59F /* vowel3.json in Resources */,
 				D94399A62B13724F00C7D59F /* pillar.json in Resources */,
 				DE0A511E2B137F2200B30995 /* Pretendard-Regular.otf in Resources */,
 				DE0A511D2B137F2200B30995 /* Pretendard-SemiBold.otf in Resources */,
@@ -2680,7 +2679,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2723,7 +2722,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Orum/Preview Content\"";
-				DEVELOPMENT_TEAM = 834B9VMHHG;
+				DEVELOPMENT_TEAM = 3X7HFG8283;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

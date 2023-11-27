@@ -18,26 +18,26 @@ struct HangulQuiz {
     
     init(lessonType: LessonType, name: String) {
         if Constants.Hangul.consonants.contains(name) {
-            let quizName  = Constants.Hangul.consonantQuiz[name]?[0]
+            let quizName  = Constants.Hangul.consonantQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
 
             self.lessonType = lessonType
             self.name = name
             self.sound = Constants.Hangul.consonantSound[name] ?? ""
             self.quizName = Constants.Hangul.consonantQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
-            self.options = Constants.HangulQuiz.options[quizName ?? ""] ?? [""]
-            self.meaning = Constants.HangulQuiz.meaning[quizName ?? ""] ?? ""
-            self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
+            self.options = Constants.HangulQuiz.options[quizName] ?? [""]
+            self.meaning = Constants.HangulQuiz.meaning[quizName] ?? ""
+            self.tmi = Constants.HangulQuiz.tmi[quizName] ?? ""
         }
         else if Constants.Hangul.vowels.contains(name) {
-            let quizName  = Constants.Hangul.vowelQuiz[name]?[0]
+            let quizName  = Constants.Hangul.vowelQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
 
             self.lessonType = lessonType
             self.name = name
             self.sound = Constants.Hangul.vowelSound[name] ?? ""
             self.quizName = Constants.Hangul.vowelQuiz[name]?[lessonType == .lesson ? 0 : 1] ?? ""
-            self.options = Constants.HangulQuiz.options[quizName ?? ""] ?? [""]
-            self.meaning = Constants.HangulQuiz.meaning[quizName ?? ""] ?? ""
-            self.tmi = Constants.HangulQuiz.tmi[quizName ?? ""] ?? ""
+            self.options = Constants.HangulQuiz.options[quizName] ?? [""]
+            self.meaning = Constants.HangulQuiz.meaning[quizName] ?? ""
+            self.tmi = Constants.HangulQuiz.tmi[quizName] ?? ""
         }
         else {
             let quizName  = Constants.Hangul.consonantQuiz[name]?[0]
