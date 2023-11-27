@@ -234,8 +234,9 @@ struct HangulQuizView: View {
                                             //                                            isPresented.toggle()
                                         }
                                         else {
+                                            ind = 0
+
                                             withAnimation {
-                                                ind = 0
                                                 quizButtonText = "Check"
                                                 isOptionSelected = false
                                                 isOptionSubmitted = false
@@ -292,10 +293,11 @@ struct HangulQuizView: View {
                         
                         Spacer()
                     }
-                    
-                    Text( isOptionWrong ?(educationManager.quiz.isEmpty ? "" : "\(educationManager.quiz[ind].name ) has a [\(educationManager.quiz[ind].sound)] sound." ): (educationManager.quiz.isEmpty ? "" :"\(educationManager.quiz[ind].quizName) means “\(educationManager.quiz[ind].meaning)” in Korean."))
-                        .fontWeight(.bold)
-                        .foregroundColor(isOptionWrong ? .red : .blue)
+                    if !educationManager.quiz.isEmpty{
+                        Text(isOptionWrong ? (educationManager.quiz.isEmpty ? "" : "\(educationManager.quiz[ind].name ) has a [\(educationManager.quiz[ind].sound)] sound." ) : (educationManager.quiz.isEmpty ? "" :"\(educationManager.quiz[ind].quizName) means “\(educationManager.quiz[ind].meaning)” in Korean."))
+                            .fontWeight(.bold)
+                            .foregroundColor(isOptionWrong ? .red : .blue)
+                    }
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 16)
