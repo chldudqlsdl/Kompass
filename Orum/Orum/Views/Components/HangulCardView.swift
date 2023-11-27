@@ -210,7 +210,7 @@ struct HangulCardView: View {
                 }
         )
         .onChange(of: hangulCard){
-            let animationTime = 1.0
+            let animationTime = 0.5
             if isFlipped {
                 withAnimation(Animation.easeInOut(duration: animationTime)){
                     flashCardRotation -= 180

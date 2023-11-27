@@ -162,9 +162,13 @@ struct PrologueLessonView: View {
                                         index += 1
                                     }
                                 } else {
+                                    if !isFirstLaunching {
+                                        educationManager.endLesson()
+                                    }
+                                    
                                     withAnimation {
                                         isPresented.toggle()
-                                        isFirstLaunching = true
+                                        isFirstLaunching = false
                                     }
                                 }
                             },label: {

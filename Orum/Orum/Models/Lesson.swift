@@ -5,15 +5,15 @@
 //  Created by 차차 on 11/20/23.
 //
 
-import Foundation
+import SwiftUI
 
 struct Lesson: Identifiable {
     let id = UUID().uuidString
     let lessonName: String
     let lessonType: LessonType
     let chapterType: ChapterType
-    let lessonState: String
-    let completedDates: String
+//    let lessonState: String
+//    @State var completedDates: String
     
     init(lessonName: String, lessonType: LessonType, chapterType: ChapterType) {
         let educationManager = EducationManager()
@@ -21,8 +21,8 @@ struct Lesson: Identifiable {
         self.lessonName = lessonName
         self.lessonType = lessonType
         self.chapterType = chapterType
-        self.lessonState = educationManager.lessonState[lessonName] ?? "locked"
-        self.completedDates = educationManager.completedDates[lessonName] ?? ""
+//        self.lessonState = educationManager.lessonState[lessonName] ?? "locked"
+//        self.completedDates = educationManager.completedDates[lessonName] ?? ""
     }
     
 }

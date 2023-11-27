@@ -22,35 +22,32 @@ enum LessonType {
 }
 
 class EducationManager: ObservableObject {
-    @AppStorage("completedDate") var completedDates: [String:String] = [
-        Constants.Lesson.system: "2023.11.04 16:23",
-        Constants.Lesson.vowel1: ""
-    ]
+    @AppStorage("completedDate") var completedDates: [String:String] = [:]
     @AppStorage("lessonState") var lessonState: [String:String] = [
-        Constants.Lesson.system : "locked",
-        Constants.Lesson.consonant0 : "complete",
-        Constants.Lesson.consonant1 : "complete",
-        Constants.Lesson.consonant2 : "complete",
-        Constants.Lesson.consonant3 : "complete",
-        Constants.Lesson.consonant4 : "complete",
-        Constants.Lesson.consonant5 : "complete",
-        Constants.Lesson.vowel0 : "complete",
-        Constants.Lesson.vowel1 : "complete",
-        Constants.Lesson.vowel2 : "complete",
-        Constants.Lesson.vowel3 : "complete",
-        Constants.Lesson.vowel4 : "complete",
-        Constants.Lesson.batchim0: "complete",
-        Constants.Lesson.batchim1 : "complete",
-        Constants.Lesson.batchim2 : "complete",
-        Constants.Lesson.batchim3 : "complete",
-//        Constants.Lesson.batchim4 : "complete",
+        Constants.Lesson.system : "currentLesson",
+        Constants.Lesson.consonant0 : "locked",
+        Constants.Lesson.consonant1 : "locked",
+        Constants.Lesson.consonant2 : "locked",
+        Constants.Lesson.consonant3 : "locked",
+        Constants.Lesson.consonant4 : "locked",
+        Constants.Lesson.consonant5 : "locked",
+        Constants.Lesson.vowel0 : "locked",
+        Constants.Lesson.vowel1 : "locked",
+        Constants.Lesson.vowel2 : "locked",
+        Constants.Lesson.vowel3 : "locked",
+        Constants.Lesson.vowel4 : "locked",
+        Constants.Lesson.batchim0: "locked",
+        Constants.Lesson.batchim1 : "locked",
+        Constants.Lesson.batchim2 : "locked",
+        Constants.Lesson.batchim3 : "locked",
+//        Constants.Lesson.batchim4 : "locked",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
-    @Published var content: [HangulCard] = HangulUnitEnum.vowel1
-    @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.vowel1
-    @Published var nowStudying: String = Constants.Lesson.vowel1 // 현재 공부하고 있는 단원 (진도와는 무관)
-    @Published var chapterType: ChapterType = .vowel
-    @Published var lessonType: LessonType = .lesson
+    @Published var content: [HangulCard] = HangulUnitEnum.system
+    @Published var quiz: [HangulQuiz] = HangulUnitQuizEnum.system
+    @Published var nowStudying: String = Constants.Lesson.system // 현재 공부하고 있는 단원 (진도와는 무관)
+    @Published var chapterType: ChapterType = .system
+    @Published var lessonType: LessonType = .prologue
     @Published var currentEducation: CurrentEducation = .learning
     @Published var prologue: [HangulPrologue] = HangulUnitPrologueEnum.onboarding
     @Published var index: Int = 0
@@ -60,6 +57,7 @@ class EducationManager: ObservableObject {
     
     func createContent(lessonName: String) {
         index = 0
+        nowStudying = lessonName
         
         switch lessonName {
         case Constants.Lesson.system:
@@ -202,7 +200,7 @@ class EducationManager: ObservableObject {
             
             for i in 0 ..< Constants.Lesson.lessons.count {
                 if nowStudying == Constants.Lesson.lessons[i] {
-                    if nowStudying != Constants.Lesson.vowel3 {
+                    if nowStudying != Constants.Lesson.batchim3 {
                         lessonState[Constants.Lesson.lessons[i + 1]] = "currentLesson"
                     }
                 }

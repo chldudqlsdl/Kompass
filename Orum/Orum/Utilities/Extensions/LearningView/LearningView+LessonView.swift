@@ -16,13 +16,13 @@ extension LearningView {
                 .overlay(
                     Image(systemName: "lock.fill")
                         .foregroundStyle(.white)
-                        .opacity(lesson.lessonState ==  "locked" ? 1 : 0)
+                        .opacity(educationManager.lessonState[lesson.lessonName] ==  "locked" ? 1 : 0)
                     
                 )
                 .padding(.trailing, 7)
                 .onTapGesture {
                     
-                    if  lesson.lessonState != "locked" {
+                    if  educationManager.lessonState[lesson.lessonName] != "locked" {
                         educationManager.createContent(lessonName: lesson.lessonName)
                         educationManager.nowStudying = lesson.lessonName
                         
@@ -74,10 +74,10 @@ extension LearningView {
                                     Circle()
                                         .frame(width: 7, height:7)
                                         .foregroundStyle(.blue)
-                                        .opacity(lesson.lessonState == "currentLesson" ? 1 : 0)
+                                        .opacity(educationManager.lessonState[lesson.lessonName] == "currentLesson" ? 1 : 0)
                                 }
                                 
-                                Text("\(lesson.completedDates)")
+                                Text("\(educationManager.completedDates[lesson.lessonName] ?? "")")
                                     .bold()
                                     .font(.footnote)
                                     .foregroundStyle(.secondary)
@@ -101,7 +101,7 @@ extension LearningView {
                 }
                 .contentShape(Rectangle())
             })
-            .disabled(lesson.lessonState ==  "locked")
+            .disabled(educationManager.lessonState[lesson.lessonName] ==  "locked")
             .buttonStyle(.plain)
             
         }
