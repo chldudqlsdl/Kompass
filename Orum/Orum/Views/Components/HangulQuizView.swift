@@ -45,7 +45,7 @@ struct HangulQuizView: View {
                                 .fontWeight(.bold)
                                 .foregroundStyle(.secondary)
                             
-                            Text("Select the corect pronunciation")
+                            Text("Select the correct pronunciation")
                                 .font(.largeTitle)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
@@ -54,9 +54,11 @@ struct HangulQuizView: View {
                         
                         
                         VStack {
-                            Image("국밥")
-                                .resizable()
-                                .scaledToFit()
+                            if !educationManager.quiz.isEmpty {
+                                Image(educationManager.quiz[ind].name + "\(educationManager.lessonType == .epilogue ? 1 : 0)")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
                         }
                         .frame(maxWidth: .infinity, maxHeight: UIScreen.main.bounds.height * 0.2)
                         .background(Color(uiColor: .quaternarySystemFill))
