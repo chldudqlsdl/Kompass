@@ -124,31 +124,40 @@ struct HangulCardView: View {
                         case .batchim:
                                 switch hangulCard.batchimType {
                                 case .basic:
-                                    Text(hangulCard.name.prefix(1))
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
-                                    +
-                                    Text(" does not change in the final position")
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
+                                    ZStack{
+                                        Text(hangulCard.name.prefix(1))
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                        +
+                                        Text(" does not change in the final position")
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                    }
+                                    .padding(.horizontal, 10)
 
                                 case .eung:
-                                    Text(hangulCard.name.prefix(1))
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
-                                    +
-                                    Text(" changes to [ng] in the final position")
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
+                                    ZStack{
+                                        Text(hangulCard.name.prefix(1))
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                        +
+                                        Text(" changes to [ng] in the final position")
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                    }
+                                    .padding(.horizontal, 10)
                                 
                                 case .change:
-                                    Text(hangulCard.name.prefix(1))
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
-                                    +
-                                    Text(" changes to [\(Constants.Hangul.batchimEndingRule[hangulCard.name]!)] in the final position")
-                                        .bold()
-                                        .font(cardType.explanationFont(.batchim))
+                                    ZStack{
+                                        Text(hangulCard.name.prefix(1))
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                        +
+                                        Text(" changes to [\(Constants.Hangul.batchimEndingRule[hangulCard.name]!)] in the final position")
+                                            .bold()
+                                            .font(cardType.explanationFont(.batchim))
+                                    }
+                                    .padding(.horizontal, 10)
 
                                 case nil:
                                     EmptyView()

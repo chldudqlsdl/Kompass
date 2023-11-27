@@ -30,8 +30,9 @@ struct BatchimLearningView: View {
         ZStack {
             ScrollView {
                 VStack {
-                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: 32)
                     
                     VStack {
                         if ((Constants.Hangul.batchimCardCount[lessonName]?[pageIndex])! > 1) {

@@ -86,8 +86,8 @@ struct LearningView: View {
                                 if educationManager.lessonType != .prologue {
                                     Button(action: {
                                         isLessonStart.toggle()
-                                        educationManager.index = 0
-                                        educationManager.currentEducation = .learning
+//                                        educationManager.index = 0
+//                                        educationManager.currentEducation = .learning
                                     }, label: {
                                         Image(systemName: "xmark.circle.fill")
                                             .font(.title3)

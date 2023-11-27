@@ -18,9 +18,11 @@ struct OrumApp: App {
             if isFirstLaunching {
                 PrologueLessonView(isFirstLaunching: $isFirstLaunching, isPresented: $isFirstLaunching)
                     .environmentObject(educationManager)
+                    .transition(.asymmetric(insertion: .opacity, removal: .move(edge: .leading)))
             }
             else {
                 ContentView()
+                    .transition(.slide)
             }
         }
     }

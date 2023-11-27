@@ -43,7 +43,7 @@ class EducationManager: ObservableObject {
         Constants.Lesson.batchim1 : "complete",
         Constants.Lesson.batchim2 : "complete",
         Constants.Lesson.batchim3 : "complete",
-        Constants.Lesson.batchim4 : "complete",
+//        Constants.Lesson.batchim4 : "complete",
     ]
     @AppStorage("wrongCount") var wrongCount: [String:String] = [:]
     @Published var content: [HangulCard] = HangulUnitEnum.vowel1
@@ -59,6 +59,8 @@ class EducationManager: ObservableObject {
     }
     
     func createContent(lessonName: String) {
+        index = 0
+        
         switch lessonName {
         case Constants.Lesson.system:
             content = HangulUnitEnum.system
@@ -178,11 +180,11 @@ class EducationManager: ObservableObject {
             lessonType = .lesson
             currentEducation = .complexBatchim
             
-        case Constants.Lesson.batchim4:
-            content = HangulUnitEnum.batchim4
-            quiz = HangulUnitQuizEnum.batchim4
-            chapterType = .batchim
-            lessonType = .epilogue
+//        case Constants.Lesson.batchim4:
+//            content = HangulUnitEnum.batchim4
+//            quiz = HangulUnitQuizEnum.batchim4
+//            chapterType = .batchim
+//            lessonType = .epilogue
 
         default:
             return

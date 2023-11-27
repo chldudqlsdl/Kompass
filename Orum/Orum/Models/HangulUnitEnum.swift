@@ -108,5 +108,5 @@ struct HangulUnitEnum: RawRepresentable {
     
     static let batchim3: [HangulCard] = []
     
-    static let batchim4: [HangulCard] = []
+//    static let batchim4: [HangulCard] = []
 }
