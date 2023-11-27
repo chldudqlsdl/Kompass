@@ -128,8 +128,7 @@ struct PrologueLessonView: View {
                                             .frame(width: 100, height: 50)
                                             .offset(y: 90)
                                             .onTapGesture {
-                                                SoundManager.instance.playSound(sound: "ㅏ", completion: {})
-                                                print("Hi")
+                                                SoundManager.instance.playSound(sound: "ㅏ"){}
                                             }
                                         Capsule()
                                             .foregroundColor(.white)
@@ -137,8 +136,7 @@ struct PrologueLessonView: View {
                                             .frame(width: 100, height: 50)
                                             .offset(y: 90)
                                             .onTapGesture {
-                                                SoundManager.instance.playSound(sound: "ㅜ", completion: {})
-                                                print("Bye")
+                                                SoundManager.instance.playSound(sound: "ㅜ"){}
                                             }
                                     }
                                 }
@@ -164,6 +162,10 @@ struct PrologueLessonView: View {
                                         index += 1
                                     }
                                 } else {
+                                    if !isFirstLaunching {
+                                        educationManager.endLesson()
+                                    }
+                                    
                                     withAnimation {
                                         isPresented.toggle()
                                         isFirstLaunching = false

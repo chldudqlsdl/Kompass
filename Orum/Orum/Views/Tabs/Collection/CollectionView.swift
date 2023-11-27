@@ -36,13 +36,14 @@ struct CollectionView: View {
                                             Circle()
                                                 .stroke(lineWidth: 2)
                                         )
+                                        .foregroundStyle(Color.accentColor)
                                     
                                     
                                     VStack(spacing: 16) {
                                         HStack {
                                             Text("Consonant")
                                                 .font(.title2)
-                                                .foregroundStyle(.black)
+
                                             
                                             Spacer()
                                             
@@ -56,6 +57,7 @@ struct CollectionView: View {
                                     }
                                 }
                             })
+                            .buttonStyle(.plain)
                             
                             Button(action: {
                                 chapterName = "Vowel"
@@ -71,13 +73,13 @@ struct CollectionView: View {
                                             Circle()
                                                 .stroke(lineWidth: 2)
                                         )
+                                        .foregroundStyle(Color.accentColor)
+
                                     
                                     VStack(spacing: 16) {
                                         HStack {
                                             Text("Vowel")
                                                 .font(.title2)
-                                                .foregroundStyle(.black)
-                                            
                                             Spacer()
                                             
                                             Image(systemName: "chevron.right")
@@ -89,7 +91,7 @@ struct CollectionView: View {
                                         Divider()
                                     }
                                 }
-                            })
+                            }).buttonStyle(.plain)
 
                             Button(action: {
                                 chapterName = "Batchim"
@@ -122,6 +124,8 @@ struct CollectionView: View {
                                                 Circle()
                                                     .stroke(lineWidth: 2)
                                             )
+                                            .foregroundStyle(Color.accentColor)
+
                                     }
                                     
                                     
@@ -129,8 +133,7 @@ struct CollectionView: View {
                                         HStack {
                                             Text("Batchim")
                                                 .font(.title2)
-                                                .foregroundStyle(.black)
-                                            
+
                                             Spacer()
                                             
                                             Image(systemName: "chevron.right")
@@ -145,6 +148,7 @@ struct CollectionView: View {
 
                                 }
                             })
+                            .buttonStyle(.plain)
                         }
                         .padding(.leading, 3)
                     }

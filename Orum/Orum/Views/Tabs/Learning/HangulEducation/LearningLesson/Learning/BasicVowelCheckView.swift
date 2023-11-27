@@ -40,15 +40,19 @@ struct BasicVowelCheckView: View {
         ZStack {
             ScrollView{
                 VStack(spacing: 16) {
-                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: 32)
                     
-                    Text("Intermission")
-                        .bold()
-                        .foregroundStyle(Color(uiColor: .secondaryLabel))
-                    
-                    Text("Compare Difference")
-                        .bold()
-                        .font(.largeTitle)
+                    VStack(spacing: 0){
+                        Text("Intermission")
+                            .bold()
+                            .foregroundStyle(Color(uiColor: .secondaryLabel))
+                        
+                        Text("Compare Difference")
+                            .bold()
+                            .font(.largeTitle)
+                    }
                     
                     BatchimExplainView(explainTitle: "\(str.concatArray(isComma: true))", explain: strExplain)
                         

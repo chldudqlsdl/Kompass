@@ -71,6 +71,7 @@ struct LearningLessonView: View {
         case .end:
             LessonEndingView(isPresented: $isPresented)
                 .environmentObject(educationManager)
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
 
         }
         

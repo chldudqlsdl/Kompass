@@ -15,19 +15,29 @@ struct VowelDrawingView: View {
     
     @State var writingCount = 0
     
+    var drawingText: String {
+        if writingCount < 3 {
+            return "\(writingCount)/3"
+        }else {
+            return "Good!"
+        }
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 VStack {
-                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
-                        .padding(.horizontal, 16)
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: 32)
                     
                     Canvas(writingCount: $writingCount)
                         .environmentObject(educationManager)
                         .overlay {
                             VStack {
-                                Text("\(writingCount)/3")
+                                Text(drawingText)
+                                    .bold()
+                                    .font(.body)
                                     .foregroundStyle(writingCount < 3 ? Color(uiColor: .secondaryLabel) : .accentColor)
                                 
                                 Text("Draw vowel along the lines")

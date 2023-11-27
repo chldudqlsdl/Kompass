@@ -28,7 +28,7 @@ struct Constants {
         static let batchim1: String = "Batchim 1" // ㄱ,ㄴ,ㄷ,ㄹ,ㅁ,ㅂ,ㅇ
         static let batchim2: String = "Batchim 2" // ㅅ,ㅈ,ㅊ,ㅋ,ㅌ,ㅍ,ㄲ,ㅆ
         static let batchim3: String = "Batchim 3" // ㅎ | 겹받침
-        static let batchim4: String = "Batchim 4" // Batchim Epilogue
+//        static let batchim4: String = "Batchim 4" // Batchim Epilogue
 
         
         static let lessons: [String] = [
@@ -48,7 +48,7 @@ struct Constants {
             batchim1, // 13
             batchim2, // 14
             batchim3, // 15
-            batchim4,
+//            batchim4,
         ]
         
         static let lessonComponent: [String: [String]] = [
@@ -68,7 +68,7 @@ struct Constants {
             Constants.Lesson.batchim1: ["ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅇ"],
             Constants.Lesson.batchim2: ["ㅋ","ㅌ","ㄲ","ㅅ","ㅈ","ㅊ","ㅆ"],
             Constants.Lesson.batchim3 : ["ㅎ"],
-            Constants.Lesson.batchim4: ["Epilogue"],
+//            Constants.Lesson.batchim4: ["Epilogue"],
         ]
         
         static let instructionText : [String : String] = [
@@ -84,7 +84,7 @@ struct Constants {
             Constants.Lesson.batchim1: "In the final consonants, sounds are produced only by these final consonants.",
             Constants.Lesson.batchim2: "When these consonants serve as batchim(final consonant), they follow pronunciation rules different from when they are initial consonants.",
             Constants.Lesson.batchim3 : "These batchim don't appear frequently and have very complex rules. Instead of memorizing them, when you encounter ㅎ or complex batchim, refer to the app for pronunciation. I'll always be here, ready to assist.",
-            Constants.Lesson.batchim4: "Let's review the batchims we learned through a quiz.", // TODO: consonants -> ?
+//            Constants.Lesson.batchim4: "Let's review the batchims we learned through a quiz.", // TODO: consonants -> ?
         ]
     }
     

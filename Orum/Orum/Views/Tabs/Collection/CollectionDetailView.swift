@@ -220,7 +220,7 @@ struct CollectionDetailView: View {
             )
             
             ExplainBox(title: "ㄺㄻㄼㄿ", content:
-                            ExplainView(pronounciation: "딝 -> 닥", explanation: "These are pronounced with the consonant that follows")
+                            ExplainView(pronounciation: "닭 -> 닥", explanation: "These are pronounced with the consonant that follows")
             )
         }
         .padding(.top, 32)

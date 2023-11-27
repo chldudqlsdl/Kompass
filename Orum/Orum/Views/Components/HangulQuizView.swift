@@ -23,6 +23,7 @@ struct HangulQuizView: View {
     @State var topTextColor: Color = .secondary
     
     @EnvironmentObject var educationManager: EducationManager
+    @Environment(\.colorScheme) private var colorScheme : ColorScheme
     
     @State var selectedOptionIndex : Int = 5
     @State var answerIndex : Int = 5
@@ -38,8 +39,9 @@ struct HangulQuizView: View {
             ZStack {
                 ScrollView {
                     VStack(spacing: 16) {
-                        ProgressView(value: Double(progressValue) / Double(educationManager.quiz.count * 2 + 2))
-                            .padding(.vertical, 16)
+                        Rectangle()
+                            .foregroundStyle(.clear)
+                            .frame(height: 1)
                             .id(topID)
                         
                         VStack {
@@ -146,7 +148,6 @@ struct HangulQuizView: View {
                     .padding(.horizontal, 16)
                     .onAppear {
                         optionAlphabet = makeQuiz()
-                        print(optionAlphabet)
                     }
                     .onChange(of: isNext) {
                         selectedOptionIndex = 5
@@ -324,7 +325,7 @@ struct HangulQuizView: View {
                     .frame(height: UIScreen.main.bounds.height * 0.1)
             }
             .frame(maxWidth: .infinity)
-            .background(!isOptionWrong ? Color(UIColor(hex: "F2F8FF")) : Color(UIColor(hex: "FFF5F5")))
+            .background(!isOptionWrong ? (colorScheme  == .dark ? Color(UIColor(hex: "00060D")) : Color(UIColor(hex: "F2F8FF"))) : (colorScheme == .dark ? Color(UIColor(hex: "0D0302")) : Color(UIColor(hex: "FFF5F5"))))
         }
         .ignoresSafeArea(edges: .bottom)
     }

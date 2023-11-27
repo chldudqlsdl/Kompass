@@ -20,13 +20,23 @@ struct HangulEducationRecapView: View {
     var pageIndex : Int {
         educationManager.index
     }
+    
+    var buttonText: String {
+        if educationManager.chapterType == .batchim {
+            return "Continue"
+        }
+        else {
+            return "Ready to Quiz"
+        }
+    }
         
     var body: some View {
         ZStack {
             ScrollView{
                 VStack {
-                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: 32)
                     
                     VStack {
                         Text("Before Quiz")
@@ -92,7 +102,7 @@ struct HangulEducationRecapView: View {
                                 educationManager.index = 0
                             }
                         },label: {
-                            Text("Ready to Quiz")
+                            Text(buttonText)
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 8)
                                 .bold()

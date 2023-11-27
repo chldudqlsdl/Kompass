@@ -18,17 +18,15 @@ struct ComplexBatchimLearningView: View {
         ZStack {
             ScrollView {
                 VStack {
-                    ProgressView(value: Double(progressValue) / Double(educationManager.content.count * 2 + 2))
-                        .padding(.vertical, 16)
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(height: 32)
                     
                     VStack {
                         Text("Principle")
                             .font(.body)
                             .fontWeight(.bold)
                             .foregroundStyle(.secondary)
-                            .onAppear{
-                                print(educationManager.nowStudying)
-                            }
                         
                         Text("Complex Batchim")
                             .font(.largeTitle)

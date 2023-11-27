@@ -18,7 +18,7 @@ extension LearningView {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: size.width, height: size.height)
                 .overlay {
-                    if lesson.lessonState == "locked" {
+                    if educationManager.lessonState[lesson.lessonName] == "locked" {
                         Rectangle()
                             .foregroundStyle(.ultraThinMaterial.opacity(0.95))
                     }

@@ -26,11 +26,13 @@ struct EpilogueLessonView: View {
         case .quiz:
             EpilogueQuizVIew(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
-                .transition(.opacity)
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
             
         case .end:
             LessonEndingView(isPresented: $isPresented)
                 .environmentObject(educationManager)
+                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .identity))
+
         default:
             EmptyView()
         }

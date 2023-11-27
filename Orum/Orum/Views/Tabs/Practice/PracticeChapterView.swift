@@ -83,7 +83,7 @@ struct PracticeChapterView: View {
                                         }
                                         else {
                                             selectedWord = practiceWord
-                                            SoundManager.instance.playSound(sound: practiceWord.name, completion: {} )
+                                            SoundManager.instance.playSound(sound: practiceWord.name ){}
                                         }
                                         
                                         practiceManager.practicedWords.append(practiceWord.name)

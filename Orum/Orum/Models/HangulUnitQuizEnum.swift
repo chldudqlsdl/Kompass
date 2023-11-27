@@ -133,5 +133,5 @@ struct HangulUnitQuizEnum: RawRepresentable {
     
     static let batchim3: [HangulQuiz] = []
     
-    static let batchim4: [HangulQuiz] = []
+//    static let batchim4: [HangulQuiz] = []
 }
