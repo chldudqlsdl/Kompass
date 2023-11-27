@@ -23,12 +23,12 @@ extension LearningView {
                             
                             Text("Preview")
                                 .bold()
-                                .foregroundStyle(Color(UIColor(hex: "EBEBF5")).opacity(0.6))
+                                .foregroundStyle(.secondary)
                             
                             Text("Before Lesson")
                                 .font(.largeTitle)
                                 .bold()
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.primary)
                         }
                         .padding(.bottom, 16)
                         .opacity(isPresented ? 1 : 0)
@@ -51,13 +51,17 @@ extension LearningView {
                                     .padding(.vertical, 48)
                                     .background(
                                         RoundedRectangle(cornerRadius: 16)
-                                            .foregroundStyle(Color(uiColor: .secondarySystemFill))
+                                            .foregroundStyle(Color(uiColor: .quaternarySystemFill))
                                     )
                                 
-                                
-                                Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
-                                    .font(.title2)
-                                
+                                HStack {
+                                    Text(Constants.Lesson.instructionText[lesson.lessonName] ?? "")
+                                        .multilineTextAlignment(.leading)
+                                        .font(.body)
+                                    
+                                    Spacer()
+                                }
+
                                 Spacer()
                                     .frame(height: 100)
                             }
@@ -133,9 +137,10 @@ extension LearningView {
                 }, label: {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title)
-                        .foregroundStyle(.white, Color(uiColor:.systemFill))
+                        .foregroundStyle(.primary, Color(uiColor:.systemFill))
                         .opacity(animateView ? 1 : 0)
                 })
+                .buttonStyle(.plain)
                 .padding()
                 .padding(.top, safeArea().top)
             }
@@ -199,6 +204,6 @@ extension LearningView {
             }
         }
         .transition(.opacity)
-        .toolbar(navigationHidden ? .hidden : .visible, for: .navigationBar)
+//        .toolbar(navigationHidden ? .hidden : .visible, for: .navigationBar)
     }
 }
