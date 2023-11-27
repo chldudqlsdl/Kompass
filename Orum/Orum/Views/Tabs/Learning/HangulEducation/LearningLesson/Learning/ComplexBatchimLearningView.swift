@@ -59,7 +59,10 @@ struct ComplexBatchimLearningView: View {
                     VStack(spacing: 0){
                         
                         Button(action: {
-                            educationManager.currentEducation = .end
+                            withAnimation(.easeIn(duration: 0.5)) {
+                                educationManager.currentEducation = .end
+
+                            }
                         },label: {
                             Text("Continue")
                                 .frame(maxWidth: .infinity)

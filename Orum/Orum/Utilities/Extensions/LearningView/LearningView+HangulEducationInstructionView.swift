@@ -69,6 +69,7 @@ extension LearningView {
                                 .bold()
                                 .font(.title2)
                                 .padding(.horizontal, 32)
+                                .padding(.top, 16)
                             
                             VStack {
                                 switch lesson.chapterType {
@@ -96,6 +97,9 @@ extension LearningView {
                                         }
                                     })
                                 }
+                                
+                                Spacer()
+                                    .frame(height: UIScreen.main.bounds.height * 0.15)
                             }
                             .padding(.horizontal, 16)
                         }
@@ -114,7 +118,7 @@ extension LearningView {
                     }
                 }
             }
-            .background(Color(uiColor: .systemBackground)) // systemBackground
+            .background(Color(uiColor: .systemBackground))
             .coordinateSpace(name: "SCROLL_INSTRUCTION")
             .overlay(alignment: .topLeading) {
                 Button(action: {
@@ -154,6 +158,9 @@ extension LearningView {
                         Button(action: {
                             withAnimation {
                                 isLessonStart = true
+                                if lesson.lessonType == .epilogue {
+                                    educationManager.currentEducation = .quiz
+                                }
                             }
                         completion: {
                             withAnimation(.default.delay(0.5)) {

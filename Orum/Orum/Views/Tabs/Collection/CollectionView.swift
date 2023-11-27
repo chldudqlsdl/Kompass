@@ -173,16 +173,18 @@ struct CollectionView: View {
             .scrollIndicators(.hidden)
         }
         .onAppear {
-            let sortedDict = educationManager.wrongCount.sorted { (first, second) in
-                if Int(first.value) == Int(second.value) {
-                    return first.key < second.key
+            if mistakes.isEmpty {
+                let sortedDict = educationManager.wrongCount.sorted { (first, second) in
+                    if Int(first.value) == Int(second.value) {
+                        return first.key < second.key
+                    }
+                    
+                    return Int(first.value)! > Int(second.value)!
                 }
                 
-                return Int(first.value)! > Int(second.value)!
-            }
-            
-            for i in 0 ..< sortedDict.count {
-                mistakes.append(HangulCard(name: sortedDict[i].key))
+                for i in 0 ..< sortedDict.count {
+                    mistakes.append(HangulCard(name: sortedDict[i].key))
+                }
             }
         }
     }

@@ -124,22 +124,35 @@ struct HangulEducationLearningView: View {
                                     progressValue += 1
                                     
                                     if educationManager.chapterType == .vowel {
-                                        if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5) {
-                                            print(educationManager.index)
-                                            educationManager.currentEducation = .basicVowelCheck
+                                        if educationManager.nowStudying == Constants.Lesson.vowel1 && (educationManager.index == 1 || educationManager.index == 5 || educationManager.index == 7) {
+                                            withAnimation(.easeIn(duration: 0.5)) {
+                                                educationManager.currentEducation = .basicVowelCheck
+                                            }
+                                            
                                             return
                                         }
                                         else {
-                                            educationManager.currentEducation = .vowelDrawing
+                                            educationManager.index += 1
+
+                                            withAnimation(.easeIn(duration: 0.5)) {
+                                                educationManager.currentEducation = .vowelDrawing
+                                                return
+                                            }
                                         }
                                     }
-                                    
-                                    educationManager.index += 1
+                                    else {
+                                        
+                                        educationManager.index += 1
+                                    }
                                 }
                                 else {
                                     if educationManager.chapterType == .vowel {
                                         if educationManager.nowStudying == Constants.Lesson.vowel1 && educationManager.index == 7 {
-                                            educationManager.currentEducation = .basicVowelCheck
+                                            withAnimation(.easeIn(duration: 0.5)) {
+                                                educationManager.currentEducation = .basicVowelCheck
+
+                                            }
+
                                             return
                                         }
                                     }
@@ -165,7 +178,7 @@ struct HangulEducationLearningView: View {
                             })
                             .buttonStyle(.borderedProminent)
                             .background((educationManager.index == 0 && isOnceFlipped && isExample1Listened && isExample2Listened) ? .blue.opacity(0.05) : .clear)
-                            .disabled((educationManager.chapterType == .consonant && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .vowel && !isOnceFlipped))
+                            .disabled(((educationManager.chapterType == .consonant || educationManager.chapterType == .vowel) && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .batchim && !isOnceFlipped))
                             .padding(.horizontal, 24)
                             .padding(.top, 24)
                             .padding(.bottom, 48)

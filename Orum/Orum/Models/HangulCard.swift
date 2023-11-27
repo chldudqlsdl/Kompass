@@ -193,7 +193,7 @@ extension CardType {
                     return .body
                 }
             } else if chapterType == .vowel {
-                return .body
+                return .largeTitle
             } else {
                 return .body
             }

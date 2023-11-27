@@ -48,8 +48,9 @@ struct LessonEndingView: View {
                     isPresented.toggle()
                 }, label: {
                     Text("Complete")
+                        .bold()
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
+                        .padding(.vertical, 8)
                 })
                 .buttonStyle(.borderedProminent)
                 .padding(.bottom, 16)

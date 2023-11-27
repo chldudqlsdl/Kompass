@@ -17,11 +17,12 @@ struct EpilogueLessonView: View {
     
     @EnvironmentObject var educationManager: EducationManager
     
-    @State var currentEpliogue: CurrentEpliogue = .quiz
+//    @State var currentEpliogue: CurrentEpliogue = .quiz
     @State var progressValue: Int = 0
     
     var body: some View {
-        switch currentEpliogue {
+//        switch currentEpliogue {
+        switch educationManager.currentEducation {
         case .quiz:
             EpilogueQuizVIew(progressValue: $progressValue, isPresented: $isPresented)
                 .environmentObject(educationManager)
@@ -30,6 +31,8 @@ struct EpilogueLessonView: View {
         case .end:
             LessonEndingView(isPresented: $isPresented)
                 .environmentObject(educationManager)
+        default:
+            EmptyView()
         }
     }
 }

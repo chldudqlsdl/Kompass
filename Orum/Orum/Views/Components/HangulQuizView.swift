@@ -187,13 +187,11 @@ struct HangulQuizView: View {
                                             isOptionSubmitted = true
                                         }
                                     }
-                                    
-                                    return
                                 }
                                 else {
                                     isNext.toggle()
                                     
-                                    if  ind < educationManager.quiz.endIndex - 1 {
+                                    if  ind < educationManager.quiz.endIndex - 1 { // MARK: revert
                                         if !isOptionWrong {
                                             progressValue += 1
                                             educationManager.quiz.remove(at: ind)
@@ -206,6 +204,7 @@ struct HangulQuizView: View {
                                                 let count = Int(educationManager.wrongCount[educationManager.quiz[ind].name]!)
                                                 educationManager.wrongCount.updateValue(String(count! + 1) , forKey: "\(educationManager.quiz[ind].name)")
                                             }
+                                            
                                             ind += 1
                                         }
                                         
@@ -231,10 +230,9 @@ struct HangulQuizView: View {
                                         }
                                         
                                         if educationManager.quiz.isEmpty {
-                                            
-                                            educationManager.currentEducation = .end
-                                            //                                            educationManager.endLesson()
-                                            //                                            isPresented.toggle()
+                                            withAnimation(.easeIn(duration: 0.5)) {
+                                                educationManager.currentEducation = .end
+                                            }
                                         }
                                         else {
                                             ind = 0
