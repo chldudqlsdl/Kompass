@@ -600,7 +600,7 @@ struct Constants {
             "뉴진스":"NewJeans",
             "얘들아":"You guys",
             "쟤":"He or She(That person)",
-            "에쁜":"Pretty",
+            "예쁜":"Pretty",
             "예":"Yes",
             "배달의 민족":"Nation of delivery(Korean Uber)",
             "여의도":"Yeouido(Large island on the Han River)",
