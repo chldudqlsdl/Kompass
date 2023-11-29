@@ -77,13 +77,13 @@ struct HangulEducationLearningView: View {
                                         if #available(iOS 17.0, *) {
                                             Image(systemName: "speaker.wave.2.fill")
                                                 .bold()
-                                                .font(.title2)
+                                                .font(.caption)
                                                 .symbolEffect(.bounce, value: isExample1Touched)
                                         }
                                         else {
                                             Image(systemName: "speaker.wave.2.fill")
                                                 .bold()
-                                                .font(.title2)
+                                                .font(.caption)
                                         }
                                     }
                                     .frame(maxWidth: .infinity)
@@ -117,13 +117,13 @@ struct HangulEducationLearningView: View {
                                         if #available(iOS 17.0, *) {
                                             Image(systemName: "speaker.wave.2.fill")
                                                 .bold()
-                                                .font(.title2)
+                                                .font(.caption)
                                                 .symbolEffect(.bounce, value: isExample2Touched)
                                         }
                                         else {
                                             Image(systemName: "speaker.wave.2.fill")
                                                 .bold()
-                                                .font(.title2)
+                                                .font(.caption)
                                         }
                                     }
                                     .frame(maxWidth: .infinity)

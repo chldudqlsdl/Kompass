@@ -52,6 +52,7 @@ struct HangulEducationRecapView: View {
                         
                         ForEach(0 ..< 2){ index in
                             BatchimExplainView(explainTitle: "\( Constants.Hangul.batchimExplainTitle[lessonName]![index])", explain: Constants.Hangul.batchimExplain[lessonName]![index])
+                                .padding(.bottom, 8)
                         }
                         
                     } else {

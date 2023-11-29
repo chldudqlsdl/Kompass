@@ -18,11 +18,11 @@ struct CollectionView: View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    VStack(spacing: 8) {
-                        Divider()
+                    VStack(spacing: 16) {
+//                        Divider()
                         
                         
-                        VStack(spacing: 8) {
+                        VStack(spacing: 4) {
                             Button(action: {
                                 chapterName = "Consonant"
                                 isPresented.toggle()
@@ -49,7 +49,8 @@ struct CollectionView: View {
                                             
                                             Image(systemName: "chevron.right")
                                                 .padding(.trailing, 16)
-                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                                .font(.body)
+                                                .foregroundStyle(Color(uiColor: .quaternaryLabel))
                                         }
                                         .padding(.leading, 3.5)
                                         
@@ -83,8 +84,9 @@ struct CollectionView: View {
                                             Spacer()
                                             
                                             Image(systemName: "chevron.right")
+                                                .font(.body)
                                                 .padding(.trailing, 16)
-                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                                .foregroundStyle(Color(uiColor: .quaternaryLabel))
                                         }
                                         .padding(.leading, 3.5)
                                         
@@ -92,6 +94,7 @@ struct CollectionView: View {
                                     }
                                 }
                             }).buttonStyle(.plain)
+                                .padding(.top, 8)
 
                             Button(action: {
                                 chapterName = "Batchim"
@@ -101,15 +104,17 @@ struct CollectionView: View {
                                     ZStack {
                                             
                                             Text("ㄱ")
+                                            .foregroundStyle(Color.accentColor)
                                                 .bold()
                                                 .font(.body)
                                                 .offset(y: 4)
                                                 .overlay{
                                                     VStack {
                                                         Circle()
-                                                            .stroke(style: StrokeStyle(lineWidth: 1, dash: [1,1]))
+                                                            .stroke(style: StrokeStyle(lineWidth: 2, dash: [1,1]))
                                                             .frame(width: 7)
                                                             .offset(y: -5)
+                                                            .foregroundStyle(Color.accentColor)
                                                         
                                                     }
                                                 }
@@ -123,8 +128,8 @@ struct CollectionView: View {
                                             .overlay(
                                                 Circle()
                                                     .stroke(lineWidth: 2)
+                                                    .foregroundStyle(Color.accentColor)
                                             )
-                                            .foregroundStyle(Color.accentColor)
 
                                     }
                                     
@@ -138,7 +143,7 @@ struct CollectionView: View {
                                             
                                             Image(systemName: "chevron.right")
                                                 .padding(.trailing, 16)
-                                                .foregroundStyle(Color(uiColor: .secondaryLabel))
+                                                .foregroundStyle(Color(uiColor: .quaternaryLabel))
                                         }
                                         .padding(.leading, 3.5)
                                         
@@ -149,6 +154,7 @@ struct CollectionView: View {
                                 }
                             })
                             .buttonStyle(.plain)
+                            .padding(.top, 8)
                         }
                         .padding(.leading, 3)
                     }
@@ -170,6 +176,7 @@ struct CollectionView: View {
                     .padding(.horizontal, 16)
                 }
             }
+            .padding(.top, 8)
             .navigationTitle("Collection")
             .navigationDestination(isPresented: $isPresented, destination: {
                 CollectionDetailView(chapterName: $chapterName)
