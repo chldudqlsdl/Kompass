@@ -184,8 +184,9 @@ extension LearningView {
                         .padding(.top, 24)
                         .padding(.bottom, 48)
                     }
+                    .frame(height: UIScreen.main.bounds.height * 0.15)
                 }
-                .frame(height: animateView ? 122 : 0)
+                .frame(height: animateView ? UIScreen.main.bounds.height * 0.15 : 0)
             }
             .ignoresSafeArea(edges: .bottom)
             .opacity(animateView ? 1 : 0)
