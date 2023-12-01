@@ -17,6 +17,7 @@ struct PrologueLessonView: View {
     @Environment(\.colorScheme) private var colorScheme : ColorScheme
     
     @State private var index = 0
+    @Namespace var topID
     
     var prologuePage : HangulPrologue {
         educationManager.prologue[index]
@@ -38,24 +39,39 @@ struct PrologueLessonView: View {
     
     var body: some View {
         NavigationStack{
-            ZStack{
-                    VStack(spacing: 0) {
-                        VStack(spacing: 16) {
-                            Text(prologuePage.title)
-                                .bold()
-                                .font(.title2)
-                                .foregroundStyle(Color(prologuePage.color[0]))
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 10)
-
-                            Text(.init(prologuePage.text))
-                                .font(.body)
-                                .multilineTextAlignment(.center)
-                            
-                            if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
-                                if prologuePage.name == "consonant0" {
-                                    VStack{
-                                        Text(Constants.Prologue.example["consonant0"]!)
+            ScrollViewReader { proxy in
+                ZStack{
+                    ScrollView{
+                        VStack(spacing: 0) {
+                            VStack(spacing: 16) {
+                                Text(prologuePage.title)
+                                    .bold()
+                                    .font(.title2)
+                                    .foregroundStyle(Color(prologuePage.color[0]))
+                                    .multilineTextAlignment(.center)
+                                    .padding(.top, 10)
+                                
+                                Text(.init(prologuePage.text))
+                                    .font(.body)
+                                    .multilineTextAlignment(.center)
+                                
+                                if prologuePage.name == "consonant0" || prologuePage.name == "vowel0" || prologuePage.name == "batchim0" {
+                                    if prologuePage.name == "consonant0" {
+                                        VStack{
+                                            Text(Constants.Prologue.example["consonant0"]!)
+                                                .foregroundStyle(.black)
+                                                .font(.body)
+                                                .fontWeight(.bold)
+                                                .frame(maxWidth: .infinity)
+                                                .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
+                                                .padding(.horizontal, 30)
+                                                .multilineTextAlignment(.center)
+                                                .background(Color(prologuePage.color[2]))
+                                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                            
+                                        }
+                                    } else if prologuePage.name == "vowel0" {
+                                        Text(Constants.Prologue.example["vowel0"]!)
                                             .foregroundStyle(.black)
                                             .font(.body)
                                             .fontWeight(.bold)
@@ -65,141 +81,132 @@ struct PrologueLessonView: View {
                                             .multilineTextAlignment(.center)
                                             .background(Color(prologuePage.color[2]))
                                             .clipShape(RoundedRectangle(cornerRadius: 16))
-                                            
+                                    } else {
+                                        Text(Constants.Prologue.example["batchim0"]!)
+                                            .foregroundStyle(.black)
+                                            .font(.body)
+                                            .fontWeight(.bold)
+                                            .frame(maxWidth: .infinity)
+                                            .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
+                                            .padding(.horizontal, 30)
+                                            .multilineTextAlignment(.center)
+                                            .background(Color(prologuePage.color[2]))
+                                            .clipShape(RoundedRectangle(cornerRadius: 16))
                                     }
-                                } else if prologuePage.name == "vowel0" {
-                                    Text(Constants.Prologue.example["vowel0"]!)
-                                        .foregroundStyle(.black)
-                                        .font(.body)
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
-                                        .padding(.horizontal, 30)
-                                        .multilineTextAlignment(.center)
-                                        .background(Color(prologuePage.color[2]))
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                                } else {
-                                    Text(Constants.Prologue.example["batchim0"]!)
-                                        .foregroundStyle(.black)
-                                        .font(.body)
-                                        .fontWeight(.bold)
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: dynamicTypeSize.prologueTextHeight / 2.7)
-                                        .padding(.horizontal, 30)
-                                        .multilineTextAlignment(.center)
-                                        .background(Color(prologuePage.color[2]))
-                                        .clipShape(RoundedRectangle(cornerRadius: 16))
                                 }
+                                
+                                Spacer()
                             }
+                            .frame(height : dynamicTypeSize.prologueTextHeight)
                             
+                            RoundedRectangle(cornerRadius: 16)
+                                .frame(width: dynamicImageSize(), height: dynamicImageSize())
+                                .foregroundColor(Color(uiColor: colorScheme == .light ? UIColor(hex: "F1F1F1") : UIColor(hex: "3C3C3C")))
+                                .overlay {
+                                    ZStack{
+                                        if prologuePage.image.count == 1 {
+                                            if prologuePage.image[0] == "vowel3" {
+                                                LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
+                                                    .scaledToFit()
+                                            } else if prologuePage.image[0] == "gun" {
+                                                LottieView(fileName: "gun")
+                                                    .scaledToFit()
+                                            }
+                                            else {
+                                                Image(prologuePage.image[0])
+                                                    .resizable()
+                                                    .scaledToFit()
+                                            }
+                                        } else {
+                                            LazyHStack{
+                                                PageView(images: prologuePage.image)
+                                            }
+                                        }
+                                    }
+                                    if prologuePage.image[0] == "consonant4" {
+                                        HStack(spacing: 80){
+                                            Capsule()
+                                                .foregroundColor(.white)
+                                                .opacity(0.01)
+                                                .frame(width: 100, height: 50)
+                                                .offset(y: 90)
+                                                .onTapGesture {
+                                                    SoundManager.instance.playSound(sound: "ㅏ"){}
+                                                }
+                                            Capsule()
+                                                .foregroundColor(.white)
+                                                .opacity(0.01)
+                                                .frame(width: 100, height: 50)
+                                                .offset(y: 90)
+                                                .onTapGesture {
+                                                    SoundManager.instance.playSound(sound: "ㅜ"){}
+                                                }
+                                        }
+                                    }
+                                }
+                                .padding(.bottom, 100)
                             Spacer()
                         }
-                        .frame(height : dynamicTypeSize.prologueTextHeight)
+                        .padding(.horizontal, 16)
+                    }
+                    .scrollDisabled(UIScreen.main.bounds.size.height > 800 ? true : false)
+                    VStack {
+                        Spacer()
                         
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(width: 358, height: 358)
-                            .foregroundColor(Color(uiColor: colorScheme == .light ? UIColor(hex: "F1F1F1") : UIColor(hex: "3C3C3C")))
-                            .overlay {
-                                ZStack{
-                                    if prologuePage.image.count == 1 {
-                                        if prologuePage.image[0] == "vowel3" {
-                                            LottieView(fileName: colorScheme == .light ? "vowel3" : "vowel3d" )
-                                                .scaledToFit()
-                                        } else if prologuePage.image[0] == "gun" {
-                                            LottieView(fileName: "gun")
-                                                .scaledToFit()
-                                        }
-                                        else {
-                                            Image(prologuePage.image[0])
-                                                .resizable()
-                                                .scaledToFit()
+                        ZStack {
+                            Rectangle()
+                                .foregroundStyle(.ultraThinMaterial)
+                                .frame(height: UIScreen.main.bounds.height * 0.15)
+                            
+                            VStack(spacing: 0){
+                                
+                                Button(action: {
+                                    if index < educationManager.prologue.count - 1 {
+                                        withAnimation {
+                                            index += 1
+                                            proxy.scrollTo(topID)
                                         }
                                     } else {
-                                        LazyHStack{
-                                            PageView(images: prologuePage.image)
+                                        if !isFirstLaunching {
+                                            educationManager.endLesson()
+                                        }
+                                        
+                                        withAnimation {
+                                            isPresented.toggle()
+                                            isFirstLaunching = false
                                         }
                                     }
-                                }
-                                if prologuePage.image[0] == "consonant4" {
-                                    HStack(spacing: 80){
-                                        Capsule()
-                                            .foregroundColor(.white)
-                                            .opacity(0.01)
-                                            .frame(width: 100, height: 50)
-                                            .offset(y: 90)
-                                            .onTapGesture {
-                                                SoundManager.instance.playSound(sound: "ㅏ"){}
-                                            }
-                                        Capsule()
-                                            .foregroundColor(.white)
-                                            .opacity(0.01)
-                                            .frame(width: 100, height: 50)
-                                            .offset(y: 90)
-                                            .onTapGesture {
-                                                SoundManager.instance.playSound(sound: "ㅜ"){}
-                                            }
-                                    }
-                                }
+                                },label: {
+                                    Text("\(buttonText)")
+                                        .frame(maxWidth: .infinity)
+                                        .padding(.vertical, 8)
+                                        .bold()
+                                })
+                                .buttonStyle(.borderedProminent)
+                                .padding(.horizontal, 24)
+                                .padding(.top, 24)
+                                .padding(.bottom, 48)
                             }
-                            .padding(.bottom, 100)
-                        Spacer()
-                    }
-                    .padding(.horizontal, 16)
-                
-                VStack {
-                    Spacer()
-                    
-                    ZStack {
-                        Rectangle()
-                            .foregroundStyle(.ultraThinMaterial)
+                            .tint(Color(prologuePage.color[1]))
                             .frame(height: UIScreen.main.bounds.height * 0.15)
-                        
-                        VStack(spacing: 0){
-                            
-                            Button(action: {
-                                if index < educationManager.prologue.count - 1 {
-                                    withAnimation {
-                                        index += 1
-                                    }
-                                } else {
-                                    if !isFirstLaunching {
-                                        educationManager.endLesson()
-                                    }
-                                    
-                                    withAnimation {
-                                        isPresented.toggle()
-                                        isFirstLaunching = false
-                                    }
-                                }
-                            },label: {
-                                Text("\(buttonText)")
-                                    .frame(maxWidth: .infinity)
-                                    .padding(.vertical, 8)
-                                    .bold()
-                            })
-                            .buttonStyle(.borderedProminent)
-                            .padding(.horizontal, 24)
-                            .padding(.top, 24)
-                            .padding(.bottom, 48)
+
                         }
-                        .tint(Color(prologuePage.color[1]))
                     }
+                    .ignoresSafeArea(edges: .bottom)
                 }
-                .ignoresSafeArea(edges: .bottom)
+                .navigationBarItems(leading: Button(action: {
+                    index -= 1
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .font(.title3)
+                        .foregroundStyle(index == 0 ? .clear : Color(uiColor: .systemGray3))
+                    
+                })
+                    .disabled(index == 0 ? true : false)
+                )
+                .buttonStyle(.plain)
+                
             }
-            .navigationBarItems(leading: Button(action: {
-                index -= 1
-            }, label: {
-                Image(systemName: "chevron.left")
-                    .font(.title3)
-                    .foregroundStyle(index == 0 ? .clear : Color(uiColor: .systemGray3))
-
-            })
-                .disabled(index == 0 ? true : false)
-            )
-            .buttonStyle(.plain)
-
-            
         }
     }
 }
@@ -254,6 +261,11 @@ extension DynamicTypeSize {
             300
         }
     }
+}
+
+func dynamicImageSize() -> CGFloat {
+    let screenWidth = UIScreen.main.bounds.size.width
+    return screenWidth * 0.9
 }
 
 #Preview {

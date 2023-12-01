@@ -128,6 +128,7 @@ struct BatchimLearningView: View {
                         .padding(.top, 24)
                         .padding(.bottom, 48)
                     }
+                    .frame(height: UIScreen.main.bounds.height * 0.15)
                 }
             }
             .ignoresSafeArea(edges: .bottom)
