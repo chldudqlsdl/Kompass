@@ -152,7 +152,7 @@ struct HangulEducationLearningView: View {
                                     .foregroundColor(.clear)
                                     .id(bottomID)
                             }
-                                .padding(.horizontal, 48)
+                                .padding(.horizontal, 42)
                         }
                         .padding(.horizontal, 16)
                     
@@ -232,7 +232,7 @@ struct HangulEducationLearningView: View {
                             .disabled(((educationManager.chapterType == .consonant || educationManager.chapterType == .vowel) && (!isOnceFlipped || !isExample1Listened || !isExample2Listened)) || (educationManager.chapterType == .batchim && !isOnceFlipped))
                             .padding(.horizontal, 24)
                             .padding(.top, 24)
-                            .padding(.bottom, 48)
+                            .padding(.bottom, 42)
                         }
                         .frame(height: UIScreen.main.bounds.height * 0.15)
                     }
