@@ -169,6 +169,7 @@ class FallingViewController : UIViewController, UITextFieldDelegate, PKCanvasVie
         for imageView in canvasItems {
             imageView.removeFromSuperview()
         }
+        guard let gravity = gravity else { return }
         canvasItems.removeAll()
         animator.removeBehavior(gravity)
         animator.removeBehavior(collision)
